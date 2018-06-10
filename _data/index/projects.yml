@@ -1,4 +1,11 @@
-- name: leonids
-  descr: "Bacon ipsum dolor sit amet doner meatball jowl short ribs, chicken prosciutto salami frankfurter. Pig drumstick turducken short ribs, brisket meatloaf ham hock shankle andouille corned beef strip steak. Venison ham bresaola strip steak. Pork belly ribeye prosciutto t-bone."
-  image: pong.png
-  github: https://github.com/renyuanz/leonids
+- name: Keystamp An open-source Proof-of-Compliance standard on the blockchain
+  descr: "Ontario Securities Commission Hackathon 1st Prize Winner. Integrating applied cryptography and blockchain technologies in existing corporate processes and commercial relationships, such as compliance policy implementation and audit"
+  #image: pong.png
+  github: https://github.com/existencelabs/keystamp-whitepaper
+  media:
+      - name: Betakit
+        link: https://betakit.com/blockchain-technology-is-king-at-the-oscs-first-fintech-hackathon/
+      - name: TimelyDisclosure
+        link: https://www.timelydisclosure.com/2017/03/13/osc-releases-results-of-reghackto-its-first-regulatory-hackathon/
+      - name: Ontario Securities Commission
+        link: http://www.osc.gov.on.ca/en/reghackto.htm
