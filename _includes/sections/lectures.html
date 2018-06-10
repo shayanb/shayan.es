@@ -10,17 +10,21 @@
                   {% endif %}
                 <br>
 
-
                 <p style="margin: 0">{{ lecture.descr }}</p>
-
+                {% if lecture.website %}
+                <a href="{{ lecture.website }} " target="_blank"><i class="fa fa-fw fa-home"></i>Website</a> &nbsp;
+                {% endif %}
                 {% if lecture.github %}
-                <a href="{{ publication.github }} " target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a> &nbsp;
+                <a href="{{ lecture.github }} " target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a> &nbsp;
                 {% endif %}
                 {% if lecture.paper %}
-                <a href="{{ publication.paper }} " target="_blank"><i class="fa fa-file-pdf-o"></i>Paper</a> &nbsp;
+                <a href="{{ lecture.paper }} " target="_blank"><i class="fa fa-file-pdf-o"></i>Paper</a> &nbsp;
                 {% endif %}
                 {% if lecture.slides %}
-                <a href="{{ publication.slides }} " target="_blank"><i class="fa fa-area-chart"></i>Slides</a> &nbsp;
+                <a href="{{ lecture.slides }} " target="_blank"><i class="fa fa-area-chart"></i>Slides</a> &nbsp;
+                {% endif %}
+                {% if lecture.youtube %}
+                <a href="{{ lecture.youtube }} " target="_blank"><i class="fa fa-youtube"></i>Video</a> &nbsp;
                 {% endif %}
                 {% if lecture.media %}
                 <br><b>Press:</b> {% for item in lecture.media %}
