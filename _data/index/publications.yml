@@ -1,0 +1,16 @@
+- name: A first look at browser-based Cryptojacking
+  descr: In this paper, we examine the recent trend towards in-browser mining of cryptocurrencies; in particular, the mining of Monero through Coinhive and similar code- bases. In this model, a user visiting a website will download a JavaScript code that executes client-side in her browser, mines a cryptocurrency, typically without her consent or knowledge, and pays out the seigniorage to the website. Websites may consciously employ this as an alternative or to supplement advertisement revenue, may offer premium content in exchange for mining, or may be unwittingly serving the code as a result of a breach (in which case the seigniorage is collected by the attacker). The cryptocurrency Monero is preferred seemingly for its unfriendliness to large-scale ASIC mining that would drive browser-based efforts out of the market, as well as for its purported privacy features. In this paper, we survey this landscape, conduct some measurements to establish its prevalence and profitability, outline an ethical framework for considering whether it should be classified as an attack or business opportunity, and make suggestions for the detection, mitigation and/or prevention of browser-based mining for non- consenting users.
+  image: pong.png
+  #github: https://github.com/VelocityMarket/Options-Contract
+  paper: https://arxiv.org/abs/1803.02887
+  year: 2018
+  published: IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B) 2018 University College London (UCL), London, UK
+
+
+- name: On the feasibility of decentralized derivatives markets
+  descr: In this paper, we present Velocity, a decentralized market deployed on Ethereum for trading a custom type of derivative option. To enable the smart contract to work, we also implement a price fetching tool called PriceGeth. We present this as a case study, noting challenges in development of the system that might be of independent interest to whose working on smart contract implementations. We also apply recent academic results on the security of the Solidity smart contract language in validating our code’s security. Finally, we discuss more generally the use of smart contracts in modelling financial derivatives.
+  #image: pong.png
+  github: https://github.com/VelocityMarket/Options-Contract
+  paper: https://link.springer.com/chapter/10.1007/978-3-319-70278-0_35
+  year: 2017
+  published: FC 2017 Financial Cryptography and Data Security

@@ -1,0 +1,6 @@
+# skills section data
+
+label: Ability
+id : cs
+aspects: Motivation, Bitcoin, Blockchain, Security, Python, Solidity, BS, NodeJS, Lecture
+percentage: 90, 85, 85, 70, 60, 75, 5, 45, 70

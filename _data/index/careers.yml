@@ -1,0 +1,16 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: Concordia University
+  link: https://www.concordia.ca/
+  date: September 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: PhD Student, Blockchain Researcher
+
+- name: Bitaccess
+  link: http://www.bitaccess.co
+  date: January 2016 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Senior Blockchain Engineer
+
+- name: i-Phone.ir
+  link: http://www.i-Phone.ir/
+  date: 2008 - 2012
+  job: Co-founder, CTO
