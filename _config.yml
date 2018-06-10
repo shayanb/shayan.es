@@ -1,0 +1,68 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Shayan Eskandari
+email: me@shayan.es
+description: Shayan Eskandari Personal Website
+url: https://shayan.es # the base hostname & protocol for your site
+keywords: ["Blockchain", "Security", "Bitcoin", "Ethereum", "Engineer", "Decentralization", "STS"]
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          America/New_York
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: Shayan Eskandari
+  avatar: logo.png
+  job: "Senior Blockchain Engineer / PhD Student"
+  bio: "A full on Blockchain enthusiast, Security in essence. Based in Montreal, QC."
+  email: me@shayan.es
+  #disqus-shortname: renyuanzblog
+  twitter: sbetamc #username
+  facebook: #username
+  google:
+    plus: #username
+    analytics: UA-120656156-1
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: shayanb #username
+  stackoverflow: 1402429/shayan  # from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: shayane #username
+  xing: #username
+  medium: sbetamc
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  codepen: #username
+  telegram: #username
