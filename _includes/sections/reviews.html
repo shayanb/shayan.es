@@ -1,0 +1,10 @@
+<div class="navy-line"></div>
+<h1><span data-i18n="skills.my_skills">Peer Reviews</span></h1>
+
+<div class="archive">
+  <div class="timeline" id="timeline">
+    {% for review in site.data.index.reviews %}
+          <div class="archive-title bio"><div class="archive-year"><strong>{{ review.date }}</strong> <a href="{{ review.link }}" target="_blank">{{ review.name }}</a></div></div>
+    {% endfor %}
+  </div>
+</div>

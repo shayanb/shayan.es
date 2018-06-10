@@ -1,0 +1,16 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: Symposium on Electronic Crime Research
+  link: https://www.antiphishing.org/apwg-events/ecrime2018/
+  date: May 2018
+  job: External Reviewer
+
+- name: IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN
+  link: http://ieee-sb2018.cs.ucl.ac.uk/
+  date: April 2018
+  job: External Reviewer
+
+- name: 1st International Workshop on Blockchain Oriented Software Engineering
+  link: http://www.agilegroup.eu/iwbose2018/
+  date: March 2018
+  job: Program Committee
