@@ -1,7 +1,42 @@
-- name: Keystamp An open-source Proof-of-Compliance standard on the blockchain
-  descr: "Ontario Securities Commission Hackathon 1st Prize Winner. Integrating applied cryptography and blockchain technologies in existing corporate processes and commercial relationships, such as compliance policy implementation and audit"
+- name: Catena Blockchain Suite
+  descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilising smart contracts and hardware security modules, Catena enables a new level of data consistency and integrity.  National Research Council (NRC) is using the Catena Blockchain Suite, a Canadian-made product built on the Ethereum blockchain, to publish funding and grant information in real time.
+  website: https://explorecatena.com/
+  github: https://github.com/explorecatena
+  media:
+    - name: National Research Council Canada
+      link: https://www.nrc-cnrc.gc.ca/eng/stories/2018/blockchains.html
+    - name: GlobalNews
+      link: https://globalnews.ca/news/3977745/ethereum-blockchain-canada-nrc/
+    - name: Newswire
+      link: https://www.newswire.ca/news-releases/government-of-canada-exploring-the-potential-of-blockchain-technology-670113383.html
+    - name: ETHNews
+      link: https://www.ethnews.com/canada-leverages-ethereum-blockchain-for-public-transparency-of-government-grant
+    - name: TrustNodes
+      link: https://www.trustnodes.com/2018/01/21/canadian-government-launches-live-ethereum-public-blockchain-trial-government-contracts
+
+
+
+
+- name: Velocity Technology
+  descr: Velocity is a decentralized options platform that allows users to enter into a collar option using a smart contract on the ethereum blockchain. Velocity platform includes smart contracts responsible for the trades and PriceGeth an oracle to publish price on Ethereum blockchain at everyblock.
+  github: https://github.com/VelocityMarket
+  media:
+    - name: Steemit
+      link: https://steemit.com/ethereum/@blockchainbilly/velocity-the-first-open-blockchain-smart-contract-on-a-price-feed
+    - name: ETHNews
+      link: https://www.ethnews.com/velocity-launches-demo-of-smart-contract-price-feed
+    - name: IBSIntelligence
+      link: https://ibsintelligence.com/ibs-journal/ibs-news/velocity-creates-price-feed-smart-contracts-with-ethereum-tech/
+    - name: siliconANGLE
+      link: https://siliconangle.com/blog/2016/10/03/velocity-debuts-demo-of-blockchain-and-ethereum-based-smart-contracts-platform/
+    - name: BlockTribune
+      link: http://blocktribune.com/velocity-announces-first-blockchain-smart-contract-on-price-feeds/
+
+- name: Keystamp, An open-source Proof-of-Compliance standard on the blockchain
+  descr: "Ontario Securities Commission Hackathon 1st Prize Winner. Integrating applied cryptography and blockchain technologies in existing corporate processes and commercial relationships, such as compliance policy implementation and audit."
   #image: pong.png
-  github: https://github.com/existencelabs/keystamp-whitepaper
+  github: https://github.com/shayanb/keystamp-crypto
+  website: https://github.com/existencelabs/keystamp-whitepaper
   media:
       - name: Betakit
         link: https://betakit.com/blockchain-technology-is-king-at-the-oscs-first-fintech-hackathon/
