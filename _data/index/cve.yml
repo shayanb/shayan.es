@@ -1,0 +1,6 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: NIST NVD
+  CVE: CVE-2018-1000023
+  link: https://nvd.nist.gov/vuln/detail/CVE-2018-1000023
+  year: 2018

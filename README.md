@@ -1,7 +1,5 @@
 # shayan.es
-Shayan Eskandari's personal web site
-
-
+my personal web site
 
 -------------
 
