@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Motivation, Bitcoin, Blockchain, Security, Python, Solidity, NodeJS, Lecture, Cryptography, BS
-percentage: 90, 85, 85, 70, 60, 75, 45, 80, 65, 5
+aspects: Motivation, Bitcoin, Blockchain, BS, Security, Python, Solidity, Lecture, Cryptography, NodeJS
+percentage: 90, 85, 85, 5, 70, 60, 75, 80, 65, 45
