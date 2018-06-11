@@ -25,7 +25,7 @@
                 <a href="{{ publication.slides }} " target="_blank"><i class="fa fa-area-chart"></i>Slides</a> &nbsp;
                 {% endif %}
                 {% if publication.media %}
-                <br><b>Press:</b> {% for item in publication.media %}
+                <br> <b>Press:</b> {% for item in publication.media %}
                 <a href="{{ item.link }} " target="_blank"><i class="fa fa-newspaper-o"></i>{{item.name}}</a> &nbsp;
                 {% endfor %}
                 {% endif %}

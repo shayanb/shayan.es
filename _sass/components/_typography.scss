@@ -2,6 +2,19 @@
    Typography
    ========================================================================== */
 
+
+
+// separate line
+hrsection {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+}
+
 //
 // Global
 //
@@ -46,8 +59,9 @@ a {
 // Header Styles
 //
 
+//customized h1 colour
 h1 {
-  color: $secondary
+  color: #C73F17 //chili powder
 }
 
 h1, h2, h3, h4, h5, h6 {
