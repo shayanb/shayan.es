@@ -51,18 +51,3 @@
   media:
     - name: CoinIran
       link: https://coiniran.com/%D8%AA%D9%88%DA%A9%D9%86-%D8%A2%D9%84%D8%AA%DA%A9%D9%88%DB%8C%D9%86-%D9%85%D8%A7%D9%87%DB%8C%D8%AA-%D8%A8%D9%84%D8%A7%DA%A9%DA%86%DB%8C%D9%86/
-
-# - name: SuperBitcoiner
-#   descr: Keychain for Super Bitcoiners. <br>The first item ever sold on mainnet <a href="https://www.openbazaar.org/" target="_blank">OpenBazaar</a>.
-#   website: http://superbitcoiner.com
-#   media:
-#     - name: coindesk
-#       link: https://www.coindesk.com/7-vendors-early-adopters-openbazaar/
-#     - name: TheDailyDecrypt
-#       link: https://twitter.com/TheDailyDecrypt/status/713491881980784645
-#     - name: bitcointalk
-#       link: https://bitcointalk.org/index.php?topic=1358059.0
-#     - name: CoinFestUK
-#       link: https://twitter.com/CoinFestUK/status/963837739979493376
-#     - name: Mad Bitcoins
-#       link: https://twitter.com/MadBitcoins/status/700764640884580352
