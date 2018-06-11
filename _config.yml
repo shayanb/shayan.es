@@ -36,7 +36,7 @@ owner:
   name: Shayan Eskandari
   avatar: shayan.jpg
   job: "Senior Blockchain Engineer / PhD Student"
-  bio: "A full on Blockchain enthusiast, Security in essence. Based in Montreal, QC."
+  bio: "Full on Blockchain enthusiast, Security in essence. Based in Montreal, QC."
   email: me@shayan.es
   #disqus-shortname: renyuanzblog
   twitter: sbetamc #username
@@ -66,3 +66,5 @@ owner:
   flickr: #username
   codepen: #username
   telegram: #username
+  blog: http://blog.theshayan.com/
+  googlescholar: K9xYnSQAAAAJ
