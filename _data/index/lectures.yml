@@ -10,7 +10,7 @@
   flag: CA
 
 - name: 2nd Annual Blockchain Bootcamp
-  descr: "Our blockchain bootcamp is an introductory level workshop that will teach you the main building blocks of blockchain, with hands on experience with timestamping and associated use cases."
+  descr: "This blockchain bootcamp is an introductory level workshop that will teach the attendees the main building blocks of blockchain, with hands on experience with timestamping and associated use cases."
   location: Blockhouse (Catallaxy), Montreal, Canada.
   flag: CA
 
@@ -23,7 +23,7 @@
   flag: GB
 
 - name: Blockchain Fundamentals
-  descr: "Covering all of the basic fundamentals of blockchain and about the impact that this innovative technology will have on society."
+  descr: "Covering all of the basic fundamentals of blockchain and societal impact of this innovative technology."
   location: Concordia University, Montreal, Canada
   slides: https://www.icloud.com/keynote/0uzKpKrRRJ0HlBg7Sx_GZPA0w#Concordia_feb102018_fundamentals_of_blockchain
   website: http://www.concordia.ca/cuevents/main/2018/02/10/lecture-blockchain-fundamentals.html
@@ -51,7 +51,7 @@
 
 - name: Buy your coffee with bitcoin, Real-world deployment of a bitcoin point of sale terminal
   descr: "Advanced and Trusted Computing (UIC/ATC/ScalCom/CBDCom/IoP/SmartWorld), 2016 Intl IEEE Conferences - Paper presentation"
-  location: Advanced and Trusted Computing 2017, Toulouse, France
+  location: Advanced and Trusted Computing 2016, Toulouse, France
   website: https://atc2016.sciencesconf.org/
   slides: https://github.com/MadibaGroup/2016-ATC/blob/master/Presentation/ATC2016.pdf
   flag: FR
