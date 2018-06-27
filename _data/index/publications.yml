@@ -17,6 +17,8 @@
         link: https://cointelegraph.com/news/attack-or-business-opportunity-academics-question-ethics-of-coinhive-cryptojacking
       - name: Cryptoinsider
         link: https://cryptoinsider.21mil.com/evolution-of-cryptojacking/
+      - name: Randed
+        link: https://randed.com/defeating-cryptojacking-with-browser-isolation-technology/?lang=en
 
 - name: On the feasibility of decentralized derivatives markets
   descr: In this paper, we present Velocity, a decentralized market deployed on Ethereum for trading a custom type of derivative option. To enable the smart contract to work, we also implement a price fetching tool called PriceGeth. We present this as a case study, noting challenges in development of the system that might be of independent interest to whose working on smart contract implementations. We also apply recent academic results on the security of the Solidity smart contract language in validating our code’s security. Finally, we discuss more generally the use of smart contracts in modelling financial derivatives.
