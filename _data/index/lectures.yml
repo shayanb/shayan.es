@@ -1,3 +1,11 @@
+- name: Cocktail Blockchain
+  descr: "Panel organized by National Bank of Canada, Catallaxy and Ivado. <br> Discussion regarding the use of blockchain now and in the future in the real world and how organizations such as banks can use Blockchain technology and smart contracts to facilitate trust and security within their infrastructure."   #image: pong.png
+  location: Blockhouse, Montreal, Canada.
+  website: https://www.finance-montreal.com/en/events/cocktail-blockchain/
+  flag: CA
+  year: 2018
+
+
 - name: SecRev - The Security Revolution from Montreal
   descr: "The Cybersecurity Revolution is an event conceived to openly encourage sharing and interaction among the wider cybersecurity research community. It is an event focused around research, education, science and learning and not the furthering of commercial interests. On this talk I presented my work on the first look at browser-based Cryptojacking."
     #image: pong.png

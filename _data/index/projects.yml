@@ -1,5 +1,5 @@
 - name: Catena Blockchain Suite
-  descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilising smart contracts and hardware security modules, Catena enables a new level of data consistency and integrity.  National Research Council (NRC) is using the Catena Blockchain Suite, a Canadian-made product built on the Ethereum blockchain, to publish funding and grant information in real time.
+  descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilising smart contracts and hardware security modules, Catena enables a new level of data consistency and integrity.  Government of Canada, piloted by National Research Council (NRC) is using the Catena Blockchain Suite on the Ethereum blockchain, to publish funding and grant information in real time.
   website: https://explorecatena.com/
   github: https://github.com/explorecatena
   media:
