@@ -20,6 +20,7 @@
   descr: "This blockchain bootcamp is an introductory level workshop that will teach the attendees the main building blocks of blockchain, with hands on experience with timestamping and associated use cases."
   location: Blockhouse (Catallaxy), Montreal, Canada.
   flag: CA
+  year: 2018
 
 - name: A first look at browser-based Cryptojacking
   descr: "Security & Privacy on the Blockchain (affiliated with Euro S&P) - Paper Presentation"   #image: pong.png
@@ -28,6 +29,7 @@
   location: IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B) 2018 University College London (UCL), London, UK
   slides: https://github.com/shayanb/cryptojacking-first-paper/blob/master/Presentation/Cryptojacking_IEEESB2018.pdf
   flag: GB
+  year: 2018
 
 - name: Blockchain Fundamentals
   descr: "Covering all of the basic fundamentals of blockchain and societal impact of this innovative technology."
@@ -35,12 +37,14 @@
   slides: https://www.icloud.com/keynote/0uzKpKrRRJ0HlBg7Sx_GZPA0w#Concordia_feb102018_fundamentals_of_blockchain
   website: http://www.concordia.ca/cuevents/main/2018/02/10/lecture-blockchain-fundamentals.html
   flag: CA
+  year: 2018
 
 - name: WTH is Bitcoin?
   descr: "A thorugh historical view of where Bitcoin and Blockchain technology came from and how it evolved to be what we know now."  #image: pong.png
   location: Technologies, World and Societies Class, School of Sociological and Anthropological Studies, University of Ottawa, Canada
   slides: https://goo.gl/6bcbgR
   flag: CA
+  year: 2018
 
 - name: Bootstrap Ethereum Development
   descr: "A walkthrough on Ethereum development stack, describing how EVM and Full nodes function, Requirements for interprise high scale setup and how to deploy smart contracts on Ethereum hacker-style and fast"  #image: pong.png
@@ -48,31 +52,35 @@
   website: https://ethwaterloo.com/
   slides: https://docs.google.com/presentation/d/1jSuV5QYuflugM38ibvZjFW94ipj0FbF-VkIHWBNgRm8/edit#slide=id.g35f391192_00
   flag: CA
+  year: 2017
 
 - name: On the feasibility of decentralized derivatives markets
   descr: "1st Workshop on Trusted Smart Contracts In Association with Financial Cryptography 2017 - Paper presentation"
-  location: Financial Cryptography 2017, Malta
+  location: Financial Cryptography 17, Malta
   website: http://fc17.ifca.ai/wtsc/index.html
   slides: http://fc17.ifca.ai/wtsc/On%20the%20Feasibility%20of%20Decentralized%20Derivative%20Markets%20-%20Slides.pdf
   flag: MT
+  year: 2017
 
 - name: Buy your coffee with bitcoin, Real-world deployment of a bitcoin point of sale terminal
   descr: "Advanced and Trusted Computing (UIC/ATC/ScalCom/CBDCom/IoP/SmartWorld), 2016 Intl IEEE Conferences - Paper presentation"
-  location: Advanced and Trusted Computing 2016, Toulouse, France
+  location: Advanced and Trusted Computing 15, Toulouse, France
   website: https://atc2016.sciencesconf.org/
   slides: https://github.com/MadibaGroup/2016-ATC/blob/master/Presentation/ATC2016.pdf
   flag: FR
+  year: 2016
 
 - name: A first look at the usability of bitcoin key management
-  descr: "USEC 15 NDSS Workshop on Usable Security (USEC) 2015 - Paper presentation and discussion"
-  location: 2015 Network and Distributed System Security (NDSS), San Diego, United States
+  descr: "USEC 15 NDSS Workshop on Usable Security (USEC) - Paper presentation and discussion"
+  location: Network and Distributed System Security (NDSS), San Diego, United States
   website: https://www.ndss-symposium.org/ndss2015/ndss-2015-usec-programme/
   slides: https://github.com/shayanb/btc-papers/blob/master/key-manage/Presentation/USEC15.pdf
   flag: US
+  year: 2015
 
 - name: Introduction to Bitcoin
   descr: "The first workshop on Bitcoin and Blockchain technology in Iran. This workshop organized by SBU Computer Science Scientific Association was designed to introduce and discuss research possibilities regarding Blockchain technology for graduate students and other interested parties."
-  location: 2015 Shahid Beheshti University, Tehran, Iran
+  location: Shahid Beheshti University, Tehran, Iran
   youtube: https://www.youtube.com/watch?v=JfryEnYvX54
   flag: IR
   year: 2015

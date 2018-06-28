@@ -6,7 +6,12 @@
             <div class="col">
                 <h3 style="margin: 0">{{ lecture.name }}</h3>
                   {% if lecture.location %}
-                  <i>{{ lecture.location }} </i> <!--{{lecture.flag}}-->
+                  <i>{{ lecture.location }}
+                    {% if lecture.year %}
+                    - {{ lecture.year }}
+                    {% endif %}
+
+                  </i> <!--{{lecture.flag}}-->
                   {% endif %}
                 <br>
 
