@@ -5,7 +5,6 @@
   flag: CA
   year: 2018
 
-
 - name: SecRev - The Security Revolution from Montreal
   descr: "The Cybersecurity Revolution is an event conceived to openly encourage sharing and interaction among the wider cybersecurity research community. It is an event focused around research, education, science and learning and not the furthering of commercial interests. On this talk I presented my work on the first look at browser-based Cryptojacking."
     #image: pong.png
@@ -70,3 +69,10 @@
   website: https://www.ndss-symposium.org/ndss2015/ndss-2015-usec-programme/
   slides: https://github.com/shayanb/btc-papers/blob/master/key-manage/Presentation/USEC15.pdf
   flag: US
+
+- name: Introduction to Bitcoin
+  descr: "The first workshop on Bitcoin and Blockchain technology in Iran. This workshop organized by SBU Computer Science Scientific Association was designed to introduce and discuss research possibilities regarding Blockchain technology for graduate students and other interested parties."
+  location: 2015 Shahid Beheshti University, Tehran, Iran
+  youtube: https://www.youtube.com/watch?v=JfryEnYvX54
+  flag: IR
+  year: 2015
