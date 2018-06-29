@@ -1,5 +1,13 @@
+- name: Cryptojacking, victimless crime or a new online economy?
+  descr: "Cryptojacking is the invisible use of one’s resources to mine cryptocurrency for someone else’s profit. Even though these attacks rose by 8500 percent in the final quarter of 2017, it seems that this phenomena is neither well-studied or well-known. In the follow up of the published paper, we invite the community from crypto-communities to ethicists to start the conversation on the policies and regulation for this new online monetization architecture."
+  location: Catallaxy(Blockhouse), Montreal, Canada.
+  website: https://www.meetup.com/montreal-blockchain/events/251802786/
+  youtube: https://URL_WILL_BE_PUBLISHED_SOON
+  flag: CA
+  year: 2018
+
 - name: Cocktail Blockchain
-  descr: "Panel organized by National Bank of Canada, Catallaxy and Ivado. <br> Discussion regarding the use of blockchain now and in the future in the real world and how organizations such as banks can use Blockchain technology and smart contracts to facilitate trust and security within their infrastructure."   #image: pong.png
+  descr: "Panel organized by National Bank of Canada, Catallaxy and Ivado. <br> Discussion regarding the use of blockchain now and in the future in the real world and how organizations such as banks can use Blockchain technology and smart contracts to facilitate trust and security within their infrastructure."
   location: Blockhouse, Montreal, Canada.
   website: https://www.finance-montreal.com/en/events/cocktail-blockchain/
   flag: CA
@@ -7,7 +15,6 @@
 
 - name: SecRev - The Security Revolution from Montreal
   descr: "The Cybersecurity Revolution is an event conceived to openly encourage sharing and interaction among the wider cybersecurity research community. It is an event focused around research, education, science and learning and not the furthering of commercial interests. On this talk I presented my work on the first look at browser-based Cryptojacking."
-    #image: pong.png
   website: https://secrev.dfir.science/
   paper: https://arxiv.org/abs/1803.02887
   year: 2018
