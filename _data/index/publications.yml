@@ -19,6 +19,9 @@
         link: https://cryptoinsider.21mil.com/evolution-of-cryptojacking/
       - name: Randed
         link: https://randed.com/defeating-cryptojacking-with-browser-isolation-technology/?lang=en
+      - name: Bleepingcomputer
+        link: https://www.bleepingcomputer.com/news/security/report-three-of-top-four-malware-threats-are-in-browser-cryptocurrency-miners/
+        
 
 - name: On the feasibility of decentralized derivatives markets
   descr: In this paper, we present Velocity, a decentralized market deployed on Ethereum for trading a custom type of derivative option. To enable the smart contract to work, we also implement a price fetching tool called PriceGeth. We present this as a case study, noting challenges in development of the system that might be of independent interest to whose working on smart contract implementations. We also apply recent academic results on the security of the Solidity smart contract language in validating our code’s security. Finally, we discuss more generally the use of smart contracts in modelling financial derivatives.
@@ -41,6 +44,11 @@
   github: https://github.com/shayanb/Bitcoin-PoS-PHP
   paper: https://ieeexplore.ieee.org/abstract/document/7816869/
   published: Advanced and Trusted Computing (ATC), 2016 Intl IEEE Conferences, Toulouse, France.
+  media:
+    - name: Cafe Aunja
+      link: http://blog.theshayan.com/2014/10/23/have-your-coffee-with-bitcoin/
+    - name: Cointelegraph
+      link: https://cointelegraph.com/news/new-bitcoin-merchants-and-businesses-the-grid-privatefly-flanders-university-ronald-mcdonald-house-and-more
 
 - name: Real-world Deployability and Usability of Bitcoin
   descr: We live in an era where Internet is one of the daily needs of human life. People use Internet banking instead of going to banks, they use email rather than postal mail.This leads to a robust digital way of living, but this also means people are trusting middle companies and third parties for their online services. The need of having a digital form of money that is not being controlled by one entity is plain to see. Bitcoin is the first and the most popular decentralized virtual currency. It is based on cryptographic functions to remove the need of a central bank and regulates the generation of new units. In this thesis, we would like to look at available tools to facilitate users in holding and using Bitcoin by a perspective on usability and security, and then evaluate the possibilities for a small business to accept Bitcoin payments. Our focus is on the usability of these tools and developing a useful framework for comparing and evaluating future tools. While many security tools have been studied from a usability perspective, our work is the first to look at Bitcoin.
@@ -57,8 +65,18 @@
       link: https://blog.acolyer.org/2017/02/22/a-first-look-at-the-usabilty-of-bitcoin-key-management/
     - name: VentureSkies
       link: http://www.ventureskies.com/blog/key-management-options-for-the-protection-of-bitcoins
-    - name: Standford Bitcoin and Cryptocurrency Technologies Syllabus
+    - name: Standford, Bitcoin and Cryptocurrency Technologies Syllabus
       link: https://crypto.stanford.edu/cs251_fall15/syllabus.html
+    - name: Hackernoon
+      link: https://hackernoon.com/killing-the-dragon-named-bitcoin-is-money-b6dce5b86535
+    - name: Blocks and Chains (Book)
+      link: https://www.amazon.com/Blocks-Chains-Introduction-Cryptocurrencies-Information/dp/1627057161
+    - name: ACM Queue Research for Practice
+      link: https://queue.acm.org/rfp/vol14iss6.html
+    - name: King Abdullah University, Blockchain Systems and Cryptocurrencies Syllabus
+      link: http://web.kaust.edu.sa/Faculty/MarcoCanini/classes/CS394B/S18/syllabus.html
+
+
 
 - name: Monitoring system calls for anomaly detection in modern operating systems
   descr: Host-based intrusion detection systems monitor systems in operation for significant deviations from normal (and healthy) behaviour. Many approaches have been proposed in the literature. Most of them, however, do not consider even the basic attack prevention mechanisms that are activated by default on today's many operating systems. Examples of such mechanisms include Address Space Layout Randomization and Data Execution Prevention. With such security methods in place, attackers are forced to perform additional actions to circumvent them. In this research, we conjecture that some of these actions may require the use of additional system calls. If so, one can trace such attacks to discover attack patterns that can later be used to enhance the detection power of anomaly detection systems. The purpose of this short paper is to motivate the need to investigate the impact of attack on system calls while trying to overcome these prevention mechanisms.

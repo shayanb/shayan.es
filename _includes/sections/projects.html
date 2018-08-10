@@ -17,7 +17,11 @@
                 <a href="{{ item.link }} " target="_blank"><i class="fa fa-newspaper-o"></i>{{item.name}}</a> &nbsp;
                 {% endfor %}
                 {% endif %}
-                <br><hr>
+                <br>
+                {% if forloop.last == false %}
+                  <hr>
+                {% endif %}
             </div>
     </div>
 {% endfor %}
+<br><hr style="height:1px;border:none;color:#333;background-color:#333;" />
