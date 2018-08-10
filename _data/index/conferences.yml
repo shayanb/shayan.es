@@ -1,0 +1,65 @@
+- name: Bitcoin Expo 2014
+  link: https://www.coindesk.com/bitcoin-alliance-canada-host-bitcoin-expo-toronto/
+  link_org: http://bitcoinexpo.ca/v2/
+  location: Toronto, CA
+  date: 2014
+
+- name: NDSS 2015
+  link: http://www.ndss-symposium.org/ndss2015/ndss-2015-usec-programme/
+  location: San Diego, US
+  date: 2015
+
+- name: Scaling Bitcoin 2015
+  link: https://scalingbitcoin.org/schedule/montreal2015
+  location: Montreal, CA
+  date: 2015
+
+- name: IEEE Advanced and Trusted Computing 16
+  link: https://atc2016.sciencesconf.org/
+  location: Toulouse, FR
+  date: 2016
+
+- name: Financial Cryptography 17
+  link: http://fc17.ifca.ai/
+  location: Sliema, MT
+  date: 2017
+
+- name: Blockchain Government Forum
+  link: http://blockchainforum.ca/
+  location: Ottawa, CA
+  date: 2017
+
+- name: sibos
+  link: https://www.sibos.com/conference/2017
+  location: Toronto, CA
+  date: 2017
+
+- name: ETHWaterloo
+  link: https://ethwaterloo.com/
+  location: Waterloo, CA
+  date: 2017
+
+- name: DevCon3
+  link: https://ethereumfoundation.org/devcon3/
+  location: Cancun, MX
+  date: 2017
+
+- name: IEEE Euro Security and Privacy 18
+  link: https://www.ieee-security.org/TC/EuroSP2018/
+  location: London, UK
+  date: 2018
+
+- name: AiDecentralized
+  link: https://www.aidecentralized.com/
+  location: Toronto, CA
+  date: 2018
+
+- name: Zcon0
+  link: https://z.cash.foundation/zcon/
+  location: Montreal, CA
+  date: 2018
+
+- name: IC3 Ethereum bootcamp
+  link: http://www.initc3.org/events/2018-07-12-IC3-Ethereum-Crypto-Boot-Camp.html
+  location: Ithaca, US
+  date: 2018
