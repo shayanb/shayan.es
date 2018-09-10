@@ -15,6 +15,21 @@
       link: https://www.trustnodes.com/2018/01/21/canadian-government-launches-live-ethereum-public-blockchain-trial-government-contracts
 
 
+
+- name: Bitaccess Enterprise Wallet
+  descr: Bitaccess offers Bitcoin ATM and online software solutions to purchase and sell Bitcoin and Ethereum. I joined Bitaccess in 2015 to redesign and develop a new enterprise cloud wallet for better scalability of the BTM network and easier integration of the wallets in the software solutions.
+  github: https://bitaccess.ca/products/
+  media:
+    - name: Enterprise Wallet
+      link: https://bitaccess.ca/products/enterprise-wallet/
+    - name: TechCrunch
+      link: https://techcrunch.com/2014/08/13/bitaccess-launches-to-make-bitcoin-atms-ubiquitous/
+    - name: Bitcoin.com
+      link: https://news.bitcoin.com/bitaccess-releases-instant-transactions-avoiding-block-waiting/
+    - name: CoinDesk
+      link: https://www.coindesk.com/press-releases/bitaccess-extends-instant-bitcoin-purchases-nearly-1000-locations-us/
+
+
 - name: Velocity Technology
   descr: Velocity is a decentralized options platform that allows users to enter into a collar option using a smart contract on the ethereum blockchain. Velocity platform includes smart contracts responsible for the trades and, <b>PriceGeth</b>, an oracle to publish price pairs on Ethereum blockchain at every blocktime.
   github: https://github.com/VelocityMarket
