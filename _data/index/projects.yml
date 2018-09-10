@@ -18,7 +18,8 @@
 
 - name: Bitaccess Enterprise Wallet
   descr: Bitaccess offers Bitcoin ATM and online software solutions to purchase and sell Bitcoin and Ethereum. I joined Bitaccess in 2015 to redesign and develop a new enterprise cloud wallet for better scalability of the BTM network and easier integration of the wallets in the software solutions.
-  github: https://bitaccess.ca/products/
+  website: https://bitaccess.ca/products/
+  github: https://github.com/bitaccess
   media:
     - name: Enterprise Wallet
       link: https://bitaccess.ca/products/enterprise-wallet/
