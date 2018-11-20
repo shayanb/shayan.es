@@ -64,15 +64,22 @@
   location: Ithaca, US
   date: 2018
 
-
 - name: Blockchain Technology Symposium (BTS' 18) - from Hype to Reality
   link: http://www.fields.utoronto.ca/activities/18-19/blockchain_technology
   location: Toronto, CA
   date: 2018
 
-
 - name: Many McLuhans, A symposium in celebration of the UNESCO Memory of the World Designation for Marshall McLuhan's
   link: https://www.eventbrite.ca/e/many-mcluhans-a-symposium-in-celebration-of-the-unesco-memory-of-the-world-designation-for-marshall-tickets-48133380236?utm_source=eb_email&utm_medium=email&utm_campaign=event_reminder&utm_term=eventname
   location: Toronto, CA
   date: 2018
-  
+
+- name: AOIR2018
+  link: https://aoir.org/aoir2018/
+  location: Montreal, CA
+  date: 2018
+
+- name: DevCon4
+  link: https://devcon4.ethereum.org/
+  location: Prague, CZ
+  date: 2018

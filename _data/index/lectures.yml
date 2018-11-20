@@ -1,3 +1,11 @@
+- name: Blockchain Myopia - A thing from the Future
+  descr: "This is an experimental session that will involve an award-winning imagination game called "The thing from the Future" that challenges players to collaboratively and competitively describe objects from a range of alternative futures. In our case we will specifically focus on blockchain as the main object. We discussed topics that range from the technological utopian visions conceptualized by the flag bearers of Blockchain/Unicorn-land to the technological dystopian hypotheticals of unstoppable dark markets."
+  location: DevCon4, Prague, Czech Republic
+  website: https://guidebook.com/guide/117233/event/21956133/
+  #youtube: http://www.fields.utoronto.ca/video-archive/static/2018/09/2547-19407/mergedvideo.ogv
+  flag: CZ
+  year: 2018
+
 - name: Cryptojacking, victimless crime or a new online economy?
   descr: "Cryptojacking is the invisible use of one’s resources to mine cryptocurrency for someone else’s profit. Even though these attacks rose by 8500 percent in the final quarter of 2017, it seems that this phenomena is neither well-studied or well-known. In the follow up of the published paper, we invite the community from crypto-communities to ethicists to start the conversation on the policies and regulation for this new online monetization architecture."
   location: Blockchain Technology Symposium - from Hype to Reality, U of T, Toronto, Canada.
