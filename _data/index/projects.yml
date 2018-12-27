@@ -15,6 +15,18 @@
       link: https://www.trustnodes.com/2018/01/21/canadian-government-launches-live-ethereum-public-blockchain-trial-government-contracts
 
 
+- name: LibSubmarine - Defeat Front-Running on Ethereum
+  descr: LibSubmarine is an open-source smart contract library that makes it easy to protect your contract against front-runners by temporarily hiding transactions on-chain.
+  website: https://libsubmarine.org/
+  github: https://github.com/lorenzb/libsubmarine
+  media:
+    - name: Ethereum Foundation - DevCon4
+      link: https://www.youtube.com/watch?v=nrKeD44Johs
+    - name: Hackernoon
+      link: https://hackernoon.com/libsubmarine-temporarily-hide-transactions-on-ethereum-cheaply-6910191f46f2
+    - name: Ethereum Foundation - DevCon4
+      link: https://www.youtube.com/watch?v=JxAgNeFg6QM
+
 
 - name: Bitaccess Enterprise Wallet
   descr: Bitaccess offers Bitcoin ATM and online software solutions to purchase and sell Bitcoin and Ethereum. I joined Bitaccess in 2015 to redesign and develop a new enterprise cloud wallet for better scalability of the BTM network and easier integration of the wallets in the software solutions.
