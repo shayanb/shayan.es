@@ -1,3 +1,17 @@
+- name: SoK - Transparent Dishonesty - front-running attacks on Blockchain.
+  descr: Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchain’s decentralized and transparent nature. In this paper, we draw from a scattered body of knowledge and instances of front-running across the top 25 most active decentral applications (DApps) deployed on Ethereum blockchain. Finally, we map the proposed solutions to front-running into useful categories.  #image: pong.png
+  github: https://github.com/MadibaGroup/2018-Dolunay/tree/master/frontrunning/Data
+  paper: https://arxiv.org/abs/1902.05164
+  year: 2019
+  published: FC 2019 Financial Cryptography and Data Security
+  slides: https://github.com/MadibaGroup/2018-Dolunay/blob/master/frontrunning/Slides/frontrunning_WTSC_FC19.pdf
+  media:
+      - name: ConsenSys Diligence
+        link: https://medium.com/consensys-diligence/transparent-dishonesty-taxonomy-of-front-running-attacks-on-blockchain-317d8ff78068
+
+
+
+
 - name: A first look at browser-based Cryptojacking
   descr: In this paper, we examine the recent trend towards in-browser mining of cryptocurrencies; in particular, the mining of Monero through Coinhive and similar code- bases. In this model, a user visiting a website will download a JavaScript code that executes client-side in her browser, mines a cryptocurrency, typically without her consent or knowledge, and pays out the seigniorage to the website. Websites may consciously employ this as an alternative or to supplement advertisement revenue, may offer premium content in exchange for mining, or may be unwittingly serving the code as a result of a breach (in which case the seigniorage is collected by the attacker). The cryptocurrency Monero is preferred seemingly for its unfriendliness to large-scale ASIC mining that would drive browser-based efforts out of the market, as well as for its purported privacy features. In this paper, we survey this landscape, conduct some measurements to establish its prevalence and profitability, outline an ethical framework for considering whether it should be classified as an attack or business opportunity, and make suggestions for the detection, mitigation and/or prevention of browser-based mining for non- consenting users.
   #image: pong.png
@@ -21,7 +35,7 @@
         link: https://randed.com/defeating-cryptojacking-with-browser-isolation-technology/?lang=en
       - name: Bleepingcomputer
         link: https://www.bleepingcomputer.com/news/security/report-three-of-top-four-malware-threats-are-in-browser-cryptocurrency-miners/
-        
+
 
 - name: On the feasibility of decentralized derivatives markets
   descr: In this paper, we present Velocity, a decentralized market deployed on Ethereum for trading a custom type of derivative option. To enable the smart contract to work, we also implement a price fetching tool called PriceGeth. We present this as a case study, noting challenges in development of the system that might be of independent interest to whose working on smart contract implementations. We also apply recent academic results on the security of the Solidity smart contract language in validating our code’s security. Finally, we discuss more generally the use of smart contracts in modelling financial derivatives.
