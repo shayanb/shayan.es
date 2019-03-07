@@ -1,4 +1,4 @@
-- name: SoK - Transparent Dishonesty - front-running attacks on Blockchain.
+- name: "SoK: Transparent Dishonesty: front-running attacks on Blockchain."
   descr: We consider front-running to be a course of action where an entity benefits from prior access to privileged market information about upcoming transactions and trades. Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchains decentralized and transparent nature. In this paper, we draw from a scattered body of knowledge and instances of front-running across the top 25 most active decentral applications (DApps) deployed on Ethereum blockchain. Additionally, we carry out a detailed analysis of Status.im initial coin offering (ICO) and show evidence of abnormal miners behavior indicative of front-running token purchases. Finally, we map the proposed solutions to front-running into useful categories.  #image: pong.png
   github: https://github.com/MadibaGroup/2018-Dolunay/tree/master/frontrunning/Data
   paper: https://arxiv.org/abs/1902.05164
@@ -8,8 +8,6 @@
   media:
       - name: ConsenSys Diligence
         link: https://medium.com/consensys-diligence/transparent-dishonesty-taxonomy-of-front-running-attacks-on-blockchain-317d8ff78068
-
-
 
 
 - name: A first look at browser-based Cryptojacking
@@ -53,7 +51,7 @@
         link: https://news.bitcoin.com/worlds-first-peer-reviewed-smart-contract-paper/
 
 
-- name: Buy your coffee with bitcoin, Real-world deployment of a bitcoin point of sale terminal
+- name: "Buy your coffee with bitcoin: Real-world deployment of a bitcoin point of sale terminal"
   descr: In this paper we discuss existing approaches for Bitcoin payments, as suitable for a small business for small-value transactions. We develop an evaluation framework utilizing security, usability, deployability criteria,, examine several existing systems, tools. Following a requirements engineering approach, we designed, implemented a new Point of Sale (PoS) system that satisfies an optimal set of criteria within our evaluation framework. Our open source system, Aunja PoS, has been deployed in a real world cafe since October 2014.
   github: https://github.com/shayanb/Bitcoin-PoS-PHP
   paper: https://ieeexplore.ieee.org/abstract/document/7816869/
