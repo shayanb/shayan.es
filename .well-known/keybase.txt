@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/shayanb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://shayan.es
+  * I am shayanb (https://keybase.io/shayanb) on keybase.
+  * I have a public key ASCkhNyL5kuHuYIY2it1CnFsAPivpvetpMhGUxwSN1ukNAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a484dc8be64b87b98218da2b750a716c00f8afa6f7ada4c846531c12375ba4340a",
+      "host": "keybase.io",
+      "kid": "0120a484dc8be64b87b98218da2b750a716c00f8afa6f7ada4c846531c12375ba4340a",
+      "uid": "905f1f43e267ca19d99001e4ef8d9619",
+      "username": "shayanb"
+    },
+    "merkle_root": {
+      "ctime": 1552343928,
+      "hash": "c6cb10ca9ef5a919341110f33c4b2b5e483d68d73c808ebdb144c93d50d48bfc4622cbb43361c076a0f152e925420f49abda58120c46d34221fd26e2a14f02b1",
+      "hash_meta": "ff31a7306dd222a9652cb7fd4e060f503987d5c432194fe125f3367c5fe5a1cc",
+      "seqno": 4925059
+    },
+    "service": {
+      "entropy": "i2YvGy9yM+Vwjjnn6FbD+Iy7",
+      "hostname": "shayan.es",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.1.0"
+  },
+  "ctime": 1552343936,
+  "expire_in": 504576000,
+  "prev": "419b645e8a2ed1f58d32e9da6ea86fb3384b2bfbc0b857b5e4b2d3bd18b1e3b4",
+  "seqno": 5,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgpITci+ZLh7mCGNordQpxbAD4r6b3raTIRlMcEjdbpDQKp3BheWxvYWTESpcCBcQgQZtkXoou0fWNMunabqhvszhLK/vAuFe15LLTvRix47TEIBfVE9Og7n3BrI6oAFyJllykNtNUX79ZIjlvohzWJPaZAgHCo3NpZ8RA3Eo4rhYB0zskwFmHrAC9GikGD4gY7788Xi0Cqh+sCh86VGbhE8PfoJDAHKHyTd5KNAUJYmErPPHbghGWIoqeA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKVVSYILX/znFZLzgXu/Q6eWp1Aa6wtyCyHSGJQe+J3ro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/shayanb
+
+==================================================================
