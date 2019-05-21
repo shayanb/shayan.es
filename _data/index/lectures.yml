@@ -12,6 +12,13 @@
   flag: US
   year: 2019
 
+- name: "Social Innovation: International Development and Blockchain"
+  descr: "Panel: Blockchain technology has shaken the Financial and Technological worlds with its unprecedented ability to decentralize governance, provide secure data storage and allow Participants to interact in a fresh way over the internet."
+  location: McGill University, Montreal
+  website: http://blockchainmcgill.com/socialinnovation/#
+  flag: CA
+  year: 2019
+
 - name: "SoK: Transparent Dishonesty: front-running attacks on Blockchain."
   descr: "3rd Workshop of Trusted Smart contract - FC 2019 Financial Cryptography and Data Security - Paper Presentation"
   location: Financial Cryptography, St. Kitts
