@@ -1,6 +1,20 @@
+- name: "Breaking Smart Contracts"
+  descr: "Some of the most financially devastating hacks in recent years have happened on the blockchain. This Ethereum focused workshop, will teach you the fundamentals of writing and breaking smart contracts."
+  location: NorthSec, Montreal
+  website: https://nsec.io/session/2019-breaking-smart-contracts.html
+  flag: CA
+  year: 2019
+
+- name: "The Thing from the Future: A Reverse Archeology Game"
+  descr: "The Thing From The Future is an award-winning imagination game that challenges players to collaboratively and competitively describe objects from a range of alternative futures. Participate in this Reverse Archeology game. "
+  location: Consensus, New York
+  website: https://www.coindesk.com/events/consensus-2019/agenda#agenda
+  flag: US
+  year: 2019
+
 - name: "SoK: Transparent Dishonesty: front-running attacks on Blockchain."
   descr: "3rd Workshop of Trusted Smart contract - FC 2019 Financial Cryptography and Data Security - Paper Presentation"
-  location: St. Kitts
+  location: Financial Cryptography, St. Kitts
   website: http://fc19.ifca.ai/wtsc/
   slides: https://github.com/MadibaGroup/2018-Dolunay/blob/master/frontrunning/Slides/frontrunning_WTSC_FC19.pdf
   flag: KN
