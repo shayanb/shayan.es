@@ -1,3 +1,13 @@
+
+- name: "Democratic Improvement Proposals for decentralization projects"
+  youtube: "https://youtu.be/s04nas09Xz8?t=3247"
+  location: IETF 105 Montreal
+  website: "https://www.ietf.org/how/meetings/105/"
+  slides: https://datatracker.ietf.org/meeting/105/materials/slides-105-hotrfc-11-democratic-improvement-proposals-for-decentralization-projects-01
+  year: 2019
+  descr: "Blockchain and DLT based systems are waiting in the wings to join the potpourri of core technology that makes up our future digital lives. Both core internet infrastructure technology and many DLT solutions have one thing in common: They are developed with a diverse open source developer community and carry significant security risk. To manage software change related risks both Bitcoin and Ethereum have derived their own process of managing change proposals. For Ethereum changes are discussed and agreed upon in the Ethereum Improvement Proposal (EIP) process. However given the non-hierarchy management model, there have been many approaches and obstacles to make this process as close to a democratic procedure as possible. It is working, but far from perfect and there are many good approaches and lessons learnt. EIP requires input from experts at IETF to shape up and standardize."
+  flag: CA
+
 - name: "Breaking Smart Contracts"
   descr: "Some of the most financially devastating hacks in recent years have happened on the blockchain. This Ethereum focused workshop, will teach you the fundamentals of writing and breaking smart contracts."
   location: NorthSec, Montreal
