@@ -1,3 +1,10 @@
+- name: "Security By Design and Smart Contract Audits"
+  descr: "This session will cover why smart contracts are the new paradigm of software development. The idea of a serverless application running in a public ledger with open interface is new to most developers and hence common practices in traditional programming could easily result in security vulnerabilities in decentralized applications. The second half of the session will focus on smart contract code auditing and hands on code review on real smart contracts."
+  location: "Blockchain Training Conference"
+  slides: "https://btc2019.sched.com/event/T4vf/security-by-design-and-smart-contract-audits"
+  website: "https://blockchaintraining.org"
+  year: 2019
+
 - name: "Smashing Smart Contracts: Detecting and Exploiting Vulnerabilities in EVM bytecode"
   descr: "Hacking & exploitation Solidity/EVM smart contracts, and practicing them on CaptureTheEther and OpenZeppelin Ethernaut challanges."
   location: "Blockchain Village @ DEFCON 27"

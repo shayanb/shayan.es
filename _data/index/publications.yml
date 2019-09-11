@@ -4,6 +4,21 @@
   year: 2019
   published: "[Submitted]"
 
+- name: 'The Middleman is Dead, Long Live the Middleman: The “trust factor” and the psycho-social implications of blockchains'
+  descr: "Blockchain is widely regarded as a breakthrough innovation that may have a profound impact on the economy and society, of a
+magnitude comparable to the effects of the introduction of the Internet itself. In essence, a blockchain is a decentralized
+peer-to-peer network with no central authority figure, which adds information to the distributed database by collectively
+validating the accuracy of data. Since each node of the network participates in the review and confirmation of the new
+information before being accepted, the need for a trustworthy intermediary is eliminated. However, as trust plays an essential
+role in affecting decisions when transacting with one another, it is important to understand which implications the decentralized
+nature of blockchain may have on individuals' sense of trust. In this contribution, we argue that the adoption of blockchain is not
+only a technological, but foremostly a psychological challenge, which crucially depends on the possibility of creating a trust
+management approach that matches the underlying distributed communication system. We first describe the decentralization
+technologies and possibilities they hold for the near future. Next, we discuss the psycho-social implications of the introduction of
+decentralized processes of trust, examining some potential scenarios, and outline a research agenda."
+  year: 2019
+  published: "[Under Review]"
+
 - name: "Resolving the Multiple Withdrawal Attack on ERC20 Tokens"
   descr: Custom tokens are an integral component of decentralized applications (dapps) deployed on Ethereum and other blockchain platforms. For Ethereum, the ERC20 standard is a widely used token interface and is interoperable with many existing dapps, user interface platforms, and popular web applications (e.g., exchange services). An ERC20 security issue, known as the "multiple withdrawal attack", was raised on GitHub and has been open since November 2016. The issue concerns ERC20's defined method approve() which was envisioned as a way for token holders to give permission for other users and dapps to withdraw a capped number of tokens. The security issue arises when a token holder wants to adjust the amount of approved tokens from N to M (this could be an increase or decrease). If malicious, a user or dapp who is approved for N tokens can front-run the adjustment transaction to first withdraw N tokens, then allow the approval to be confirmed, and withdraw an additional M tokens. In this paper, we evaluate 10 proposed mitigations for this issues and find that no solution is fully satisfactory. We then propose 2 new solutions that mitigate the attack, one of which fully fulfills constraints of the standard, and the second one shows a general limitation in addressing this issue from ERC20's approve method.
   paper: https://arxiv.org/abs/1907.00903
