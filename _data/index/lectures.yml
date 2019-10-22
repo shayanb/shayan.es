@@ -12,14 +12,14 @@
 
 - name: "Security By Design and Smart Contract Audits"
   descr: "This session will cover why smart contracts are the new paradigm of software development. The idea of a serverless application running in a public ledger with open interface is new to most developers and hence common practices in traditional programming could easily result in security vulnerabilities in decentralized applications. The second half of the session will focus on smart contract code auditing and hands on code review on real smart contracts."
-  location: "Blockchain Training Conference"
+  location: "Blockchain Training Conference, Denver, USA"
   slides: "https://btc2019.sched.com/event/T4vf/security-by-design-and-smart-contract-audits"
   website: "https://blockchaintraining.org"
   year: 2019
 
 - name: "Smashing Smart Contracts: Detecting and Exploiting Vulnerabilities in EVM bytecode"
   descr: "Hacking & exploitation Solidity/EVM smart contracts, and practicing them on CaptureTheEther and OpenZeppelin Ethernaut challanges."
-  location: "Blockchain Village @ DEFCON 27"
+  location: "Blockchain Village @ DEFCON 27, Las Vegas, USA"
   website: "https://www.blockchainvillage.net"
   github: https://github.com/ConsenSys/smashing-smart-contracts-workshop
   year: 2019
@@ -35,21 +35,21 @@
 
 - name: "Breaking Smart Contracts"
   descr: "Some of the most financially devastating hacks in recent years have happened on the blockchain. This Ethereum focused workshop, will teach you the fundamentals of writing and breaking smart contracts."
-  location: NorthSec, Montreal
+  location: NorthSec, Montreal, Canada
   website: https://nsec.io/session/2019-breaking-smart-contracts.html
   flag: CA
   year: 2019
 
 - name: "The Thing from the Future: A Reverse Archeology Game"
   descr: "The Thing From The Future is an award-winning imagination game that challenges players to collaboratively and competitively describe objects from a range of alternative futures. Participate in this Reverse Archeology game. "
-  location: Consensus, New York
+  location: Consensus, New York, USA
   website: https://www.coindesk.com/events/consensus-2019/agenda#agenda
   flag: US
   year: 2019
 
 - name: "Social Innovation: International Development and Blockchain"
   descr: "Panel: Blockchain technology has shaken the Financial and Technological worlds with its unprecedented ability to decentralize governance, provide secure data storage and allow Participants to interact in a fresh way over the internet."
-  location: McGill University, Montreal
+  location: McGill University, Montreal, Canada
   website: http://blockchainmcgill.com/socialinnovation/#
   flag: CA
   year: 2019
