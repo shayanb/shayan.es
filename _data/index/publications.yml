@@ -1,23 +1,15 @@
 - name: "Systemizing the Challenges of Auditing Blockchain-Based Assets"
   descr: Firms transacting using blockchain-based assets and liabilities have begun to enter capital markets in search for funding. Historically, firms have been able to raise substantial funding without an audited financial statement, however we project that in the future, audits will become a common requirement given increased competition among firms, increased scrutiny from regulators, past instances of fraud, and firms seeking an IPO. At the time of writing, accounting firms are hesitant to accept mandates from companies that hold a significant amount of cryptoassets primarily because the blockchain market introduces novel, technically sophisticated, and risky propositions that auditors are unequipped to handle. Through interviews with senior accounting professionals and structured brainstorming meetings with a multidisciplinary team of accountants and blockchain experts, we critically analyze the purported roadblocks to auditing blockchain firms and map them to traditional auditing practices, demonstrating that providing an audit opinion is challenging but not insurmountable.
-  paper: https://www.researchgate.net/publication/332448674_Systemizing_the_Challenges_of_Auditing_Blockchain-Based_Assets
-  year: 2019
-  published: "[Submitted]"
-
-- name: 'The Middleman is Dead, Long Live the Middleman: The “trust factor” and the psycho-social implications of blockchains'
-  descr: "Blockchain is widely regarded as a breakthrough innovation that may have a profound impact on the economy and society, of a
-magnitude comparable to the effects of the introduction of the Internet itself. In essence, a blockchain is a decentralized
-peer-to-peer network with no central authority figure, which adds information to the distributed database by collectively
-validating the accuracy of data. Since each node of the network participates in the review and confirmation of the new
-information before being accepted, the need for a trustworthy intermediary is eliminated. However, as trust plays an essential
-role in affecting decisions when transacting with one another, it is important to understand which implications the decentralized
-nature of blockchain may have on individuals' sense of trust. In this contribution, we argue that the adoption of blockchain is not
-only a technological, but foremostly a psychological challenge, which crucially depends on the possibility of creating a trust
-management approach that matches the underlying distributed communication system. We first describe the decentralization
-technologies and possibilities they hold for the near future. Next, we discuss the psycho-social implications of the introduction of
-decentralized processes of trust, examining some potential scenarios, and outline a research agenda."
+  paper: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3359985
   year: 2019
   published: "[Under Review]"
+
+- name: 'The Middleman is Dead, Long Live the Middleman: The “trust factor” and the psycho-social implications of blockchain'
+  descr: "Blockchain is widely regarded as a breakthrough innovation that may have a profound impact on the economy and society, of a magnitude comparable to the effects of the introduction of the Internet itself. In essence, a blockchain is a decentralized peer-to-peer network with no central authority figure, which adds information to the distributed database by collectively validating the accuracy of data. Since each node of the network participates in the review and confirmation of the new information before being accepted, the need for a trustworthy intermediary is eliminated. However, as trust plays an essential role in affecting decisions when transacting with one another, it is important to understand which implications the decentralized nature of blockchain may have on individuals' sense of trust. In this contribution, we argue that the adoption of blockchain is not only a technological, but foremostly a psychological challenge, which crucially depends on the possibility of creating a trust management approach that matches the underlying distributed communication system. We first describe the decentralization technologies and possibilities they hold for the near future. Next, we discuss the psycho-social implications of the introduction of decentralized processes of trust, examining some potential scenarios, and outline a research agenda."
+  year: 2019
+  published: "Frontiers in Blockchain Journal - Human-Centric Constituents in Times of Decentralization"
+  paper: https://www.frontiersin.org/articles/10.3389/fbloc.2019.00020/abstract
+
 
 - name: "Resolving the Multiple Withdrawal Attack on ERC20 Tokens"
   descr: Custom tokens are an integral component of decentralized applications (dapps) deployed on Ethereum and other blockchain platforms. For Ethereum, the ERC20 standard is a widely used token interface and is interoperable with many existing dapps, user interface platforms, and popular web applications (e.g., exchange services). An ERC20 security issue, known as the "multiple withdrawal attack", was raised on GitHub and has been open since November 2016. The issue concerns ERC20's defined method approve() which was envisioned as a way for token holders to give permission for other users and dapps to withdraw a capped number of tokens. The security issue arises when a token holder wants to adjust the amount of approved tokens from N to M (this could be an increase or decrease). If malicious, a user or dapp who is approved for N tokens can front-run the adjustment transaction to first withdraw N tokens, then allow the approval to be confirmed, and withdraw an additional M tokens. In this paper, we evaluate 10 proposed mitigations for this issues and find that no solution is fully satisfactory. We then propose 2 new solutions that mitigate the attack, one of which fully fulfills constraints of the standard, and the second one shows a general limitation in addressing this issue from ERC20's approve method.
