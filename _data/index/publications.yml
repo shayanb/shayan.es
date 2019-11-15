@@ -8,7 +8,7 @@
   descr: "Blockchain is widely regarded as a breakthrough innovation that may have a profound impact on the economy and society, of a magnitude comparable to the effects of the introduction of the Internet itself. In essence, a blockchain is a decentralized peer-to-peer network with no central authority figure, which adds information to the distributed database by collectively validating the accuracy of data. Since each node of the network participates in the review and confirmation of the new information before being accepted, the need for a trustworthy intermediary is eliminated. However, as trust plays an essential role in affecting decisions when transacting with one another, it is important to understand which implications the decentralized nature of blockchain may have on individuals' sense of trust. In this contribution, we argue that the adoption of blockchain is not only a technological, but foremostly a psychological challenge, which crucially depends on the possibility of creating a trust management approach that matches the underlying distributed communication system. We first describe the decentralization technologies and possibilities they hold for the near future. Next, we discuss the psycho-social implications of the introduction of decentralized processes of trust, examining some potential scenarios, and outline a research agenda."
   year: 2019
   published: "Frontiers in Blockchain Journal - Human-Centric Constituents in Times of Decentralization"
-  paper: https://www.frontiersin.org/articles/10.3389/fbloc.2019.00020/abstract
+  paper: https://www.frontiersin.org/articles/10.3389/fbloc.2019.00020/full
 
 
 - name: "Resolving the Multiple Withdrawal Attack on ERC20 Tokens"
