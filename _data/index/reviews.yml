@@ -1,6 +1,12 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 
+
+- name: IWBOSE 3rd International Workshop on Emerging Trends in Software Engineering for Blockchain
+  link: http://www.agile-group.org/iwbose2020/
+  date: February 2020
+  job: Program Committee
+
 - name: Financial Cryptography and Data Security 2020
   link: http://fc20.ifca.ai/index.html
   date: February 2020
