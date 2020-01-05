@@ -1,14 +1,17 @@
 - name: "Breaking Smart Contracts"
-  location: DevCon IV, Osaka, Japan
-  website: https://devcon.org/agenda?talk=recQGjV0eEcxi3vvu
+  location: DevCon V, Osaka, Japan
+  website: https://devcon.org/
   flag: JP
   year: 2019
+  youtube: "https://www.youtube.com/watch?v=Zs-P5FSJvGQ"
 
 - name: "Transparent Dishonesty: Blockchain Front-Running Taxonomy"
-  location: DevCon IV, Osaka, Japan
+  location: DevCon V, Osaka, Japan
   website: https://devcon.org/agenda?talk=recV6QNQFSom5OKLS
   flag: JP
+  youtube: "https://www.youtube.com/watch?v=tVgto0GtA4I"
   year: 2019
+
 
 - name: "Security By Design and Smart Contract Audits"
   descr: "This session will cover why smart contracts are the new paradigm of software development. The idea of a serverless application running in a public ledger with open interface is new to most developers and hence common practices in traditional programming could easily result in security vulnerabilities in decentralized applications. The second half of the session will focus on smart contract code auditing and hands on code review on real smart contracts."
