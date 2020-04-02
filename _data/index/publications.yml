@@ -24,6 +24,7 @@
   year: 2019
   published: FC 2019 Financial Cryptography and Data Security, St. Kitts
   slides: https://github.com/MadibaGroup/2018-Dolunay/blob/master/frontrunning/Slides/frontrunning_WTSC_FC19.pdf
+  youtube: https://www.youtube.com/watch?v=mSmp_-z3UOg
   media:
       - name: ConsenSys Diligence
         link: https://medium.com/consensys-diligence/transparent-dishonesty-taxonomy-of-front-running-attacks-on-blockchain-317d8ff78068

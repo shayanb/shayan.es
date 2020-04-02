@@ -25,6 +25,9 @@
                 {% if publication.slides %}
                 <a href="{{ publication.slides }} " target="_blank"><i class="fa fa-area-chart"></i>Slides</a> &nbsp;
                 {% endif %}
+                {% if publication.youtube %}
+                <a href="{{ publication.youtube }} " target="_blank"><i class="fa fa-youtube"></i>Video</a> &nbsp;
+                {% endif %}
                 {% if publication.media %}
 
                 <br><br> <b>Press:</b> {% for item in publication.media %}
