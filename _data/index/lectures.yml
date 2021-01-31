@@ -11,6 +11,22 @@
   flag: CA
   year: 2020
 
+- name: "How Bitcoin Moves Value In & Out Of Closed Economies"
+  location: DeFi Discussions - Dystopia Labs
+  website: https://cbr.stanford.edu/sbc20/
+  flag: US
+  year: 2020
+  youtube: "https://www.youtube.com/watch?v=VaqIFiY-Ks0"
+
+- name: "Blockchain Through Philosophy"
+  descr: "The latest episode of Shir Ya Khat looks at the Blockchain technology with a radical philosophical narrative and discuss the changes it can bring in the way we exist in the coming years."
+  location: Shir Ya Khat Podcast
+  website: https://shiryakhat.net/2020/04/blockchain-through-philosophy.html
+  flag: US
+  year: 2020
+  youtube: "https://www.youtube.com/watch?v=OThCgcFshKw"
+
+
 - name: "Transparent Dishonesty: Blockchain Front-Running Taxonomy"
   location: Stanford Blockchain Conference, Palo Alto, USA
   website: https://cbr.stanford.edu/sbc20/
@@ -38,6 +54,7 @@
   location: "Blockchain Training Conference, Denver, USA"
   slides: "https://btc2019.sched.com/event/T4vf/security-by-design-and-smart-contract-audits"
   website: "https://blockchaintraining.org"
+  youtube: "https://www.youtube.com/watch?v=gfD1KBtLWZI"
   year: 2019
 
 - name: "Smashing Smart Contracts: Detecting and Exploiting Vulnerabilities in EVM bytecode"
