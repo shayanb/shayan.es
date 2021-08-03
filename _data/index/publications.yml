@@ -1,8 +1,9 @@
 - name: "Oracles from the Ground Truth to Market Manipulation"
   descr: One fundamental limitation of blockchain-based smart contracts is that they execute in a closed environment and only have access to the data and functionality that is either already on the blockchain or fed into the blockchain. Thus any interactions with the real world need to be mediated by a bridge service, which is called an oracle. As decentralized applications mature, oracles are playing an increasingly prominent role. With their evolution comes more attacks, necessitating a greater attention to the trust model of using oracles. In this SoK, we systemize the design alternatives for oracles, showcase attacks, and discuss attack mitigation strategies.
   year: 2021
-  published: "[Under Review]"
+  published: "ACM Advances in Financial Technologies"
   paper: https://arxiv.org/abs/2106.00667
+  youtube: https://www.youtube.com/watch?v=GNBxGr7sKoc
 
 - name: "Systemizing the Challenges of Auditing Blockchain-Based Assets"
   descr: Firms transacting using blockchain-based assets and liabilities have begun to enter capital markets in search for funding. Historically, firms have been able to raise substantial funding without an audited financial statement, however we project that in the future, audits will become a common requirement given increased competition among firms, increased scrutiny from regulators, past instances of fraud, and firms seeking an IPO. At the time of writing, accounting firms are hesitant to accept mandates from companies that hold a significant amount of cryptoassets primarily because the blockchain market introduces novel, technically sophisticated, and risky propositions that auditors are unequipped to handle. Through interviews with senior accounting professionals and structured brainstorming meetings with a multidisciplinary team of accountants and blockchain experts, we critically analyze the purported roadblocks to auditing blockchain firms and map them to traditional auditing practices, demonstrating that providing an audit opinion is challenging but not insurmountable.

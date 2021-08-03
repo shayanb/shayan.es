@@ -1,6 +1,11 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 
+- name: IEEE International Symposium on Technology and Society (ISTAS21)
+  link: https://attend.ieee.org/istas-2021/
+  date: August 2021
+  job: Sub Reviewer
+
 - name: SpringerOpen Financial Innovation (FIN)
   link: https://jfin-swufe.springeropen.com/
   date: December 2020
