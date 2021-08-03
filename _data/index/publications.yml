@@ -1,4 +1,4 @@
-- name: "Oracles from the Ground Truth to Market Manipulation"
+- name: "SoK: Oracles from the Ground Truth to Market Manipulation"
   descr: One fundamental limitation of blockchain-based smart contracts is that they execute in a closed environment and only have access to the data and functionality that is either already on the blockchain or fed into the blockchain. Thus any interactions with the real world need to be mediated by a bridge service, which is called an oracle. As decentralized applications mature, oracles are playing an increasingly prominent role. With their evolution comes more attacks, necessitating a greater attention to the trust model of using oracles. In this SoK, we systemize the design alternatives for oracles, showcase attacks, and discuss attack mitigation strategies.
   year: 2021
   published: "ACM Advances in Financial Technologies"
