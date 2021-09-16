@@ -5,9 +5,14 @@
 #   date: September 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
 #   job: Blockchain Researcher
 
+- name: Ether Capital
+  link: https://www.ethcap.co/
+  date: 2021 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Chief Technology Officer
+
 - name: ConsenSys Diligence
   link: https://diligence.consensys.net/
-  date: 2019 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: 2019 - 2021
   job: Security Engineer & Auditor
 
 - name: Bitaccess
