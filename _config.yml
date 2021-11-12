@@ -5,7 +5,7 @@
 #
 title: Shayan Eskandari
 email: me@shayan.es
-description: Shayan Eskandari Website
+description: Shayan Eskandari Website - Chief Technology Officer at Ether Capital ($ETHC).
 url: https://shayan.es # the base hostname & protocol for your site
 keywords: ["Shayan Eskandari","Shayan", "Eskandari" ,"Blockchain", "Security", "Bitcoin", "Ethereum", "Engineer", "Decentralization", "STS"]
 
@@ -35,7 +35,7 @@ kramdown:
 owner:
   name: Shayan Eskandari
   avatar: shayan.jpg
-  job: "Blockchain Security Engineer / PhD Candidate"
+  job: "CTO of Ether Capital / PhD Candidate"
   bio: "Based in Montreal, QC."
   email: me@shayan.es
   #disqus-shortname: renyuanzblog
