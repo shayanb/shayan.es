@@ -35,7 +35,7 @@ kramdown:
 owner:
   name: Shayan Eskandari
   avatar: shayan.jpg
-  job: "CTO of Ether Capital / PhD Candidate"
+  job: "CTO Ether Capital / PhD Candidate"
   bio: "Based in Montreal, QC."
   email: me@shayan.es
   #disqus-shortname: renyuanzblog
@@ -67,5 +67,5 @@ owner:
   flickr: #username
   codepen: #username
   telegram: #username
-  blog: http://blog.theshayan.com/
+  # blog: http://blog.theshayan.com/
   googlescholar: K9xYnSQAAAAJ
