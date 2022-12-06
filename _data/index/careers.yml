@@ -10,9 +10,14 @@
   date: 2021 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
   job: Chief Technology Officer
 
+- name: CryptoCurrency Certification Consortium (C4)
+  link: https://cryptoconsortium.org/certifications/cep/
+  date: 2020 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: CEP Committee Chair
+
 - name: ConsenSys Diligence
   link: https://diligence.consensys.net/
-  date: 2019 - 2021
+  date: 2018 - 2021
   job: Security Engineer & Auditor
 
 - name: Bitaccess
