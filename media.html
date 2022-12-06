@@ -1,0 +1,71 @@
+---
+layout: page
+title:  Press
+permalink: /media/
+excerpt: "A selected list of mentions and media articles about me and my work."
+---
+
+
+{% if page.excerpt %}
+<div class="post-description">
+  <p>
+    {{ page.excerpt }}
+    <br> For academic citations check out my <a href="https://scholar.google.ca/citations?user=K9xYnSQAAAAJ", target="_blank"><i class="fa fa-graduation-cap"> </i>Google Scholar </a> profile. 
+  </p>
+</div>
+{% endif %} 
+
+<div class="archive">
+  <div class="timeline" id="timeline">
+
+    {% for item in site.data.index.media %}
+
+    
+
+    {% capture year %}{{ item.year | date: '%Y' }}{% endcapture %}
+    {% capture prevyear %}{{ site.data.index.media[forloop.index].year | date: '%Y' }}{% endcapture %}
+    
+
+    {% if forloop.first %}
+    <div class="archive-title">
+      <h4 class="archive-year">{{ item.year | date: '%Y' }}</h4>
+    </div>
+    <ul>
+    {% endif %}
+
+
+    <li>
+      <div style="width:60px;float:left;">{{ item.year | date: "%b" }}</div> 
+      <a href="{{ item.url }}"><b>{{ item.media }}</b> - {{ item.title }}</a>
+    </li>
+
+
+    {% if forloop.last %}
+        </ul>
+    {% else %}
+
+    {% if year != prevyear %}
+    </ul>
+
+    <div class="archive-title">
+      <h4 class="archive-year">{{ prevyear}}</h4>
+    </div>    <ul>
+
+    <!-- <div class="archive-title">
+      <h4 class="archive-year">{{ item.year | date: '%Y' }}</h4>
+      year: {{ item.year | date: '%Y' }}
+      nyear: {{ item.year | date: '%Y' }}
+    </div>
+
+    <ul> -->
+
+    {% endif %}
+    {% endif %}
+
+
+
+      {% endfor %}
+
+  </div>
+
+</div>
