@@ -2,60 +2,66 @@
 layout: page
 title:  Audits
 permalink: /audits/
+excerpt: "A selected list of security reviews and public audit reports that I've worked on."
 ---
 
 
-<!-- <div class="archive">
-  <div class="timeline" id="timeline">
-    {% for career in site.data.index.education %}
-          <div class="archive-title bio"><div class="archive-year"><strong>{{ career.date }}</strong> <a href="{{ career.link }}" target="_blank">{{ career.name }}</a></div></div>
-    {% endfor %}
-  </div>
-</div> -->
-
-
-<!-- - title: Dynamic Tranches
-  project: Idle Finance
-  project-url: https://idle.finance/
-  url: https://consensys.net/diligence/audits/2021/06/idle-finance/
-  year: 2021 -->
-
+{% if page.excerpt %}
+<div class="post-description">
+  <p>
+    {{ page.excerpt }}
+  </p>
+</div>
+{% endif %} 
 
 <div class="archive">
   <div class="timeline" id="timeline">
 
-    {% assign audits = site.data.index.audits %}
+    {% for audit in site.data.index.audits %}
 
-    {% for audit in audits %}
-{% unless post.next %}    
-    <div class="archive-title">
-      <h4 class="archive-year">{{ audit.year | date: '%Y' }}</h4>
-    </div>
-
-    <ul>
-    {% else %}
-
-    {% capture plus_one %}{{ 0 | plus: 1 }}{% endcapture %}
+    
 
     {% capture year %}{{ audit.year | date: '%Y' }}{% endcapture %}
-    {% capture nyear %}{{ audits[plus_one].year | date: '%Y' }}{% endcapture %}
-    {% if year != nyear %}
+    {% capture prevyear %}{{ site.data.index.audits[forloop.index].year | date: '%Y' }}{% endcapture %}
+    
+
+    {% if forloop.first %}
+    <div class="archive-title">
+      <h4 class="archive-year">{{ audit.year | date: '%Y' }}</h4>
+    </div>
+    <ul>
+    {% endif %}
+
+
+    <li>
+      <div style="width:60px;float:left;">{{ audit.year | date: "%b" }}</div> 
+      <a href="{{ audit.project-url }}"><b>{{ audit.project }}</b></a> - <a href="{{ audit.url }}">{{ audit.title }}</a>
+    </li>
+
+
+    {% if forloop.last %}
+        </ul>
+    {% else %}
+
+    {% if year != prevyear %}
     </ul>
 
     <div class="archive-title">
-      <h4 class="archive-year">{{ audit.year | date: '%Y' }}</h4>
-      <h4 class="archive-year">TEST {{nyear}}</h4>
+      <h4 class="archive-year">{{ prevyear}}</h4>
+    </div>    <ul>
 
+    <!-- <div class="archive-title">
+      <h4 class="archive-year">{{ audit.year | date: '%Y' }}</h4>
+      year: {{ audit.year | date: '%Y' }}
+      nyear: {{ audit.year | date: '%Y' }}
     </div>
 
-    <ul>
+    <ul> -->
 
     {% endif %}
-    {% endunless %}
+    {% endif %}
 
-    <li>
-      <div style="width:60px;float:left;">{{ audit.year | date: "%b" }}</div> <a href="{{ audit.url }}">{{ audit.project }} - {{ audit.title }}</a></li>
-    </ul>
+
 
       {% endfor %}
 

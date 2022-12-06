@@ -1,3 +1,99 @@
+- title: .eth Permanent Registrar & Root
+  project: Ethereum Name Service (ENS)
+  project-url: https://ens.domains/
+  url: https://github.com/ConsenSys/ens-audit-report-2019-02
+  year: 2019/02
+
+
+- title: Daisy Subscription contracts
+  project: Token Foundry 
+  url: https://github.com/ConsenSys/daisy-audit-report-2019-03
+  year: 2019/03
+
+
+- title: CreditMint / Aztec Protocol
+  project: Aztec
+  project-url: https://aztec.network/i
+  url: https://github.com/ConsenSys/aztec-audit-report-2019-04
+  year: 2019/04
+
+
+- title: Payroll and Passive Pricefeed (PPF)
+  project: Aragon
+  project-url: https://aragon.org
+  url: https://github.com/ConsenSys/aragon-payroll-audit-report-2019-06
+  year: 2019/06
+
+
+- title: Trustless Incentivized Remote Node Network (INCUBED).
+  project: Slock.it
+  project-url: https://Slock.it
+  url: https://consensys.net/diligence/audits/2019/09/slock.it-incubed3/
+  year: 2019/09
+
+
+- title: Moloch DAO v2 (The LAO)
+  project: The LAO
+  project-url: https://www.thelao.io/
+  url: https://consensys.net/diligence/audits/2020/01/the-lao/
+  year: 2020/1
+
+
+- title:  Skale Network Delegations & Token (ERC777)
+  project: Skale
+  project-url: https://skale.space/
+  url: https://consensys.net/diligence/audits/2020/01/skale-token/
+  year: 2020/1
+
+- title: PoCo (Proof of Contribution) protocol
+  project: iExec
+  project-url: https://iex.ec/
+  url: https://consensys.net/diligence/audits/2020/03/iexec-poco/
+  year: 2020/3
+
+- title: rICO - Reversible Initial Coin Offering
+  project: Lukso
+  project-url: https://lukso.network/
+  url: https://consensys.net/diligence/audits/2020/04/rico/
+  year: 2020/4
+
+
+- title: Smart contract (Fairswap & Oracle) audit
+  project: Lien Finance
+  project-url: https://lien.finance/
+  url: https://consensys.net/diligence/audits/2020/05/lien-protocol/
+  year: 2020/05
+
+- title: Balancer-core Architecture & Portfolio Manager
+  project: Balancer
+  project-url: https://balancer.fi/
+  url: https://consensys.net/diligence/audits/2020/05/balancer-finance/
+  year: 2020/05
+
+- title: Amp Token and Collateral Manager
+  project: Flexa
+  project-url: https://flexa.network/
+  url: https://consensys.net/diligence/audits/2020/06/amp/
+  year: 2020/06
+
+- title: Ethereum Beacon Chain Client
+  project: Nimbus
+  project-url: https://nimbus.guide/
+  url: https://github.com/status-im/nimbus-eth2/labels/nbc-audit-2020-0%20%3Apassport_control%3A
+  year: 2020/07
+  
+- title: Skale Network Architecture
+  project: Skale
+  project-url: https://skale.space/
+  url: https://consensys.net/diligence/audits/2020/10/skale-network/
+  year: 2020/10
+
+- title: Wallets, and payment network
+  project: Pillar
+  project-url: https://www.pillar.fi/
+  url: https://consensys.net/diligence/audits/private/j6eeg3t1ipskpf/
+  year: 2020/11
+
 
 - title: eRLC KYC-enabled ERC-20 (ERC-677) tokens
   project: iExec
@@ -30,14 +126,11 @@
   url: https://consensys.net/diligence/audits/2021/04/gitcoin-token-distribution/
   year: 2021/4
 
-
-
 - title: BTCPlus and Plus assets framework
   project: NUTS Finance
   project-url: https://www.nuts.finance/
   url: https://consensys.net/diligence/audits/2021/05/nuts-finance-btcplus/
   year: 2021/5
-
 
 - title: Dynamic Tranches
   project: Idle Finance
@@ -45,75 +138,10 @@
   url: https://consensys.net/diligence/audits/2021/06/idle-finance/
   year: 2021/6
 
-- title:  Skale Network Delegations & Token (ERC777)
-  project: Skale
-  project-url: https://skale.space/
-  url: https://consensys.net/diligence/audits/2020/01/skale-token/
-  year: 2020/1
 
-- title: PoCo (Proof of Contribution) protocol
-  project: iExec
-  project-url: https://iex.ec/
-  url: https://consensys.net/diligence/audits/2020/03/iexec-poco/
-  year: 2020/3
+- title: Liquid Staking Architecture
+  project: pStake Finance
+  project-url: https://pstake.finance/
+  url: https://consensys.net/diligence/audits/2021/08/pstake-finance/
+  year: 2021/08
 
-- title: rICO - Reversible Initial Coin Offering
-  project: Lukso
-  project-url: https://lukso.network/
-  url: https://consensys.net/diligence/audits/2020/04/rico/
-  year: 2020/4
-
-
-- title: Skale Network Architecture
-  project: Skale
-  project-url: https://skale.space/
-  url: https://consensys.net/diligence/audits/2020/10/skale-network/
-  year: 2020/10
-
-
-- title: Smart contract (Fairswap & Oracle) audit
-  project: Lien Finance
-  project-url: https://lien.finance/
-  url: https://consensys.net/diligence/audits/2020/05/lien-protocol/
-  year: 2020/05
-
-
-- title: Amp Token and Collateral Manager
-  project: Flexa
-  project-url: https://flexa.network/
-  url: https://consensys.net/diligence/audits/2020/06/amp/
-  year: 2020/06
-
-
-- title: Balancer-core Architecture & Portfolio Manager
-  project: Balancer
-  project-url: https://balancer.fi/
-  url: https://consensys.net/diligence/audits/2020/05/balancer-finance/
-  year: 2020/05
-
-
-- title: Daisy Subscription contracts
-  project: Token Foundry 
-  url: https://github.com/ConsenSys/daisy-audit-report-2019-03
-  year: 2019/03
-
-
-- title: Payroll and Passive Pricefeed (PPF)
-  project: Aragon
-  project-url: https://aragon.org
-  url: https://github.com/ConsenSys/aragon-payroll-audit-report-2019-06
-  year: 2019/06
-
-
-- title: .eth Permanent Registrar & Root
-  project: Ethereum Name Service (ENS)
-  project-url: https://ens.domains/
-  url: https://github.com/ConsenSys/ens-audit-report-2019-02
-  year: 2019/02
-
-
-- title: CreditMint / Aztec Protocol
-  project: Aztec
-  project-url: https://aztec.network/i
-  url: https://github.com/ConsenSys/aztec-audit-report-2019-04
-  year: 2019/04
