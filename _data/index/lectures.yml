@@ -1,3 +1,12 @@
+- name: "In real Life: Web3 and Sanctions"
+  descr: "When we discuss Web3 and public goods, we don't consider geographical borders or language as a pressing issue, however, IRL many of the activists in the community have been banned from using what we take for granted as public good or protocols in web3, just because of the country they were born in or the language they speak. We want to shed some light on these incidents and raise awareness."
+  location: Autonomous Ecologies
+  website: https://www.autonomousecologies.xyz/
+  flag: US
+  year: 2023
+  youtube: "https://www.youtube.com/watch?v=G2_MJtbSe1s"
+
+
 - name: "Don't Trust, Verify What's At Stake"
   descr: "Transparency has never been more important to those of us who have been in the space for a while and others who are just getting started. As the first public company to stake a large sum of ether (36,000 ETH), we learned firsthand about the lack of sufficient data pipelines that made it difficult to meet certain auditing requirements. That's when we decided to build our staking dashboard — a custom solution that allows us to track our staking rewards, gives us direct insight into our validators performance and aggregates data into one easy-to-use platform saving us both time and money."
   location: EthDenver
