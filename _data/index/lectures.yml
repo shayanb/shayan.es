@@ -1,3 +1,12 @@
+- name: "IranUnchained -- NGO meets DAO"
+  descr: "Woman, Life, Freedom. A cultural revolution is underway in Iran. We look at how Ethereum and web3 tools can help (and are already helping) Iranians fighting for freedom against censorship, surveillance, and oppression. We will also discuss how sanctions over-compliance prevents legal aid from reaching Iran and present our newly formed IranUnchained NGO (built on Moloch v3) as a potential solution."
+  location: ETHPrague
+  website: https://ethprague.com/
+  flag: CZ
+  year: 2023
+  youtube: "https://www.youtube.com/watch?v=5whw_1tbQUY"
+
+
 - name: "In real Life: Web3 and Sanctions"
   descr: "When we discuss Web3 and public goods, we don't consider geographical borders or language as a pressing issue, however, IRL many of the activists in the community have been banned from using what we take for granted as public good or protocols in web3, just because of the country they were born in or the language they speak. We want to shed some light on these incidents and raise awareness."
   location: Autonomous Ecologies
