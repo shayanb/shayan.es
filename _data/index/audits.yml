@@ -145,3 +145,8 @@
   url: https://consensys.net/diligence/audits/2021/08/pstake-finance/
   year: 2021/08
 
+- title: xTokens - xERC20
+  project: Connext & Wonderland
+  project-url: https://www.connext.network/xerc20
+  url: https://github.com/defi-wonderland/xERC20/blob/3cd480d959a2072151adf70c1360fb351a0677e5/audits/Connext_xTokens_Audit_-_Creed_-_v0.3.pdf
+  year: 2023/08

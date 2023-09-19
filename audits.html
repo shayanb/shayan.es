@@ -35,9 +35,9 @@ excerpt: "A selected list of security reviews and public audit reports that I've
 
     <li>
       <div style="width:60px;float:left;">{{ audit.year | date: "%b" }}</div> 
-      <a href="{{ audit.project-url }}"><b>{{ audit.project }}</b></a> - <a href="{{ audit.url }}">{{ audit.title }}</a>
+      <a href="{{ audit.project-url }}"><b>{{ audit.project }}</b></a> ➫ <a href="{{ audit.url }}">{{ audit.title }}</a>
     </li>
-
+ 
 
     {% if forloop.last %}
         </ul>

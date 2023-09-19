@@ -3,3 +3,7 @@ _site
 _drafts
 .ruby-version
 .DS_Store
+file_list.txt
+prompt
+memory
+workspace
