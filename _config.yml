@@ -5,7 +5,7 @@
 #
 title: Shayan Eskandari
 email: me@shayan.es
-description: Shayan Eskandari Website - CTFO.
+description: Shayan Eskandari Website - CTFO / Head of Security.
 url: https://shayan.es # the base hostname & protocol for your site
 keywords: ["Shayan Eskandari","Shayan", "Eskandari" ,"Blockchain", "Security", "Bitcoin", "Ethereum", "Engineer", "Decentralization", "STS"]
 
@@ -35,7 +35,7 @@ kramdown:
 owner:
   name: Shayan Eskandari
   avatar: shayan.jpeg
-  job: "PhD Candidate / CTFO"
+  job: "PhD Candidate / Head of Security"
   bio: "Based in Toronto 🇨🇦"
   email: me@shayan.es
   #disqus-shortname: renyuanzblog

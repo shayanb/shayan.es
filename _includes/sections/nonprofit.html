@@ -1,0 +1,9 @@
+<h1><span data-i18n="skills.my_skills">Nonprofit</span></h1>
+
+<div class="archive">
+  <div class="timeline" id="timeline">
+    {% for nonprofit in site.data.index.nonprofit %}
+          <div class="archive-title"><div class="archive-year"><strong>{{ nonprofit.date }}</strong> {{ nonprofit.job }} @ <a href="{{ nonprofit.link }}" target="_blank">{{ nonprofit.name }}</a></div></div>
+    {% endfor %}
+  </div>
+</div>
