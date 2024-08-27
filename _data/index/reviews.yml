@@ -1,6 +1,16 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 
+- name: IEEE Transactions on Information Forensics and Security
+  link: https://signalprocessingsociety.org/publications-resources/ieee-transactions-information-forensics-and-security
+  date: August 2024
+  job: Reviewer
+
+- name: Blockchain - Research and Applications Journal
+  link: https://www.sciencedirect.com/journal/blockchain-research-and-applications
+  date: May 2024
+  job:  Reviewer
+
 - name: IEEE International Symposium on Technology and Society (ISTAS21)
   link: https://attend.ieee.org/istas-2021/
   date: August 2021
