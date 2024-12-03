@@ -1,3 +1,12 @@
+- name: "Oracle Extractable Value: Unlocking New Revenue Models"
+  descr: "Panel Moderator: Oracle Extractable Value (OEV): Unlocking New Revenue Models and Sustainability for Oracles & Dapps. Discussing Oracle Extractable Value (OEV) and its role in the broader narrative of Maximal Extractable Value (MEV), Panelists: Hart Lambur (UMA), Tesa Ho (Flashbots), Ugur Mersinlioglu (API3), Ariah Klages-Mundt (Gyroscope)"
+  location: Blockchain Oracle Summit
+  website: https://blockchainoraclesummit.io/
+  flag: TH
+  year: 2024
+  youtube: "https://www.youtube.com/watch?v=wI6zxfUxMI4"
+
+
 - name: "IranUnchained -- NGO meets DAO"
   descr: "Woman, Life, Freedom. A cultural revolution is underway in Iran. We look at how Ethereum and web3 tools can help (and are already helping) Iranians fighting for freedom against censorship, surveillance, and oppression. We will also discuss how sanctions over-compliance prevents legal aid from reaching Iran and present our newly formed IranUnchained NGO (built on Moloch v3) as a potential solution."
   location: ETHPrague
