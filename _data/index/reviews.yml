@@ -1,6 +1,11 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 
+- name: Frontiers in Blockchain - Blockchain Security and Privacy
+  link: https://www.frontiersin.org/journals/blockchain/sections/blockchain-security-and-privacy
+  date: March 2025
+  job:  Reviewer
+
 - name: IEEE Transactions on Information Forensics and Security
   link: https://signalprocessingsociety.org/publications-resources/ieee-transactions-information-forensics-and-security
   date: August 2024

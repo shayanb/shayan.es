@@ -150,3 +150,15 @@
   project-url: https://www.connext.network/xerc20
   url: https://github.com/defi-wonderland/xERC20/blob/3cd480d959a2072151adf70c1360fb351a0677e5/audits/Connext_xTokens_Audit_-_Creed_-_v0.3.pdf
   year: 2023/08
+
+- title: Kernel Module
+  project: OneBalance
+  project-url: https://www.onebalance.io/
+  url: 
+  year: 2024/08
+
+- title: Unifi AVS
+  project: Puffer Finance
+  project-url: https://www.puffer.fi/unifi
+  url: https://github.com/PufferFinance/UniFi/blob/b8955768fa6abc399fd0adeba3fc2c71ec99467e/docs/reports/Creed_PufferUnifi_Final_Sep2024.pdf
+  year: 2024/09
