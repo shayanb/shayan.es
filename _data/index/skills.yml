@@ -1,6 +1,32 @@
 # skills section data
 
+# skills section data
 label: Ability
-id : cs
-aspects: Audit, Motivation, Bitcoin, Blockchain, BS, Security, Python, Solidity, Lecture, Cryptography, NodeJS, Ethereum
-percentage: 65, 90, 85, 85, 8, 70, 60, 70, 80, 65, 45, 88
+id: cs
+skills:
+  - name: Audit
+    score: 88
+  - name: Motivation
+    score: 90
+  - name: Bitcoin
+    score: 75
+  - name: Blockchain
+    score: 95
+  - name: BS
+    score: 7
+  - name: Security
+    score: 95
+  - name: Python
+    score: 60
+  - name: Solidity
+    score: 80
+  - name: Lecture
+    score: 85
+  - name: Cryptography
+    score: 65
+  - name: Ethereum
+    score: 92
+  - name: Staking
+    score: 88
+  - name: AI
+    score: 78
