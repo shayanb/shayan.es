@@ -9,7 +9,12 @@
     </li>
     <li><a href="{{ site.url }}/audits"><i class="fa fa-shield"></i> Security Audits</a>
       <ul>
-        <li style="list-style-type: '↪︎ '"> <a href="{{ site.data.index.audits[-1].url }}" target="_blank">{{ site.data.index.audits[-1].title }} - {{ site.data.index.audits[-1].year }}</a></li>
+{% assign auditUrl = site.data.index.audits[-1].url %}
+<li style="list-style-type: '↪︎ '">
+  <a href="{% if auditUrl and auditUrl != '' %}{{ auditUrl }}{% else %}{{ site.url }}/audits{% endif %}" target="_blank">
+    {{ site.data.index.audits[-1].project }} - {{ site.data.index.audits[-1].title }} - {{ site.data.index.audits[-1].year }}
+  </a>
+</li>
       </ul>
     </li>
     <li><a href="#lectures"><i class="fa fa-graduation-cap"></i> Lectures & Talks</a>
