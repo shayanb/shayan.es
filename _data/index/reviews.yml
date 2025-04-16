@@ -1,5 +1,9 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: Frontiers in Blockchain
+  link: https://www.frontiersin.org/journals/blockchain
+  date: April 2025
+  job:  Reviewer
 
 - name: Frontiers in Blockchain - Blockchain Security and Privacy
   link: https://www.frontiersin.org/journals/blockchain/sections/blockchain-security-and-privacy
