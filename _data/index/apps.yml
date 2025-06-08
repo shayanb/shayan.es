@@ -10,6 +10,9 @@
   year: 2024
   featured: true
   tags: ["Image Processing", "Web Tools", "Design"]
+  screenshots:
+    - "/img/apps/padsnap-screenshot-1.png"
+    - "/img/apps/padsnap-screenshot-2.png"
 
 - name: "ethduties"
   platform: "Web"
@@ -20,6 +23,12 @@
   year: 2023
   featured: true
   tags: ["Ethereum", "Blockchain", "Staking"]
+  screenshots:
+    - "/img/apps/ethduties-screenshot-1.png"
+    - "/img/apps/ethduties-screenshot-2.png"
+    - "/img/apps/ethduties-screenshot-3.png"
+    - "/img/apps/ethduties-screenshot-4.png"
+    - "/img/apps/ethduties-screenshot-5.png"
 
 - name: "EtherTrip"
   platform: "Web"
@@ -31,6 +40,10 @@
   year: 2022
   featured: true
   tags: ["Ethereum", "Visualization", "Art"]
+  screenshots:
+    - "/img/apps/ethertrip-screenshot-1.png"
+    - "/img/apps/ethertrip-screenshot-2.png"
+    - "/img/apps/ethertrip-screenshot-3.png"
 
 - name: "Ethereum Validator Calculator"
   platform: "Web"

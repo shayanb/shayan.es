@@ -520,4 +520,56 @@
       }
     }
   }
+
+  // Publication controls layout
+  .publication-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .publication-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      .pub-link {
+        padding: 0.25rem 0.75rem;
+        background: $gray-100;
+        color: $gray-700;
+        text-decoration: none;
+        border-radius: $border-radius;
+        font-size: 0.75rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid $gray-200;
+
+        &:hover {
+          background: $secondary;
+          color: $white;
+          transform: translateY(-1px);
+          border-color: $secondary;
+        }
+
+        i {
+          margin-right: 0.25rem;
+        }
+      }
+    }
+  }
+
+  // Mobile layout adjustments
+  @media (max-width: $small-screen) {
+    .publication-controls {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .publication-links {
+        align-self: flex-end;
+        justify-content: flex-end;
+      }
+    }
+  }
 }

@@ -92,7 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
       startYear: "{{ project.start_year }}",
       endYear: "{{ project.end_year }}",
       status: "{{ project.status }}",
-      media: {{ project.media | jsonify }}
+      media: {{ project.media | jsonify }},
+      screenshots: [{% if project.screenshots %}{% for screenshot in project.screenshots %}"{{ screenshot }}"{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}]
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
@@ -111,6 +112,34 @@ document.addEventListener('DOMContentLoaded', function() {
     let statusHtml = '';
     // Remove status display from modal
 
+    let screenshotsHtml = '';
+    if (project.screenshots && project.screenshots.length > 0) {
+      screenshotsHtml = `
+        <div class="screenshot-gallery">
+          <div class="screenshot-container">
+            <img src="${project.screenshots[0]}" alt="${project.name} screenshot" class="screenshot-main" id="main-project-screenshot">
+            ${project.screenshots.length > 1 ? `
+              <button class="screenshot-nav prev" onclick="changeProjectScreenshot(-1)">
+                <i class="fa fa-chevron-left"></i>
+              </button>
+              <button class="screenshot-nav next" onclick="changeProjectScreenshot(1)">
+                <i class="fa fa-chevron-right"></i>
+              </button>
+            ` : ''}
+          </div>
+          ${project.screenshots.length > 1 ? `
+            <div class="screenshot-thumbnails">
+              ${project.screenshots.map((screenshot, index) => 
+                `<img src="${screenshot}" alt="${project.name} screenshot ${index + 1}" 
+                 class="screenshot-thumb ${index === 0 ? 'active' : ''}" 
+                 onclick="selectProjectScreenshot(${index})">`
+              ).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
     let mediaHtml = '';
     if (project.media && project.media.length > 0) {
       mediaHtml = `
@@ -124,26 +153,68 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     modalBody.innerHTML = `
-      <div class="modal-header">
-        <h2>${project.name}</h2>
-        <div class="modal-meta">
-          ${timelineHtml}
-          ${statusHtml}
+      <div class="modal-layout">
+        <div class="modal-left">
+          <div class="modal-header">
+            <h2>${project.name}</h2>
+            <div class="modal-meta">
+              ${timelineHtml}
+              ${statusHtml}
+            </div>
+          </div>
+          
+          <p class="modal-description">${project.description}</p>
+          
+          <div class="modal-links">
+            ${project.github ? `<a href="${project.github}" target="_blank" class="btn btn-outline"><i class="fa fa-github"></i> GitHub</a>` : ''}
+            ${project.website ? `<a href="${project.website}" target="_blank" class="btn btn-primary"><i class="fa fa-globe"></i> Website</a>` : ''}
+          </div>
+          
+          ${mediaHtml}
+        </div>
+        
+        <div class="modal-right">
+          ${screenshotsHtml}
         </div>
       </div>
-      
-      <p class="modal-description">${project.description}</p>
-      
-      <div class="modal-links">
-        ${project.github ? `<a href="${project.github}" target="_blank" class="btn btn-outline"><i class="fa fa-github"></i> GitHub</a>` : ''}
-        ${project.website ? `<a href="${project.website}" target="_blank" class="btn btn-primary"><i class="fa fa-globe"></i> Website</a>` : ''}
-      </div>
-      
-      ${mediaHtml}
     `;
 
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Initialize screenshot navigation
+    window.currentProject = project;
+    window.currentProjectScreenshotIndex = 0;
+  }
+
+  // Project screenshot navigation functions
+  window.changeProjectScreenshot = function(direction) {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    const screenshots = window.currentProject.screenshots;
+    window.currentProjectScreenshotIndex = (window.currentProjectScreenshotIndex + direction + screenshots.length) % screenshots.length;
+    
+    updateProjectScreenshotDisplay();
+  };
+
+  window.selectProjectScreenshot = function(index) {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    window.currentProjectScreenshotIndex = index;
+    updateProjectScreenshotDisplay();
+  };
+
+  function updateProjectScreenshotDisplay() {
+    const mainScreenshot = document.getElementById('main-project-screenshot');
+    const thumbnails = document.querySelectorAll('.screenshot-thumb');
+    
+    if (mainScreenshot && window.currentProject.screenshots[window.currentProjectScreenshotIndex]) {
+      mainScreenshot.src = window.currentProject.screenshots[window.currentProjectScreenshotIndex];
+    }
+    
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === window.currentProjectScreenshotIndex);
+    });
   }
 
   // Event listeners

@@ -67,7 +67,7 @@
     top: 70px;
     flex-direction: column;
     background-color: $white;
-    width: 250px;
+    width: 200px;
     text-align: left;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     box-shadow: $shadow-lg;
@@ -86,7 +86,8 @@
     }
     
     @media (max-width: $medium-screen) {
-      width: calc(100vw - 4rem);
+      width: calc(100vw - 6rem);
+      max-width: 280px;
       text-align: center;
       border-radius: 8px;
       right: 2rem;

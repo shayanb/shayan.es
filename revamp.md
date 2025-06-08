@@ -618,3 +618,25 @@ for the publications page on mobile, move pub-links to be on the same line (alig
 
 make the menu that opens up smaller, it should slide down as it does now but smaller width under the hamburger menu. 
 
+--------------------------------
+
+inside the app modals (modal-body):
+- move the logo to the left side of the app name (modal-text-content)
+- make the screenshot-gallery to show one screenshot at a time with next prev floating icons
+
+
+for podcasts, as the link is moved to the title, remove the external link button (fa fa-external-link). also add the support for spotify link if exists in the yaml file (add one sample)
+
+the dark mode toggle (theme-toggle, toggle-track) the moon goes slightly out of the toggle in desktop view. 
+
+--------------------
+
+add the data from reviews.yml to underneath the publications. change the page title to Academia everywhere
+
+add the data from nonprofit.yml to the career page
+
+for the app modals (and projects): change the screenshot-nav prev to be floating on the images themselves, they should visually look subtle and nice. make the screenshots container to have a fixed size (not change the size due to the image size differences)
+
+on apps page, in mobile view, the app title is dropped to the next line (below the icon), the icon and the app name should always be in the same row. also center the app-actions
+
+there are tons of warnings and some errors on jekyll, try to fix as many as possible. 

@@ -147,17 +147,11 @@ document.addEventListener('DOMContentLoaded', function() {
               <button class="screenshot-nav next" onclick="changeScreenshot(1)">
                 <i class="fa fa-chevron-right"></i>
               </button>
+              <div class="screenshot-indicator">
+                <span class="current-screenshot">${1}</span> / <span class="total-screenshots">${app.screenshots.length}</span>
+              </div>
             ` : ''}
           </div>
-          ${app.screenshots.length > 1 ? `
-            <div class="screenshot-thumbnails">
-              ${app.screenshots.map((screenshot, index) => 
-                `<img src="${screenshot}" alt="${app.name} screenshot ${index + 1}" 
-                 class="screenshot-thumb ${index === 0 ? 'active' : ''}" 
-                 onclick="selectScreenshot(${index})">`
-              ).join('')}
-            </div>
-          ` : ''}
         </div>
       `;
     }
@@ -166,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="modal-layout">
         <div class="modal-left">
           <div class="modal-header">
+            ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
             <div class="modal-text-content">
               <h2>${app.name}</h2>
               <p class="modal-platform">${app.platform} • ${app.year}</p>
@@ -178,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         
         <div class="modal-right">
-          ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
           ${screenshotsHtml}
         </div>
       </div>
@@ -211,15 +205,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateScreenshotDisplay() {
     const mainScreenshot = document.getElementById('main-screenshot');
-    const thumbnails = document.querySelectorAll('.screenshot-thumb');
+    const currentIndicator = document.querySelector('.current-screenshot');
     
     if (mainScreenshot && window.currentApp.screenshots[window.currentScreenshotIndex]) {
       mainScreenshot.src = window.currentApp.screenshots[window.currentScreenshotIndex];
     }
     
-    thumbnails.forEach((thumb, index) => {
-      thumb.classList.toggle('active', index === window.currentScreenshotIndex);
-    });
+    if (currentIndicator) {
+      currentIndicator.textContent = window.currentScreenshotIndex + 1;
+    }
   }
 
   // Event listeners

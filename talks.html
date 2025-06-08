@@ -166,7 +166,13 @@ permalink: /talks/
           {% endif %}
           
           <div class="hackathon-header">
-            <h3>{{ podcast.title }}</h3>
+            <h3>
+              {% if podcast.channel_url %}
+                <a href="{{ podcast.channel_url }}" target="_blank" class="podcast-title-link">{{ podcast.title }}</a>
+              {% else %}
+                {{ podcast.title }}
+              {% endif %}
+            </h3>
             <span class="hackathon-role role-podcast">{% if podcast.episode_number %}{{ podcast.episode_number }}{% else %}Podcast{% endif %}</span>
           </div>
           
@@ -189,9 +195,9 @@ permalink: /talks/
               <i class="fa fa-youtube"></i> Watch
             </a>
             {% endif %}
-            {% if podcast.channel_url %}
-            <a href="{{ podcast.channel_url }}" target="_blank" class="pub-link">
-              <i class="fa fa-external-link"></i> Episode
+            {% if podcast.spotify_link %}
+            <a href="{{ podcast.spotify_link }}" target="_blank" class="pub-link spotify">
+              <i class="fa fa-spotify"></i> Listen
             </a>
             {% endif %}
           </div>
@@ -580,13 +586,25 @@ permalink: /talks/
 }
 
 .podcast-actions-custom .pub-link.youtube {
+  background: #ff0000;
+  color: white;
   border-color: #ff0000;
-  color: #ff0000;
 }
 
 .podcast-actions-custom .pub-link.youtube:hover {
-  background: #ff0000;
+  background: transparent;
+  color: #ff0000;
+}
+
+.podcast-actions-custom .pub-link.spotify {
+  background: #1db954;
   color: white;
+  border-color: #1db954;
+}
+
+.podcast-actions-custom .pub-link.spotify:hover {
+  background: transparent;
+  color: #1db954;
 }
 
 .podcasts-grid {
@@ -987,6 +1005,17 @@ permalink: /talks/
 .role-podcast {
   background: #9c27b0;
   color: white;
+}
+
+.podcast-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.podcast-title-link:hover {
+  color: #ff6b35;
+  text-decoration: underline;
 }
 
 .podcast-actions-custom {
