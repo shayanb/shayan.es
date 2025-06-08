@@ -6,13 +6,12 @@ excerpt: "A selected list of security reviews and public audit reports that I've
 ---
 
 
-{% if page.excerpt %}
-<div class="post-description">
-  <p>
-    {{ page.excerpt }}
-  </p>
-</div>
-{% endif %} 
+<div class="page-header">
+  <h1>Security Audits</h1>
+  {% if page.excerpt %}
+  <p class="page-subtitle">{{ page.excerpt }}</p>
+  {% endif %}
+</div> 
 
 <div class="archive">
   <div class="timeline" id="timeline">

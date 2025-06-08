@@ -562,3 +562,49 @@ Mobile:
 
 Idea for page navigation improvement:
 - can jump-to-top be in a way that on pages like talks that have many sections, it shows a list of sections (none intrusive and subtle) that user can see the other sections in the page and can click/tap to go to that part of the page? or maybe some otherway of adding such functionality to that page. 
+
+
+=====================
+
+why did you move jump-to-top visible to the right side? move it back to the left where it was.
+
+- for the talk page, make the icon to be the menu button (sectionsIcon) rather than move up button 
+  
+
+Menu on mobile: the dark mode toggle doesnt seem to be clickable. 
+show the dark mode toggle only inside the hamburger menu (remove the second version on the navbar)
+make the button more visually appealing (better sun/moon and colors)
+
+
+publication page: the expand abstarct button is not present on desktop but the text (abstract-content) is shortened. show the "see more" expandable option
+ - on mobile: looks  good as is now, but you can make changes to be consistent with desktop version if needed.
+ - on desktop: only show at least 5 lines of abstract (with expand option)
+
+
+------------------------------------
+
+on talk page, bug: after clicking on jump-to-top visible (sectionsIcon), and closing, the icon turns back to the jump-to-top icon rather than the sectionsIcon. (only be sectionIcon on talks page)
+
+add some spacing between theme-label and theme-toggle in the hamburger menu. 
+
+make nav-container freeze on the page when scrolling down. 
+
+in publications add the link of the website to the conference name (published in: ).
+
+make the stats-grid and stat-card (in talks page), and highlights-grid and highlight-card (from the Career page) to behave similarly in dark mode. (white icons/text with orange highlighting on hover for dark mode). 
+
+
+------------------------
+
+something seemed to broke on the last session, the code changes are half done (jekyll is failing to run)
+
+it seems that you were in the middle of one of these tasks:
+
+in publications add the link of the website to the conference name (published in: ).
+
+make the stats-grid and stat-card (in talks page), and highlights-grid and highlight-card (from the Career page) to behave similarly in dark mode. (white icons/text with orange highlighting on hover for dark mode). 
+
+added app screenshots under images apps, implement the screenshot viewer in the app modal cards properly. make sure the project modals also support similar behaviour, i will add the screenshots later. 
+The modals on mobile are slightly too big (fits the full screen), make them to be smaller to visually look better. 
+
+

@@ -2,56 +2,113 @@
 
 @use "sass:color";
 
-// Theme Toggle Button
-.theme-toggle {
-  background: none;
-  border: none;
-  padding: 0.5rem;
-  border-radius: $border-radius;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  width: 40px;
-  height: 40px;
+// Enhanced theme toggle styling for mobile hamburger menu
+.theme-toggle-container {
+  padding: 1rem 0 !important;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0.5rem;
+}
+
+.theme-toggle-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 1.5rem;
+}
 
-  &:hover {
-    background: var(--surface-color);
-    transform: scale(1.1);
+.theme-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  
+  .toggle-track {
+    width: 100%;
+    height: 100%;
+    background: #e5e7eb;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
-
-  .theme-icon-dark,
-  .theme-icon-light {
+  
+  .toggle-thumb {
     position: absolute;
-    font-size: 1.125rem;
-    transition: all 0.3s ease;
-    color: var(--text-color);
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
-  .theme-icon-light {
-    opacity: 0;
-    transform: rotate(180deg);
-  }
-
+  
+  .theme-icon-light,
   .theme-icon-dark {
+    position: absolute;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-icon-light {
+    color: #fbbf24;
     opacity: 1;
-    transform: rotate(0deg);
+  }
+  
+  .theme-icon-dark {
+    color: #6b7280;
+    opacity: 0;
+  }
+  
+  &:hover .toggle-track {
+    background: #d1d5db;
   }
 }
 
-// Dark theme icon states
+// Dark mode theme toggle
 [data-theme="dark"] {
+  .theme-toggle-container {
+    border-top-color: var(--border-color);
+  }
+  
+  .theme-label {
+    color: var(--text-color);
+  }
+  
   .theme-toggle {
-    .theme-icon-light {
-      opacity: 1;
-      transform: rotate(0deg);
+    .toggle-track {
+      background: #374151;
     }
-
-    .theme-icon-dark {
+    
+    .toggle-thumb {
+      transform: translateX(28px);
+      background: #1f2937;
+    }
+    
+    .theme-icon-light {
       opacity: 0;
-      transform: rotate(-180deg);
+    }
+    
+    .theme-icon-dark {
+      opacity: 1;
+      color: #fbbf24;
+    }
+    
+    &:hover .toggle-track {
+      background: #4b5563;
     }
   }
 }
@@ -305,6 +362,11 @@ input, textarea, select {
 
   .nav-link:hover {
     background: var(--card-color) !important;
+  }
+
+  // Theme toggle in navigation dark mode
+  .nav-menu-hamburger .theme-toggle {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .nav-brand,
@@ -864,45 +926,161 @@ input, textarea, select {
   }
 }
 
-// Jump to Top Button
-.jump-to-top {
+// Enhanced Navigation Widget with Section Navigation
+.navigation-widget {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
+  z-index: $z-index-fixed;
+}
+
+.nav-sections {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 0;
+  min-width: 200px;
+  max-width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  
+  &:not([style*="display: none"]) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-section-link {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: #374151;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background: #f3f4f6;
+    color: #ff6b35;
+    
+    i {
+      color: #ff6b35;
+    }
+  }
+  
+  i {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+  }
+}
+
+.jump-to-top {
   width: 50px;
   height: 50px;
   background: #ff6b35;
   border: none;
   border-radius: 50%;
   color: white;
-  font-size: 1.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-  z-index: $z-index-fixed;
   opacity: 0;
   transform: translateY(20px);
+  position: relative;
   
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
   
+  &.sections-mode {
+    background: #1e3a5f;
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+    
+    &:hover {
+      background: #152a42;
+      box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
+    }
+  }
+  
   &:hover {
     background: #e55a2b;
     transform: translateY(-3px) !important;
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-    animation: none !important;
-    filter: none !important;
-    text-shadow: none !important;
+  }
+  
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    font-size: 1.25rem;
   }
   
   @media (max-width: 768px) {
-    bottom: 1rem;
-    left: 1rem;
     width: 45px;
     height: 45px;
-    font-size: 1.1rem;
+    
+    i {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Dark mode navigation widget
+[data-theme="dark"] {
+  .navigation-widget {
+    .nav-sections {
+      background: var(--card-color);
+      border-color: var(--border-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-section-link {
+      color: var(--text-color);
+      
+      &:hover {
+        background: var(--surface-color);
+        color: #ff6b35;
+      }
+      
+      i {
+        color: var(--text-muted);
+      }
+    }
+  }
+}
+
+// Mobile responsive navigation widget
+@media (max-width: 768px) {
+  .navigation-widget {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  .nav-sections {
+    bottom: 60px;
+    max-width: 200px;
+    max-height: 250px;
+  }
+  
+  .nav-section-link {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
   }
 }
 

@@ -1,12 +1,15 @@
 // Navigation Styles
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: $z-index-sticky;
-  background: rgba($white, 0.95);
+  background: rgba($white, 0.98);
   backdrop-filter: blur(10px);
-  box-shadow: $shadow-sm;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .navbar {
@@ -164,6 +167,22 @@
     
     &.active {
       background: $light-blue;
+    }
+  }
+
+  // Theme toggle specific styling in hamburger menu
+  .nav-menu-hamburger .theme-toggle {
+    margin: 0.5rem auto;
+    display: block;
+  }
+
+  // Center theme toggle in hamburger menu (more compatible approach)
+  .nav-menu-hamburger .mobile-nav-item {
+    &:last-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
     }
   }
 

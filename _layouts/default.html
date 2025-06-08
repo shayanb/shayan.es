@@ -23,12 +23,6 @@
             </li>
             {% endif %}
           {% endfor %}
-          <li class="nav-item">
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-              <i class="fa fa-moon-o theme-icon-dark"></i>
-              <i class="fa fa-sun-o theme-icon-light"></i>
-            </button>
-          </li>
         </ul>
 
         <!-- Hamburger Menu (Desktop: hamburger items only, Mobile: all items) -->
@@ -54,11 +48,18 @@
             {% endif %}
           {% endfor %}
           
-          <li class="nav-item mobile-nav-item">
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-              <i class="fa fa-moon-o theme-icon-dark"></i>
-              <i class="fa fa-sun-o theme-icon-light"></i>
-            </button>
+          <li class="nav-item mobile-nav-item theme-toggle-container">
+            <div class="theme-toggle-wrapper">
+              <span class="theme-label">Dark Mode</span>
+              <button class="theme-toggle" aria-label="Toggle dark mode">
+                <div class="toggle-track">
+                  <div class="toggle-thumb">
+                    <i class="fa fa-sun-o theme-icon-light"></i>
+                    <i class="fa fa-moon-o theme-icon-dark"></i>
+                  </div>
+                </div>
+              </button>
+            </div>
           </li>
         </ul>
 

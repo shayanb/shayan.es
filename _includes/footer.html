@@ -1,8 +1,14 @@
 <footer class="site-footer">
   <div class="footer-content psychedelic-footer">
-    <button class="jump-to-top" id="jumpToTop" aria-label="Jump to top">
-      <i class="fa fa-chevron-up"></i>
-    </button>
+    <div class="navigation-widget" id="navigationWidget">
+      <div class="nav-sections" id="navSections" style="display: none;">
+        <!-- Sections will be populated by JavaScript -->
+      </div>
+      <button class="jump-to-top" id="jumpToTop" aria-label="Jump to top or show sections">
+        <i class="fa fa-chevron-up" id="jumpIcon"></i>
+        <i class="fa fa-list" id="sectionsIcon" style="display: none;"></i>
+      </button>
+    </div>
     <div class="footer-text">
       &copy; {{ site.time | date: '%Y' }} <a href="http://github.com/{{ author.github }}"> {{ site.owner.name }} </a> made with <i class="fa fa-heart heart-icon"></i> Hosted on  <a href="https://github.com/shayanb/shayan.es"> <i class="fa fa-github-alt"> </i> </a>
     </div>

@@ -63,13 +63,126 @@ $(document).ready(function() {
     lastScroll = currentScroll;
   });
 
-  // Jump to top functionality
+  // Enhanced Jump to top with section navigation
   if (jumpToTopBtn) {
-    jumpToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    const sectionsContainer = document.getElementById('navSections');
+    const jumpIcon = document.getElementById('jumpIcon');
+    const sectionsIcon = document.getElementById('sectionsIcon');
+    let sections = [];
+    let sectionsVisible = false;
+    
+    // Find all sections on the page
+    function findSections() {
+      const sectionSelectors = [
+        'h2[id]', 'h3[id]', 'section[id]', 'div[id]',
+        '[id*="section"]', '[id*="about"]', '[id*="career"]',
+        '[id*="education"]', '[id*="projects"]', '[id*="publications"]',
+        '[id*="lectures"]', '[id*="conferences"]', '[id*="hackathons"]'
+      ];
+      
+      sections = [];
+      sectionSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(element => {
+          if (element.id && element.offsetParent !== null) {
+            const rect = element.getBoundingClientRect();
+            if (rect.height > 0) {
+              sections.push({
+                id: element.id,
+                title: getElementTitle(element),
+                element: element,
+                top: element.offsetTop
+              });
+            }
+          }
+        });
       });
+      
+      // Remove duplicates and sort by position
+      sections = sections.filter((section, index, arr) => 
+        arr.findIndex(s => s.id === section.id) === index
+      ).sort((a, b) => a.top - b.top);
+      
+      return sections.length > 2; // Only show if there are more than 2 sections
+    }
+    
+    function getElementTitle(element) {
+      if (element.querySelector('h1, h2, h3, h4')) {
+        return element.querySelector('h1, h2, h3, h4').textContent.trim();
+      }
+      if (element.textContent && element.children.length < 3) {
+        return element.textContent.slice(0, 30).trim();
+      }
+      return element.id.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+    
+    function createSectionsList() {
+      if (sections.length <= 2) return;
+      
+      sectionsContainer.innerHTML = '';
+      sections.forEach(section => {
+        const sectionLink = document.createElement('button');
+        sectionLink.className = 'nav-section-link';
+        sectionLink.innerHTML = `<i class="fa fa-angle-right"></i> ${section.title}`;
+        sectionLink.addEventListener('click', () => {
+          section.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          hideSections();
+        });
+        sectionsContainer.appendChild(sectionLink);
+      });
+    }
+    
+    function showSections() {
+      if (sections.length <= 2) return;
+      sectionsVisible = true;
+      sectionsContainer.style.display = 'block';
+      jumpToTopBtn.classList.add('sections-mode');
+      updateButtonIcon();
+    }
+    
+    function hideSections() {
+      sectionsVisible = false;
+      sectionsContainer.style.display = 'none';
+      jumpToTopBtn.classList.remove('sections-mode');
+      updateButtonIcon();
+    }
+    
+    jumpToTopBtn.addEventListener('click', () => {
+      if (sectionsVisible) {
+        hideSections();
+      } else if (sections.length > 2 && window.scrollY > 300) {
+        showSections();
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+    
+    // Update icon based on sections availability and current page
+    function updateButtonIcon() {
+      if (sections.length > 2) {
+        jumpIcon.style.display = 'none';
+        sectionsIcon.style.display = 'block';
+      } else {
+        jumpIcon.style.display = 'block';
+        sectionsIcon.style.display = 'none';
+      }
+    }
+    
+    // Initialize sections on page load
+    setTimeout(() => {
+      if (findSections()) {
+        createSectionsList();
+        updateButtonIcon();
+      }
+    }, 1000);
+    
+    // Close sections when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.navigation-widget')) {
+        hideSections();
+      }
     });
   }
 

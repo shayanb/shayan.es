@@ -12,6 +12,8 @@
     font-family: $font-family-serif;
     color: $primary;
     margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
   .page-subtitle {
@@ -19,6 +21,33 @@
     color: $gray-600;
     max-width: 600px;
     margin: 0 auto;
+    word-wrap: break-word;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    
+    h1 {
+      font-size: 2.25rem;
+      line-height: 1.2;
+    }
+    
+    .page-subtitle {
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1.5rem 0.75rem;
+    
+    h1 {
+      font-size: 1.75rem;
+    }
+    
+    .page-subtitle {
+      font-size: 0.95rem;
+    }
   }
 }
 

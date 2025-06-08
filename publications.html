@@ -52,7 +52,14 @@ permalink: /publications/
             {% if pub.published %}
             <div class="pub-venue-info">
               <span class="venue-label">Published in:</span>
-              <span class="venue-name">{{ pub.published }}</span>
+              {% if pub.venue_url %}
+                <a href="{{ pub.venue_url }}" target="_blank" class="venue-name venue-link">
+                  {{ pub.published }}
+                  <i class="fa fa-external-link"></i>
+                </a>
+              {% else %}
+                <span class="venue-name">{{ pub.published }}</span>
+              {% endif %}
             </div>
             {% endif %}
           </div>
@@ -87,8 +94,22 @@ permalink: /publications/
               {% endif %}
             </div>
           </div>
-          <blockquote class="pub-abstract">
-            {{ pub.descr }}
+          <blockquote class="pub-abstract" data-publication="{{ forloop.index }}">
+            <div class="abstract-content">
+              {% assign word_count = pub.descr | number_of_words %}
+              {% if word_count > 50 %}
+                <div class="abstract-preview">{{ pub.descr | truncatewords: 50 }}</div>
+                <div class="abstract-full" style="display: none;">{{ pub.descr }}</div>
+              {% else %}
+                <div class="abstract-full">{{ pub.descr }}</div>
+              {% endif %}
+            </div>
+            {% if word_count > 50 %}
+            <button class="abstract-toggle" data-publication="{{ forloop.index }}">
+              <span class="toggle-text">Read more</span>
+              <i class="fa fa-chevron-down"></i>
+            </button>
+            {% endif %}
           </blockquote>
         </div>
         
@@ -152,6 +173,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Abstract toggle for mobile
+  document.querySelectorAll('.abstract-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pubId = toggle.dataset.publication;
+      const abstract = document.querySelector(`.pub-abstract[data-publication="${pubId}"]`);
+      const preview = abstract.querySelector('.abstract-preview');
+      const full = abstract.querySelector('.abstract-full');
+      const toggleText = toggle.querySelector('.toggle-text');
+      
+      if (preview.style.display !== 'none') {
+        // Show full text
+        preview.style.display = 'none';
+        full.style.display = 'block';
+        toggleText.textContent = 'Read less';
+        toggle.classList.add('expanded');
+      } else {
+        // Show preview
+        preview.style.display = 'block';
+        full.style.display = 'none';
+        toggleText.textContent = 'Read more';
+        toggle.classList.remove('expanded');
+      }
+    });
+  });
+
   // Media coverage toggle
   document.querySelectorAll('.media-toggle').forEach(toggle => {
     toggle.addEventListener('click', (e) => {
@@ -182,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Publication Item Layout */
 .publication-item {
   padding: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -246,9 +293,25 @@ document.addEventListener('DOMContentLoaded', function() {
   font-weight: 500;
 }
 
+.venue-link {
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: #ff6b35;
+    text-decoration: underline;
+  }
+  
+  i {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    opacity: 0.7;
+  }
+}
+
 /* Abstract Section */
 .pub-body {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .pub-abstract-container {
@@ -278,12 +341,38 @@ document.addEventListener('DOMContentLoaded', function() {
   color: #555;
   text-align: justify;
   margin: 0;
-  padding: 1.25rem;
+  padding: 1rem;
   background: #f8f9fa;
   border-left: 3px solid #ff6b35;
   border-radius: 0 6px 6px 0;
   position: relative;
   font-style: italic;
+}
+
+.abstract-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  color: #ff6b35;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.abstract-toggle:hover {
+  color: #ff8555;
+}
+
+.abstract-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.abstract-toggle.expanded i {
+  transform: rotate(180deg);
 }
 
 
@@ -535,8 +624,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .pub-body {
-    padding: 1.5rem;
+    padding: 1rem;
   }
+  
   
   .pub-abstract-container {
     width: 100%;
