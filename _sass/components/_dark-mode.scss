@@ -1,0 +1,235 @@
+// Dark Mode Component
+
+// Theme Toggle Button
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: var(--surface-color);
+    transform: scale(1.1);
+  }
+
+  .theme-icon-dark,
+  .theme-icon-light {
+    position: absolute;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+  }
+
+  .theme-icon-light {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+
+  .theme-icon-dark {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+// Dark theme icon states
+[data-theme="dark"] {
+  .theme-toggle {
+    .theme-icon-light {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    .theme-icon-dark {
+      opacity: 0;
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+// Global theme styling using CSS custom properties
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Update components to use CSS custom properties
+.site-header {
+  background: var(--surface-color);
+  box-shadow: var(--shadow);
+}
+
+// Section cards
+.section-card,
+.highlight-item,
+.project-card,
+.talk-card,
+.conference-card,
+.hackathon-card,
+.app-card,
+.career-content,
+.artwork-card,
+.platform-card {
+  background: var(--card-color) !important;
+  box-shadow: var(--shadow-card);
+  border-color: var(--border-color);
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+  }
+
+  p, .description {
+    color: var(--text-muted);
+  }
+}
+
+// Form elements
+input, textarea, select {
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+
+  &:focus {
+    border-color: $secondary;
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+// Update gradients for dark mode
+[data-theme="dark"] {
+  .hero {
+    background: linear-gradient(135deg, #{$dark-surface} 0%, #{$dark-card} 100%);
+  }
+
+  .recent-highlights {
+    background: var(--surface-color);
+  }
+
+  // Adjust text colors in dark mode
+  .hero-title .name {
+    color: $secondary; // Keep the orange color for brand consistency
+  }
+
+  .hero-subtitle {
+    color: var(--text-muted);
+  }
+
+  // Social float icons background
+  .social-float-toggle {
+    background: $secondary; // Keep orange for better visibility
+  }
+
+  // Navigation
+  .nav-link {
+    color: var(--text-color);
+
+    &:hover {
+      color: $secondary;
+    }
+
+    &.active {
+      color: $secondary;
+    }
+  }
+
+  .brand-name {
+    color: var(--text-color);
+  }
+
+  // Code blocks and pre elements
+  pre, code {
+    background: var(--surface-color);
+    color: var(--text-color);
+  }
+
+  // Tables
+  table {
+    background: var(--card-color);
+    
+    th, td {
+      border-color: var(--border-color);
+      color: var(--text-color);
+    }
+
+    th {
+      background: var(--surface-color);
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--surface-color);
+    }
+  }
+
+  // Blockquotes
+  blockquote {
+    background: var(--surface-color);
+    border-left-color: $secondary;
+    color: var(--text-color);
+  }
+}
+
+// Smooth transitions for theme switching
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+// Ensure buttons maintain their colors in dark mode
+.btn-primary {
+  background: $primary !important;
+  color: $white !important;
+
+  &:hover {
+    background: darken($primary, 10%) !important;
+  }
+}
+
+.btn-outline {
+  border-color: $primary !important;
+  color: $primary !important;
+
+  &:hover {
+    background: $primary !important;
+    color: $white !important;
+  }
+}
+
+// Modal dark mode
+[data-theme="dark"] {
+  .modal {
+    .modal-content {
+      background: var(--card-color);
+      color: var(--text-color);
+    }
+
+    .modal-close {
+      color: var(--text-muted);
+
+      &:hover {
+        color: var(--text-color);
+      }
+    }
+  }
+}
+
+// Footer dark mode
+[data-theme="dark"] {
+  .site-footer {
+    background: var(--surface-color);
+    color: var(--text-color);
+  }
+}

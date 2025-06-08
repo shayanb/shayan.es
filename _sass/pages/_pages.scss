@@ -1,0 +1,423 @@
+// Styles for individual pages
+
+// Common page styles
+.page-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, $light-blue 0%, $orange-tint 100%);
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 3rem;
+    font-family: $font-family-serif;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: $gray-600;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// About Page
+.about-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    
+    @media (max-width: $small-screen) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .about-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: $shadow-lg;
+  }
+
+  .about-intro {
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: $primary;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: $gray-600;
+    }
+  }
+
+  .bio-section {
+    margin-bottom: 4rem;
+
+    h2 {
+      color: $primary;
+      margin-bottom: 1.5rem;
+      font-family: $font-family-serif;
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0 4rem;
+
+    .expertise-item {
+      text-align: center;
+      padding: 2rem;
+      background: $white;
+      border-radius: $border-radius;
+      box-shadow: $shadow;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-lg;
+      }
+
+      i {
+        font-size: 2.5rem;
+        color: $secondary;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        color: $gray-900;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: $gray-200;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -2.5rem;
+        top: 0.5rem;
+        width: 12px;
+        height: 12px;
+        background: $secondary;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px $orange-tint;
+      }
+
+      .year {
+        color: $secondary;
+        font-weight: 600;
+        font-size: 0.875rem;
+      }
+
+      h4 {
+        margin: 0.5rem 0;
+        color: $gray-900;
+      }
+    }
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+
+    .value-item {
+      padding: 1.5rem;
+      background: $gray-50;
+      border-radius: $border-radius;
+      border-left: 3px solid $secondary;
+
+      h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  .about-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: $light-blue;
+    border-radius: $border-radius * 2;
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+// Publications Page
+.publications-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .publications-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: $gray-50;
+    border-radius: $border-radius * 2;
+    flex-wrap: wrap;
+
+    .stat-item {
+      text-align: center;
+
+      .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $primary;
+      }
+
+      .stat-label {
+        color: $gray-600;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+      }
+
+      &.google-scholar {
+        .scholar-link {
+          text-decoration: none;
+          color: inherit;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+            
+            .stat-number {
+              color: $secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .publications-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+
+    .filter-btn {
+      padding: 0.5rem 1.5rem;
+      background: $white;
+      border: 2px solid $gray-200;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+
+      &:hover {
+        border-color: $secondary;
+        color: $secondary;
+      }
+
+      &.active {
+        background: $primary;
+        color: $white;
+        border-color: $primary;
+      }
+    }
+  }
+
+  .publications-list {
+    margin-bottom: 4rem;
+  }
+
+  .publication-item {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      transform: translateX(5px);
+    }
+
+    .pub-year {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $secondary;
+      min-width: 80px;
+    }
+
+    .pub-content {
+      flex: 1;
+
+      .pub-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        gap: 1rem;
+
+        h3 {
+          color: $gray-900;
+          margin: 0;
+          font-size: 1.5rem;
+          flex: 1;
+        }
+
+        .pub-venue {
+          color: $secondary;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.9rem;
+          padding: 0.25rem 0.75rem;
+          background: $orange-tint;
+          border-radius: $border-radius;
+          white-space: nowrap;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: $secondary;
+            color: $white;
+            transform: scale(1.05);
+          }
+
+          i {
+            margin-right: 0.25rem;
+          }
+        }
+      }
+
+      .pub-description {
+        color: $gray-600;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .pub-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        .pub-link {
+          padding: 0.25rem 0.75rem;
+          background: $gray-100;
+          color: $gray-700;
+          text-decoration: none;
+          border-radius: $border-radius;
+          font-size: 0.875rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: $secondary;
+            color: $white;
+          }
+
+          i {
+            margin-right: 0.25rem;
+          }
+        }
+      }
+
+      .media-coverage {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: $gray-50;
+        border-radius: $border-radius;
+
+        h4 {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+
+          li {
+            margin-bottom: 0.25rem;
+
+            a {
+              color: $link-color;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .publications-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 3rem;
+    background: $gray-50;
+    border-radius: $border-radius * 2;
+
+    .stat-item {
+      text-align: center;
+
+      .stat-number {
+        display: block;
+        font-size: 3rem;
+        font-weight: 700;
+        color: $primary;
+      }
+
+      .stat-label {
+        color: $gray-600;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+}

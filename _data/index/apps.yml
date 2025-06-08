@@ -1,0 +1,55 @@
+# Apps developed
+# Real projects by Shayan
+
+- name: "PadSnap"
+  platform: "Web"
+  logo: "/img/apps/padsnap-logo.png"
+  short_description: "Image Resize & Padding Tool 🎞️ 📸"
+  description: "An intuitive web application for resizing and adding padding to images. Perfect for social media content creators, designers, and anyone who needs to quickly adjust image dimensions while maintaining aspect ratios."
+  website: "https://padsnap.app"
+  year: 2024
+  featured: true
+  tags: ["Image Processing", "Web Tools", "Design"]
+
+- name: "ethduties"
+  platform: "Web"
+  logo: "/img/apps/ethduties-logo.png"
+  short_description: "Ethereum Validator Duties Tracker"
+  description: "A comprehensive tracking tool for Ethereum 2.0 validators to monitor their duties, performance, and rewards. Helps validators stay on top of their validation responsibilities and track their staking performance."
+  website: "https://ethduti.es/"
+  year: 2023
+  featured: true
+  tags: ["Ethereum", "Blockchain", "Staking"]
+
+- name: "EtherTrip"
+  platform: "Web"
+  logo: "/img/apps/ethertrip-logo.png"
+  short_description: "Psychedelic Ethereum Galaxy Visualizer"
+  description: "An interactive and mesmerizing visualization of the Ethereum blockchain that transforms transaction data into a beautiful, psychedelic galaxy experience. Explore the blockchain like never before with this artistic interpretation of network activity."
+  website: "https://github.com/shayanb/EtherTrip"
+  github: "https://github.com/shayanb/EtherTrip"
+  year: 2022
+  featured: true
+  tags: ["Ethereum", "Visualization", "Art"]
+
+- name: "Ethereum Validator Calculator"
+  platform: "Web"
+  logo: "/img/apps/validator-calc-logo.png"
+  short_description: "Staking Rewards Calculator (Pectra Edition)"
+  description: "Calculate potential staking rewards for Ethereum validators with the latest Pectra upgrade features. This tool helps validators and potential stakers understand their expected returns and optimize their staking strategies."
+  website: "https://shayanb.github.io/EIP-7251-calcualator/"
+  github: "https://github.com/shayanb/EIP-7251-calcualator"
+  year: 2024
+  featured: false
+  tags: ["Ethereum", "Calculator", "EIP-7251"]
+
+- name: "Timeline Creator"
+  platform: "Web"
+  logo: "/img/apps/timeline-logo.png"
+  short_description: "Interactive Timeline Visualization Tool"
+  description: "An interactive web application that allows users to create, customize, and visualize timelines for projects, historical events, or personal milestones. Features drag-and-drop functionality and multiple viewing modes."
+  website: "https://shayanb.github.io/timeline/"
+  github: "https://github.com/shayanb/timeline"
+  year: 2023
+  featured: false
+  tags: ["Visualization", "Timeline", "Interactive"]

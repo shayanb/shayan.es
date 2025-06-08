@@ -1,0 +1,260 @@
+---
+layout: page
+title: Art & Photography
+permalink: /art/
+---
+
+<div class="art-page">
+  <div class="page-header">
+    <h1>Art & Photography</h1>
+    <p class="page-subtitle">Creative works and visual storytelling</p>
+  </div>
+
+  <div class="art-intro">
+    <p>Beyond code and security research, I explore the world through photography and digital art. These pieces capture moments, experiments, and creative expressions that complement my technical work.</p>
+  </div>
+
+  <div class="art-gallery">
+    {% assign featured_works = site.data.index.art | where: "featured", true %}
+    {% assign other_works = site.data.index.art | where: "featured", false %}
+    
+    {% if featured_works.size > 0 %}
+    <section class="featured-works">
+      <h2>Featured Works</h2>
+      <div class="featured-grid">
+        {% for work in featured_works %}
+        <div class="artwork-card featured" data-work="{{ work.title | slugify }}">
+          <div class="artwork-image">
+            {% if work.images and work.images.size > 0 %}
+              <img src="{{ work.images[0].url }}" alt="{{ work.images[0].caption }}" loading="lazy">
+              {% if work.images.size > 1 %}
+                <div class="image-count">
+                  <i class="fa fa-camera"></i> {{ work.images.size }}
+                </div>
+              {% endif %}
+            {% else %}
+              <div class="placeholder-image">
+                <i class="fa fa-image"></i>
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="artwork-info">
+            <h3>{{ work.title }}</h3>
+            <div class="artwork-meta">
+              <span class="artwork-type">{{ work.type }}</span>
+              <span class="artwork-year">{{ work.year }}</span>
+            </div>
+            <p class="artwork-description">{{ work.description }}</p>
+            
+            <div class="artwork-actions">
+              <button class="btn btn-primary view-gallery-btn" data-work="{{ work.title | slugify }}">
+                View Gallery
+              </button>
+              {% if work.instagram_post %}
+                <a href="{{ work.instagram_post }}" target="_blank" class="btn btn-outline">
+                  <i class="fa fa-instagram"></i>
+                </a>
+              {% endif %}
+              {% if work.link %}
+                <a href="{{ work.link }}" target="_blank" class="btn btn-outline">
+                  <i class="fa fa-external-link"></i>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if other_works.size > 0 %}
+    <section class="other-works">
+      <h2>Other Works</h2>
+      <div class="artwork-grid">
+        {% for work in other_works %}
+        <div class="artwork-item" data-work="{{ work.title | slugify }}">
+          <div class="artwork-thumbnail">
+            {% if work.images and work.images.size > 0 %}
+              <img src="{{ work.images[0].url }}" alt="{{ work.images[0].caption }}" loading="lazy">
+            {% else %}
+              <div class="placeholder-thumbnail">
+                <i class="fa fa-image"></i>
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="artwork-details">
+            <h4>{{ work.title }}</h4>
+            <p class="artwork-medium">{{ work.medium }} • {{ work.year }}</p>
+            <button class="view-btn" data-work="{{ work.title | slugify }}">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </div>
+
+  {% if site.owner.instagram %}
+  <div class="instagram-cta">
+    <div class="instagram-card">
+      <i class="fa fa-instagram"></i>
+      <h3>Follow My Photography</h3>
+      <p>See more of my work and behind-the-scenes content on Instagram</p>
+      <a href="https://instagram.com/{{ site.owner.instagram }}" target="_blank" class="btn btn-primary">
+        Follow @{{ site.owner.instagram }}
+      </a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Gallery Modal -->
+<div id="gallery-modal" class="modal gallery-modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="gallery-container">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('gallery-modal');
+  const galleryContainer = modal.querySelector('.gallery-container');
+  const closeBtn = modal.querySelector('.modal-close');
+  const viewGalleryBtns = document.querySelectorAll('.view-gallery-btn, .view-btn');
+
+  // Art data
+  const artworks = {
+    {% for work in site.data.index.art %}
+    "{{ work.title | slugify }}": {
+      title: "{{ work.title | escape }}",
+      type: "{{ work.type }}",
+      medium: "{{ work.medium }}",
+      year: {{ work.year }},
+      description: "{{ work.description | escape }}",
+      images: {{ work.images | jsonify }},
+      instagram_post: "{{ work.instagram_post }}",
+      link: "{{ work.link }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  function showGallery(workId) {
+    const work = artworks[workId];
+    if (!work || !work.images || work.images.length === 0) return;
+
+    let imagesHtml = '';
+    if (work.images.length === 1) {
+      imagesHtml = `
+        <div class="single-image">
+          <img src="${work.images[0].url}" alt="${work.images[0].caption}">
+          <p class="image-caption">${work.images[0].caption}</p>
+        </div>
+      `;
+    } else {
+      imagesHtml = `
+        <div class="image-gallery">
+          <div class="gallery-main">
+            <img id="main-image" src="${work.images[0].url}" alt="${work.images[0].caption}">
+            <p id="main-caption" class="image-caption">${work.images[0].caption}</p>
+          </div>
+          <div class="gallery-thumbnails">
+            ${work.images.map((img, index) => `
+              <img src="${img.url}" alt="${img.caption}" 
+                   class="thumbnail ${index === 0 ? 'active' : ''}" 
+                   data-index="${index}"
+                   data-caption="${img.caption}">
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    let linksHtml = '';
+    const links = [];
+    if (work.instagram_post) links.push(`<a href="${work.instagram_post}" target="_blank" class="btn btn-outline"><i class="fa fa-instagram"></i> Instagram</a>`);
+    if (work.link) links.push(`<a href="${work.link}" target="_blank" class="btn btn-outline"><i class="fa fa-external-link"></i> View Online</a>`);
+    
+    if (links.length > 0) {
+      linksHtml = `<div class="gallery-links">${links.join('')}</div>`;
+    }
+
+    galleryContainer.innerHTML = `
+      <div class="gallery-header">
+        <h2>${work.title}</h2>
+        <div class="gallery-meta">
+          <span>${work.type}</span> • <span>${work.medium}</span> • <span>${work.year}</span>
+        </div>
+        <p>${work.description}</p>
+      </div>
+      
+      ${imagesHtml}
+      
+      ${linksHtml}
+    `;
+
+    // Add thumbnail click handlers for multi-image galleries
+    if (work.images.length > 1) {
+      const mainImage = document.getElementById('main-image');
+      const mainCaption = document.getElementById('main-caption');
+      const thumbnails = document.querySelectorAll('.thumbnail');
+
+      thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          const index = parseInt(thumb.dataset.index);
+          const caption = thumb.dataset.caption;
+          
+          // Update main image
+          mainImage.src = work.images[index].url;
+          mainImage.alt = caption;
+          mainCaption.textContent = caption;
+          
+          // Update active thumbnail
+          thumbnails.forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+    }
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Event listeners
+  viewGalleryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const workId = btn.dataset.work;
+      showGallery(workId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Keyboard navigation for gallery
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display === 'block') {
+      if (e.key === 'Escape') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+  });
+});
+</script>

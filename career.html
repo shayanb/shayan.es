@@ -1,0 +1,115 @@
+---
+layout: page
+title: Career
+permalink: /career/
+---
+
+<div class="career-page">
+  <div class="page-header">
+    <h1>Career Journey</h1>
+    <p class="page-subtitle">Professional experience and achievements</p>
+  </div>
+
+  <div class="career-highlights">
+    <h2>Professional Highlights</h2>
+    <div class="highlights-grid">
+      <a href="/audits/" class="highlight-card">
+        <i class="fa fa-shield"></i>
+        <h3>{{ site.data.index.audits | size }}+</h3>
+        <p>Security Audits</p>
+      </a>
+      <a href="/publications/" class="highlight-card">
+        <i class="fa fa-file-text-o"></i>
+        <h3>{{ site.data.index.publications | size }}+</h3>
+        <p>Publications</p>
+      </a>
+      <div class="highlight-card">
+        <i class="fa fa-bug"></i>
+        <h3>{{ site.data.index.cve | size }}+</h3>
+        <p>CVEs Discovered</p>
+      </div>
+      <a href="/talks/" class="highlight-card">
+        <i class="fa fa-microphone"></i>
+        <h3>{{ site.data.index.lectures | size }}+</h3>
+        <p>Talks Given</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="career-timeline">
+    {% assign sorted_careers = site.data.index.careers | sort: 'date' | reverse %}
+    {% for career in sorted_careers %}
+    <div class="career-item {% if career.current %}current{% endif %}">
+      <div class="career-marker"></div>
+      <div class="career-content">
+        <div class="career-header">
+          <div class="career-title-area">
+            <h3>{{ career.job }}</h3>
+            <span class="career-date">{{ career.date }}</span>
+          </div>
+          {% if career.logo %}
+          <div class="company-logo">
+            <img src="{{ career.logo }}" alt="{{ career.name }} logo" loading="lazy">
+          </div>
+          {% endif %}
+        </div>
+        
+        <div class="career-company">
+          {% if career.link %}
+            <a href="{{ career.link }}" target="_blank" rel="noopener">
+              {{ career.name }}
+              <i class="fa fa-external-link"></i>
+            </a>
+          {% else %}
+            {{ career.name }}
+          {% endif %}
+        </div>
+        
+        {% if career.description %}
+        <p class="career-description">{{ career.description }}</p>
+        {% endif %}
+        
+        {% if career.technologies %}
+        <div class="career-technologies">
+          <span class="tech-label">Technologies:</span>
+          {% for tech in career.technologies %}
+          <span class="tech-tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if career.achievements %}
+        <div class="career-achievements">
+          <h4>Key Achievements:</h4>
+          <ul>
+            {% for achievement in career.achievements %}
+            <li>{{ achievement }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+  <div class="career-skills">
+    <h2>Technical Expertise</h2>
+    {% for skill_category in site.data.index.skills %}
+    <div class="skill-category">
+      <h3>{{ skill_category.label }}</h3>
+      <div class="skills-list">
+        {% for skill in skill_category.skills %}
+        <div class="skill-item">
+          <span class="skill-name">{{ skill.name }}</span>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: {{ skill.score }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

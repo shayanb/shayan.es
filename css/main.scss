@@ -19,9 +19,17 @@
 @import "components/typography";
 @import "components/buttons";
 @import "components/syntax-highlighting";
+@import "components/navigation";
+@import "components/modals";
+@import "components/social-float";
+@import "components/dark-mode";
 
 // Pages styling
 @import "pages/layout";
 @import "pages/tags";
 @import "pages/archive";
 @import "pages/post";
+@import "pages/home";
+@import "pages/pages";
+@import "pages/specific-pages";
+@import "pages/talks-connect-art";

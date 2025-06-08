@@ -1,0 +1,175 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+<div class="projects-page">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p class="page-subtitle">Open source contributions and technical innovations</p>
+  </div>
+
+  <div class="projects-grid">
+    {% for project in site.data.index.projects %}
+    <div class="project-card" data-project="{{ project.name | slugify }}">
+      <div class="project-header">
+        <div class="project-title-area">
+          <h3>{{ project.name }}</h3>
+          <div class="project-meta">
+            {% if project.start_year and project.end_year and project.start_year != project.end_year %}
+              <span class="project-years">{{ project.start_year }} - {{ project.end_year }}</span>
+            {% else %}
+              <span class="project-years">{{ project.year }}</span>
+            {% endif %}
+            <span class="project-status status-{{ project.status | default: 'active' }}">{{ project.status | default: 'Active' | capitalize }}</span>
+          </div>
+        </div>
+        <div class="project-links">
+          {% if project.github %}
+            <a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+          {% endif %}
+          {% if project.website %}
+            <a href="{{ project.website }}" target="_blank" rel="noopener" class="project-link" title="Website">
+              <i class="fa fa-globe"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="project-body">
+        <p class="project-description">{{ project.descr }}</p>
+        
+        {% if project.media and project.media.size > 0 %}
+        <div class="project-media">
+          <span class="media-label"><i class="fa fa-newspaper-o"></i> {{ project.media.size }} media mention{{ project.media.size | pluralize: '', 's' }}</span>
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="project-footer">
+        <button class="view-details-btn" data-project="{{ project.name | slugify }}">
+          View Details <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Project Modal -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('project-modal');
+  const modalBody = modal.querySelector('.modal-body');
+  const closeBtn = modal.querySelector('.modal-close');
+  const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+  const moreLinks = document.querySelectorAll('.more-link');
+
+  // Project data
+  const projects = {
+    {% for project in site.data.index.projects %}
+    "{{ project.name | slugify }}": {
+      name: "{{ project.name }}",
+      description: "{{ project.descr | escape }}",
+      website: "{{ project.website }}",
+      github: "{{ project.github }}",
+      year: "{{ project.year }}",
+      startYear: "{{ project.start_year }}",
+      endYear: "{{ project.end_year }}",
+      status: "{{ project.status }}",
+      media: {{ project.media | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  function showProjectDetails(projectId) {
+    const project = projects[projectId];
+    if (!project) return;
+
+    let timelineHtml = '';
+    if (project.startYear && project.endYear && project.startYear !== project.endYear) {
+      timelineHtml = `<span class="modal-timeline">${project.startYear} - ${project.endYear}</span>`;
+    } else if (project.year) {
+      timelineHtml = `<span class="modal-timeline">${project.year}</span>`;
+    }
+
+    let statusHtml = '';
+    if (project.status) {
+      statusHtml = `<span class="modal-status status-${project.status}">${project.status.charAt(0).toUpperCase() + project.status.slice(1)}</span>`;
+    }
+
+    let mediaHtml = '';
+    if (project.media && project.media.length > 0) {
+      mediaHtml = `
+        <div class="modal-section">
+          <h4><i class="fa fa-newspaper-o"></i> Media Coverage (${project.media.length})</h4>
+          <ul class="media-list">
+            ${project.media.map(item => `<li><a href="${item.link}" target="_blank">${item.name}</a></li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    modalBody.innerHTML = `
+      <div class="modal-header">
+        <h2>${project.name}</h2>
+        <div class="modal-meta">
+          ${timelineHtml}
+          ${statusHtml}
+        </div>
+      </div>
+      
+      <p class="modal-description">${project.description}</p>
+      
+      <div class="modal-links">
+        ${project.github ? `<a href="${project.github}" target="_blank" class="btn btn-outline"><i class="fa fa-github"></i> GitHub</a>` : ''}
+        ${project.website ? `<a href="${project.website}" target="_blank" class="btn btn-primary"><i class="fa fa-globe"></i> Website</a>` : ''}
+      </div>
+      
+      ${mediaHtml}
+    `;
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Event listeners
+  viewDetailsBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projectId = btn.dataset.project;
+      showProjectDetails(projectId);
+    });
+  });
+
+  moreLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const projectId = link.dataset.project;
+      showProjectDetails(projectId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
+</script>

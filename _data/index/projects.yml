@@ -2,12 +2,19 @@
   descr: Legions is a handy toolkit for (security) researchers poking around EVM (Ethereum Virtual Machine) nodes and smart contracts, now with a slick command-line interface, with auto complete commands and history.
   website: https://consensys.net/diligence/blog/2020/06/legions-a-tool-for-seekers/
   github: https://github.com/ConsenSys/Legions
-
+  year: 2020
+  start_year: 2019
+  end_year: 2020
+  status: completed
 
 - name: Catena Blockchain Suite
-  descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilising smart contracts and hardware security modules, Catena enables a new level of data consistency and integrity.  Government of Canada, piloted by National Research Council (NRC) is using the Catena Blockchain Suite on the Ethereum blockchain, to publish funding and grant information in real time.
+  descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilising smart contracts and hardware security modules, Catena enables a new level of data consistency and integrity. Government of Canada, piloted by National Research Council (NRC) is using the Catena Blockchain Suite on the Ethereum blockchain, to publish funding and grant information in real time.
   website: https://explorecatena.com/
   github: https://github.com/explorecatena
+  year: 2018
+  start_year: 2017
+  end_year: 2019
+  status: completed
   media:
     - name: National Research Council Canada
       link: https://www.nrc-cnrc.gc.ca/eng/stories/2018/blockchains.html
@@ -20,24 +27,30 @@
     - name: TrustNodes
       link: https://www.trustnodes.com/2018/01/21/canadian-government-launches-live-ethereum-public-blockchain-trial-government-contracts
 
-
 - name: LibSubmarine - Defeat Front-Running on Ethereum
   descr: LibSubmarine is an open-source smart contract library that makes it easy to protect your contract against front-runners by temporarily hiding transactions on-chain.
   website: https://libsubmarine.org/
   github: https://github.com/lorenzb/libsubmarine
+  year: 2018
+  start_year: 2018
+  end_year: 2019
+  status: completed
   media:
     - name: Ethereum Foundation - DevCon4
       link: https://www.youtube.com/watch?v=nrKeD44Johs
     - name: Hackernoon
       link: https://hackernoon.com/libsubmarine-temporarily-hide-transactions-on-ethereum-cheaply-6910191f46f2
-    - name: Ethereum Foundation - DevCon4
+    - name: Ethereum Foundation - DevCon4 Talk
       link: https://www.youtube.com/watch?v=JxAgNeFg6QM
-
 
 - name: Bitaccess Enterprise Wallet
   descr: Bitaccess offers Bitcoin ATM and online software solutions to purchase and sell Bitcoin and Ethereum. I joined Bitaccess in 2015 to redesign and develop a new enterprise cloud wallet for better scalability of the BTM network and easier integration of the wallets in the software solutions.
   website: https://bitaccess.ca/products/
   github: https://github.com/bitaccess
+  year: 2015
+  start_year: 2015
+  end_year: 2016
+  status: completed
   media:
     - name: Enterprise Wallet
       link: https://bitaccess.ca/products/enterprise-wallet/
@@ -48,10 +61,13 @@
     - name: CoinDesk
       link: https://www.coindesk.com/press-releases/bitaccess-extends-instant-bitcoin-purchases-nearly-1000-locations-us/
 
-
 - name: Velocity Technology
-  descr: Velocity is a decentralized options platform that allows users to enter into a collar option using a smart contract on the ethereum blockchain. Velocity platform includes smart contracts responsible for the trades and, <b>PriceGeth</b>, an oracle to publish price pairs on Ethereum blockchain at every blocktime.
+  descr: Velocity is a decentralized options platform that allows users to enter into a collar option using a smart contract on the ethereum blockchain. Velocity platform includes smart contracts responsible for the trades and PriceGeth, an oracle to publish price pairs on Ethereum blockchain at every blocktime.
   github: https://github.com/VelocityMarket
+  year: 2016
+  start_year: 2016
+  end_year: 2017
+  status: completed
   media:
     - name: Steemit
       link: https://steemit.com/ethereum/@blockchainbilly/velocity-the-first-open-blockchain-smart-contract-on-a-price-feed
@@ -64,24 +80,31 @@
     - name: BlockTribune
       link: http://blocktribune.com/velocity-announces-first-blockchain-smart-contract-on-price-feeds/
 
-- name: Keystamp, An open-source Proof-of-Compliance standard on the blockchain
+- name: Keystamp - Proof-of-Compliance Standard
   descr: "Ontario Securities Commission Hackathon 1st Prize Winner. Integrating applied cryptography and blockchain technologies in existing corporate processes and commercial relationships, such as compliance policy implementation and audit."
-  #image: pong.png
   github: https://github.com/shayanb/keystamp-crypto
   website: https://github.com/existencelabs/keystamp-whitepaper
+  year: 2017
+  start_year: 2017
+  end_year: 2017
+  status: completed
   media:
-      - name: Betakit
-        link: https://betakit.com/blockchain-technology-is-king-at-the-oscs-first-fintech-hackathon/
-      - name: TimelyDisclosure
-        link: https://www.timelydisclosure.com/2017/03/13/osc-releases-results-of-reghackto-its-first-regulatory-hackathon/
-      - name: Ontario Securities Commission
-        link: http://www.osc.gov.on.ca/en/reghackto.htm
-      - name: Keystamp Pitch in RegHackTo
-        link: https://youtu.be/DfhJWgULsm0
+    - name: Betakit
+      link: https://betakit.com/blockchain-technology-is-king-at-the-oscs-first-fintech-hackathon/
+    - name: TimelyDisclosure
+      link: https://www.timelydisclosure.com/2017/03/13/osc-releases-results-of-reghackto-its-first-regulatory-hackathon/
+    - name: Ontario Securities Commission
+      link: http://www.osc.gov.on.ca/en/reghackto.htm
+    - name: Keystamp Pitch in RegHackTo
+      link: https://youtu.be/DfhJWgULsm0
 
 - name: Shir Ya Khat
   descr: Farsi (Persian) educational podcast on Blockchain technologies and cryptocurrencies
   website: http://shiryakhat.net
+  year: 2018
+  start_year: 2018
+  end_year: 2019
+  status: completed
   media:
     - name: CoinIran
       link: https://coiniran.com/%D8%AA%D9%88%DA%A9%D9%86-%D8%A2%D9%84%D8%AA%DA%A9%D9%88%DB%8C%D9%86-%D9%85%D8%A7%D9%87%DB%8C%D8%AA-%D8%A8%D9%84%D8%A7%DA%A9%DA%86%DB%8C%D9%86/

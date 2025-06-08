@@ -1,0 +1,25 @@
+# Hackathons data
+# role: judge, mentor, hacker
+# For hacker role, include project details and awards
+
+- name: "ETHGlobal San Francisco 2024"
+  date: "October 2024"
+  location: "San Francisco, CA"
+  role: "judge"
+  description: "Judged blockchain and Web3 projects"
+
+- name: "HackMIT 2023"
+  date: "September 2023"
+  location: "Cambridge, MA"
+  role: "mentor"
+  description: "Mentored teams on security best practices"
+
+- name: "ETHDenver 2023"
+  date: "February 2023"
+  location: "Denver, CO"
+  role: "hacker"
+  project_name: "DeFi Security Scanner"
+  project_link: "https://github.com/example/defi-scanner"
+  tech_stack: ["Solidity", "React", "Node.js"]
+  awards: ["Best Security Tool", "Sponsor Prize - Chainlink"]
+  description: "Built an automated security scanner for DeFi protocols"

@@ -1,0 +1,187 @@
+---
+layout: page
+title: Connect
+permalink: /connect/
+---
+
+<div class="connect-page">
+  <div class="page-header">
+    <h1>Let's Connect</h1>
+    <p class="page-subtitle">Find me across the web and get in touch</p>
+  </div>
+
+  <div class="connect-intro">
+    <p>I'm always interested in discussing security research, blockchain technology, and innovative projects. Whether you're looking for collaboration, have a security question, or just want to chat about the latest in tech, I'd love to hear from you.</p>
+  </div>
+
+  <div class="social-platforms">
+    <h2>Find Me Online</h2>
+    <div class="platforms-grid">
+      
+      {% if site.owner.github %}
+      <a href="https://github.com/{{ site.owner.github }}" target="_blank" rel="noopener" class="platform-card github">
+        <div class="platform-icon">
+          <i class="fa fa-github"></i>
+        </div>
+        <div class="platform-content">
+          <h3>GitHub</h3>
+          <p>Open source projects and code repositories</p>
+          <span class="platform-handle">@{{ site.owner.github }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.linkedin %}
+      <a href="https://linkedin.com/in/{{ site.owner.linkedin }}" target="_blank" rel="noopener" class="platform-card linkedin">
+        <div class="platform-icon">
+          <i class="fa fa-linkedin"></i>
+        </div>
+        <div class="platform-content">
+          <h3>LinkedIn</h3>
+          <p>Professional network and career updates</p>
+          <span class="platform-handle">{{ site.owner.linkedin }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.twitter %}
+      <a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank" rel="noopener" class="platform-card twitter">
+        <div class="platform-icon">
+          <i class="fa fa-twitter"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Twitter</h3>
+          <p>Thoughts on security, tech, and research</p>
+          <span class="platform-handle">@{{ site.owner.twitter }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.keybase %}
+      <a href="https://keybase.io/{{ site.owner.keybase }}" target="_blank" rel="noopener" class="platform-card keybase">
+        <div class="platform-icon">
+          <i class="fa fa-key"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Keybase</h3>
+          <p>Secure messaging and identity verification</p>
+          <span class="platform-handle">{{ site.owner.keybase }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.instagram %}
+      <a href="https://instagram.com/{{ site.owner.instagram }}" target="_blank" rel="noopener" class="platform-card instagram">
+        <div class="platform-icon">
+          <i class="fa fa-instagram"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Instagram</h3>
+          <p>Photography and creative projects</p>
+          <span class="platform-handle">@{{ site.owner.instagram }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.email %}
+      <a href="mailto:{{ site.owner.email }}" class="platform-card email">
+        <div class="platform-icon">
+          <i class="fa fa-envelope"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Email</h3>
+          <p>Direct contact for professional inquiries</p>
+          <span class="platform-handle">{{ site.owner.email }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="contact-form-section">
+    <h2>Send a Message</h2>
+    <div class="contact-form-container">
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="_replyto" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a topic</option>
+            <option value="Security Research">Security Research</option>
+            <option value="Collaboration">Collaboration Opportunity</option>
+            <option value="Speaking">Speaking Engagement</option>
+            <option value="Consulting">Consulting Inquiry</option>
+            <option value="General">General Question</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, question, or how I can help..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary submit-btn">
+          <span class="btn-text">Send Message</span>
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </form>
+      
+      <div class="contact-note">
+        <p><strong>Note:</strong> For security vulnerabilities or responsible disclosure, please use encrypted communication via Keybase or PGP.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="response-time">
+    <div class="response-card">
+      <i class="fa fa-clock-o"></i>
+      <h3>Response Time</h3>
+      <p>I typically respond to messages within 24-48 hours. For urgent security matters, please indicate priority in your subject line.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Animate platform cards on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 100);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.platform-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // Form submission animation
+  const form = document.querySelector('.contact-form');
+  const submitBtn = document.querySelector('.submit-btn');
+  
+  if (form && submitBtn) {
+    form.addEventListener('submit', function(e) {
+      submitBtn.classList.add('loading');
+      submitBtn.querySelector('.btn-text').textContent = 'Sending...';
+    });
+  }
+});
+</script>

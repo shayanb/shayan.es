@@ -1,0 +1,50 @@
+# Recent highlights for homepage
+# These are featured items that will appear on the homepage with clickable links
+
+- title: "Smart Contract Security Research"
+  type: "Publication"
+  description: "Latest research on DeFi protocol vulnerabilities"
+  link: "/publications/"
+  action: "publication"
+  target: "smart-contract-security-defi"
+  year: 2024
+
+- title: "PadSnap App Launch"
+  type: "App"
+  description: "Image resizing tool for content creators"
+  link: "/apps/"
+  action: "app"
+  target: "padsnap"
+  year: 2024
+
+- title: "EthDuties Validator Tracker"
+  type: "Project"
+  description: "Ethereum validator monitoring platform"
+  link: "/apps/"
+  action: "app" 
+  target: "ethduties"
+  year: 2023
+
+- title: "Security Audit: Major DeFi Protocol"
+  type: "Security Audit"
+  description: "Comprehensive audit identifying critical vulnerabilities"
+  link: "/audits/"
+  action: "page"
+  target: ""
+  year: 2024
+
+- title: "DEF CON 32 Presentation"
+  type: "Talk"
+  description: "Smart Contract Security: Beyond the Basics"
+  link: "/talks/"
+  action: "page"
+  target: ""
+  year: 2024
+
+- title: "ConsenSys Security Lead"
+  type: "Career"
+  description: "Leading blockchain security initiatives"
+  link: "/career/"
+  action: "page"
+  target: ""
+  year: 2024

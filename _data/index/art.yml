@@ -1,0 +1,43 @@
+# Artistic works
+# Photography, digital art, and other creative projects
+
+- title: "Urban Perspectives"
+  type: "Photography Series"
+  medium: "35mm Film"
+  year: 2023
+  description: "Exploring urban landscapes through analog photography"
+  images:
+    - url: "/img/art/urban-1.jpg"
+      caption: "Downtown at dusk"
+    - url: "/img/art/urban-2.jpg"
+      caption: "Reflections"
+    - url: "/img/art/urban-3.jpg"
+      caption: "City lights"
+  instagram_post: "https://www.instagram.com/p/example1"
+  featured: true
+
+- title: "Digital Abstractions"
+  type: "Digital Art"
+  medium: "Generative Art"
+  year: 2022
+  description: "Algorithmic art created with Processing and p5.js"
+  images:
+    - url: "/img/art/digital-1.jpg"
+      caption: "Recursive patterns"
+    - url: "/img/art/digital-2.jpg"
+      caption: "Color fields"
+  link: "https://openprocessing.org/user/example"
+  featured: true
+
+- title: "Street Photography Collection"
+  type: "Photography"
+  medium: "Digital & Film"
+  year: 2021
+  description: "Candid moments captured in various cities"
+  images:
+    - url: "/img/art/street-1.jpg"
+      caption: "Montreal streets"
+    - url: "/img/art/street-2.jpg"
+      caption: "Toronto rush hour"
+  instagram_post: "https://www.instagram.com/p/example2"
+  featured: false

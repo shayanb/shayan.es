@@ -1,0 +1,174 @@
+---
+layout: page
+title: Apps
+permalink: /apps/
+---
+
+<div class="apps-page">
+  <div class="page-header">
+    <h1>Applications</h1>
+    <p class="page-subtitle">Mobile and web applications I've developed</p>
+  </div>
+
+  <div class="apps-grid">
+    {% assign featured_apps = site.data.index.apps | where: "featured", true %}
+    {% assign other_apps = site.data.index.apps | where: "featured", false %}
+    
+    {% if featured_apps.size > 0 %}
+    <div class="featured-section">
+      <h2>Featured Apps</h2>
+      <div class="featured-apps">
+        {% for app in featured_apps %}
+        <div class="app-card featured">
+          <div class="app-icon">
+            {% if app.logo %}
+              <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
+            {% else %}
+              <i class="fa fa-mobile"></i>
+            {% endif %}
+          </div>
+          <div class="app-content">
+            <h3>{{ app.name }}</h3>
+            <p class="app-platform">{{ app.platform }}</p>
+            <p class="app-description">{{ app.short_description }}</p>
+            <div class="app-actions">
+              <button class="btn btn-primary view-app-btn" data-app="{{ app.name | slugify }}">
+                Learn More
+              </button>
+              {% if app.website %}
+                <a href="{{ app.website }}" target="_blank" class="btn btn-outline">
+                  <i class="fa fa-globe"></i> Visit
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if other_apps.size > 0 %}
+    <div class="other-apps-section">
+      <h2>Other Projects</h2>
+      <div class="apps-list">
+        {% for app in other_apps %}
+        <div class="app-item">
+          <div class="app-icon small">
+            {% if app.logo %}
+              <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
+            {% else %}
+              <i class="fa fa-mobile"></i>
+            {% endif %}
+          </div>
+          <div class="app-info">
+            <h4>{{ app.name }}</h4>
+            <p class="app-platform">{{ app.platform }} • {{ app.year }}</p>
+            <p>{{ app.short_description }}</p>
+          </div>
+          <div class="app-links">
+            <button class="btn btn-sm view-app-btn" data-app="{{ app.name | slugify }}">Details</button>
+            {% if app.website %}
+              <a href="{{ app.website }}" target="_blank" class="btn btn-sm btn-outline">Visit</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- App Modal -->
+<div id="app-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('app-modal');
+  const modalBody = modal.querySelector('.modal-body');
+  const closeBtn = modal.querySelector('.modal-close');
+  const viewAppBtns = document.querySelectorAll('.view-app-btn');
+
+  // Apps data
+  const apps = {
+    {% for app in site.data.index.apps %}
+    "{{ app.name | slugify }}": {
+      name: "{{ app.name }}",
+      platform: "{{ app.platform }}",
+      year: {{ app.year }},
+      short_description: "{{ app.short_description | escape }}",
+      description: "{{ app.description | escape }}",
+      website: "{{ app.website }}",
+      app_store_link: "{{ app.app_store_link }}",
+      play_store_link: "{{ app.play_store_link }}",
+      chrome_store_link: "{{ app.chrome_store_link }}",
+      github: "{{ app.github }}",
+      logo: "{{ app.logo }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  function showAppDetails(appId) {
+    const app = apps[appId];
+    if (!app) return;
+
+    let linksHtml = '';
+    const links = [];
+    
+    if (app.app_store_link) links.push(`<a href="${app.app_store_link}" target="_blank" class="btn btn-primary"><i class="fa fa-apple"></i> App Store</a>`);
+    if (app.play_store_link) links.push(`<a href="${app.play_store_link}" target="_blank" class="btn btn-primary"><i class="fa fa-android"></i> Play Store</a>`);
+    if (app.chrome_store_link) links.push(`<a href="${app.chrome_store_link}" target="_blank" class="btn btn-primary"><i class="fa fa-chrome"></i> Chrome Store</a>`);
+    if (app.website) links.push(`<a href="${app.website}" target="_blank" class="btn btn-outline"><i class="fa fa-globe"></i> Website</a>`);
+    if (app.github) links.push(`<a href="${app.github}" target="_blank" class="btn btn-outline"><i class="fa fa-github"></i> GitHub</a>`);
+    
+    if (links.length > 0) {
+      linksHtml = `<div class="modal-links">${links.join('')}</div>`;
+    }
+
+    modalBody.innerHTML = `
+      <div class="modal-header">
+        ${app.logo ? `<img src="${app.logo}" alt="${app.name} logo" class="modal-logo">` : ''}
+        <div>
+          <h2>${app.name}</h2>
+          <p class="modal-platform">${app.platform} • ${app.year}</p>
+        </div>
+      </div>
+      
+      <p class="modal-description">${app.description}</p>
+      
+      ${linksHtml}
+    `;
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Event listeners
+  viewAppBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const appId = btn.dataset.app;
+      showAppDetails(appId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
+</script>

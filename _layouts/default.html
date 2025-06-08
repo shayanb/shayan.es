@@ -4,19 +4,89 @@
 {% include head.html %}
 
 <body>
-  <div class="row">
-    <div class="col s12 m3">
-      <div class="table cover">
-        {% include sidebar.html %}
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-brand">
+          <span class="brand-name">{{ site.owner.name }}</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <ul class="nav-menu">
+          {% for item in site.data.navigation %}
+            <li class="nav-item">
+              <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+          <li class="nav-item">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+              <i class="fa fa-moon-o theme-icon-dark"></i>
+              <i class="fa fa-sun-o theme-icon-light"></i>
+            </button>
+          </li>
+        </ul>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </div>
-    <div class="col s12 m9">
-      <div class="post-listing">
-        {{ content }}
-        {% include footer.html %}
-      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-content">
+    {{ content }}
+  </main>
+
+  <!-- Floating Social Bar -->
+  <div class="social-float-container">
+    <button class="social-float-toggle" aria-label="Toggle social links">
+      <i class="fa fa-share-alt"></i>
+    </button>
+    <div class="social-float-menu">
+      {% if site.owner.github %}
+        <a href="https://github.com/{{ site.owner.github }}" target="_blank" rel="noopener" aria-label="GitHub" class="social-item github">
+          <i class="fa fa-github"></i>
+        </a>
+      {% endif %}
+      {% if site.owner.linkedin %}
+        <a href="https://linkedin.com/in/{{ site.owner.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-item linkedin">
+          <i class="fa fa-linkedin"></i>
+        </a>
+      {% endif %}
+      {% if site.owner.twitter %}
+        <a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank" rel="noopener" aria-label="Twitter" class="social-item twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+      {% endif %}
+      {% if site.owner.instagram %}
+        <a href="https://instagram.com/{{ site.owner.instagram }}" target="_blank" rel="noopener" aria-label="Instagram" class="social-item instagram">
+          <i class="fa fa-instagram"></i>
+        </a>
+      {% endif %}
+      {% if site.owner.keybase %}
+        <a href="https://keybase.io/{{ site.owner.keybase }}" target="_blank" rel="noopener" aria-label="Keybase" class="social-item keybase">
+          <i class="fa fa-key"></i>
+        </a>
+      {% endif %}
+      {% if site.owner.email %}
+        <a href="mailto:{{ site.owner.email }}" aria-label="Email" class="social-item email">
+          <i class="fa fa-envelope"></i>
+        </a>
+      {% endif %}
     </div>
   </div>
+
+  <!-- Footer -->
+  {% include footer.html %}
+  
+  <!-- Scripts -->
   {% include js.html %}
 </body>
 </html>

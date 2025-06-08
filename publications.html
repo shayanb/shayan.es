@@ -1,0 +1,130 @@
+---
+layout: page
+title: Publications
+permalink: /publications/
+---
+
+<div class="publications-page">
+  <div class="page-header">
+    <h1>Publications</h1>
+    <p class="page-subtitle">Research papers, articles, and academic contributions</p>
+  </div>
+
+  <div class="publications-stats">
+    <div class="stat-item">
+      <span class="stat-number">{{ site.data.index.publications | size }}</span>
+      <span class="stat-label">Total Publications</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">{{ site.data.index.publications | where_exp: "item", "item.published" | size }}</span>
+      <span class="stat-label">Academic Papers</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">{{ site.data.index.publications | map: "year" | uniq | size }}</span>
+      <span class="stat-label">Years Active</span>
+    </div>
+    <div class="stat-item google-scholar">
+      <a href="https://scholar.google.com" target="_blank" class="scholar-link">
+        <span class="stat-number">--</span>
+        <span class="stat-label">Citations <i class="fa fa-external-link"></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="publications-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="academic">Academic Papers</button>
+    <button class="filter-btn" data-filter="article">Articles</button>
+    <button class="filter-btn" data-filter="recent">Recent</button>
+  </div>
+
+  <div class="publications-list">
+    {% assign sorted_pubs = site.data.index.publications | sort: 'year' | reverse %}
+    {% for pub in sorted_pubs %}
+    <article class="publication-item" data-year="{{ pub.year }}" data-type="{% if pub.published %}academic{% else %}article{% endif %}">
+      <div class="pub-year">{{ pub.year }}</div>
+      <div class="pub-content">
+        <div class="pub-header">
+          <h3>{{ pub.name }}</h3>
+          {% if pub.published %}
+          <a href="#" class="pub-venue">
+            <i class="fa fa-book"></i> {{ pub.published }}
+          </a>
+          {% endif %}
+        </div>
+        <p class="pub-description">{{ pub.descr }}</p>
+        
+        <div class="pub-links">
+          {% if pub.paper %}
+          <a href="{{ pub.paper }}" class="pub-link" target="_blank">
+            <i class="fa fa-file-pdf-o"></i> Paper
+          </a>
+          {% endif %}
+          
+          {% if pub.youtube %}
+          <a href="{{ pub.youtube }}" class="pub-link" target="_blank">
+            <i class="fa fa-youtube-play"></i> Presentation
+          </a>
+          {% endif %}
+          
+          {% if pub.media %}
+          <a href="#" class="pub-link media-toggle" data-media="{{ pub.media | join: ',' }}">
+            <i class="fa fa-newspaper-o"></i> Media Coverage
+          </a>
+          {% endif %}
+        </div>
+
+        {% if pub.media %}
+        <div class="media-coverage" style="display: none;">
+          <h4>Media Coverage:</h4>
+          <ul>
+            {% for media_item in pub.media %}
+            <li><a href="{{ media_item }}" target="_blank">{{ media_item | split: '/' | last }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+</div>
+
+<script>
+// Filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const publications = document.querySelectorAll('.publication-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      
+      publications.forEach(pub => {
+        if (filter === 'all') {
+          pub.style.display = 'flex';
+        } else if (filter === 'recent') {
+          const year = parseInt(pub.dataset.year);
+          pub.style.display = year >= new Date().getFullYear() - 2 ? 'flex' : 'none';
+        } else {
+          pub.style.display = pub.dataset.type === filter ? 'flex' : 'none';
+        }
+      });
+    });
+  });
+
+  // Media coverage toggle
+  document.querySelectorAll('.media-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const coverage = toggle.closest('.pub-content').querySelector('.media-coverage');
+      coverage.style.display = coverage.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+});
+</script>
