@@ -766,12 +766,143 @@ input, textarea, select {
       color: var(--text-muted) !important;
     }
   }
+
+  // Contact note dark mode fix
+  .contact-note {
+    background: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    
+    p {
+      color: var(--text-color) !important;
+    }
+    
+    strong {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Career timeline dark mode fixes
+  .career-timeline {
+    &::before {
+      background: linear-gradient(to bottom, #ff6b35, #1e3a5f) !important;
+      z-index: 1 !important;
+    }
+  }
+
+  .career-item {
+    .career-marker {
+      background: #ff6b35 !important;
+      border-color: var(--card-color) !important;
+      z-index: 3 !important;
+    }
+
+    &.current .career-marker {
+      background: #ff6b35 !important;
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.4) !important;
+    }
+
+    .career-content {
+      background: var(--card-color) !important;
+      z-index: 2 !important;
+      position: relative;
+    }
+  }
+
+  // App Visit button dark mode fix
+  .app-card .btn-outline,
+  .app-item .btn-outline {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: #ff6b35 !important;
+      color: white !important;
+      border-color: #ff6b35 !important;
+    }
+  }
+
+  // Project modal GitHub button dark mode fix
+  .modal-content .btn,
+  .modal-content .project-link {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: #ff6b35 !important;
+      color: white !important;
+      border-color: #ff6b35 !important;
+    }
+  }
+}
+
+// Jump to Top Button
+.jump-to-top {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 50px;
+  height: 50px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(20px);
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &:hover {
+    background: #e55a2b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    bottom: 1rem;
+    left: 1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+// Footer layout adjustments
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  .footer-text {
+    flex: 1;
+  }
 }
 
 // Psychedelic Footer Effect (Site-wide)
 .psychedelic-footer {
   position: relative;
   transition: all 0.3s ease;
+}
+
+// Exclude jump to top button from psychedelic effects
+.jump-to-top {
+  pointer-events: all;
+  
+  &:hover {
+    animation: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+    transform: translateY(-3px) !important;
+  }
 }
 
 .psychedelic-footer:hover {

@@ -200,7 +200,7 @@ permalink: /about/
 }
 
 .value-item:hover {
-  animation: psychedelicGlitch 0.6s ease-in-out;
+  animation: psychedelicGlitch 1.2s ease-in-out infinite;
   transform: scale(1.02);
 }
 
@@ -247,7 +247,7 @@ permalink: /about/
     rgba(30, 58, 95, 0.1), 
     rgba(255, 107, 53, 0.1));
   z-index: -1;
-  animation: psychedelicPulse 0.6s ease-in-out;
+  animation: psychedelicPulse 1.2s ease-in-out infinite;
 }
 
 @keyframes psychedelicPulse {

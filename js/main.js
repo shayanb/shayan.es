@@ -37,9 +37,10 @@ $(document).ready(function() {
     }
   });
 
-  // Add scroll effect to header
+  // Add scroll effect to header and jump to top button
   let lastScroll = 0;
   const header = document.querySelector('.site-header');
+  const jumpToTopBtn = document.getElementById('jumpToTop');
   
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -50,8 +51,27 @@ $(document).ready(function() {
       header.classList.remove('scrolled');
     }
     
+    // Show/hide jump to top button
+    if (jumpToTopBtn) {
+      if (currentScroll > 300) {
+        jumpToTopBtn.classList.add('visible');
+      } else {
+        jumpToTopBtn.classList.remove('visible');
+      }
+    }
+    
     lastScroll = currentScroll;
   });
+
+  // Jump to top functionality
+  if (jumpToTopBtn) {
+    jumpToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 
   // Console ASCII Art Easter Egg
   console.log(`

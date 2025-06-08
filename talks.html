@@ -384,7 +384,7 @@ permalink: /talks/
               {% endif %}
             </div>
             <div class="conference-minimal-meta">
-              <div class="conference-meta-top">
+              <div class="conference-meta-left">
                 <span class="conference-date">{{ conference.date }}</span>
                 {% if conference.talks_given and conference.talks_given.size > 0 %}
                   <span class="talks-count">
@@ -496,19 +496,34 @@ permalink: /talks/
 /* Conference Meta Layout */
 .conference-minimal-meta {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
 }
 
-.conference-meta-top {
+.conference-meta-left {
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .conference-location-bottom {
-  align-self: flex-start;
-  margin-top: 0.5rem;
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+.conference-item-minimal {
+  display: flex;
+  flex-direction: column;
+}
+
+.conference-minimal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* Podcasts Section Styles */
@@ -518,8 +533,8 @@ permalink: /talks/
 
 .podcasts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
@@ -946,7 +961,7 @@ permalink: /talks/
 @media (max-width: 768px) {
   .podcasts-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .podcast-actions {

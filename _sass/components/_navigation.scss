@@ -60,31 +60,33 @@
     gap: 0;
     
     position: fixed;
-    right: -100%;
+    right: 0;
     top: 70px;
     flex-direction: column;
     background-color: $white;
     width: 300px;
     text-align: left;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
     box-shadow: $shadow-lg;
     padding: 2rem 0;
     border-radius: 8px 0 0 8px;
     max-height: calc(100vh - 70px);
     overflow-y: auto;
+    transform: translateX(100%);
     
     &.active {
-      right: 0;
+      transform: translateX(0);
     }
     
     @media (max-width: $medium-screen) {
-      width: 100%;
+      width: 100vw;
       text-align: center;
       border-radius: 0;
-      right: -100%;
+      right: 0;
+      left: 0;
       
       &.active {
-        right: 0;
+        transform: translateX(0);
       }
     }
     
@@ -95,11 +97,9 @@
       }
     }
     
-    // Mobile: hide hamburger-only items when desktop items are shown
+    // Mobile: show all items (both desktop and hamburger items)
     .desktop-hamburger-item {
-      @media (max-width: $medium-screen) {
-        display: none;
-      }
+      // Show on both desktop and mobile
     }
   }
 
