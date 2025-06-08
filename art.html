@@ -1,123 +1,91 @@
 ---
 layout: page
-title: Art & Photography
+title: Art
 permalink: /art/
 ---
 
 <div class="art-page">
   <div class="page-header">
-    <h1>Art & Photography</h1>
-    <p class="page-subtitle">Creative works and visual storytelling</p>
+    <h1>Artistic Works</h1>
+    <p class="page-subtitle">Creative explorations at the intersection of technology and art</p>
   </div>
 
-  <div class="art-intro">
-    <p>Beyond code and security research, I explore the world through photography and digital art. These pieces capture moments, experiments, and creative expressions that complement my technical work.</p>
-  </div>
-
-  <div class="art-gallery">
-    {% assign featured_works = site.data.index.art | where: "featured", true %}
-    {% assign other_works = site.data.index.art | where: "featured", false %}
-    
-    {% if featured_works.size > 0 %}
-    <section class="featured-works">
-      <h2>Featured Works</h2>
-      <div class="featured-grid">
-        {% for work in featured_works %}
-        <div class="artwork-card featured" data-work="{{ work.title | slugify }}">
-          <div class="artwork-image">
-            {% if work.images and work.images.size > 0 %}
-              <img src="{{ work.images[0].url }}" alt="{{ work.images[0].caption }}" loading="lazy">
-              {% if work.images.size > 1 %}
-                <div class="image-count">
-                  <i class="fa fa-camera"></i> {{ work.images.size }}
-                </div>
-              {% endif %}
-            {% else %}
-              <div class="placeholder-image">
-                <i class="fa fa-image"></i>
-              </div>
-            {% endif %}
-          </div>
-          
-          <div class="artwork-info">
-            <h3>{{ work.title }}</h3>
-            <div class="artwork-meta">
-              <span class="artwork-type">{{ work.type }}</span>
-              <span class="artwork-year">{{ work.year }}</span>
+  <!-- Video Art Section -->
+  {% if site.data.index.art.video and site.data.index.art.video.size > 0 %}
+  <section class="art-section">
+    <h2><i class="fa fa-video-camera"></i> Video Art</h2>
+    <div class="art-grid">
+      {% for piece in site.data.index.art.video %}
+      <div class="art-item video-art" data-art="video-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if piece.screenshot %}
+            <img src="{{ piece.screenshot }}" alt="{{ piece.title }}" loading="lazy">
+            <div class="play-overlay">
+              <i class="fa fa-play"></i>
             </div>
-            <p class="artwork-description">{{ work.description }}</p>
-            
-            <div class="artwork-actions">
-              <button class="btn btn-primary view-gallery-btn" data-work="{{ work.title | slugify }}">
-                View Gallery
-              </button>
-              {% if work.instagram_post %}
-                <a href="{{ work.instagram_post }}" target="_blank" class="btn btn-outline">
-                  <i class="fa fa-instagram"></i>
-                </a>
-              {% endif %}
-              {% if work.link %}
-                <a href="{{ work.link }}" target="_blank" class="btn btn-outline">
-                  <i class="fa fa-external-link"></i>
-                </a>
-              {% endif %}
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-video-camera"></i>
             </div>
-          </div>
+          {% endif %}
         </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {% if other_works.size > 0 %}
-    <section class="other-works">
-      <h2>Other Works</h2>
-      <div class="artwork-grid">
-        {% for work in other_works %}
-        <div class="artwork-item" data-work="{{ work.title | slugify }}">
-          <div class="artwork-thumbnail">
-            {% if work.images and work.images.size > 0 %}
-              <img src="{{ work.images[0].url }}" alt="{{ work.images[0].caption }}" loading="lazy">
-            {% else %}
-              <div class="placeholder-thumbnail">
-                <i class="fa fa-image"></i>
-              </div>
-            {% endif %}
-          </div>
-          
-          <div class="artwork-details">
-            <h4>{{ work.title }}</h4>
-            <p class="artwork-medium">{{ work.medium }} • {{ work.year }}</p>
-            <button class="view-btn" data-work="{{ work.title | slugify }}">
-              <i class="fa fa-eye"></i>
-            </button>
-          </div>
+        <div class="art-info">
+          <h3>{{ piece.title }}</h3>
+          <span class="art-year">{{ piece.year }}</span>
         </div>
-        {% endfor %}
       </div>
-    </section>
-    {% endif %}
-  </div>
-
-  {% if site.owner.instagram %}
-  <div class="instagram-cta">
-    <div class="instagram-card">
-      <i class="fa fa-instagram"></i>
-      <h3>Follow My Photography</h3>
-      <p>See more of my work and behind-the-scenes content on Instagram</p>
-      <a href="https://instagram.com/{{ site.owner.instagram }}" target="_blank" class="btn btn-primary">
-        Follow @{{ site.owner.instagram }}
-      </a>
+      {% endfor %}
     </div>
-  </div>
+  </section>
   {% endif %}
+
+  <!-- Physical Art Section -->
+  {% if site.data.index.art.physical and site.data.index.art.physical.size > 0 %}
+  <section class="art-section">
+    <h2><i class="fa fa-picture-o"></i> Physical Art</h2>
+    <div class="art-grid">
+      {% for piece in site.data.index.art.physical %}
+      <div class="art-item physical-art" data-art="physical-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if piece.images and piece.images.size > 0 %}
+            <img src="{{ piece.images[0] }}" alt="{{ piece.title }}" loading="lazy">
+            {% if piece.images.size > 1 %}
+            <div class="multiple-images-indicator">
+              <i class="fa fa-images"></i>
+              <span>{{ piece.images.size }}</span>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-picture-o"></i>
+            </div>
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <h3>{{ piece.title }}</h3>
+          <span class="art-year">{{ piece.year }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Empty State -->
+  {% unless site.data.index.art.video.size > 0 or site.data.index.art.physical.size > 0 %}
+  <div class="empty-state">
+    <i class="fa fa-paint-brush"></i>
+    <h3>Coming Soon</h3>
+    <p>Artistic works will be featured here. Stay tuned for creative explorations!</p>
+  </div>
+  {% endunless %}
 </div>
 
-<!-- Gallery Modal -->
-<div id="gallery-modal" class="modal gallery-modal">
+<!-- Art Modal -->
+<div id="art-modal" class="modal">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
-    <div class="gallery-container">
+    <div class="modal-body">
       <!-- Content will be dynamically inserted -->
     </div>
   </div>
@@ -125,113 +93,160 @@ permalink: /art/
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.getElementById('gallery-modal');
-  const galleryContainer = modal.querySelector('.gallery-container');
+  const modal = document.getElementById('art-modal');
+  const modalBody = modal.querySelector('.modal-body');
   const closeBtn = modal.querySelector('.modal-close');
-  const viewGalleryBtns = document.querySelectorAll('.view-gallery-btn, .view-btn');
+  const artItems = document.querySelectorAll('.art-item');
 
   // Art data
-  const artworks = {
-    {% for work in site.data.index.art %}
-    "{{ work.title | slugify }}": {
-      title: "{{ work.title | escape }}",
-      type: "{{ work.type }}",
-      medium: "{{ work.medium }}",
-      year: {{ work.year }},
-      description: "{{ work.description | escape }}",
-      images: {{ work.images | jsonify }},
-      instagram_post: "{{ work.instagram_post }}",
-      link: "{{ work.link }}"
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
+  const artData = {
+    video: [
+      {% for piece in site.data.index.art.video %}
+      {
+        title: "{{ piece.title | escape }}",
+        year: {{ piece.year }},
+        description: "{{ piece.description | escape }}",
+        video_url: "{{ piece.video_url }}",
+        screenshot: "{{ piece.screenshot }}",
+        duration: "{{ piece.duration }}",
+        medium: "{{ piece.medium }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    physical: [
+      {% for piece in site.data.index.art.physical %}
+      {
+        title: "{{ piece.title | escape }}",
+        year: {{ piece.year }},
+        description: "{{ piece.description | escape }}",
+        images: [{% for img in piece.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        medium: "{{ piece.medium }}",
+        dimensions: "{{ piece.dimensions }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
   };
 
-  function showGallery(workId) {
-    const work = artworks[workId];
-    if (!work || !work.images || work.images.length === 0) return;
+  function showArtDetails(artId) {
+    const [type, index] = artId.split('-');
+    const piece = artData[type][parseInt(index) - 1];
+    if (!piece) return;
 
-    let imagesHtml = '';
-    if (work.images.length === 1) {
-      imagesHtml = `
-        <div class="single-image">
-          <img src="${work.images[0].url}" alt="${work.images[0].caption}">
-          <p class="image-caption">${work.images[0].caption}</p>
-        </div>
-      `;
-    } else {
-      imagesHtml = `
-        <div class="image-gallery">
-          <div class="gallery-main">
-            <img id="main-image" src="${work.images[0].url}" alt="${work.images[0].caption}">
-            <p id="main-caption" class="image-caption">${work.images[0].caption}</p>
-          </div>
-          <div class="gallery-thumbnails">
-            ${work.images.map((img, index) => `
-              <img src="${img.url}" alt="${img.caption}" 
-                   class="thumbnail ${index === 0 ? 'active' : ''}" 
-                   data-index="${index}"
-                   data-caption="${img.caption}">
-            `).join('')}
-          </div>
-        </div>
-      `;
-    }
-
-    let linksHtml = '';
-    const links = [];
-    if (work.instagram_post) links.push(`<a href="${work.instagram_post}" target="_blank" class="btn btn-outline"><i class="fa fa-instagram"></i> Instagram</a>`);
-    if (work.link) links.push(`<a href="${work.link}" target="_blank" class="btn btn-outline"><i class="fa fa-external-link"></i> View Online</a>`);
+    let contentHtml = '';
     
-    if (links.length > 0) {
-      linksHtml = `<div class="gallery-links">${links.join('')}</div>`;
-    }
-
-    galleryContainer.innerHTML = `
-      <div class="gallery-header">
-        <h2>${work.title}</h2>
-        <div class="gallery-meta">
-          <span>${work.type}</span> • <span>${work.medium}</span> • <span>${work.year}</span>
+    if (type === 'video') {
+      contentHtml = `
+        <div class="art-modal-header">
+          <h2>${piece.title}</h2>
+          <div class="art-meta">
+            <span class="art-year">${piece.year}</span>
+            ${piece.medium ? `<span class="art-medium">${piece.medium}</span>` : ''}
+            ${piece.duration ? `<span class="art-duration">${piece.duration}</span>` : ''}
+          </div>
         </div>
-        <p>${work.description}</p>
-      </div>
-      
-      ${imagesHtml}
-      
-      ${linksHtml}
-    `;
-
-    // Add thumbnail click handlers for multi-image galleries
-    if (work.images.length > 1) {
-      const mainImage = document.getElementById('main-image');
-      const mainCaption = document.getElementById('main-caption');
-      const thumbnails = document.querySelectorAll('.thumbnail');
-
-      thumbnails.forEach(thumb => {
-        thumb.addEventListener('click', () => {
-          const index = parseInt(thumb.dataset.index);
-          const caption = thumb.dataset.caption;
+        
+        <div class="art-content">
+          ${piece.video_url ? `
+            <div class="video-container">
+              <iframe src="${piece.video_url}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          ` : ''}
           
-          // Update main image
-          mainImage.src = work.images[index].url;
-          mainImage.alt = caption;
-          mainCaption.textContent = caption;
-          
-          // Update active thumbnail
-          thumbnails.forEach(t => t.classList.remove('active'));
-          thumb.classList.add('active');
-        });
-      });
+          <p class="art-description">${piece.description}</p>
+        </div>
+      `;
+    } else if (type === 'physical') {
+      let galleryHtml = '';
+      if (piece.images && piece.images.length > 0) {
+        galleryHtml = `
+          <div class="image-gallery">
+            <div class="main-image">
+              <img src="${piece.images[0]}" alt="${piece.title}" id="main-art-image">
+              ${piece.images.length > 1 ? `
+                <button class="gallery-nav prev" onclick="changeArtImage(-1)">
+                  <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav next" onclick="changeArtImage(1)">
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+              ` : ''}
+            </div>
+            ${piece.images.length > 1 ? `
+              <div class="image-thumbnails">
+                ${piece.images.map((img, index) => 
+                  `<img src="${img}" alt="${piece.title} ${index + 1}" 
+                   class="art-thumb ${index === 0 ? 'active' : ''}" 
+                   onclick="selectArtImage(${index})">`
+                ).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+      
+      contentHtml = `
+        <div class="art-modal-header">
+          <h2>${piece.title}</h2>
+          <div class="art-meta">
+            <span class="art-year">${piece.year}</span>
+            ${piece.medium ? `<span class="art-medium">${piece.medium}</span>` : ''}
+            ${piece.dimensions ? `<span class="art-dimensions">${piece.dimensions}</span>` : ''}
+          </div>
+        </div>
+        
+        <div class="art-content">
+          ${galleryHtml}
+          <p class="art-description">${piece.description}</p>
+        </div>
+      `;
     }
 
+    modalBody.innerHTML = contentHtml;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Initialize image navigation for physical art
+    if (type === 'physical') {
+      window.currentArtPiece = piece;
+      window.currentArtImageIndex = 0;
+    }
+  }
+
+  // Image navigation functions for physical art
+  window.changeArtImage = function(direction) {
+    if (!window.currentArtPiece || !window.currentArtPiece.images) return;
+    
+    const images = window.currentArtPiece.images;
+    window.currentArtImageIndex = (window.currentArtImageIndex + direction + images.length) % images.length;
+    
+    updateArtImageDisplay();
+  };
+
+  window.selectArtImage = function(index) {
+    if (!window.currentArtPiece || !window.currentArtPiece.images) return;
+    
+    window.currentArtImageIndex = index;
+    updateArtImageDisplay();
+  };
+
+  function updateArtImageDisplay() {
+    const mainImage = document.getElementById('main-art-image');
+    const thumbnails = document.querySelectorAll('.art-thumb');
+    
+    if (mainImage && window.currentArtPiece.images[window.currentArtImageIndex]) {
+      mainImage.src = window.currentArtPiece.images[window.currentArtImageIndex];
+    }
+    
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === window.currentArtImageIndex);
+    });
   }
 
   // Event listeners
-  viewGalleryBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const workId = btn.dataset.work;
-      showGallery(workId);
+  artItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const artId = item.dataset.art;
+      showArtDetails(artId);
     });
   });
 
@@ -246,15 +261,316 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     }
   });
-
-  // Keyboard navigation for gallery
-  document.addEventListener('keydown', (e) => {
-    if (modal.style.display === 'block') {
-      if (e.key === 'Escape') {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    }
-  });
 });
 </script>
+
+<style>
+.art-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.art-section {
+  margin-bottom: 4rem;
+}
+
+.art-section h2 {
+  color: #1e3a5f;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ff6b35;
+  display: inline-block;
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.art-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.art-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.art-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.art-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.art-item:hover .art-thumbnail img {
+  transform: scale(1.05);
+}
+
+.art-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 3rem;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.art-item:hover .play-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.multiple-images-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.art-info {
+  padding: 1.5rem;
+}
+
+.art-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.art-year {
+  color: #ff6b35;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Modal Styles */
+.art-modal-header {
+  margin-bottom: 2rem;
+}
+
+.art-modal-header h2 {
+  margin: 0 0 1rem 0;
+  color: #1e3a5f;
+}
+
+.art-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.art-meta span {
+  background: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.art-year {
+  background: #ff6b35 !important;
+  color: #fff !important;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 2rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.image-gallery {
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.gallery-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.gallery-nav.prev {
+  left: 1rem;
+}
+
+.gallery-nav.next {
+  right: 1rem;
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.art-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.art-thumb.active,
+.art-thumb:hover {
+  opacity: 1;
+}
+
+.art-description {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .art-item {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .art-info h3 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-placeholder {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-meta span {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-description {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .empty-state {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .empty-state h3 {
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .art-page {
+    padding: 1rem;
+  }
+  
+  .art-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .art-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .image-thumbnails {
+    justify-content: center;
+  }
+}
+</style>

@@ -166,8 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="modal-layout">
         <div class="modal-left">
           <div class="modal-header">
-            ${app.logo ? `<img src="${app.logo}" alt="${app.name} logo" class="modal-logo">` : ''}
-            <div>
+            <div class="modal-text-content">
               <h2>${app.name}</h2>
               <p class="modal-platform">${app.platform} • ${app.year}</p>
             </div>
@@ -179,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         
         <div class="modal-right">
+          ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
           ${screenshotsHtml}
         </div>
       </div>

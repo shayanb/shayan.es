@@ -44,22 +44,30 @@
     padding: 0;
     gap: 0.5rem;
     
+    // Always use mobile-style menu for hamburger
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: $white;
+    width: 300px;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow: $shadow-lg;
+    padding: 2rem 0;
+    gap: 0;
+    border-radius: 0 8px 8px 0;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    
+    &.active {
+      left: 0;
+    }
+    
     @media (max-width: $medium-screen) {
-      position: fixed;
-      left: -100%;
-      top: 70px;
-      flex-direction: column;
-      background-color: $white;
       width: 100%;
       text-align: center;
-      transition: 0.3s;
-      box-shadow: $shadow-lg;
-      padding: 2rem 0;
-      gap: 0;
-      
-      &.active {
-        left: 0;
-      }
+      border-radius: 0;
     }
   }
 
@@ -102,26 +110,21 @@
       background: $light-blue;
     }
     
-    @media (max-width: $medium-screen) {
-      padding: 1rem 2rem;
-      
-      &:hover {
-        background: $gray-50;
-      }
+    // Always use hamburger styling
+    padding: 1rem 2rem;
+    
+    &:hover {
+      background: $gray-50;
     }
   }
 
   .nav-toggle {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
     background: none;
     border: none;
     padding: 0.5rem;
-    
-    @media (max-width: $medium-screen) {
-      display: flex;
-    }
     
     span {
       width: 25px;

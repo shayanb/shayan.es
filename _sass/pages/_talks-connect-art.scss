@@ -436,13 +436,12 @@
 
     .hackathons-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
 
       // Mixed layout for both full and minimal cards
       .hackathon-card-minimal {
-        grid-column: span 1;
-        min-width: 250px;
+        max-width: 400px;
       }
     }
 
@@ -611,7 +610,7 @@
 
       // Minimal card styling for judge/mentor roles
       &.hackathon-card-minimal {
-        padding: 1.25rem;
+        padding: 1rem;
         
         .hackathon-minimal-content {
           .hackathon-title-row {
@@ -662,7 +661,7 @@
               font-weight: 500;
             }
 
-            .hackathon-location {
+            .hackathon-location-bottom {
               display: flex;
               align-items: center;
               gap: 0.25rem;
@@ -960,6 +959,27 @@
       &.mastodon {
         &:hover .platform-icon {
           background: #6364ff;
+          color: $white;
+        }
+      }
+
+      &.stackoverflow {
+        &:hover .platform-icon {
+          background: #f48024;
+          color: $white;
+        }
+      }
+
+      &.scholar {
+        &:hover .platform-icon {
+          background: #4285f4;
+          color: $white;
+        }
+      }
+
+      &.orcid {
+        &:hover .platform-icon {
+          background: #a6ce39;
           color: $white;
         }
       }

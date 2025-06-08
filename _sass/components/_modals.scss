@@ -312,8 +312,24 @@
         background: $gray-50;
         padding: 2rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        .modal-logo-container {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+
+          .modal-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: $border-radius;
+            box-shadow: $shadow-md;
+          }
+        }
 
         .screenshot-gallery {
           width: 100%;

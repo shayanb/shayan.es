@@ -241,3 +241,524 @@ input, textarea, select {
     color: var(--text-color);
   }
 }
+
+// Page Headers Dark Mode
+[data-theme="dark"] {
+  .page-header {
+    background: transparent !important;
+    color: var(--text-color);
+
+    h1, h2 {
+      color: var(--text-color);
+    }
+
+    .page-subtitle {
+      color: var(--text-muted);
+    }
+  }
+
+  // Stats and info sections
+  .publications-stats,
+  .media-stats,
+  .speaking-stats,
+  .stats-grid {
+    background: var(--surface-color) !important;
+
+    .stat-item,
+    .stat-card {
+      background: var(--card-color) !important;
+      
+      .stat-number {
+        color: var(--text-color) !important;
+      }
+
+      .stat-label {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Navigation improvements
+  .navbar {
+    background: var(--surface-color) !important;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-menu {
+    background: var(--surface-color) !important;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-link:hover {
+    background: var(--card-color) !important;
+  }
+
+  .nav-brand,
+  .brand-name {
+    color: var(--text-color) !important;
+  }
+
+  // Button improvements  
+  .btn {
+    border-color: var(--border-color);
+    
+    &:not(.btn-primary):not(.btn-outline) {
+      background: var(--surface-color);
+      color: var(--text-color);
+      
+      &:hover {
+        background: var(--card-color);
+      }
+    }
+  }
+
+  // Platform buttons specifically
+  .platform-card .platform-btn {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: var(--card-color) !important;
+    }
+  }
+
+  // Filter buttons
+  .filter-btn {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: var(--card-color) !important;
+    }
+
+    &.active {
+      background: $secondary !important;
+      color: white !important;
+      border-color: $secondary !important;
+    }
+  }
+
+  // Publication items
+  .publication-item {
+    background: var(--card-color) !important;
+    border-color: var(--border-color);
+
+    .pub-year {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+    }
+
+    .pub-venue {
+      color: var(--text-color) !important;
+    }
+
+    .pub-link {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background: var(--card-color) !important;
+        border-color: $secondary !important;
+        color: $secondary !important;
+      }
+    }
+  }
+
+  // Media items
+  .media-item {
+    background: var(--card-color) !important;
+    
+    .media-header h3 a {
+      color: var(--text-color) !important;
+      
+      &:hover {
+        color: $secondary !important;
+      }
+    }
+
+    .read-link {
+      color: var(--text-color) !important;
+      
+      &:hover {
+        color: $secondary !important;
+      }
+    }
+  }
+
+  // Talk and conference cards
+  .talk-card,
+  .hackathon-card {
+    background: var(--card-color) !important;
+    
+    .talk-description,
+    .hackathon-description {
+      color: var(--text-muted) !important;
+    }
+
+    .media-link {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background: var(--card-color) !important;
+        border-color: $secondary !important;
+        color: $secondary !important;
+      }
+    }
+  }
+
+  // Apps page improvements
+  .app-card {
+    background: var(--card-color) !important;
+    
+    .app-description {
+      color: var(--text-muted) !important;
+    }
+
+    h3, h4 {
+      color: var(--text-color) !important;
+    }
+
+    .app-platform {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .apps-page {
+    h1, h2, h3, h4 {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Modal improvements for apps
+  .modal-layout {
+    .modal-right {
+      background: var(--surface-color) !important;
+    }
+  }
+
+  // Career page improvements
+  .career-item {
+    background: var(--card-color) !important;
+    
+    .job-description {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Project cards
+  .project-card {
+    h3, h4 {
+      color: var(--text-color) !important;
+    }
+
+    .project-description {
+      color: var(--text-muted) !important;
+    }
+
+    .project-status {
+      &.status-active {
+        background: var(--surface-color) !important;
+        color: var(--text-color) !important;
+      }
+    }
+  }
+
+  .projects-page {
+    h1, h2, h3, h4 {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Year headers and section dividers
+  .year-header {
+    color: var(--text-color) !important;
+    border-bottom-color: $secondary !important;
+  }
+
+  // Links and anchors
+  a:not(.btn):not(.media-link):not(.platform-card) {
+    color: $secondary;
+    
+    &:hover {
+      color: lighten($secondary, 10%);
+    }
+  }
+
+  // Form elements improvements
+  input[type="text"],
+  input[type="email"], 
+  textarea,
+  select {
+    background: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+
+    &:focus {
+      border-color: $secondary !important;
+      box-shadow: 0 0 0 2px rgba($secondary, 0.2) !important;
+    }
+  }
+
+  // Ensure text readability
+  .text-muted {
+    color: var(--text-muted) !important;
+  }
+
+  // Loading states and placeholders
+  .placeholder-image,
+  .placeholder-thumbnail {
+    background: var(--surface-color) !important;
+    color: var(--text-muted) !important;
+  }
+
+  // Borders and dividers
+  hr {
+    border-color: var(--border-color) !important;
+  }
+
+  // Code and syntax highlighting
+  .highlight {
+    background: var(--surface-color) !important;
+  }
+
+  // Timeline elements
+  .timeline-item {
+    border-color: var(--border-color) !important;
+    
+    &::before {
+      background: var(--border-color) !important;
+    }
+  }
+
+  // Universal heading fixes
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+  }
+
+  // All page containers
+  .talks-page,
+  .publications-page,
+  .media-page,
+  .career-page,
+  .connect-page,
+  .art-page,
+  .about-page {
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-color) !important;
+    }
+
+    p {
+      color: var(--text-color) !important;
+    }
+
+    .page-subtitle {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Card titles specifically
+  .card h3,
+  .item h3,
+  .item h4,
+  .card-title,
+  .item-title {
+    color: var(--text-color) !important;
+  }
+
+  // Media and link text
+  .media-outlet,
+  .venue-name,
+  .conference-name {
+    color: var(--text-color) !important;
+  }
+
+  // Ensure all text in cards is visible
+  .card,
+  .item,
+  .section {
+    color: var(--text-color) !important;
+  }
+
+  // Specific missing dark mode fixes
+  .highlight-card {
+    background: var(--card-color) !important;
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+
+    .highlight-meta {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .career-company {
+    color: var(--text-color) !important;
+  }
+
+  .career-marker {
+    background: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    
+    &::before {
+      background: var(--border-color) !important;
+    }
+  }
+
+  .app-card.featured {
+    background: var(--card-color) !important;
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .stat-item {
+    background: var(--card-color) !important;
+    
+    .stat-number {
+      color: var(--text-color) !important;
+    }
+    
+    .stat-label {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .pub-venue {
+    color: var(--text-color) !important;
+  }
+
+  .pub-year-badge {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+  }
+
+  .expertise-item {
+    h3, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .about-cta {
+    p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .value-item {
+    h3, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .social-item {
+    background: var(--card-color) !important;
+    color: var(--text-color) !important;
+    
+    h3, p {
+      color: var(--text-color) !important;
+    }
+  }
+}
+
+// Psychedelic Footer Effect (Site-wide)
+.psychedelic-footer {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.psychedelic-footer:hover {
+  animation: psychedelicFooterGlitch 0.8s ease-in-out;
+  cursor: default;
+}
+
+@keyframes psychedelicFooterGlitch {
+  0% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: translateX(0);
+  }
+  15% { 
+    filter: hue-rotate(120deg) saturate(1.8) brightness(1.3);
+    transform: translateX(-1px);
+    text-shadow: 1px 0 #ff6b35, -1px 0 #1e3a5f;
+  }
+  30% { 
+    filter: hue-rotate(240deg) saturate(2.2) brightness(0.9);
+    transform: translateX(1px);
+    text-shadow: -1px 0 #ff6b35, 1px 0 #1e3a5f;
+  }
+  45% { 
+    filter: hue-rotate(360deg) saturate(1.5) brightness(1.2);
+    transform: translateX(-0.5px);
+    text-shadow: 0.5px 0 #ff6b35, -0.5px 0 #1e3a5f;
+  }
+  60% { 
+    filter: hue-rotate(480deg) saturate(1.9) brightness(1.1);
+    transform: translateX(0.5px);
+    text-shadow: -0.5px 0 #ff6b35, 0.5px 0 #1e3a5f;
+  }
+  75% { 
+    filter: hue-rotate(600deg) saturate(1.3) brightness(1.4);
+    transform: translateX(-0.3px);
+  }
+  90% { 
+    filter: hue-rotate(720deg) saturate(1.1) brightness(1.1);
+    transform: translateX(0.3px);
+  }
+  100% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: translateX(0);
+    text-shadow: none;
+  }
+}
+
+.psychedelic-footer:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.1), 
+    rgba(30, 58, 95, 0.1), 
+    rgba(255, 107, 53, 0.05),
+    rgba(30, 58, 95, 0.1));
+  z-index: -1;
+  border-radius: 4px;
+  animation: psychedelicFooterPulse 0.8s ease-in-out;
+}
+
+@keyframes psychedelicFooterPulse {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.4; 
+    transform: scale(1.05);
+  }
+}
+
+// Heart icon special effect
+.heart-icon {
+  transition: all 0.3s ease;
+}
+
+.psychedelic-footer:hover .heart-icon {
+  animation: heartBeat 0.8s ease-in-out;
+  color: #e74c3c;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1.1); }
+  75% { transform: scale(1.15); }
+}

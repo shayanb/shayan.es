@@ -14,7 +14,8 @@
       "Bash(find:*)",
       "Bash(bundle exec:*)",
       "Bash(bundle install)",
-      "Bash(rg:*)"
+      "Bash(rg:*)",
+      "Bash(touch:*)"
     ],
     "deny": []
   }

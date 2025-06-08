@@ -6,7 +6,9 @@ permalink: /about/
 
 <div class="about-page">
   <div class="about-header">
-    <img src="/img/shayan.jpeg" alt="Shayan Eskandari" class="about-avatar">
+    <div class="about-avatar-container">
+      <img src="/img/shayan_about.jpeg" alt="Shayan Eskandari" class="about-avatar">
+    </div>
     <div class="about-intro">
       <h1>{{ site.owner.name }}</h1>
       <p class="tagline">{{ site.owner.job }}</p>
@@ -101,3 +103,160 @@ permalink: /about/
     </div>
   </div>
 </div>
+
+<style>
+.about-avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.about-avatar {
+  width: 400px;
+  height: 400px;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 8px 15px rgba(0, 0, 0, 0.15),
+    0 0 0 8px rgba(255, 255, 255, 0.9);
+  transition: all 0.4s ease;
+  border: 2px solid #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.about-avatar:hover {
+  transform: translateY(-8px) rotateY(5deg) rotateX(2deg);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    0 0 0 8px rgba(255, 255, 255, 0.95);
+}
+
+.about-avatar-container::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, #ff6b35, #1e3a5f, #ff6b35);
+  border-radius: 30px;
+  z-index: -1;
+  opacity: 0.3;
+  transition: all 0.4s ease;
+  filter: blur(8px);
+}
+
+.about-avatar-container:hover::before {
+  opacity: 0.5;
+  transform: translateX(-50%) scale(1.02) rotate(2deg);
+  filter: blur(12px);
+}
+
+/* Dark mode support */
+[data-theme="dark"] .about-avatar {
+  border-color: var(--surface-color);
+}
+
+[data-theme="dark"] .about-avatar-container::before {
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .about-avatar-container:hover::before {
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .about-avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+  }
+  
+  .about-avatar-container::before {
+    width: 320px;
+    height: 320px;
+    border-radius: 25px;
+    top: 10px;
+  }
+}
+
+/* Psychedelic Glitch Effect for Value Items */
+.value-item {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.value-item:hover {
+  animation: psychedelicGlitch 0.6s ease-in-out;
+  transform: scale(1.02);
+}
+
+@keyframes psychedelicGlitch {
+  0% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: scale(1.02) translateX(0);
+  }
+  20% { 
+    filter: hue-rotate(90deg) saturate(1.5) brightness(1.2);
+    transform: scale(1.02) translateX(-2px);
+    text-shadow: 2px 0 #ff6b35, -2px 0 #1e3a5f;
+  }
+  40% { 
+    filter: hue-rotate(180deg) saturate(2) brightness(0.8);
+    transform: scale(1.02) translateX(2px);
+    text-shadow: -2px 0 #ff6b35, 2px 0 #1e3a5f;
+  }
+  60% { 
+    filter: hue-rotate(270deg) saturate(1.8) brightness(1.3);
+    transform: scale(1.02) translateX(-1px);
+    text-shadow: 1px 0 #ff6b35, -1px 0 #1e3a5f;
+  }
+  80% { 
+    filter: hue-rotate(360deg) saturate(1.2) brightness(1.1);
+    transform: scale(1.02) translateX(1px);
+  }
+  100% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: scale(1.02) translateX(0);
+    text-shadow: none;
+  }
+}
+
+.value-item:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.1), 
+    rgba(30, 58, 95, 0.1), 
+    rgba(255, 107, 53, 0.1));
+  z-index: -1;
+  animation: psychedelicPulse 0.6s ease-in-out;
+}
+
+@keyframes psychedelicPulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.3; }
+}
+
+@media (max-width: 480px) {
+  .about-avatar {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .about-avatar-container::before {
+    width: 270px;
+    height: 270px;
+  }
+}
+</style>

@@ -22,7 +22,9 @@ permalink: /projects/
             {% else %}
               <span class="project-years">{{ project.year }}</span>
             {% endif %}
+            {% unless project.status == 'completed' %}
             <span class="project-status status-{{ project.status | default: 'active' }}">{{ project.status | default: 'Active' | capitalize }}</span>
+            {% endunless %}
           </div>
         </div>
         <div class="project-links">
@@ -44,7 +46,7 @@ permalink: /projects/
         
         {% if project.media and project.media.size > 0 %}
         <div class="project-media">
-          <span class="media-label"><i class="fa fa-newspaper-o"></i> {{ project.media.size }} media mention{{ project.media.size | pluralize: '', 's' }}</span>
+          <span class="media-label"><i class="fa fa-newspaper-o"></i> {{ project.media.size }} media mention{% if project.media.size != 1 %}s{% endif %}</span>
         </div>
         {% endif %}
       </div>

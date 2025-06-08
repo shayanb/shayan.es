@@ -263,3 +263,120 @@ Dark mode is not working properly, as examples:
 - the cards (e.g. projects) are now dark text on dark background
   - platfom icons buttons are not changed
 - basically go through all components of the website to make sure the dark mode behaviour is implemented correctly
+
+
+
+--------------------------
+
+
+use the shayan_about.jpeg for the about page, this can be square with round edges or any other way visaully nice photo object. 
+
+
+publications:
+bug: on venue-name inside pub-year when mouse hover, there are two actions happening and the text is flashing. 
+enhancement: make the text content to break/wrap when needed (break on space)
+- change the quote ::before ::after , just indicate visaully that this is the abstract of the paper
+
+
+media toggle bug, this is what is shown:
+<a href="#" class="pub-link media-toggle" data-media="{" name"="">"Coindesk", "link"=&gt;"https://www.coindesk.com/press-releases/worlds-first-peer-reviewed-smart-contract-paper/"},{"name"=&gt;"Bitaccess", "link"=&gt;"http://blog.bitaccess.ca/workshop-on-trusted-smart-contracts/"},{"name"=&gt;"bitcoin.com", "link"=&gt;"https://news.bitcoin.com/worlds-first-peer-reviewed-smart-contract-paper/"}"&gt;
+            <i class="fa fa-newspaper-o"></i> Media Coverage
+          </a>
+
+each of these links should be a separate button with the name hyperlink link
+
+
+Projects:
+
+remove the "project-status status-completed" label completed 
+
+media mention labels on the card media-label shows the number twice:  3 media mention3
+
+Talks:
+Add a new section for podcasts, so the entries are podcast episodes attended. make the yaml file that takes the title, youtube link, date, channel, description, thumbnail (if possible to fetch any of these from the youtube or link metadata, please do w/ proper error handling)
+
+bring media-links to the same row as talk-location-bottom 
+
+make the talks cards have the Other Talks sections that are shorter (or on grid) (implement yaml tag too), the look of it can be similar to Other Projects in the apps section, with grid. 
+
+
+the fix for hackathon-card hackathon-card-minimal that are not hacker is not in effect. 
+
+- conference attendance  conference-location-bottom should on conference-item-minimal (left bottom side of the container visually)
+
+Apps:
+in modals, move the modal-logo to the right side of the modal. align the rest accordingly.
+
+
+Career:
+the career-skills is not filled, in the previous implementation is was radar chart of the skills visually shown. create a similar fun chart (or more), possibly use the context to add other tags and scores (quantified self professionally? lol ) 
+
+
+Connect:
+in the original yaml file there were items like stackoverflow, youtube, google scholar links. add their icons in Find me Online section
+
+
+
+Dark mode:  the navbar nad headers seems to be fine, but the text itself is mostly dark on dark. like nav-brand, inside project-card s, apps, titles inside apps page, etc. check all content pages for similar instances and fix for dark mode
+
+
+
+---------
+
+Great job, the changes look pretty good, there are some bugs on the dark mode but the rest look good. now continue, but also add these (some related to done tasks):
+
+about:
+- the image has two overlays right now, only use the bigger square one for hte picture, make the picture double the current size. -- maybe the underneath overlay can still exist to make the picture look more live out 3d paper photo style
+
+
+publications:
+- merge pub-year and pub-content, so the abstract will start from left side of publication-item under the year and the title
+
+
+darkmode:
+still not fixed items: highlight-card, career-company, career-marker and the line, app-card featured, stat-item (has slightly different background), pub-venue, expertise-item, about-cta, value-item, social-item
+
+
+audits page exist but is not linked from anywhere. but not sure where is the best place to implement it.
+
+
+about:
+- add a psychedelic glitch on mouse hover on "What Drives Me" cards (value-item)
+- footer: also add the same effect to the footer text (footer) (this change is site wide)
+
+
+-------------
+
+Create a hamburger menu for desktop mode and add these items to there. this can be expanded to all menus in mobile mode
+- Audits
+- Art
+- 
+
+
+publications:
+- no the change is not what I wanted. the year and the title should be on top, and then abstract on another row. the paper tag as it was before maybe on top corner of the abstract, with overlapping 3d style button
+
+
+============================
+
+
+about page:
+- move the journey highlight and areas of expertise to split the page inbetween the two (grid? but no borders or anything seamless)
+- the background layout of the image is too big and not properly aligned, check the image components and fix it (idea is to be square with shades or somehow looking like a paper photo slightly elevated from the page)
+
+publications:
+- merge pub-year and pub-content, so the abstract will start from left side of publication-item under top part , the top part has the year and then title. in sub header/title, it should write the published in text. 
+- remove the 3d and effects on the paper button
+- use the similar componets as ealier (simple elegent button) for paper and media coverage, presentation, etc to show under the abstract
+
+career:
+- the chart looks great, remove Skills Overview and make the chart bigger.
+
+Dark mode items still needs fixing: about page: expertise-item, value-item, about-cta | nav-toggle | stat-number (still has slightly different background) | app-title-btn to be orange in dark mode, goes the same as other titles. | other-apps-section . app-item | highlight-card icon in career, contact-form, response-card
+
+Talks:
+- make the "Speaking Overview" items/stats clickable to jump to the right section
+- make the podcast item smaller same size as hackathon-card
+
+Menu / navbar: 
+the hamburger menu on desktop should only include the following items, and the rest should be on the navbar visible: audits, art, Projects, Apps, Connect.

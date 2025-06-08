@@ -56,8 +56,19 @@ permalink: /talks/
             {% endif %}
           {% endfor %}
           {% assign total_talks = total_talks | plus: site.data.index.lectures.size %}
+          {% assign total_talks = total_talks | plus: site.data.index.podcasts.size %}
           <span class="stat-number">{{ total_talks }}+</span>
           <span class="stat-label">Total Presentations</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fa fa-podcast"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-number">{{ site.data.index.podcasts | size }}</span>
+          <span class="stat-label">Podcast Episodes</span>
         </div>
       </div>
     </div>
@@ -74,21 +85,22 @@ permalink: /talks/
           <div class="talk-header">
             <div class="talk-title-area">
               <div class="talk-title-row">
-                <h3>{{ lecture.name }}</h3>
+                <h3>
+                  {% if lecture.website %}
+                    <a href="{{ lecture.website }}" target="_blank" class="conference-link">{{ lecture.name }}</a>
+                  {% else %}
+                    {{ lecture.name }}
+                  {% endif %}
+                </h3>
                 <div class="talk-badges">
                   {% if lecture.year %}
-                    <span class="talk-year">{{ lecture.year }}</span>
+                    <span class="talk-year-smooth">{{ lecture.year }}</span>
                   {% endif %}
                   {% if lecture.flag %}
                     <img src="/img/flags/{{ lecture.flag }}.png" alt="{{ lecture.flag }}" class="flag-icon">
                   {% endif %}
                 </div>
               </div>
-              {% if lecture.location %}
-                <div class="talk-location">
-                  <i class="fa fa-map-marker"></i> {{ lecture.location }}
-                </div>
-              {% endif %}
             </div>
           </div>
           
@@ -96,9 +108,17 @@ permalink: /talks/
           <p class="talk-description">{{ lecture.descr }}</p>
           {% endif %}
           
-          {% if lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
-          <div class="talk-media">
-            <div class="media-links">
+          {% if lecture.location or lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          <div class="talk-footer-row">
+            {% if lecture.location %}
+            <div class="talk-location-bottom">
+              <i class="fa fa-map-marker"></i> {{ lecture.location }}
+            </div>
+            {% endif %}
+            
+            {% if lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+            <div class="talk-media">
+              <div class="media-links">
               {% if lecture.youtube %}
                 <a href="{{ lecture.youtube }}" target="_blank" class="media-link youtube">
                   <i class="fa fa-youtube"></i>
@@ -123,16 +143,144 @@ permalink: /talks/
                   <span>Paper</span>
                 </a>
               {% endif %}
-              {% if lecture.website %}
-                <a href="{{ lecture.website }}" target="_blank" class="media-link website">
-                  <i class="fa fa-external-link"></i>
-                  <span>Event</span>
-                </a>
-              {% endif %}
+              </div>
             </div>
+            {% endif %}
           </div>
           {% endif %}
         </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Podcasts Section -->
+    <section class="podcasts-section">
+      <h2>Podcast Episodes</h2>
+      <div class="podcasts-grid">
+        {% for podcast in site.data.index.podcasts %}
+        <div class="podcast-card">
+          <div class="podcast-thumbnail">
+            {% if podcast.thumbnail and podcast.thumbnail != "" %}
+              <img src="{{ podcast.thumbnail }}" alt="{{ podcast.title }}" class="podcast-thumb-img">
+            {% elsif podcast.youtube_link %}
+              <!-- Extract YouTube thumbnail from URL -->
+              {% assign youtube_id = podcast.youtube_link | split: 'v=' | last | split: '&' | first %}
+              <img src="https://img.youtube.com/vi/{{ youtube_id }}/maxresdefault.jpg" alt="{{ podcast.title }}" class="podcast-thumb-img" onerror="this.src='https://img.youtube.com/vi/{{ youtube_id }}/hqdefault.jpg'">
+            {% else %}
+              <div class="podcast-thumb-placeholder">
+                <i class="fa fa-microphone"></i>
+              </div>
+            {% endif %}
+            {% if podcast.youtube_link %}
+            <div class="podcast-play-overlay">
+              <i class="fa fa-play"></i>
+            </div>
+            {% endif %}
+          </div>
+          
+          <div class="podcast-content">
+            <div class="podcast-header">
+              <h3 class="podcast-title">{{ podcast.title }}</h3>
+              <div class="podcast-meta">
+                <span class="podcast-channel">
+                  {% if podcast.channel_url %}
+                    <a href="{{ podcast.channel_url }}" target="_blank">{{ podcast.channel }}</a>
+                  {% else %}
+                    {{ podcast.channel }}
+                  {% endif %}
+                </span>
+                {% if podcast.date %}
+                <span class="podcast-date">{{ podcast.date | date: "%B %Y" }}</span>
+                {% endif %}
+              </div>
+            </div>
+            
+            {% if podcast.description %}
+            <p class="podcast-description">{{ podcast.description }}</p>
+            {% endif %}
+            
+            <div class="podcast-actions">
+              {% if podcast.youtube_link %}
+              <a href="{{ podcast.youtube_link }}" target="_blank" class="podcast-action youtube">
+                <i class="fa fa-youtube"></i>
+                <span>Watch on YouTube</span>
+              </a>
+              {% endif %}
+              {% if podcast.channel_url %}
+              <a href="{{ podcast.channel_url }}" target="_blank" class="podcast-action website">
+                <i class="fa fa-external-link"></i>
+                <span>Visit Channel</span>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Other Talks Section (Grid Layout) -->
+    <section class="other-talks-section">
+      <h2>Additional Talks & Workshops</h2>
+      <div class="other-talks-grid">
+        {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
+        {% for lecture in sorted_lectures %}
+        {% if lecture.type == 'workshop' or lecture.type == 'other' or lecture.type == 'panel' %}
+        <div class="other-talk-card">
+          <div class="other-talk-header">
+            <h4 class="other-talk-title">
+              {% if lecture.website %}
+                <a href="{{ lecture.website }}" target="_blank" class="other-talk-link">{{ lecture.name }}</a>
+              {% else %}
+                {{ lecture.name }}
+              {% endif %}
+            </h4>
+            <div class="other-talk-badges">
+              {% if lecture.year %}
+                <span class="other-talk-year">{{ lecture.year }}</span>
+              {% endif %}
+              {% if lecture.flag %}
+                <img src="/img/flags/{{ lecture.flag }}.png" alt="{{ lecture.flag }}" class="other-flag-icon">
+              {% endif %}
+            </div>
+          </div>
+          
+          {% if lecture.location %}
+          <div class="other-talk-location">
+            <i class="fa fa-map-marker"></i> {{ lecture.location }}
+          </div>
+          {% endif %}
+          
+          {% if lecture.descr %}
+          <p class="other-talk-description">{{ lecture.descr }}</p>
+          {% endif %}
+          
+          {% if lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          <div class="other-talk-actions">
+            {% if lecture.youtube %}
+              <a href="{{ lecture.youtube }}" target="_blank" class="other-action youtube">
+                <i class="fa fa-youtube"></i>
+              </a>
+            {% endif %}
+            {% if lecture.slides %}
+              <a href="{{ lecture.slides }}" target="_blank" class="other-action slides">
+                <i class="fa fa-file-powerpoint-o"></i>
+              </a>
+            {% endif %}
+            {% if lecture.github %}
+              <a href="{{ lecture.github }}" target="_blank" class="other-action github">
+                <i class="fa fa-github"></i>
+              </a>
+            {% endif %}
+            {% if lecture.paper %}
+              <a href="{{ lecture.paper }}" target="_blank" class="other-action paper">
+                <i class="fa fa-file-pdf-o"></i>
+              </a>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
         {% endfor %}
       </div>
     </section>
@@ -193,14 +341,20 @@ permalink: /talks/
           <!-- Minimal card for judge/mentor roles -->
           <div class="hackathon-minimal-content">
             <div class="hackathon-title-row">
-              <h4>{{ hackathon.name }}</h4>
+              <h4>
+                {% if hackathon.website %}
+                  <a href="{{ hackathon.website }}" target="_blank" class="hackathon-link">{{ hackathon.name }}</a>
+                {% else %}
+                  {{ hackathon.name }}
+                {% endif %}
+              </h4>
               <span class="hackathon-role role-{{ hackathon.role }}">{{ hackathon.role | capitalize }}</span>
             </div>
             <div class="hackathon-minimal-meta">
               <span class="hackathon-date">{{ hackathon.date }}</span>
-              <span class="hackathon-location">
+              <div class="hackathon-location-bottom">
                 <i class="fa fa-map-marker"></i> {{ hackathon.location }}
-              </span>
+              </div>
             </div>
           </div>
           {% endif %}
@@ -230,15 +384,17 @@ permalink: /talks/
               {% endif %}
             </div>
             <div class="conference-minimal-meta">
-              <span class="conference-date">{{ conference.date }}</span>
-              <span class="conference-location">
+              <div class="conference-meta-top">
+                <span class="conference-date">{{ conference.date }}</span>
+                {% if conference.talks_given and conference.talks_given.size > 0 %}
+                  <span class="talks-count">
+                    <i class="fa fa-microphone"></i> {{ conference.talks_given.size }} talk{% if conference.talks_given.size > 1 %}s{% endif %}
+                  </span>
+                {% endif %}
+              </div>
+              <div class="conference-location-bottom">
                 <i class="fa fa-map-marker"></i> {{ conference.location }}
-              </span>
-              {% if conference.talks_given and conference.talks_given.size > 0 %}
-                <span class="talks-count">
-                  <i class="fa fa-microphone"></i> {{ conference.talks_given.size }} talk{% if conference.talks_given.size > 1 %}s{% endif %}
-                </span>
-              {% endif %}
+              </div>
             </div>
           </div>
         </div>
@@ -247,3 +403,563 @@ permalink: /talks/
     </section>
   </div>
 </div>
+
+<style>
+/* Conference Link Styles */
+.conference-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.conference-link:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+/* Smooth Year Badge */
+.talk-year-smooth {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* Talk Footer Row */
+.talk-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Bottom Location Styles */
+.talk-location-bottom,
+.hackathon-location-bottom,
+.conference-location-bottom {
+  color: #666;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.talk-footer-row .talk-location-bottom {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  justify-content: flex-start;
+}
+
+/* Hackathon Link Styles */
+.hackathon-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hackathon-link:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+/* Dark Mode Support for New Elements */
+[data-theme="dark"] .conference-link,
+[data-theme="dark"] .hackathon-link {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .conference-link:hover,
+[data-theme="dark"] .hackathon-link:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .talk-year-smooth {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+[data-theme="dark"] .talk-location-bottom,
+[data-theme="dark"] .hackathon-location-bottom,
+[data-theme="dark"] .conference-location-bottom {
+  color: var(--text-color);
+  border-top-color: var(--surface-color);
+}
+
+/* Conference Meta Layout */
+.conference-minimal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.conference-meta-top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.conference-location-bottom {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* Podcasts Section Styles */
+.podcasts-section {
+  margin: 3rem 0;
+}
+
+.podcasts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.podcast-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.podcast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.podcast-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.podcast-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.podcast-card:hover .podcast-thumb-img {
+  transform: scale(1.05);
+}
+
+.podcast-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 3rem;
+}
+
+.podcast-play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.podcast-card:hover .podcast-play-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.podcast-content {
+  padding: 1.5rem;
+}
+
+.podcast-header {
+  margin-bottom: 1rem;
+}
+
+.podcast-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.podcast-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.podcast-channel {
+  color: #ff6b35;
+  font-weight: 500;
+}
+
+.podcast-channel a {
+  color: #ff6b35;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.podcast-channel a:hover {
+  color: #e55a2b;
+  text-decoration: underline;
+}
+
+.podcast-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.podcast-description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.podcast-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.podcast-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.podcast-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.podcast-action.youtube {
+  background: rgba(255, 0, 0, 0.1);
+  color: #dc2626;
+  border-color: rgba(255, 0, 0, 0.2);
+}
+
+.podcast-action.youtube:hover {
+  background: rgba(255, 0, 0, 0.15);
+  color: #b91c1c;
+}
+
+.podcast-action.website {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.podcast-action.website:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #1d4ed8;
+}
+
+/* Dark Mode Support for Podcasts */
+[data-theme="dark"] .podcast-card {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .podcast-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .podcast-description {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .podcast-date {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .podcast-action {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .podcast-action:hover {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .podcast-action.youtube {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .podcast-action.youtube:hover {
+  background: rgba(255, 107, 53, 0.15);
+}
+
+[data-theme="dark"] .podcast-action.website {
+  background: rgba(30, 58, 95, 0.2);
+  color: #6da4d9;
+  border-color: rgba(30, 58, 95, 0.3);
+}
+
+[data-theme="dark"] .podcast-action.website:hover {
+  background: rgba(30, 58, 95, 0.3);
+}
+
+/* Other Talks Section Styles */
+.other-talks-section {
+  margin: 3rem 0;
+}
+
+.other-talks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.other-talk-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.other-talk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.other-talk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.other-talk-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.other-talk-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.other-talk-link:hover {
+  color: #ff6b35;
+}
+
+.other-talk-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.other-talk-year {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.other-flag-icon {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.other-talk-location {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.other-talk-description {
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.other-talk-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.other-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.other-action.youtube {
+  background: rgba(255, 0, 0, 0.1);
+  color: #dc2626;
+  border-color: rgba(255, 0, 0, 0.2);
+}
+
+.other-action.youtube:hover {
+  background: rgba(255, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+.other-action.slides {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.other-action.slides:hover {
+  background: rgba(34, 197, 94, 0.15);
+  transform: scale(1.1);
+}
+
+.other-action.github {
+  background: rgba(55, 65, 81, 0.1);
+  color: #374151;
+  border-color: rgba(55, 65, 81, 0.2);
+}
+
+.other-action.github:hover {
+  background: rgba(55, 65, 81, 0.15);
+  transform: scale(1.1);
+}
+
+.other-action.paper {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.other-action.paper:hover {
+  background: rgba(239, 68, 68, 0.15);
+  transform: scale(1.1);
+}
+
+/* Dark Mode Support for Other Talks */
+[data-theme="dark"] .other-talk-card {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .other-talk-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .other-talk-location {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .other-talk-description {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .other-action {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .other-action.github {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .other-action.github:hover {
+  background: rgba(255, 107, 53, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .podcasts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .podcast-actions {
+    justify-content: stretch;
+  }
+  
+  .podcast-action {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .other-talks-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .other-talk-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .other-talk-badges {
+    align-self: flex-end;
+  }
+}
+</style>

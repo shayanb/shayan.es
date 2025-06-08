@@ -83,18 +83,6 @@ permalink: /connect/
       </a>
       {% endif %}
 
-      {% if site.owner.youtube %}
-      <a href="https://youtube.com/{{ site.owner.youtube }}" target="_blank" rel="noopener" class="platform-card youtube">
-        <div class="platform-icon">
-          <i class="fa fa-youtube"></i>
-        </div>
-        <div class="platform-content">
-          <h3>YouTube</h3>
-          <p>Educational content and presentations</p>
-          <span class="platform-handle">{{ site.owner.youtube }}</span>
-        </div>
-      </a>
-      {% endif %}
 
       {% if site.owner.medium %}
       <a href="https://medium.com/@{{ site.owner.medium }}" target="_blank" rel="noopener" class="platform-card medium">
@@ -144,6 +132,56 @@ permalink: /connect/
           <h3>Mastodon</h3>
           <p>Decentralized social networking</p>
           <span class="platform-handle">{{ site.owner.mastodon | split: '/' | last }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      <!-- Stack Overflow -->
+      <a href="https://stackoverflow.com/users/2161575/shayan" target="_blank" rel="noopener" class="platform-card stackoverflow">
+        <div class="platform-icon">
+          <i class="fa fa-stack-overflow"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Stack Overflow</h3>
+          <p>Q&A and technical discussions</p>
+          <span class="platform-handle">shayan</span>
+        </div>
+      </a>
+
+      <!-- Google Scholar -->
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener" class="platform-card scholar">
+        <div class="platform-icon">
+          <i class="fa fa-graduation-cap"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Google Scholar</h3>
+          <p>Academic publications and citations</p>
+          <span class="platform-handle">Research Profile</span>
+        </div>
+      </a>
+
+      <!-- ORCID -->
+      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener" class="platform-card orcid">
+        <div class="platform-icon">
+          <i class="fa fa-id-card-o"></i>
+        </div>
+        <div class="platform-content">
+          <h3>ORCID</h3>
+          <p>Academic identity and research outputs</p>
+          <span class="platform-handle">Academic ID</span>
+        </div>
+      </a>
+
+      <!-- YouTube (if available) -->
+      {% if site.owner.youtube and site.owner.youtube != "" %}
+      <a href="https://youtube.com/@{{ site.owner.youtube }}" target="_blank" rel="noopener" class="platform-card youtube">
+        <div class="platform-icon">
+          <i class="fa fa-youtube"></i>
+        </div>
+        <div class="platform-content">
+          <h3>YouTube</h3>
+          <p>Educational content and presentations</p>
+          <span class="platform-handle">@{{ site.owner.youtube }}</span>
         </div>
       </a>
       {% endif %}

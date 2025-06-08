@@ -1,0 +1,16 @@
+- title: "Blockchain Through Philosophy"
+  description: "The latest episode of Shir Ya Khat looks at the Blockchain technology with a radical philosophical narrative and discuss the changes it can bring in the way we exist in the coming years."
+  youtube_link: "https://www.youtube.com/watch?v=OThCgcFshKw"
+  date: "2020-04-01"
+  channel: "Shir Ya Khat Podcast"
+  channel_url: "https://shiryakhat.net/2020/04/blockchain-through-philosophy.html"
+  thumbnail: ""  # Will be fetched from YouTube if possible
+  
+# Add more podcast episodes here following this format:
+# - title: "Episode Title"
+#   description: "Episode description"
+#   youtube_link: "https://www.youtube.com/watch?v=ID"
+#   date: "YYYY-MM-DD"
+#   channel: "Channel Name"
+#   channel_url: "https://channel-website.com"
+#   thumbnail: ""  # YouTube thumbnail will be auto-fetched

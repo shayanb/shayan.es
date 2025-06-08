@@ -96,20 +96,344 @@ permalink: /career/
 
   <div class="career-skills">
     <h2>Technical Expertise</h2>
-    {% for skill_category in site.data.index.skills %}
-    <div class="skill-category">
-      <h3>{{ skill_category.label }}</h3>
-      <div class="skills-list">
-        {% for skill in skill_category.skills %}
-        <div class="skill-item">
-          <span class="skill-name">{{ skill.name }}</span>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: {{ skill.score }}%"></div>
+    <div class="skills-container">
+      <div class="radar-chart-container">
+        <canvas id="skillsRadarChart" width="400" height="400"></canvas>
+      </div>
+      <div class="skills-legend">
+        <h3>Skills Overview</h3>
+        <div class="legend-items">
+          {% for skill in site.data.index.skills.skills %}
+          <div class="legend-item">
+            <span class="legend-dot"></span>
+            <span class="legend-name">{{ skill.name }}</span>
+            <span class="legend-score">{{ skill.score }}%</span>
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </div>
-    {% endfor %}
+    
+    <!-- Fallback for traditional skill bars -->
+    <div class="skills-fallback" style="display: none;">
+      {% for skill_category in site.data.index.skills %}
+      <div class="skill-category">
+        <h3>{{ skill_category.label }}</h3>
+        <div class="skills-list">
+          {% for skill in skill_category.skills %}
+          <div class="skill-item">
+            <span class="skill-name">{{ skill.name }}</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: {{ skill.score }}%"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
+
+<style>
+/* Skills Radar Chart Styles */
+.career-skills {
+  margin: 4rem 0;
+}
+
+.skills-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.radar-chart-container {
+  flex: 0 0 400px;
+  max-width: 400px;
+  position: relative;
+}
+
+.skills-legend {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.skills-legend h3 {
+  color: #1e3a5f;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.legend-items {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35, #1e3a5f);
+  flex-shrink: 0;
+}
+
+.legend-name {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.legend-score {
+  font-weight: 600;
+  color: #ff6b35;
+  font-family: monospace;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .career-skills h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .skills-legend h3 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .legend-item {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .legend-item:hover {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .legend-name {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .legend-score {
+  color: #ff6b35;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .radar-chart-container {
+    flex: none;
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .skills-legend {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Loading State */
+.chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.chart-loading i {
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const ctx = document.getElementById('skillsRadarChart');
+  
+  if (!ctx) {
+    console.warn('Skills radar chart canvas not found');
+    // Show fallback
+    const fallback = document.querySelector('.skills-fallback');
+    if (fallback) {
+      fallback.style.display = 'block';
+    }
+    return;
+  }
+
+  // Skills data from Jekyll
+  const skillsData = [
+    {% for skill in site.data.index.skills.skills %}
+    {
+      name: "{{ skill.name }}",
+      score: {{ skill.score }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  // Sort skills by score for better visualization
+  skillsData.sort((a, b) => b.score - a.score);
+
+  const labels = skillsData.map(skill => skill.name);
+  const scores = skillsData.map(skill => skill.score);
+
+  // Create gradient
+  const canvas = ctx.getContext('2d');
+  const gradient = canvas.createRadialGradient(200, 200, 0, 200, 200, 200);
+  gradient.addColorStop(0, 'rgba(255, 107, 53, 0.2)');
+  gradient.addColorStop(1, 'rgba(30, 58, 95, 0.1)');
+
+  const borderGradient = canvas.createRadialGradient(200, 200, 0, 200, 200, 200);
+  borderGradient.addColorStop(0, 'rgba(255, 107, 53, 0.8)');
+  borderGradient.addColorStop(1, 'rgba(30, 58, 95, 0.6)');
+
+  const config = {
+    type: 'radar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Technical Skills',
+        data: scores,
+        backgroundColor: gradient,
+        borderColor: borderGradient,
+        borderWidth: 2,
+        pointBackgroundColor: '#ff6b35',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        pointHoverBackgroundColor: '#1e3a5f',
+        pointHoverBorderColor: '#ff6b35',
+        pointHoverBorderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(30, 58, 95, 0.9)',
+          titleColor: '#fff',
+          bodyColor: '#fff',
+          borderColor: '#ff6b35',
+          borderWidth: 1,
+          displayColors: false,
+          callbacks: {
+            label: function(context) {
+              return context.label + ': ' + context.raw + '%';
+            }
+          }
+        }
+      },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+          angleLines: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          pointLabels: {
+            font: {
+              size: 12,
+              weight: '500'
+            },
+            color: '#374151'
+          },
+          ticks: {
+            display: false,
+            stepSize: 20
+          }
+        }
+      },
+      interaction: {
+        intersect: false,
+        mode: 'point'
+      },
+      animation: {
+        duration: 2000,
+        easing: 'easeInOutQuart'
+      }
+    }
+  };
+
+  // Check for dark mode and adjust colors
+  function updateChartColors() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    
+    if (isDark) {
+      config.options.scales.r.angleLines.color = 'rgba(255, 255, 255, 0.2)';
+      config.options.scales.r.grid.color = 'rgba(255, 255, 255, 0.2)';
+      config.options.scales.r.pointLabels.color = '#e5e7eb';
+    } else {
+      config.options.scales.r.angleLines.color = 'rgba(0, 0, 0, 0.1)';
+      config.options.scales.r.grid.color = 'rgba(0, 0, 0, 0.1)';
+      config.options.scales.r.pointLabels.color = '#374151';
+    }
+  }
+
+  updateChartColors();
+  
+  try {
+    const chart = new Chart(ctx, config);
+    
+    // Update chart colors when theme changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateChartColors();
+          chart.update();
+        }
+      });
+    });
+    
+    observer.observe(document.body, { attributes: true });
+    
+  } catch (error) {
+    console.error('Error creating radar chart:', error);
+    // Show fallback
+    const fallback = document.querySelector('.skills-fallback');
+    if (fallback) {
+      fallback.style.display = 'block';
+    }
+    // Hide chart container
+    const container = document.querySelector('.radar-chart-container');
+    if (container) {
+      container.innerHTML = '<div class="chart-loading"><i class="fa fa-exclamation-triangle"></i>Chart unavailable, showing list view</div>';
+    }
+  }
+});
+</script>
