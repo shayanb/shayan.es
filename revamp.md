@@ -604,7 +604,17 @@ in publications add the link of the website to the conference name (published in
 
 make the stats-grid and stat-card (in talks page), and highlights-grid and highlight-card (from the Career page) to behave similarly in dark mode. (white icons/text with orange highlighting on hover for dark mode). 
 
+
+--------------------------------
+
+
 added app screenshots under images apps, implement the screenshot viewer in the app modal cards properly. make sure the project modals also support similar behaviour, i will add the screenshots later. 
+
 The modals on mobile are slightly too big (fits the full screen), make them to be smaller to visually look better. 
 
+in the talks page for the hackathons (hackathon-card podcast-card-custom), make the podcast titles to be a link to the website, and change the pub-link youtube to be the same as media-link youtube (colors, etc)
+
+for the publications page on mobile, move pub-links to be on the same line (aligned on right) as abstract-label
+
+make the menu that opens up smaller, it should slide down as it does now but smaller width under the hamburger menu. 
 

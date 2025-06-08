@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /**
  * Global Component Styles
  */
@@ -10,8 +12,6 @@
 /**
   * Global setting
   */
-
-@use "sass:color";
 *,
 *:before,
 *:after {

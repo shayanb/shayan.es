@@ -338,6 +338,11 @@ input, textarea, select {
 
     .stat-item,
     .stat-card {
+      background: var(--card-color) !important;
+      
+      .stat-icon i {
+        color: var(--text-color) !important;
+      }
       
       .stat-number {
         color: var(--text-color) !important;
@@ -345,6 +350,12 @@ input, textarea, select {
 
       .stat-label {
         color: var(--text-muted) !important;
+      }
+      
+      &:hover {
+        .stat-icon i {
+          color: #ff6b35 !important;
+        }
       }
     }
   }
@@ -664,12 +675,22 @@ input, textarea, select {
   .highlight-card {
     background: var(--card-color) !important;
     
+    i {
+      color: var(--text-color) !important;
+    }
+    
     h3, h4, p {
       color: var(--text-color) !important;
     }
 
     .highlight-meta {
       color: var(--text-muted) !important;
+    }
+    
+    &:hover {
+      i {
+        color: #ff6b35 !important;
+      }
     }
   }
 
@@ -770,8 +791,22 @@ input, textarea, select {
     }
   }
 
-  .highlight-card i {
-    color: var(--text-color) !important;
+  .highlights-grid .highlight-card {
+    background: var(--card-color) !important;
+    
+    i {
+      color: var(--text-color) !important;
+    }
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+    
+    &:hover {
+      i {
+        color: #ff6b35 !important;
+      }
+    }
   }
 
   .contact-form {
@@ -847,12 +882,22 @@ input, textarea, select {
   .speaking-stats .stat-card {
     background: var(--card-color) !important;
     
+    .stat-icon i {
+      color: var(--text-color) !important;
+    }
+    
     .stat-number {
       color: var(--text-color) !important;
     }
     
     .stat-label {
       color: var(--text-muted) !important;
+    }
+    
+    &:hover {
+      .stat-icon i {
+        color: #ff6b35 !important;
+      }
     }
   }
 
