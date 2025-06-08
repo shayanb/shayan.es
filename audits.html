@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Audits
+title: Security Audits
 permalink: /audits/
 excerpt: "A selected list of security reviews and public audit reports that I've worked on."
 ---
@@ -17,12 +17,13 @@ excerpt: "A selected list of security reviews and public audit reports that I've
 <div class="archive">
   <div class="timeline" id="timeline">
 
-    {% for audit in site.data.index.audits %}
+    {% assign sorted_audits = site.data.index.audits | sort: 'year' | reverse %}
+    {% for audit in sorted_audits %}
 
     
 
     {% capture year %}{{ audit.year | date: '%Y' }}{% endcapture %}
-    {% capture prevyear %}{{ site.data.index.audits[forloop.index].year | date: '%Y' }}{% endcapture %}
+    {% capture prevyear %}{{ sorted_audits[forloop.index].year | date: '%Y' }}{% endcapture %}
     
 
     {% if forloop.first %}
@@ -33,9 +34,17 @@ excerpt: "A selected list of security reviews and public audit reports that I've
     {% endif %}
 
 
-    <li>
-      <div style="width:60px;float:left;">{{ audit.year | date: "%b" }}</div> 
-      <a href="{{ audit.project-url }}" target="_blank"><b>{{ audit.project }}</b></a> ➫ {% if audit.url and audit.url != "" %}<a href="{{ audit.url }}" target="_blank">{{ audit.title }}</a>{% else %}{{ audit.title }}{% endif %}
+    <li class="audit-item">
+      <div class="audit-month">{{ audit.year | date: "%b" }}</div>
+      <div class="audit-content">
+        <a href="{{ audit.project-url }}" target="_blank" class="audit-project">{{ audit.project }}</a>
+        <span class="audit-separator">•</span>
+        {% if audit.url and audit.url != "" %}
+          <a href="{{ audit.url }}" target="_blank" class="audit-title">{{ audit.title }}</a>
+        {% else %}
+          <span class="audit-title">{{ audit.title }}</span>
+        {% endif %}
+      </div>
     </li>
  
 
@@ -68,3 +77,137 @@ excerpt: "A selected list of security reviews and public audit reports that I've
   </div>
 
 </div>
+
+<style>
+/* Audit Page Styles */
+.audit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.audit-item:last-child {
+  border-bottom: none;
+}
+
+.audit-item:hover {
+  padding-left: 0.5rem;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.audit-month {
+  flex: 0 0 60px;
+  font-weight: 600;
+  color: #ff6b35;
+  font-size: 0.95rem;
+}
+
+.audit-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.audit-project {
+  font-weight: 600;
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.audit-project:hover {
+  color: #ff6b35;
+}
+
+.audit-separator {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.audit-title {
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.audit-title:hover {
+  color: #1e3a5f;
+  text-decoration: underline;
+}
+
+/* Archive year styling */
+.archive-year {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ff6b35;
+  display: inline-block;
+}
+
+.archive-title:first-child .archive-year {
+  margin-top: 0;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .audit-item {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .audit-item:hover {
+  background: var(--surface-color);
+}
+
+[data-theme="dark"] .audit-project {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .audit-project:hover {
+  color: #ff8555;
+}
+
+[data-theme="dark"] .audit-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] a.audit-title:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .archive-year {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .audit-separator {
+  color: var(--text-muted);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .audit-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .audit-separator {
+    display: none;
+  }
+  
+  .audit-month {
+    flex: 0 0 50px;
+    font-size: 0.85rem;
+  }
+  
+  .archive-year {
+    font-size: 1.5rem;
+  }
+}
+</style>

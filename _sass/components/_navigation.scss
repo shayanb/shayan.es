@@ -60,35 +60,37 @@
     gap: 0;
     
     position: fixed;
-    right: 0;
+    right: 2rem;
     top: 70px;
     flex-direction: column;
     background-color: $white;
-    width: 300px;
+    width: 250px;
     text-align: left;
-    transition: transform 0.3s ease, visibility 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     box-shadow: $shadow-lg;
-    padding: 2rem 0;
-    border-radius: 8px 0 0 8px;
-    max-height: calc(100vh - 70px);
+    padding: 1rem 0;
+    border-radius: 8px;
+    max-height: calc(100vh - 90px);
     overflow-y: auto;
-    transform: translateX(100%);
+    transform: translateY(-20px);
+    opacity: 0;
     visibility: hidden;
     
     &.active {
-      transform: translateX(0);
+      transform: translateY(0);
+      opacity: 1;
       visibility: visible;
     }
     
     @media (max-width: $medium-screen) {
-      width: 100vw;
+      width: calc(100vw - 4rem);
       text-align: center;
-      border-radius: 0;
-      right: 0;
-      left: 0;
+      border-radius: 8px;
+      right: 2rem;
+      left: auto;
       
       &.active {
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
     

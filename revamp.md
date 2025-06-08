@@ -503,6 +503,8 @@ podcasts look better but it is missing the image. fetch these other episodes and
 
 ----------------
 
+publications items: can you analyze and refactor publication-item, publications-list. the pub-header should be inside pub-body. adjust the rest of the items accordingly.
+
 podcasts-cards: 
 - the media-link to look like buttons as in the rest of the website (e.g. media-link youtube)
 - hackathon-location to be aligned to the right 
@@ -516,3 +518,47 @@ there will be:
 
 
 there are also some errors and warnings when you start jekyll, debug and fix as much as possible. 
+
+
+------------------
+awesome, good morning.
+
+There are two art yaml files, and yet the art page still shows the coming soon. check to see whats what and implement correctly. 
+
+make the hamburger menu to drop down with smooth animation rather that slide in.
+
+Publication page:
+- looks good. make the padding around publication-item smaller, so it takes less space.
+- on mobile view, make the abstract section expandable (show a few lines with expand option)
+- page-header is not responsive on mobile ("Publications" overflows outside the header)
+
+
+Career page:
+- the career-company looks too dark in dark mode. show it as orange with mouse hover slightly changing the color
+- 
+
+Audit page:
+- add the consistent header/title like the rest of the website
+
+
+======================================
+
+if artworks.yml is not used and merged in art.yml, remove it.
+
+Publication page:
+- looks good. make the padding around publication-item smaller, so it takes less space.
+- on mobile view, make the abstract section expandable (show a few lines with expand option)
+- page-header is not responsive on mobile ("Publications" overflows outside the header)
+
+
+Audit page:
+- add the consistent header/title like the rest of the website
+
+
+Mobile:
+- make theme-toggle centered on the hamburger menu, maybe even look like toggle. 
+  - also bug: the dark mode toggle doesn't seem to work on mobile right now
+
+
+Idea for page navigation improvement:
+- can jump-to-top be in a way that on pages like talks that have many sections, it shows a list of sections (none intrusive and subtle) that user can see the other sections in the page and can click/tap to go to that part of the page? or maybe some otherway of adding such functionality to that page. 

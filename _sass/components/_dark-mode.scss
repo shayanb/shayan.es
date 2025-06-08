@@ -612,7 +612,19 @@ input, textarea, select {
   }
 
   .career-company {
-    color: var(--text-color) !important;
+    a {
+      color: #ff6b35 !important;
+      
+      &:hover {
+        color: #ff8555 !important;
+        text-decoration: underline;
+      }
+      
+      i {
+        color: #ff6b35 !important;
+        opacity: 0.8;
+      }
+    }
   }
 
   .career-marker {
