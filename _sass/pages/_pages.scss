@@ -79,32 +79,43 @@
 
   .expertise-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
     margin: 2rem 0 4rem;
 
     .expertise-item {
-      text-align: center;
-      padding: 2rem;
+      text-align: left;
+      padding: 1.5rem;
       background: $white;
       border-radius: $border-radius;
-      box-shadow: $shadow;
-      transition: transform 0.3s ease;
+      box-shadow: $shadow-sm;
+      transition: all 0.3s ease;
+      border-left: 3px solid $secondary;
 
       &:hover {
-        transform: translateY(-5px);
-        box-shadow: $shadow-lg;
+        transform: translateY(-3px);
+        box-shadow: $shadow-md;
+        border-left-color: $primary;
       }
 
       i {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
         color: $secondary;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
+        display: block;
       }
 
       h3 {
         color: $gray-900;
         margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: $gray-600;
+        margin: 0;
       }
     }
   }

@@ -717,6 +717,55 @@ input, textarea, select {
   .value-item {
     background: var(--surface-color) !important;
   }
+
+  // Home page section cards dark mode fixes
+  .section-card {
+    background: var(--card-color) !important;
+    
+    .card-icon i {
+      color: #ff6b35 !important;
+    }
+    
+    .card-title, h3, h4 {
+      color: #ff6b35 !important;
+    }
+    
+    .card-text, p, .description {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Hero title dark mode fixes
+  .hero-title {
+    .name {
+      color: var(--text-color) !important;
+    }
+    
+    .title, .subtitle {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .hero-subtitle {
+    color: var(--text-muted) !important;
+  }
+
+  // Talks page specific fixes
+  .hackathon-project {
+    background: var(--surface-color) !important;
+  }
+
+  .speaking-stats .stat-card {
+    background: var(--card-color) !important;
+    
+    .stat-number {
+      color: var(--text-color) !important;
+    }
+    
+    .stat-label {
+      color: var(--text-muted) !important;
+    }
+  }
 }
 
 // Psychedelic Footer Effect (Site-wide)

@@ -367,7 +367,7 @@ about page:
 publications:
 - merge pub-year and pub-content, so the abstract will start from left side of publication-item under top part , the top part has the year and then title. in sub header/title, it should write the published in text. 
 - remove the 3d and effects on the paper button
-- use the similar componets as ealier (simple elegent button) for paper and media coverage, presentation, etc to show under the abstract
+
 
 career:
 - the chart looks great, remove Skills Overview and make the chart bigger.
@@ -380,3 +380,68 @@ Talks:
 
 Menu / navbar: 
 the hamburger menu on desktop should only include the following items, and the rest should be on the navbar visible: audits, art, Projects, Apps, Connect.
+
+
+
+====================
+
+
+continue:
+
+career page:
+- for the technical expertise: remove the skills-legend , no need to have the legent with that chart, center the chart
+
+
+Talks page:
+- the podcast should be in the size that 3 podcast episodes shoudl fit in a row (grid) similar to "Hackathon Participation" section 
+- in conference attendance: conference-minimal-meta should be in the same line-- year on the left side and location on the right side of the card.
+- 
+
+publications:
+- refactor the publication-item. it should show the year in header number, followed by the title in the title of the container. then as the body, it should be the abstract, almost covering left to right of the container (90% of the container length). then the buttons for paper, presentation (consistent with the talks page). 
+
+- merge pub-year and pub-content, so the abstract will start from left side of publication-item under top part , the top part has the year and then title. in sub header/title, it should write the published in text. 
+- remove the 3d and effects on the paper button
+
+
+About page:
+- make the expertise-item smaller, or redesign them to fit the new structure of the page (the split between the journey and the expertise)
+
+
+Connect page:
+- make all items under the "find me online" to be just the icon and the tile of the platform (platform-card ), remove the extra text, just click on name/icon opens the link
+
+
+-- 
+
+menu/nav: the rest of the active items should move to the hamburger menu on mobile
+- also on desktop the menu opens on the left side of the page, but it should be on right where the burger is 
+
+
+dark mode adjustments:
+- in home page, for section-card s : make the card-icon and titles orange, and the text white. 
+  - hero-title for the name to be in white and the rest light grey,  
+- in Talks: for hackathon cards hackathon-project has a bright background, remove it
+  - under the speaking overview, stat-card stat-card s have white background. 
+
+------------------------------
+
+
+Great! this is fascinating! 
+
+Continue, we're almost perfect:
+
+Publications: publication-item -- make the pub-header to be horizontal and on top of the abstract. bring back the abstract quote format and the "abstract" tag . in this way media coverage opens on the bottom of the card which is correct.
+
+
+Talks: the conference attendance cards conference-item-minimal look messy. the podcast card is still too big, it should be in the 1/3rd column and that width (in the grid, same style and size az hackathon-cards)
+
+dark mode adjustments:
+- about page , contact-note has bright background
+- career-timeline, ::before is not shown properly as the career-content covers them, different than the light mode. make the line to be visible
+- in app,s inside the cards the "Visit" button needs a background for the text to be visible (btn btn-outline)
+- 
+
+- for the glitch effect, continusly looping the glitch (while active, e.g mouse hover).
+- add jump to top button at the end of the page (or maybe in the footer? (left side?))
+- 

@@ -785,9 +785,9 @@
 
         .conference-minimal-meta {
           display: flex;
-          gap: 1rem;
+          justify-content: space-between;
           align-items: center;
-          flex-wrap: wrap;
+          width: 100%;
           font-size: 0.8rem;
           color: $gray-500;
 

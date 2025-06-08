@@ -100,17 +100,6 @@ permalink: /career/
       <div class="radar-chart-container">
         <canvas id="skillsRadarChart" width="500" height="500"></canvas>
       </div>
-      <div class="skills-legend">
-        <div class="legend-items">
-          {% for skill in site.data.index.skills.skills %}
-          <div class="legend-item">
-            <span class="legend-dot"></span>
-            <span class="legend-name">{{ skill.name }}</span>
-            <span class="legend-score">{{ skill.score }}%</span>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
     </div>
     
     <!-- Fallback for traditional skill bars -->
@@ -142,10 +131,8 @@ permalink: /career/
 
 .skills-container {
   display: flex;
-  gap: 3rem;
-  align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .radar-chart-container {
@@ -154,101 +141,17 @@ permalink: /career/
   position: relative;
 }
 
-.skills-legend {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
-}
-
-.skills-legend h3 {
-  color: #1e3a5f;
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-}
-
-.legend-items {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.legend-item:hover {
-  background: #e9ecef;
-  transform: translateX(5px);
-}
-
-.legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b35, #1e3a5f);
-  flex-shrink: 0;
-}
-
-.legend-name {
-  flex: 1;
-  font-weight: 500;
-  color: #333;
-}
-
-.legend-score {
-  font-weight: 600;
-  color: #ff6b35;
-  font-family: monospace;
-}
 
 /* Dark Mode Support */
 [data-theme="dark"] .career-skills h2 {
   color: var(--text-color);
 }
 
-[data-theme="dark"] .skills-legend h3 {
-  color: var(--text-color);
-}
-
-[data-theme="dark"] .legend-item {
-  background: var(--surface-color);
-  border: 1px solid var(--border-color);
-}
-
-[data-theme="dark"] .legend-item:hover {
-  background: var(--card-color);
-}
-
-[data-theme="dark"] .legend-name {
-  color: var(--text-color);
-}
-
-[data-theme="dark"] .legend-score {
-  color: #ff6b35;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-  .skills-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  
   .radar-chart-container {
-    flex: none;
-    width: 100%;
     max-width: 400px;
-  }
-  
-  .skills-legend {
     width: 100%;
-    max-width: none;
   }
 }
 

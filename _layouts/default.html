@@ -31,17 +31,35 @@
           </li>
         </ul>
 
-        <!-- Hamburger Menu -->
+        <!-- Hamburger Menu (Desktop: hamburger items only, Mobile: all items) -->
         <ul class="nav-menu-hamburger">
           {% for item in site.data.navigation %}
             {% if item.hamburger %}
-            <li class="nav-item">
+            <li class="nav-item desktop-hamburger-item">
               <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
                 {{ item.title }}
               </a>
             </li>
             {% endif %}
           {% endfor %}
+          
+          <!-- Mobile: Show all navigation items -->
+          {% for item in site.data.navigation %}
+            {% if item.desktop %}
+            <li class="nav-item mobile-nav-item">
+              <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+                {{ item.title }}
+              </a>
+            </li>
+            {% endif %}
+          {% endfor %}
+          
+          <li class="nav-item mobile-nav-item">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+              <i class="fa fa-moon-o theme-icon-dark"></i>
+              <i class="fa fa-sun-o theme-icon-light"></i>
+            </button>
+          </li>
         </ul>
 
         <!-- Mobile Menu Toggle -->
