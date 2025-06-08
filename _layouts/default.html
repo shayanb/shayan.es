@@ -13,13 +13,15 @@
         </a>
         
         <!-- Desktop Navigation -->
-        <ul class="nav-menu">
+        <ul class="nav-menu-desktop">
           {% for item in site.data.navigation %}
+            {% if item.desktop %}
             <li class="nav-item">
               <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
                 {{ item.title }}
               </a>
             </li>
+            {% endif %}
           {% endfor %}
           <li class="nav-item">
             <button class="theme-toggle" aria-label="Toggle dark mode">
@@ -27,6 +29,19 @@
               <i class="fa fa-sun-o theme-icon-light"></i>
             </button>
           </li>
+        </ul>
+
+        <!-- Hamburger Menu -->
+        <ul class="nav-menu-hamburger">
+          {% for item in site.data.navigation %}
+            {% if item.hamburger %}
+            <li class="nav-item">
+              <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+                {{ item.title }}
+              </a>
+            </li>
+            {% endif %}
+          {% endfor %}
         </ul>
 
         <!-- Mobile Menu Toggle -->

@@ -23,54 +23,61 @@ permalink: /about/
       <p>With a background in both academic research and industry practice, I bridge the gap between theoretical security concepts and real-world implementations. I believe in responsible disclosure, open-source collaboration, and educating the next generation of security professionals.</p>
     </section>
 
-    <section class="expertise-section">
-      <h2>Areas of Expertise</h2>
-      <div class="expertise-grid">
-        <div class="expertise-item">
-          <i class="fa fa-shield"></i>
-          <h3>Security Research</h3>
-          <p>Smart contract auditing, vulnerability discovery, and security architecture design</p>
+    <!-- Split Layout Section -->
+    <section class="split-section">
+      <div class="split-content">
+        <!-- Journey Highlights on the left -->
+        <div class="split-left">
+          <h2>Journey Highlights</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="year">2024</span>
+              <h4>Current Focus</h4>
+              <p>Leading security initiatives and conducting research on emerging threats in Web3</p>
+            </div>
+            <div class="timeline-item">
+              <span class="year">2020-2023</span>
+              <h4>Deep Dive into DeFi</h4>
+              <p>Specialized in DeFi protocol security and MEV research</p>
+            </div>
+            <div class="timeline-item">
+              <span class="year">2015-2020</span>
+              <h4>Academic & Industry Balance</h4>
+              <p>PhD research while consulting for blockchain projects</p>
+            </div>
+            <div class="timeline-item">
+              <span class="year">2013</span>
+              <h4>Discovered Blockchain</h4>
+              <p>Started exploring Bitcoin and cryptocurrency security</p>
+            </div>
+          </div>
         </div>
-        <div class="expertise-item">
-          <i class="fa fa-link"></i>
-          <h3>Blockchain Technology</h3>
-          <p>Ethereum, DeFi protocols, MEV, and distributed systems</p>
-        </div>
-        <div class="expertise-item">
-          <i class="fa fa-code"></i>
-          <h3>Software Development</h3>
-          <p>Full-stack development, security tools, and automation</p>
-        </div>
-        <div class="expertise-item">
-          <i class="fa fa-graduation-cap"></i>
-          <h3>Education & Mentorship</h3>
-          <p>Conference speaking, workshops, and hackathon mentoring</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="timeline-section">
-      <h2>Journey Highlights</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="year">2024</span>
-          <h4>Current Focus</h4>
-          <p>Leading security initiatives and conducting research on emerging threats in Web3</p>
-        </div>
-        <div class="timeline-item">
-          <span class="year">2020-2023</span>
-          <h4>Deep Dive into DeFi</h4>
-          <p>Specialized in DeFi protocol security and MEV research</p>
-        </div>
-        <div class="timeline-item">
-          <span class="year">2015-2020</span>
-          <h4>Academic & Industry Balance</h4>
-          <p>PhD research while consulting for blockchain projects</p>
-        </div>
-        <div class="timeline-item">
-          <span class="year">2013</span>
-          <h4>Discovered Blockchain</h4>
-          <p>Started exploring Bitcoin and cryptocurrency security</p>
+        
+        <!-- Areas of Expertise on the right -->
+        <div class="split-right">
+          <h2>Areas of Expertise</h2>
+          <div class="expertise-grid">
+            <div class="expertise-item">
+              <i class="fa fa-shield"></i>
+              <h3>Security Research</h3>
+              <p>Smart contract auditing, vulnerability discovery, and security architecture design</p>
+            </div>
+            <div class="expertise-item">
+              <i class="fa fa-link"></i>
+              <h3>Blockchain Technology</h3>
+              <p>Ethereum, DeFi protocols, MEV, and distributed systems</p>
+            </div>
+            <div class="expertise-item">
+              <i class="fa fa-code"></i>
+              <h3>Software Development</h3>
+              <p>Full-stack development, security tools, and automation</p>
+            </div>
+            <div class="expertise-item">
+              <i class="fa fa-graduation-cap"></i>
+              <h3>Education & Mentorship</h3>
+              <p>Conference speaking, workshops, and hackathon mentoring</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -138,23 +145,23 @@ permalink: /about/
 .about-avatar-container::before {
   content: '';
   position: absolute;
-  top: 15px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 420px;
-  height: 420px;
+  width: 408px;
+  height: 408px;
   background: linear-gradient(135deg, #ff6b35, #1e3a5f, #ff6b35);
-  border-radius: 30px;
+  border-radius: 25px;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.25;
   transition: all 0.4s ease;
-  filter: blur(8px);
+  filter: blur(4px);
 }
 
 .about-avatar-container:hover::before {
-  opacity: 0.5;
-  transform: translateX(-50%) scale(1.02) rotate(2deg);
-  filter: blur(12px);
+  opacity: 0.35;
+  transform: translateX(-50%) translateY(2px) rotate(1deg);
+  filter: blur(6px);
 }
 
 /* Dark mode support */
@@ -178,10 +185,10 @@ permalink: /about/
   }
   
   .about-avatar-container::before {
-    width: 320px;
-    height: 320px;
-    border-radius: 25px;
-    top: 10px;
+    width: 308px;
+    height: 308px;
+    border-radius: 20px;
+    top: 6px;
   }
 }
 
@@ -248,6 +255,36 @@ permalink: /about/
   50% { opacity: 0.3; }
 }
 
+/* Split Layout Section */
+.split-section {
+  margin: 4rem 0;
+}
+
+.split-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.split-left, .split-right {
+  padding: 0;
+}
+
+.split-left h2, .split-right h2 {
+  color: #1e3a5f;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .split-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
 @media (max-width: 480px) {
   .about-avatar {
     width: 250px;
@@ -255,8 +292,13 @@ permalink: /about/
   }
   
   .about-avatar-container::before {
-    width: 270px;
-    height: 270px;
+    width: 258px;
+    height: 258px;
+    top: 5px;
+  }
+  
+  .split-content {
+    gap: 2rem;
   }
 }
 </style>

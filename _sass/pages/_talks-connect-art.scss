@@ -40,6 +40,34 @@
         }
       }
 
+      &.stat-card-clickable {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: none;
+          color: inherit;
+          transform: translateY(-8px);
+          box-shadow: $shadow-xl;
+          border: 2px solid $secondary;
+
+          .stat-icon i {
+            color: $secondary;
+            transform: scale(1.2);
+          }
+
+          .stat-number {
+            color: $secondary;
+          }
+        }
+
+        &:focus {
+          outline: 2px solid $secondary;
+          outline-offset: 2px;
+        }
+      }
+
       .stat-icon {
         margin-bottom: 1rem;
 

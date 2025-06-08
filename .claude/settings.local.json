@@ -15,7 +15,8 @@
       "Bash(bundle exec:*)",
       "Bash(bundle install)",
       "Bash(rg:*)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

@@ -98,10 +98,9 @@ permalink: /career/
     <h2>Technical Expertise</h2>
     <div class="skills-container">
       <div class="radar-chart-container">
-        <canvas id="skillsRadarChart" width="400" height="400"></canvas>
+        <canvas id="skillsRadarChart" width="500" height="500"></canvas>
       </div>
       <div class="skills-legend">
-        <h3>Skills Overview</h3>
         <div class="legend-items">
           {% for skill in site.data.index.skills.skills %}
           <div class="legend-item">
@@ -150,8 +149,8 @@ permalink: /career/
 }
 
 .radar-chart-container {
-  flex: 0 0 400px;
-  max-width: 400px;
+  flex: 0 0 500px;
+  max-width: 500px;
   position: relative;
 }
 
@@ -244,7 +243,7 @@ permalink: /career/
   .radar-chart-container {
     flex: none;
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
   }
   
   .skills-legend {
@@ -307,11 +306,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Create gradient
   const canvas = ctx.getContext('2d');
-  const gradient = canvas.createRadialGradient(200, 200, 0, 200, 200, 200);
+  const gradient = canvas.createRadialGradient(250, 250, 0, 250, 250, 250);
   gradient.addColorStop(0, 'rgba(255, 107, 53, 0.2)');
   gradient.addColorStop(1, 'rgba(30, 58, 95, 0.1)');
 
-  const borderGradient = canvas.createRadialGradient(200, 200, 0, 200, 200, 200);
+  const borderGradient = canvas.createRadialGradient(250, 250, 0, 250, 250, 250);
   borderGradient.addColorStop(0, 'rgba(255, 107, 53, 0.8)');
   borderGradient.addColorStop(1, 'rgba(30, 58, 95, 0.6)');
 

@@ -1,20 +1,30 @@
 - title: "Home"
   url: "/"
+  desktop: true
 - title: "About"
   url: "/about/"
+  desktop: true
 - title: "Publications"
   url: "/publications/"
-- title: "Projects"
-  url: "/projects/"
-- title: "Apps"
-  url: "/apps/"
-- title: "Audits"
-  url: "/audits/"
+  desktop: true
 - title: "Career"
   url: "/career/"
+  desktop: true
 - title: "Talks"
   url: "/talks/"
+  desktop: true
+- title: "Projects"
+  url: "/projects/"
+  hamburger: true
+- title: "Apps"
+  url: "/apps/"
+  hamburger: true
+- title: "Audits"
+  url: "/audits/"
+  hamburger: true
 - title: "Art"
   url: "/art/"
+  hamburger: true
 - title: "Connect"
   url: "/connect/"
+  hamburger: true

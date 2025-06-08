@@ -42,44 +42,45 @@ permalink: /publications/
     {% assign sorted_pubs = site.data.index.publications | sort: 'year' | reverse %}
     {% for pub in sorted_pubs %}
     <article class="publication-item" data-year="{{ pub.year }}" data-type="{% if pub.published %}academic{% else %}article{% endif %}">
-      <div class="pub-header">
+      <!-- Top row with year and title -->
+      <div class="pub-top-row">
         <div class="pub-year-badge">{{ pub.year }}</div>
-        <div class="pub-title-area">
+        <div class="pub-title-content">
           <h3>{{ pub.name }}</h3>
           {% if pub.published %}
           <div class="pub-venue">
-            <i class="fa fa-book"></i> 
+            <span class="venue-label">Published in:</span>
             <span class="venue-name">{{ pub.published }}</span>
           </div>
           {% endif %}
         </div>
       </div>
       
-      <div class="pub-content-section">
-        <blockquote class="pub-abstract">
-          {{ pub.descr }}
-        </blockquote>
-        
+      <!-- Abstract spanning full width -->
+      <blockquote class="pub-abstract">
+        {{ pub.descr }}
+      </blockquote>
+      
+      <!-- Links under abstract -->
+      <div class="pub-links">
         {% if pub.paper %}
-        <a href="{{ pub.paper }}" class="paper-badge" target="_blank">
+        <a href="{{ pub.paper }}" class="pub-link" target="_blank">
           <i class="fa fa-file-pdf-o"></i> Paper
         </a>
         {% endif %}
-      </div>
         
-        <div class="pub-links">
-          {% if pub.youtube %}
-          <a href="{{ pub.youtube }}" class="pub-link" target="_blank">
-            <i class="fa fa-youtube"></i> Presentation
-          </a>
-          {% endif %}
-          
-          {% if pub.media %}
-          <button class="pub-link media-toggle" data-publication="{{ forloop.index }}">
-            <i class="fa fa-newspaper-o"></i> Media Coverage ({{ pub.media.size }})
-          </button>
-          {% endif %}
-        </div>
+        {% if pub.youtube %}
+        <a href="{{ pub.youtube }}" class="pub-link" target="_blank">
+          <i class="fa fa-youtube"></i> Presentation
+        </a>
+        {% endif %}
+        
+        {% if pub.media %}
+        <button class="pub-link media-toggle" data-publication="{{ forloop.index }}">
+          <i class="fa fa-newspaper-o"></i> Media Coverage ({{ pub.media.size }})
+        </button>
+        {% endif %}
+      </div>
 
         {% if pub.media %}
         <div class="media-coverage" style="display: none;">
@@ -177,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
   border-left: 4px solid #ff6b35;
 }
 
-.pub-header {
+.pub-top-row {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
@@ -196,21 +197,22 @@ document.addEventListener('DOMContentLoaded', function() {
   flex-shrink: 0;
 }
 
-.pub-title-area {
+.pub-title-content {
   flex: 1;
 }
 
-.pub-title-area h3 {
+.pub-title-content h3 {
   margin: 0 0 0.5rem 0;
   color: #333;
   font-size: 1.25rem;
   line-height: 1.3;
 }
 
-/* Publication Content Section */
-.pub-content-section {
-  position: relative;
-  margin-top: 1.5rem;
+.venue-label {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
 }
 
 /* Abstract as Quote */
@@ -218,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
   background: #f8f9fa;
   border-left: 4px solid #ff6b35;
   padding: 1.5rem;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   font-style: italic;
   line-height: 1.6;
   color: #555;
@@ -242,51 +244,47 @@ document.addEventListener('DOMContentLoaded', function() {
   border-radius: 3px;
 }
 
-/* 3D Overlapping Paper Badge */
-.paper-badge {
-  position: absolute;
-  top: 10px;
-  right: -8px;
-  background: linear-gradient(135deg, #1e3a5f 0%, #2c5084 100%);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
+/* Publication Links */
+.pub-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pub-link {
   display: flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 
-    0 4px 12px rgba(30, 58, 95, 0.3),
-    0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px) rotate(-2deg);
-  transition: all 0.3s ease;
-  z-index: 10;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-}
-
-.paper-badge:hover {
-  transform: translateY(-4px) rotate(-1deg) scale(1.05);
-  box-shadow: 
-    0 8px 20px rgba(30, 58, 95, 0.4),
-    0 4px 12px rgba(0, 0, 0, 0.2);
-  color: white;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  color: #374151;
   text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
 }
 
-.paper-badge::before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #1e3a5f;
-  opacity: 0.7;
+.pub-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+/* Dark mode support for publication links */
+[data-theme="dark"] .pub-link {
+  background: var(--card-color);
+  color: var(--text-color);
+  border-color: var(--surface-color);
+}
+
+[data-theme="dark"] .pub-link:hover {
+  background: var(--card-color);
+  border-color: #ff6b35;
+  color: #ff6b35;
 }
 
 /* Venue Name Wrapping */
@@ -381,18 +379,32 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* Dark Mode Support */
-[data-theme="dark"] .pub-abstract {
-  background: var(--surface-color);
+[data-theme="dark"] .publication-item {
+  background: var(--card-color);
   color: var(--text-color);
 }
 
-[data-theme="dark"] .paper-badge {
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-  border-color: var(--surface-color);
+[data-theme="dark"] .pub-year-badge {
+  background: #1e3a5f;
+  color: white;
 }
 
-[data-theme="dark"] .paper-badge::before {
-  border-top-color: #ff6b35;
+[data-theme="dark"] .pub-title-content h3 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .venue-label {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .venue-name {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .pub-abstract {
+  background: var(--surface-color);
+  color: var(--text-color);
 }
 
 [data-theme="dark"] .media-coverage {

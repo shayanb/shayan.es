@@ -266,7 +266,6 @@ input, textarea, select {
 
     .stat-item,
     .stat-card {
-      background: var(--card-color) !important;
       
       .stat-number {
         color: var(--text-color) !important;
@@ -284,7 +283,7 @@ input, textarea, select {
     border-bottom: 1px solid var(--border-color);
   }
 
-  .nav-menu {
+  .nav-menu-hamburger {
     background: var(--surface-color) !important;
     border: 1px solid var(--border-color);
   }
@@ -619,7 +618,6 @@ input, textarea, select {
   }
 
   .stat-item {
-    background: var(--card-color) !important;
     
     .stat-number {
       color: var(--text-color) !important;
@@ -664,6 +662,60 @@ input, textarea, select {
     h3, p {
       color: var(--text-color) !important;
     }
+  }
+
+  // Additional dark mode fixes for remaining items
+  .nav-toggle span {
+    background-color: var(--text-color) !important;
+  }
+
+  .app-title-btn {
+    color: $secondary !important;
+  }
+
+  .other-apps-section .app-item {
+    background: var(--card-color) !important;
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .highlight-card i {
+    color: var(--text-color) !important;
+  }
+
+  .contact-form {
+    background: var(--card-color) !important;
+    
+    label {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .response-card {
+    background: var(--card-color) !important;
+    
+    h3, p {
+      color: var(--text-color) !important;
+    }
+    
+    i {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Fix expertise-item and about-cta backgrounds
+  .expertise-item {
+    background: var(--card-color) !important;
+  }
+
+  .about-cta {
+    background: var(--surface-color) !important;
+  }
+
+  .value-item {
+    background: var(--surface-color) !important;
   }
 }
 

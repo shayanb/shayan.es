@@ -14,7 +14,7 @@ permalink: /talks/
   <div class="speaking-stats">
     <h2>Speaking Overview</h2>
     <div class="stats-grid">
-      <div class="stat-card">
+      <a href="#academic-lectures" class="stat-card stat-card-clickable">
         <div class="stat-icon">
           <i class="fa fa-graduation-cap"></i>
         </div>
@@ -22,9 +22,9 @@ permalink: /talks/
           <span class="stat-number">{{ site.data.index.lectures | size }}</span>
           <span class="stat-label">Academic Lectures</span>
         </div>
-      </div>
+      </a>
       
-      <div class="stat-card">
+      <a href="#conferences" class="stat-card stat-card-clickable">
         <div class="stat-icon">
           <i class="fa fa-users"></i>
         </div>
@@ -32,9 +32,9 @@ permalink: /talks/
           <span class="stat-number">{{ site.data.index.conferences | size }}</span>
           <span class="stat-label">Conferences</span>
         </div>
-      </div>
+      </a>
       
-      <div class="stat-card">
+      <a href="#hackathons" class="stat-card stat-card-clickable">
         <div class="stat-icon">
           <i class="fa fa-code"></i>
         </div>
@@ -42,7 +42,7 @@ permalink: /talks/
           <span class="stat-number">{{ site.data.index.hackathons | size }}</span>
           <span class="stat-label">Hackathons</span>
         </div>
-      </div>
+      </a>
       
       <div class="stat-card">
         <div class="stat-icon">
@@ -62,7 +62,7 @@ permalink: /talks/
         </div>
       </div>
       
-      <div class="stat-card">
+      <a href="#podcasts" class="stat-card stat-card-clickable">
         <div class="stat-icon">
           <i class="fa fa-podcast"></i>
         </div>
@@ -70,13 +70,13 @@ permalink: /talks/
           <span class="stat-number">{{ site.data.index.podcasts | size }}</span>
           <span class="stat-label">Podcast Episodes</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 
   <div class="talks-sections">
     <!-- Talks & Presentations Section -->
-    <section class="talks-section">
+    <section id="academic-lectures" class="talks-section">
       <h2>Talks & Presentations</h2>
       <div class="talks-grid">
         {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
@@ -154,7 +154,7 @@ permalink: /talks/
     </section>
 
     <!-- Podcasts Section -->
-    <section class="podcasts-section">
+    <section id="podcasts" class="podcasts-section">
       <h2>Podcast Episodes</h2>
       <div class="podcasts-grid">
         {% for podcast in site.data.index.podcasts %}
@@ -286,7 +286,7 @@ permalink: /talks/
     </section>
 
     <!-- Hackathons Section -->
-    <section class="hackathons-section">
+    <section id="hackathons" class="hackathons-section">
       <h2>Hackathon Participation</h2>
       <div class="hackathons-grid">
         {% for hackathon in site.data.index.hackathons %}
@@ -364,7 +364,7 @@ permalink: /talks/
     </section>
 
     <!-- Conference Attendance (Minimal) -->
-    <section class="conferences-section-minimal">
+    <section id="conferences" class="conferences-section-minimal">
       <h2>Conference Attendance</h2>
       <div class="conferences-minimal-grid">
         {% assign sorted_conferences = site.data.index.conferences | sort: 'date' | reverse %}
@@ -526,15 +526,26 @@ permalink: /talks/
 .podcast-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  border: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.podcast-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
 }
 
 .podcast-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .podcast-thumbnail {
@@ -589,7 +600,7 @@ permalink: /talks/
 }
 
 .podcast-content {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .podcast-header {

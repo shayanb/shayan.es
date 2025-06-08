@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Mobile Navigation Toggle
   const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  const navMenu = document.querySelector('.nav-menu-hamburger');
 
   if (navToggle) {
     navToggle.addEventListener('click', () => {
@@ -9,8 +9,8 @@ $(document).ready(function() {
       navToggle.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Close mobile menu when clicking on a hamburger link
+    document.querySelectorAll('.nav-menu-hamburger .nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
