@@ -154,65 +154,48 @@ permalink: /talks/
     </section>
 
     <!-- Podcasts Section -->
-    <section id="podcasts" class="podcasts-section">
+    <section id="podcasts" class="hackathons-section">
       <h2>Podcast Episodes</h2>
-      <div class="podcasts-grid">
+      <div class="hackathons-grid">
         {% for podcast in site.data.index.podcasts %}
-        <div class="podcast-card">
+        <div class="hackathon-card podcast-card-custom">
+          {% if podcast.thumbnail %}
           <div class="podcast-thumbnail">
-            {% if podcast.thumbnail and podcast.thumbnail != "" %}
-              <img src="{{ podcast.thumbnail }}" alt="{{ podcast.title }}" class="podcast-thumb-img">
-            {% elsif podcast.youtube_link %}
-              <!-- Extract YouTube thumbnail from URL -->
-              {% assign youtube_id = podcast.youtube_link | split: 'v=' | last | split: '&' | first %}
-              <img src="https://img.youtube.com/vi/{{ youtube_id }}/maxresdefault.jpg" alt="{{ podcast.title }}" class="podcast-thumb-img" onerror="this.src='https://img.youtube.com/vi/{{ youtube_id }}/hqdefault.jpg'">
-            {% else %}
-              <div class="podcast-thumb-placeholder">
-                <i class="fa fa-microphone"></i>
-              </div>
-            {% endif %}
-            {% if podcast.youtube_link %}
-            <div class="podcast-play-overlay">
-              <i class="fa fa-play"></i>
-            </div>
-            {% endif %}
+            <img src="{{ podcast.thumbnail }}" alt="{{ podcast.title }}" loading="lazy">
+          </div>
+          {% endif %}
+          
+          <div class="hackathon-header">
+            <h3>{{ podcast.title }}</h3>
+            <span class="hackathon-role role-podcast">{% if podcast.episode_number %}{{ podcast.episode_number }}{% else %}Podcast{% endif %}</span>
           </div>
           
-          <div class="podcast-content">
-            <div class="podcast-header">
-              <h3 class="podcast-title">{{ podcast.title }}</h3>
-              <div class="podcast-meta">
-                <span class="podcast-channel">
-                  {% if podcast.channel_url %}
-                    <a href="{{ podcast.channel_url }}" target="_blank">{{ podcast.channel }}</a>
-                  {% else %}
-                    {{ podcast.channel }}
-                  {% endif %}
-                </span>
-                {% if podcast.date %}
-                <span class="podcast-date">{{ podcast.date | date: "%B %Y" }}</span>
-                {% endif %}
-              </div>
-            </div>
-            
-            {% if podcast.description %}
-            <p class="podcast-description">{{ podcast.description }}</p>
+          <div class="hackathon-meta">
+            {% if podcast.date %}
+            <span class="hackathon-date">{{ podcast.date | date: "%B %Y" }}</span>
             {% endif %}
-            
-            <div class="podcast-actions">
-              {% if podcast.youtube_link %}
-              <a href="{{ podcast.youtube_link }}" target="_blank" class="podcast-action youtube">
-                <i class="fa fa-youtube"></i>
-                <span>Watch on YouTube</span>
-              </a>
-              {% endif %}
-              {% if podcast.channel_url %}
-              <a href="{{ podcast.channel_url }}" target="_blank" class="podcast-action website">
-                <i class="fa fa-external-link"></i>
-                <span>Visit Channel</span>
-              </a>
-              {% endif %}
-            </div>
+            <span class="hackathon-location">
+              <i class="fa fa-microphone"></i> {{ podcast.channel }}
+            </span>
+          </div>
+
+          {% if podcast.description %}
+          <p class="hackathon-description">{{ podcast.description }}</p>
+          {% endif %}
+
+          <div class="podcast-actions-custom">
+            {% if podcast.youtube_link %}
+            <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
+              <i class="fa fa-youtube"></i>
+              <span>Watch</span>
+            </a>
+            {% endif %}
+            {% if podcast.channel_url %}
+            <a href="{{ podcast.channel_url }}" target="_blank" class="media-link website">
+              <i class="fa fa-external-link"></i>
+              <span>Episode</span>
+            </a>
+            {% endif %}
           </div>
         </div>
         {% endfor %}
@@ -529,6 +512,27 @@ permalink: /talks/
 /* Podcasts Section Styles */
 .podcasts-section {
   margin: 3rem 0;
+}
+
+/* Podcast Thumbnail for hackathon-card layout */
+.podcast-card-custom .podcast-thumbnail {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.podcast-card-custom .podcast-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.podcast-card-custom:hover .podcast-thumbnail img {
+  transform: scale(1.05);
 }
 
 .podcasts-grid {
@@ -923,6 +927,48 @@ permalink: /talks/
 .other-action.paper:hover {
   background: rgba(239, 68, 68, 0.15);
   transform: scale(1.1);
+}
+
+/* Podcast Custom Styling */
+.role-podcast {
+  background: #9c27b0;
+  color: white;
+}
+
+.podcast-actions-custom {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Hackathon card sizing for judge/mentor on desktop */
+.hackathon-card.hackathon-card-minimal {
+  .hackathon-minimal-content {
+    padding: 1.5rem;
+  }
+  
+  .hackathon-title-row h4 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .hackathon-minimal-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .hackathon-location-bottom {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .hackathon-date {
+    font-size: 0.875rem;
+    color: #666;
+  }
 }
 
 /* Dark Mode Support for Other Talks */

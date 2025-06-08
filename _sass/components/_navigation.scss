@@ -66,16 +66,18 @@
     background-color: $white;
     width: 300px;
     text-align: left;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, visibility 0.3s ease;
     box-shadow: $shadow-lg;
     padding: 2rem 0;
     border-radius: 8px 0 0 8px;
     max-height: calc(100vh - 70px);
     overflow-y: auto;
     transform: translateX(100%);
+    visibility: hidden;
     
     &.active {
       transform: translateX(0);
+      visibility: visible;
     }
     
     @media (max-width: $medium-screen) {
@@ -253,4 +255,9 @@
 // Main Content Area
 .site-content {
   min-height: calc(100vh - 70px - 200px); // Header height - Footer approximate height
+}
+
+// Prevent horizontal overflow from hidden menu
+html, body {
+  overflow-x: hidden;
 }

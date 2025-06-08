@@ -444,4 +444,75 @@ dark mode adjustments:
 
 - for the glitch effect, continusly looping the glitch (while active, e.g mouse hover).
 - add jump to top button at the end of the page (or maybe in the footer? (left side?))
+
+
+
+----------------------
+
+great.
+
+the click to go up button glitches on mouse hover. the glitch on footer should only be on the text itself. 
+
+talks:
+- conference attendance cards, conference-minimal-meta align with bottom of the cards
+- why podcast card is still big???
+
+
+projects:
+- inside project modals (modal-content), the Github button in dark mode needs a background. 
+  - also remove the "COMPLETED" tag from inside the modal
+
+
+Publication:
+- again about the publication-item. the pub-header should be on top (up) and then the abstract below it (on the bottom). they should be stacked vertically! 
+  -  media coverage should open the media-coverage on the bottom of the item, under the buttons 
 - 
+
+Menu: the current menu implementation is broken on mobile. it creates an additional horizontal page that the menu is shows in the closed mode . also in mobile the rest of the nav menu items (the audits, etc that are inside the hamburger menu in desktop) are not shown and gone! they should also be in the hamburger menu
+
+
+Responsiveness: most pages seem ok except the publication page! 
+
+-------------------------------------
+
+the click to go up button glitches on mouse hover. the glitch on footer should only be on the text itself. also you can bring the go up button to the same z-index as social-float-toggle, this is just a impplemtentation suggestion. 
+
+now more changes:
+talks:
+- why podcast card is still big??? the podcast section should be the same sizing as hackathons-grid and the hackathon-card for each podcast. 
+- the hackathon-cards had this selection that if it's hacker show bigger card, if judge or mentor show smaller cards. this is working on mobile, make it work on desktop too. 
+
+about: integrate the skills-container into the about page as well.
+
+- darkmode : add background to btn btn-outline
+
+
+bug: still on mobile if I scroll to the right I'll see the menu. it should be hidden when the hamburger menu is closed 
+
+---------------------------
+
+Publication:
+- again about the publication-item. the pub-header should be on top (up) and then the abstract below it (on the bottom). they should be stacked vertically! 
+- on the abstract remove the ::before ::after quotes 
+
+podcasts look better but it is missing the image. fetch these other episodes and add the yaml data to show in the podcast section. curl the image from the webpages:
+- https://shiryakhat.net/2025/02/devcon7.html
+- https://shiryakhat.net/2025/03/ethereum-pectra-upgrade.html
+- https://shiryakhat.net/2025/05/ai-blockchain-vibecoding.html
+
+
+----------------
+
+podcasts-cards: 
+- the media-link to look like buttons as in the rest of the website (e.g. media-link youtube)
+- hackathon-location to be aligned to the right 
+
+Add the structure for artistic works:
+
+there will be:
+- physical framed art work / collages 
+- digital video artwork (youtube links)
+- photography
+
+
+there are also some errors and warnings when you start jekyll, debug and fix as much as possible. 

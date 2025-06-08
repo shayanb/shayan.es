@@ -216,6 +216,19 @@ input, textarea, select {
   }
 }
 
+// Enhanced dark mode support for btn-outline
+[data-theme="dark"] .btn-outline {
+  background: var(--surface-color) !important;
+  border-color: #ff6b35 !important;
+  color: #ff6b35 !important;
+
+  &:hover {
+    background: #ff6b35 !important;
+    color: white !important;
+    border-color: #ff6b35 !important;
+  }
+}
+
 // Modal dark mode
 [data-theme="dark"] {
   .modal {
@@ -852,7 +865,7 @@ input, textarea, select {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-  z-index: 999;
+  z-index: $z-index-fixed;
   opacity: 0;
   transform: translateY(20px);
   
@@ -863,8 +876,11 @@ input, textarea, select {
   
   &:hover {
     background: #e55a2b;
-    transform: translateY(-3px);
+    transform: translateY(-3px) !important;
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    animation: none !important;
+    filter: none !important;
+    text-shadow: none !important;
   }
   
   @media (max-width: 768px) {
@@ -887,28 +903,35 @@ input, textarea, select {
   }
 }
 
-// Psychedelic Footer Effect (Site-wide)
-.psychedelic-footer {
+// Psychedelic Footer Effect (Site-wide) - Only on footer text
+.footer-text {
   position: relative;
   transition: all 0.3s ease;
-}
-
-// Exclude jump to top button from psychedelic effects
-.jump-to-top {
-  pointer-events: all;
   
   &:hover {
-    animation: none !important;
-    filter: none !important;
-    text-shadow: none !important;
-    transform: translateY(-3px) !important;
+    animation: psychedelicFooterGlitch 0.8s ease-in-out;
+    cursor: default;
   }
 }
 
-.psychedelic-footer:hover {
-  animation: psychedelicFooterGlitch 0.8s ease-in-out;
-  cursor: default;
+.footer-text:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.1), 
+    rgba(30, 58, 95, 0.1), 
+    rgba(255, 107, 53, 0.05),
+    rgba(30, 58, 95, 0.1));
+  z-index: -1;
+  border-radius: 4px;
+  animation: psychedelicFooterPulse 0.8s ease-in-out;
 }
+
+// Remove old footer hover - now applied to .footer-text only
 
 @keyframes psychedelicFooterGlitch {
   0% { 

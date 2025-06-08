@@ -104,6 +104,15 @@ permalink: /about/
       </div>
     </section>
 
+    <section class="skills-section">
+      <h2>Technical Skills</h2>
+      <div class="skills-container">
+        <div class="radar-chart-container">
+          <canvas id="skillsRadarChart" width="500" height="500"></canvas>
+        </div>
+      </div>
+    </section>
+
     <div class="about-cta">
       <p>Interested in collaboration or have questions?</p>
       <a href="/connect/" class="btn btn-primary">Get in Touch</a>
@@ -301,4 +310,204 @@ permalink: /about/
     gap: 2rem;
   }
 }
+
+/* Skills Section */
+.skills-section {
+  margin: 4rem 0;
+}
+
+.skills-section h2 {
+  text-align: center;
+  color: #1e3a5f;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radar-chart-container {
+  flex: 0 0 500px;
+  max-width: 500px;
+  position: relative;
+}
+
+/* Dark Mode Support for Skills */
+[data-theme="dark"] .skills-section h2 {
+  color: var(--text-color);
+}
+
+/* Responsive Design for Skills */
+@media (max-width: 768px) {
+  .radar-chart-container {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .skills-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .radar-chart-container {
+    max-width: 300px;
+  }
+  
+  .skills-section {
+    margin: 3rem 0;
+  }
+}
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const ctx = document.getElementById('skillsRadarChart');
+  
+  if (!ctx) {
+    console.warn('Skills radar chart canvas not found');
+    return;
+  }
+
+  // Skills data from Jekyll
+  const skillsData = [
+    {% for skill in site.data.index.skills.skills %}
+    {
+      name: "{{ skill.name }}",
+      score: {{ skill.score }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  // Sort skills by score for better visualization
+  skillsData.sort((a, b) => b.score - a.score);
+
+  const labels = skillsData.map(skill => skill.name);
+  const scores = skillsData.map(skill => skill.score);
+
+  // Create gradient
+  const canvas = ctx.getContext('2d');
+  const gradient = canvas.createRadialGradient(250, 250, 0, 250, 250, 250);
+  gradient.addColorStop(0, 'rgba(255, 107, 53, 0.2)');
+  gradient.addColorStop(1, 'rgba(30, 58, 95, 0.1)');
+
+  const borderGradient = canvas.createRadialGradient(250, 250, 0, 250, 250, 250);
+  borderGradient.addColorStop(0, 'rgba(255, 107, 53, 0.8)');
+  borderGradient.addColorStop(1, 'rgba(30, 58, 95, 0.6)');
+
+  const config = {
+    type: 'radar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Technical Skills',
+        data: scores,
+        backgroundColor: gradient,
+        borderColor: borderGradient,
+        borderWidth: 2,
+        pointBackgroundColor: '#ff6b35',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        pointHoverBackgroundColor: '#1e3a5f',
+        pointHoverBorderColor: '#ff6b35',
+        pointHoverBorderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(30, 58, 95, 0.9)',
+          titleColor: '#fff',
+          bodyColor: '#fff',
+          borderColor: '#ff6b35',
+          borderWidth: 1,
+          displayColors: false,
+          callbacks: {
+            label: function(context) {
+              return context.label + ': ' + context.raw + '%';
+            }
+          }
+        }
+      },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+          angleLines: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          pointLabels: {
+            font: {
+              size: 12,
+              weight: '500'
+            },
+            color: '#374151'
+          },
+          ticks: {
+            display: false,
+            stepSize: 20
+          }
+        }
+      },
+      interaction: {
+        intersect: false,
+        mode: 'point'
+      },
+      animation: {
+        duration: 2000,
+        easing: 'easeInOutQuart'
+      }
+    }
+  };
+
+  // Check for dark mode and adjust colors
+  function updateChartColors() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    
+    if (isDark) {
+      config.options.scales.r.angleLines.color = 'rgba(255, 255, 255, 0.2)';
+      config.options.scales.r.grid.color = 'rgba(255, 255, 255, 0.2)';
+      config.options.scales.r.pointLabels.color = '#e5e7eb';
+    } else {
+      config.options.scales.r.angleLines.color = 'rgba(0, 0, 0, 0.1)';
+      config.options.scales.r.grid.color = 'rgba(0, 0, 0, 0.1)';
+      config.options.scales.r.pointLabels.color = '#374151';
+    }
+  }
+
+  updateChartColors();
+  
+  try {
+    const chart = new Chart(ctx, config);
+    
+    // Update chart colors when theme changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateChartColors();
+          chart.update();
+        }
+      });
+    });
+    
+    observer.observe(document.body, { attributes: true });
+    
+  } catch (error) {
+    console.error('Error creating skills chart:', error);
+  }
+});
+</script>

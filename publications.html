@@ -277,29 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
   font-style: italic;
 }
 
-.pub-abstract::before {
-  content: '"';
-  font-size: 4rem;
-  color: #ff6b35;
-  position: absolute;
-  top: -0.5rem;
-  left: 0.5rem;
-  line-height: 1;
-  opacity: 0.3;
-  font-family: Georgia, serif;
-}
-
-.pub-abstract::after {
-  content: '"';
-  font-size: 4rem;
-  color: #ff6b35;
-  position: absolute;
-  bottom: -2rem;
-  right: 0.5rem;
-  line-height: 1;
-  opacity: 0.3;
-  font-family: Georgia, serif;
-}
 
 /* Publication Links */
 .pub-links {
@@ -497,10 +474,6 @@ document.addEventListener('DOMContentLoaded', function() {
   border-left-color: #ff6b35;
 }
 
-[data-theme="dark"] .pub-abstract::before,
-[data-theme="dark"] .pub-abstract::after {
-  color: #ff6b35;
-}
 
 [data-theme="dark"] .pub-body {
   background: var(--card-color);
