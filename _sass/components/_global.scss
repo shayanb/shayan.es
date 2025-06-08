@@ -1,13 +1,15 @@
 /**
   * Global setting
   */
+
+@use "sass:color";
 *,
 *:before,
 *:after {
   @include box-sizing;
 }
 .notice {
-  border: 1px solid lighten($text-color, 45%);
+  border: 1px solid color.adjust($text-color, $lightness: 45%);
   border-radius: 0.4em;
   padding: 0.5em 1em;
 }

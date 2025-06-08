@@ -42,22 +42,22 @@ permalink: /publications/
     {% assign sorted_pubs = site.data.index.publications | sort: 'year' | reverse %}
     {% for pub in sorted_pubs %}
     <article class="publication-item" data-year="{{ pub.year }}" data-type="{% if pub.published %}academic{% else %}article{% endif %}">
-      <!-- Header with year and title -->
-      <div class="pub-header">
-        <div class="pub-year-number">{{ pub.year }}</div>
-        <div class="pub-title-container">
-          <h3 class="pub-title">{{ pub.name }}</h3>
-          {% if pub.published %}
-          <div class="pub-venue-info">
-            <span class="venue-label">Published in:</span>
-            <span class="venue-name">{{ pub.published }}</span>
-          </div>
-          {% endif %}
-        </div>
-      </div>
-      
-      <!-- Body with abstract and links -->
+      <!-- Body contains everything including header -->
       <div class="pub-body">
+        <!-- Header with year and title inside body -->
+        <div class="pub-header">
+          <div class="pub-year-number">{{ pub.year }}</div>
+          <div class="pub-title-container">
+            <h3 class="pub-title">{{ pub.name }}</h3>
+            {% if pub.published %}
+            <div class="pub-venue-info">
+              <span class="venue-label">Published in:</span>
+              <span class="venue-name">{{ pub.published }}</span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        
         <div class="pub-abstract-container">
           <h4 class="abstract-label">Abstract</h4>
           <blockquote class="pub-abstract">
@@ -200,12 +200,13 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .pub-header {
-  padding: 2rem 2rem 1rem;
-  background: #f8f9fa;
+  padding: 0 0 2rem 0;
+  background: transparent;
   border-bottom: 1px solid #e9ecef;
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .pub-year-number {

@@ -1,5 +1,7 @@
 // Dark Mode Component
 
+@use "sass:color";
+
 // Theme Toggle Button
 .theme-toggle {
   background: none;
@@ -202,7 +204,7 @@ input, textarea, select {
   color: $white !important;
 
   &:hover {
-    background: darken($primary, 10%) !important;
+    background: color.adjust($primary, $lightness: -10%) !important;
   }
 }
 

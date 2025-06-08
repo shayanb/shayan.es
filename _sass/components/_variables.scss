@@ -2,6 +2,8 @@
  * Global Variables
  */
 
+@use "sass:color";
+
 // Google font imports - Updated for modern typography
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -92,7 +94,7 @@ $body-color:      $text-color;
 
 // Links
 $link-color:      $secondary;
-$link-hover-color: darken($link-color, 10%);
+$link-hover-color: color.adjust($link-color, $lightness: -10%);
 
 // Borders
 $border-radius:   0.375rem;
@@ -119,8 +121,8 @@ $table-striped-color: $gray-50 !default;
 // Grid Variables
 $num-cols: 12 !default;
 $gutter-width: 1.5rem !default;
-$element-top-margin: $gutter-width/3 !default;
-$element-bottom-margin: ($gutter-width*2)/3 !default;
+$element-top-margin: calc($gutter-width / 3) !default;
+$element-bottom-margin: calc(($gutter-width * 2) / 3) !default;
 
 // Media Query Ranges
 $small-screen: 600px !default;

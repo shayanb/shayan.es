@@ -174,7 +174,7 @@ permalink: /talks/
             {% if podcast.date %}
             <span class="hackathon-date">{{ podcast.date | date: "%B %Y" }}</span>
             {% endif %}
-            <span class="hackathon-location">
+            <span class="hackathon-location hackathon-location-right">
               <i class="fa fa-microphone"></i> {{ podcast.channel }}
             </span>
           </div>
@@ -185,15 +185,13 @@ permalink: /talks/
 
           <div class="podcast-actions-custom">
             {% if podcast.youtube_link %}
-            <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
-              <i class="fa fa-youtube"></i>
-              <span>Watch</span>
+            <a href="{{ podcast.youtube_link }}" target="_blank" class="pub-link youtube">
+              <i class="fa fa-youtube"></i> Watch
             </a>
             {% endif %}
             {% if podcast.channel_url %}
-            <a href="{{ podcast.channel_url }}" target="_blank" class="media-link website">
-              <i class="fa fa-external-link"></i>
-              <span>Episode</span>
+            <a href="{{ podcast.channel_url }}" target="_blank" class="pub-link">
+              <i class="fa fa-external-link"></i> Episode
             </a>
             {% endif %}
           </div>
@@ -533,6 +531,62 @@ permalink: /talks/
 
 .podcast-card-custom:hover .podcast-thumbnail img {
   transform: scale(1.05);
+}
+
+/* Right-aligned location for podcast cards */
+.hackathon-location-right {
+  margin-left: auto;
+}
+
+.hackathon-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Podcast actions styling to match pub-link */
+.podcast-actions-custom {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.podcast-actions-custom .pub-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: #fff;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.podcast-actions-custom .pub-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.podcast-actions-custom .pub-link.youtube {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.podcast-actions-custom .pub-link.youtube:hover {
+  background: #ff0000;
+  color: white;
 }
 
 .podcasts-grid {

@@ -2,7 +2,7 @@
    Typography
    ========================================================================== */
 
-
+@use "sass:color";
 
 // separate line
 hrsection {
@@ -50,7 +50,7 @@ a {
    color: $primary;
    &:hover,
    &:focus {
-     color: lighten($primary, 14%);
+     color: color.adjust($primary, $lightness: 14%);
      text-decoration: none;
    }
 }
@@ -74,7 +74,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: $text-color;
   &:hover,
   &:focus {
-    color: lighten($text-color, 24%);
+    color: color.adjust($text-color, $lightness: 24%);
   }
 }
 h1 { font-size: $font-size-h1; margin: ($font-size-h1 / 2) 0 ($font-size-h1 / 2.5) 0;}
