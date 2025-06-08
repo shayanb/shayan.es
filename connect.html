@@ -83,6 +83,71 @@ permalink: /connect/
       </a>
       {% endif %}
 
+      {% if site.owner.youtube %}
+      <a href="https://youtube.com/{{ site.owner.youtube }}" target="_blank" rel="noopener" class="platform-card youtube">
+        <div class="platform-icon">
+          <i class="fa fa-youtube"></i>
+        </div>
+        <div class="platform-content">
+          <h3>YouTube</h3>
+          <p>Educational content and presentations</p>
+          <span class="platform-handle">{{ site.owner.youtube }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.medium %}
+      <a href="https://medium.com/@{{ site.owner.medium }}" target="_blank" rel="noopener" class="platform-card medium">
+        <div class="platform-icon">
+          <i class="fa fa-medium"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Medium</h3>
+          <p>Technical articles and research insights</p>
+          <span class="platform-handle">@{{ site.owner.medium }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.reddit %}
+      <a href="https://reddit.com/u/{{ site.owner.reddit }}" target="_blank" rel="noopener" class="platform-card reddit">
+        <div class="platform-icon">
+          <i class="fa fa-reddit"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Reddit</h3>
+          <p>Community discussions and Q&A</p>
+          <span class="platform-handle">u/{{ site.owner.reddit }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.telegram %}
+      <a href="https://t.me/{{ site.owner.telegram }}" target="_blank" rel="noopener" class="platform-card telegram">
+        <div class="platform-icon">
+          <i class="fa fa-telegram"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Telegram</h3>
+          <p>Secure messaging and updates</p>
+          <span class="platform-handle">@{{ site.owner.telegram }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if site.owner.mastodon %}
+      <a href="{{ site.owner.mastodon }}" target="_blank" rel="noopener" class="platform-card mastodon">
+        <div class="platform-icon">
+          <i class="fa fa-mastodon"></i>
+        </div>
+        <div class="platform-content">
+          <h3>Mastodon</h3>
+          <p>Decentralized social networking</p>
+          <span class="platform-handle">{{ site.owner.mastodon | split: '/' | last }}</span>
+        </div>
+      </a>
+      {% endif %}
+
       {% if site.owner.email %}
       <a href="mailto:{{ site.owner.email }}" class="platform-card email">
         <div class="platform-icon">

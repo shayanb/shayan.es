@@ -63,7 +63,7 @@ permalink: /publications/
           
           {% if pub.youtube %}
           <a href="{{ pub.youtube }}" class="pub-link" target="_blank">
-            <i class="fa fa-youtube-play"></i> Presentation
+            <i class="fa fa-youtube"></i> Presentation
           </a>
           {% endif %}
           
@@ -77,11 +77,22 @@ permalink: /publications/
         {% if pub.media %}
         <div class="media-coverage" style="display: none;">
           <h4>Media Coverage:</h4>
-          <ul>
+          <div class="media-links">
             {% for media_item in pub.media %}
-            <li><a href="{{ media_item }}" target="_blank">{{ media_item | split: '/' | last }}</a></li>
+            {% if media_item.url and media_item.title %}
+            <a href="{{ media_item.url }}" target="_blank" class="media-link">
+              <i class="fa fa-external-link"></i>
+              <span>{{ media_item.title }}</span>
+              {% if media_item.source %}<small>({{ media_item.source }})</small>{% endif %}
+            </a>
+            {% elsif media_item %}
+            <a href="{{ media_item }}" target="_blank" class="media-link">
+              <i class="fa fa-external-link"></i>
+              <span>{{ media_item | split: '/' | last | remove: '.html' | replace: '-', ' ' | capitalize }}</span>
+            </a>
+            {% endif %}
             {% endfor %}
-          </ul>
+          </div>
         </div>
         {% endif %}
       </div>

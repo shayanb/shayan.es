@@ -12,7 +12,7 @@ permalink: /projects/
 
   <div class="projects-grid">
     {% for project in site.data.index.projects %}
-    <div class="project-card" data-project="{{ project.name | slugify }}">
+    <div class="project-card clickable-card" data-project="{{ project.name | slugify }}" role="button" tabindex="0">
       <div class="project-header">
         <div class="project-title-area">
           <h3>{{ project.name }}</h3>
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = modal.querySelector('.modal-close');
   const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
   const moreLinks = document.querySelectorAll('.more-link');
+  const projectCards = document.querySelectorAll('.project-card.clickable-card');
 
   // Project data
   const projects = {
@@ -147,16 +148,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Event listeners
   viewDetailsBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card click from firing
       const projectId = btn.dataset.project;
       showProjectDetails(projectId);
     });
   });
 
   moreLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card click from firing
       const projectId = link.dataset.project;
       showProjectDetails(projectId);
+    });
+  });
+
+  // Card click listeners
+  projectCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't trigger if clicking on a link or button
+      if (e.target.closest('a') || e.target.closest('button')) {
+        return;
+      }
+      const projectId = card.dataset.project;
+      showProjectDetails(projectId);
+    });
+
+    // Keyboard support for accessibility
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!e.target.closest('a') && !e.target.closest('button')) {
+          const projectId = card.dataset.project;
+          showProjectDetails(projectId);
+        }
+      }
     });
   });
 

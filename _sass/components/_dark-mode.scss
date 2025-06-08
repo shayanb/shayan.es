@@ -77,7 +77,8 @@ body {
 .app-card,
 .career-content,
 .artwork-card,
-.platform-card {
+.platform-card,
+.conference-item-minimal {
   background: var(--card-color) !important;
   box-shadow: var(--shadow-card);
   border-color: var(--border-color);
@@ -92,6 +93,13 @@ body {
 
   p, .description {
     color: var(--text-muted);
+  }
+
+  // Media links maintain their brand colors in dark mode
+  .media-link {
+    &:hover {
+      box-shadow: var(--shadow-card) !important;
+    }
   }
 }
 

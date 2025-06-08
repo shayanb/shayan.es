@@ -40,6 +40,28 @@
       box-shadow: $shadow-lg;
     }
 
+    &.clickable-card {
+      cursor: pointer;
+      
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: $shadow-xl;
+        
+        .project-header h3 {
+          color: $primary;
+        }
+      }
+
+      &:focus {
+        outline: 2px solid $secondary;
+        outline-offset: 2px;
+      }
+
+      &:active {
+        transform: translateY(-3px);
+      }
+    }
+
     .project-header {
       padding: 2rem 2rem 1rem;
       border-bottom: 1px solid $gray-100;
@@ -108,6 +130,8 @@
           border-radius: $border-radius;
           text-decoration: none;
           transition: all 0.3s ease;
+          position: relative;
+          z-index: 2; // Ensure links are above the clickable card
 
           &:hover {
             background: $secondary;
@@ -164,6 +188,8 @@
         font-weight: 500;
         width: 100%;
         font-size: 0.9rem;
+        position: relative;
+        z-index: 2; // Ensure button is above the clickable card
 
         &:hover {
           background: darken($primary, 10%);
@@ -539,8 +565,25 @@
         flex: 1;
 
         h3 {
-          color: $gray-900;
           margin-bottom: 0.5rem;
+          
+          .app-title-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: inherit;
+            font-weight: inherit;
+            font-family: inherit;
+            color: $gray-900;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-align: left;
+            width: 100%;
+
+            &:hover {
+              color: $primary;
+            }
+          }
         }
 
         .app-platform {
@@ -619,8 +662,25 @@
         flex: 1;
 
         h4 {
-          color: $gray-900;
           margin-bottom: 0.25rem;
+          
+          .app-title-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: inherit;
+            font-weight: inherit;
+            font-family: inherit;
+            color: $gray-900;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-align: left;
+            width: 100%;
+
+            &:hover {
+              color: $primary;
+            }
+          }
         }
 
         .app-platform {

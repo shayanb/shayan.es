@@ -101,7 +101,7 @@ permalink: /talks/
             <div class="media-links">
               {% if lecture.youtube %}
                 <a href="{{ lecture.youtube }}" target="_blank" class="media-link youtube">
-                  <i class="fa fa-youtube-play"></i>
+                  <i class="fa fa-youtube"></i>
                   <span>Watch</span>
                 </a>
               {% endif %}
@@ -119,7 +119,7 @@ permalink: /talks/
               {% endif %}
               {% if lecture.paper %}
                 <a href="{{ lecture.paper }}" target="_blank" class="media-link paper">
-                  <i class="fa fa-file-text-o"></i>
+                  <i class="fa fa-file-pdf-o"></i>
                   <span>Paper</span>
                 </a>
               {% endif %}
@@ -137,73 +137,14 @@ permalink: /talks/
       </div>
     </section>
 
-    <!-- Conference Attendance -->
-    <section class="conferences-section">
-      <h2>Conference Attendance</h2>
-      <div class="conferences-grid">
-        {% assign sorted_conferences = site.data.index.conferences | sort: 'date' | reverse %}
-        {% for conference in sorted_conferences %}
-        <div class="conference-card">
-          <div class="conference-content">
-            <div class="conference-header">
-              <h3>
-                {% if conference.link %}
-                  <a href="{{ conference.link }}" target="_blank">{{ conference.name }}</a>
-                {% else %}
-                  {{ conference.name }}
-                {% endif %}
-              </h3>
-              <div class="conference-meta">
-                <span class="conference-date">{{ conference.date }}</span>
-                <span class="conference-location">
-                  <i class="fa fa-map-marker"></i> {{ conference.location }}
-                </span>
-              </div>
-            </div>
-            
-            {% if conference.role %}
-            <p class="conference-role">
-              <strong>Role:</strong> {{ conference.role | capitalize }}
-            </p>
-            {% endif %}
-
-            {% if conference.talks_given and conference.talks_given.size > 0 %}
-            <div class="talks-given">
-              <h4>Presentations:</h4>
-              <ul>
-                {% for talk in conference.talks_given %}
-                <li>
-                  <strong>{{ talk.title }}</strong>
-                  {% if talk.track %} - {{ talk.track }}{% endif %}
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-            {% endif %}
-
-            {% if conference.description %}
-            <p class="conference-description">{{ conference.description }}</p>
-            {% endif %}
-            
-            {% if conference.link %}
-            <div class="conference-links">
-              <a href="{{ conference.link }}" target="_blank" class="conference-link">
-                <i class="fa fa-external-link"></i> Visit Website
-              </a>
-            </div>
-            {% endif %}
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-
     <!-- Hackathons Section -->
     <section class="hackathons-section">
       <h2>Hackathon Participation</h2>
       <div class="hackathons-grid">
         {% for hackathon in site.data.index.hackathons %}
-        <div class="hackathon-card">
+        <div class="hackathon-card {% if hackathon.role == 'judge' or hackathon.role == 'mentor' %}hackathon-card-minimal{% endif %}">
+          {% if hackathon.role == "hacker" %}
+          <!-- Full card for hacker role -->
           <div class="hackathon-header">
             <h3>{{ hackathon.name }}</h3>
             <span class="hackathon-role role-{{ hackathon.role }}">{{ hackathon.role | capitalize }}</span>
@@ -216,7 +157,7 @@ permalink: /talks/
             </span>
           </div>
 
-          {% if hackathon.role == "hacker" and hackathon.project_name %}
+          {% if hackathon.project_name %}
           <div class="hackathon-project">
             <h4>Project: {{ hackathon.project_name }}</h4>
             {% if hackathon.tech_stack %}
@@ -247,6 +188,59 @@ permalink: /talks/
           {% if hackathon.description %}
           <p class="hackathon-description">{{ hackathon.description }}</p>
           {% endif %}
+
+          {% else %}
+          <!-- Minimal card for judge/mentor roles -->
+          <div class="hackathon-minimal-content">
+            <div class="hackathon-title-row">
+              <h4>{{ hackathon.name }}</h4>
+              <span class="hackathon-role role-{{ hackathon.role }}">{{ hackathon.role | capitalize }}</span>
+            </div>
+            <div class="hackathon-minimal-meta">
+              <span class="hackathon-date">{{ hackathon.date }}</span>
+              <span class="hackathon-location">
+                <i class="fa fa-map-marker"></i> {{ hackathon.location }}
+              </span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Conference Attendance (Minimal) -->
+    <section class="conferences-section-minimal">
+      <h2>Conference Attendance</h2>
+      <div class="conferences-minimal-grid">
+        {% assign sorted_conferences = site.data.index.conferences | sort: 'date' | reverse %}
+        {% for conference in sorted_conferences %}
+        <div class="conference-item-minimal">
+          <div class="conference-minimal-content">
+            <div class="conference-name-row">
+              <h4>
+                {% if conference.link %}
+                  <a href="{{ conference.link }}" target="_blank">{{ conference.name }}</a>
+                {% else %}
+                  {{ conference.name }}
+                {% endif %}
+              </h4>
+              {% if conference.role %}
+                <span class="conference-role-badge">{{ conference.role | capitalize }}</span>
+              {% endif %}
+            </div>
+            <div class="conference-minimal-meta">
+              <span class="conference-date">{{ conference.date }}</span>
+              <span class="conference-location">
+                <i class="fa fa-map-marker"></i> {{ conference.location }}
+              </span>
+              {% if conference.talks_given and conference.talks_given.size > 0 %}
+                <span class="talks-count">
+                  <i class="fa fa-microphone"></i> {{ conference.talks_given.size }} talk{% if conference.talks_given.size > 1 %}s{% endif %}
+                </span>
+              {% endif %}
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>

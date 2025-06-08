@@ -248,6 +248,201 @@
   }
 }
 
+// Apps Modal Specific Styles
+.apps-page {
+  #app-modal {
+    .modal-content {
+      max-width: 1000px;
+      padding: 0;
+    }
+
+    .modal-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+
+      .modal-left {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .modal-header {
+          margin-bottom: 1.5rem;
+
+          &:has(.modal-logo) {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
+
+          .modal-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: $border-radius;
+          }
+
+          h2 {
+            margin: 0 0 0.5rem 0;
+            color: $primary;
+          }
+
+          .modal-platform {
+            color: $gray-600;
+            margin: 0;
+          }
+        }
+
+        .modal-description {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          flex-grow: 1;
+        }
+
+        .modal-links {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+        }
+      }
+
+      .modal-right {
+        background: $gray-50;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .screenshot-gallery {
+          width: 100%;
+          max-width: 300px;
+
+          .screenshot-container {
+            position: relative;
+            margin-bottom: 1rem;
+
+            .screenshot-main {
+              width: 100%;
+              border-radius: $border-radius;
+              box-shadow: $shadow-md;
+              transition: all 0.3s ease;
+            }
+
+            .screenshot-nav {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              background: rgba($black, 0.7);
+              border: none;
+              color: $white;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &:hover {
+                background: rgba($black, 0.9);
+                transform: translateY(-50%) scale(1.1);
+              }
+
+              &.prev {
+                left: -20px;
+              }
+
+              &.next {
+                right: -20px;
+              }
+
+              i {
+                font-size: 0.875rem;
+              }
+            }
+          }
+
+          .screenshot-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .screenshot-thumb {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              border-radius: $border-radius;
+              cursor: pointer;
+              opacity: 0.6;
+              transition: all 0.3s ease;
+              border: 2px solid transparent;
+
+              &:hover {
+                opacity: 0.8;
+                transform: scale(1.05);
+              }
+
+              &.active {
+                opacity: 1;
+                border-color: $secondary;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Single column layout when no screenshots
+    .modal-layout:not(:has(.screenshot-gallery)) {
+      grid-template-columns: 1fr;
+
+      .modal-left {
+        padding: 2rem;
+      }
+
+      .modal-right {
+        display: none;
+      }
+    }
+  }
+
+  // Mobile apps modal
+  @media (max-width: $small-screen) {
+    #app-modal {
+      .modal-layout {
+        grid-template-columns: 1fr !important;
+
+        .modal-left {
+          padding: 1.5rem;
+        }
+
+        .modal-right {
+          padding: 1.5rem;
+          background: $white;
+
+          .screenshot-gallery {
+            .screenshot-container {
+              .screenshot-nav {
+                &.prev {
+                  left: -15px;
+                }
+
+                &.next {
+                  right: -15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // Animations
 @keyframes modalFadeIn {
   from { opacity: 0; }

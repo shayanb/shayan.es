@@ -195,3 +195,71 @@ Connect:
 No Art/portfolio page exists.
 
 go through your todo and make sure everything is implemented.
+
+
+
+
+------------------
+
+
+great, add these to your todo list and continue:
+
+- make the social floating box to be an icon that will open up with an animation to show the icons/links for the socials
+- overall the cards need more shades or somehow to be more bold, maybe a shadow 3d like view? but not extreme just a touch. 
+- add dark mode
+- add a image in the hero section for profile picture, it is @img/shayan.jpeg
+
+Talks:
+- Move the country flag to be right after the conference name on the right side. same for the year tag. 
+- use icons for youtube and the link buttons, same for slides, paper, etc
+- hackathon the only ones that will have details are participation as hackers. so the rest of the cards (judge, mentor) will take up a lot of space, find a solution for this.
+- move the conference attendance to the end and make the section much more minimal, there will be almost 100 conference in there, so it should be names (linked), location, year. 
+
+Apps:
+  - if multiple screenshots are added, is there the option to show next photos?
+  - inside the modal, the name, etc should be on the left side, the image on the right side, and the text in a organized container under the title. 
+
+
+publications:
+ - some confenrence names are long, break them into two lines if needed to wrap. specially if they result in the paper title to look weird
+ - the whole media mention/converage sections are still not read properly , showing yaml structure it seems. they should be shown as tags with media name and clickable to open the link.
+ - make the buttons (paper, etc) with some shadow so they are more obvious
+ - if they have a matching presentation, link the youtube presentation here too (add to the yaml file)
+ - the mobile view of this page is shit! it needs to be responsive. 
+  
+
+projects:
+  - make the cards to be clickable to open the details section, unless a linked button is being clicked (github etc)
+
+
+============
+
+- Most pages have this double header that doesnt look good. replace the page-header with the page-header that is inside the page-content
+
+- art page is missing from the nav bar
+  - Add options for these:
+    - Video art -- with screenshot, title, year --> opens modal with details
+    - Physical art -- with pictures, title, year --> modal with details
+
+talks:
+- remove the "event" button and make the conference name clickable to go to the event page. 
+- for Conference Attendance, move the location to the right bottom side of the containers. 
+- change the year container to be more smooth but visible (the orange box is not visually appealing)
+- The hackathons cards look great, make the title of the hackathon name to be clickable to go to the website. also move the location name to the right bottm side of the card 
+
+publications:
+- make the abstract section to look like quote 
+- the conference names shortened is not ideal, can we make them wrap in multiple lines instead?
+- the media converage is still not showing correctly. it's basically just showing the yaml data in a text box. 
+
+Apps:
+  - if multiple screenshots are added, is there the option to show next photos?
+  - inside the modal, the name, etc should be on the left side, the image on the right side, and the text in a organized container under the title. 
+
+
+Dark mode is not working properly, as examples:
+- page-header s are not changed
+- the navbar
+- the cards (e.g. projects) are now dark text on dark background
+  - platfom icons buttons are not changed
+- basically go through all components of the website to make sure the dark mode behaviour is implemented correctly

@@ -28,7 +28,7 @@ permalink: /apps/
             {% endif %}
           </div>
           <div class="app-content">
-            <h3>{{ app.name }}</h3>
+            <h3><button class="app-title-btn view-app-btn" data-app="{{ app.name | slugify }}">{{ app.name }}</button></h3>
             <p class="app-platform">{{ app.platform }}</p>
             <p class="app-description">{{ app.short_description }}</p>
             <div class="app-actions">
@@ -62,7 +62,7 @@ permalink: /apps/
             {% endif %}
           </div>
           <div class="app-info">
-            <h4>{{ app.name }}</h4>
+            <h4><button class="app-title-btn view-app-btn" data-app="{{ app.name | slugify }}">{{ app.name }}</button></h4>
             <p class="app-platform">{{ app.platform }} • {{ app.year }}</p>
             <p>{{ app.short_description }}</p>
           </div>
@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
       play_store_link: "{{ app.play_store_link }}",
       chrome_store_link: "{{ app.chrome_store_link }}",
       github: "{{ app.github }}",
-      logo: "{{ app.logo }}"
+      logo: "{{ app.logo }}",
+      screenshots: [{% if app.screenshots %}{% for screenshot in app.screenshots %}"{{ screenshot }}"{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}]
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
@@ -133,22 +134,92 @@ document.addEventListener('DOMContentLoaded', function() {
       linksHtml = `<div class="modal-links">${links.join('')}</div>`;
     }
 
+    let screenshotsHtml = '';
+    if (app.screenshots && app.screenshots.length > 0) {
+      screenshotsHtml = `
+        <div class="screenshot-gallery">
+          <div class="screenshot-container">
+            <img src="${app.screenshots[0]}" alt="${app.name} screenshot" class="screenshot-main" id="main-screenshot">
+            ${app.screenshots.length > 1 ? `
+              <button class="screenshot-nav prev" onclick="changeScreenshot(-1)">
+                <i class="fa fa-chevron-left"></i>
+              </button>
+              <button class="screenshot-nav next" onclick="changeScreenshot(1)">
+                <i class="fa fa-chevron-right"></i>
+              </button>
+            ` : ''}
+          </div>
+          ${app.screenshots.length > 1 ? `
+            <div class="screenshot-thumbnails">
+              ${app.screenshots.map((screenshot, index) => 
+                `<img src="${screenshot}" alt="${app.name} screenshot ${index + 1}" 
+                 class="screenshot-thumb ${index === 0 ? 'active' : ''}" 
+                 onclick="selectScreenshot(${index})">`
+              ).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
     modalBody.innerHTML = `
-      <div class="modal-header">
-        ${app.logo ? `<img src="${app.logo}" alt="${app.name} logo" class="modal-logo">` : ''}
-        <div>
-          <h2>${app.name}</h2>
-          <p class="modal-platform">${app.platform} • ${app.year}</p>
+      <div class="modal-layout">
+        <div class="modal-left">
+          <div class="modal-header">
+            ${app.logo ? `<img src="${app.logo}" alt="${app.name} logo" class="modal-logo">` : ''}
+            <div>
+              <h2>${app.name}</h2>
+              <p class="modal-platform">${app.platform} • ${app.year}</p>
+            </div>
+          </div>
+          
+          <p class="modal-description">${app.description}</p>
+          
+          ${linksHtml}
+        </div>
+        
+        <div class="modal-right">
+          ${screenshotsHtml}
         </div>
       </div>
-      
-      <p class="modal-description">${app.description}</p>
-      
-      ${linksHtml}
     `;
 
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Initialize screenshot navigation
+    window.currentApp = app;
+    window.currentScreenshotIndex = 0;
+  }
+
+  // Screenshot navigation functions
+  window.changeScreenshot = function(direction) {
+    if (!window.currentApp || !window.currentApp.screenshots) return;
+    
+    const screenshots = window.currentApp.screenshots;
+    window.currentScreenshotIndex = (window.currentScreenshotIndex + direction + screenshots.length) % screenshots.length;
+    
+    updateScreenshotDisplay();
+  };
+
+  window.selectScreenshot = function(index) {
+    if (!window.currentApp || !window.currentApp.screenshots) return;
+    
+    window.currentScreenshotIndex = index;
+    updateScreenshotDisplay();
+  };
+
+  function updateScreenshotDisplay() {
+    const mainScreenshot = document.getElementById('main-screenshot');
+    const thumbnails = document.querySelectorAll('.screenshot-thumb');
+    
+    if (mainScreenshot && window.currentApp.screenshots[window.currentScreenshotIndex]) {
+      mainScreenshot.src = window.currentApp.screenshots[window.currentScreenshotIndex];
+    }
+    
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === window.currentScreenshotIndex);
+    });
   }
 
   // Event listeners
