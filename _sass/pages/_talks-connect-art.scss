@@ -1350,7 +1350,7 @@
           transition: all 0.3s ease;
 
           &:hover {
-            background: darken($secondary, 10%);
+            background: #e85d2e; // darken($secondary, 10%)
           }
         }
 

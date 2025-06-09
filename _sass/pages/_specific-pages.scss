@@ -744,12 +744,16 @@
   }
 
   .apps-page {
+    padding: 1rem;
+    
     .featured-apps {
       grid-template-columns: 1fr;
 
       .app-card.featured {
         // Keep flex-direction: row to maintain icon and title on same row
         gap: 1rem;
+        padding: 1.5rem;
+        box-sizing: border-box;
         
         .app-icon {
           width: 60px;

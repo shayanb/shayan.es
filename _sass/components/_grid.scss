@@ -63,7 +63,7 @@
 
     $i: 1;
     @while $i <= $num-cols {
-      $perc: string.unquote((100 / math.div($num-cols, $i)) + "%");
+      $perc: string.unquote(math.div(100 * $i, $num-cols) + "%");
       &.s#{$i} {
         width: $perc;
         margin-left: 0;
@@ -72,7 +72,7 @@
     }
     $i: 1;
     @while $i <= $num-cols {
-      $perc: string.unquote((100 / math.div($num-cols, $i)) + "%");
+      $perc: string.unquote(math.div(100 * $i, $num-cols) + "%");
       &.offset-s#{$i} {
         margin-left: $perc;
       }
@@ -84,7 +84,7 @@
 
       $i: 1;
       @while $i <= $num-cols {
-        $perc: string.unquote((100 / math.div($num-cols, $i)) + "%");
+        $perc: string.unquote(math.div(100 * $i, $num-cols) + "%");
         &.m#{$i} {
           width: $perc;
           margin-left: 0;
@@ -93,7 +93,7 @@
       }
       $i: 1;
       @while $i <= $num-cols {
-        $perc: string.unquote((100 / math.div($num-cols, $i)) + "%");
+        $perc: string.unquote(math.div(100 * $i, $num-cols) + "%");
         &.offset-m#{$i} {
           margin-left: $perc;
         }
@@ -106,7 +106,7 @@
 
       $i: 1;
       @while $i <= $num-cols {
-        $perc: string.unquote((100 / math.div($num-cols, $i)) + "%");
+        $perc: string.unquote(math.div(100 * $i, $num-cols) + "%");
         &.l#{$i} {
           width: $perc;
           margin-left: 0;
@@ -115,7 +115,7 @@
       }
       $i: 1;
       @while $i <= $num-cols {
-        $perc: string.unquote((100 / math.div($num-cols, $i)) + "%");
+        $perc: string.unquote(math.div(100 * $i, $num-cols) + "%");
         &.offset-l#{$i} {
           margin-left: $perc;
         }

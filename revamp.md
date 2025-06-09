@@ -660,3 +660,12 @@ these are tagged as fixed but not, investigate, debug and fix:
 - on app modals screenshots, I still see the old screenshot-nav prev, and not the newly implemented one. and the screenshot container changes size on different picutres, it should have a fixed size.
 - on the app page mobile view, make sure app-actions are in the same line and not moved to two lines (responsive)
 
+
+------------------------------
+these are tagged as fixed but not, investigate, debug and fix:
+- on app modals screenshots, I still see the old screenshot-nav prev that is below the image, and not the newly implemented one. use something like class="gallery-nav next" for the next icon (floating on the image itself). you have already implemented something like this but it's not being used in the Apps page (modals)
+  
+- the screenshot container changes size on different screenshots, it should have a fixed size.
+
+
+jekyll still has these errors, fix them:

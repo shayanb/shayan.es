@@ -369,7 +369,7 @@
           transition: all 0.3s ease;
 
           &:hover {
-            background: darken($primary, 10%);
+            background: #2a5a68; // darken($primary, 10%)
             transform: translateY(-2px);
           }
         }
@@ -543,7 +543,7 @@
           transition: all 0.3s ease;
 
           &:hover {
-            background: darken($primary, 10%);
+            background: #2a5a68; // darken($primary, 10%)
             transform: translateY(-2px);
           }
         }
