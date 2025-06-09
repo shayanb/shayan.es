@@ -92,3 +92,70 @@
     - "/img/apps/lifetimeline-screenshot-1.png"
     - "/img/apps/lifetimeline-screenshot-2.png"
     - "/img/apps/lifetimeline-screenshot-3.png"
+
+- name: "Shir Ya Khat"
+  platform: "Website"
+  logo: "/img/apps/shiryakhat-logo.png"
+  short_description: "Persian Blockchain Podcast & Educational Platform"
+  description: "A pioneering Persian-language blockchain and cryptocurrency educational podcast founded in 2016. Making blockchain knowledge accessible to Farsi speakers through live discussions with global experts, educational content, and community engagement."
+  website: "https://shiryakhat.net"
+  year: 2025
+  featured: true
+  tags: ["Education", "Podcast", "Blockchain", "Persian"]
+  screenshots:
+    - "/img/apps/shiryakhat-screenshot-1.png"
+    - "/img/apps/shiryakhat-screenshot-2.png"
+
+- name: "Pangana"
+  platform: "Web"
+  logo: "/img/apps/pangana-logo.png"
+  short_description: "Web3 Security Consulting & Blockchain Architecture"
+  description: "Technology and consulting company bridging ancient Persian wisdom with modern blockchain security. Specializing in Web3 security consulting, smart contract audits, blockchain architecture design, and professional training services."
+  website: "https://pangana.com"
+  year: 2018
+  featured: false
+  tags: ["Security", "Consulting", "Web3", "Smart Contracts"]
+  screenshots:
+    - "/img/apps/pangana-screenshot-1.png"
+    - "/img/apps/pangana-screenshot-2.png"
+
+- name: "The Creed"
+  platform: "Web"
+  logo: "/img/apps/thecreed-logo.png"
+  short_description: "Web3 Cybersecurity DAO Platform"
+  description: "A community-driven platform for Web3 cybersecurity professionals. The Creed DAO connects vetted security hackers with bug bounty opportunities and security audit services, fostering flexible work arrangements and long-term incentive alignment."
+  website: "https://thecreed.xyz"
+  year: 2023
+  featured: false
+  tags: ["Security", "DAO", "Web3", "Community"]
+  screenshots:
+    - "/img/apps/thecreed-screenshot-1.png"
+    - "/img/apps/thecreed-screenshot-2.png"
+
+- name: "RoofSlapper (Dona Roof Slapper V2)"
+  platform: "Web"
+  logo: "/img/apps/roofslapper-logo.png"
+  short_description: "Instant Retro UI for Smart Contract Interactions"
+  description: "RoofSlapper (also known as eth95) is an instant retro UI for calling any contract function you want. Easy to use interface for car dealerships and Jaypegs Automart Sedona owners. Features multiple roof slaps for multiple Donas, ability to roof slap a random Dona, and general Ethereum smart contract interaction capabilities with proxy support."
+  website: "https://eth95.dev"
+  github: "https://github.com/shayanb/roofSlapper"
+  year: 2021
+  featured: false
+  tags: ["Ethereum", "Smart Contracts", "Interactive", "Web3", "Developer Tools"]
+  screenshots:
+    - "/img/apps/roofslapper-screenshot-1.png"
+    - "/img/apps/roofslapper-screenshot-2.png"
+
+- name: "Auctionify"
+  platform: "Web"
+  logo: "/img/apps/auctionify-logo.png"
+  short_description: "Decentralized Ethereum Auction Platform"
+  description: "A decentralized stand-alone platform that facilitates Ethereum blockchain as a fair auctioning and payment infrastructure. Features customizable auction creation, automated bidding and refunds, and a user-friendly interface designed for non-technical users."
+  website: "https://auctionify.xyz/"
+  github: "https://github.com/auctionify/auctionify"
+  year: 2018
+  featured: false
+  tags: ["Ethereum", "DeFi", "Auctions", "Smart Contracts"]
+  screenshots:
+    - "/img/apps/auctionify-screenshot-1.png"
+    - "/img/apps/auctionify-screenshot-2.png"

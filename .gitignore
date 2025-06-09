@@ -7,3 +7,4 @@ file_list.txt
 prompt
 memory
 workspace
+.claude/settings.local.json

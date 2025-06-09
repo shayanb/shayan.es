@@ -20,6 +20,8 @@
   submenu:
     - title: "Academic Reviews"
       url: "/publications/#reviews-section"
+    - title: "Audits"
+      url: "/audits/"
       
 - title: "Speaking & Participation"
   url: "/talks/"
@@ -36,16 +38,15 @@
       url: "/talks/#conferences"
       
 - title: "Projects"
-  url: "#"
+  url: "/projects/"
   desktop: true
   hamburger: true
-  submenu:
-    - title: "Open Source"
-      url: "/projects/"
-    - title: "Apps"
-      url: "/apps/"
-    - title: "Audits"
-      url: "/audits/"
+
+- title: "Apps"
+  url: "/apps/"
+  desktop: true
+  hamburger: true
+
       
 - title: "Art"
   url: "/art/"

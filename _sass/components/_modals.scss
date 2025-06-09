@@ -479,7 +479,8 @@
     }
 
     // Single column layout when no screenshots
-    .modal-layout:not(:has(.screenshot-gallery)) {
+    .modal-layout:not(:has(.screenshot-gallery)),
+    .modal-layout.no-screenshots {
       grid-template-columns: 1fr;
 
       .modal-left {
@@ -697,7 +698,8 @@
     }
 
     // Single column layout when no screenshots
-    .modal-layout:not(:has(.screenshot-gallery)) {
+    .modal-layout:not(:has(.screenshot-gallery)),
+    .modal-layout.no-screenshots {
       grid-template-columns: 1fr;
 
       .modal-left {

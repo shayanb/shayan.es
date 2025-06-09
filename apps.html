@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     modalBody.innerHTML = `
-      <div class="modal-layout">
+      <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
         <div class="modal-left">
           <div class="modal-header">
             ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
@@ -200,9 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ${linksHtml}
         </div>
         
-        <div class="modal-right">
-          ${screenshotsHtml}
-        </div>
+        ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
       </div>
     `;
 

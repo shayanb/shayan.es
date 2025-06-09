@@ -108,3 +108,25 @@
   media:
     - name: CoinIran
       link: https://coiniran.com/%D8%AA%D9%88%DA%A9%D9%86-%D8%A2%D9%84%D8%AA%DA%A9%D9%88%DB%8C%D9%86-%D9%85%D8%A7%D9%87%DB%8C%D8%AA-%D8%A8%D9%84%D8%A7%DA%A9%DA%86%DB%8C%D9%86/
+
+- name: Smart Contract VulnDB
+  descr: An open dataset of publicly available smart contract issues aggregated from various audit reports. This comprehensive vulnerability database provides daily updates and multiple data access methods (Shell, JavaScript, Python) with a searchable web interface. Designed for security researchers, auditors, and developers to learn from past vulnerabilities.
+  website: https://tintinweb.github.io/smart-contract-vulndb/
+  github: https://github.com/tintinweb/smart-contract-vulndb
+  year: 2023
+  start_year: 2023
+  status: active
+  media:
+    - name: GitHub Repository
+      link: https://github.com/tintinweb/smart-contract-vulndb
+
+- name: DlAGRAMS
+  descr: Draw.io Library for Blockchain, Cryptocurrency, and DeFi. A specialized icon library providing comprehensive blockchain diagramming tools including cryptocurrency icons, wallet symbols, and DeFi application assets. Compatible with Draw.io web and desktop versions, enabling easy URL-based or local file import for creating professional blockchain architecture diagrams.
+  website: https://shayanb.github.io/dlagrams/
+  github: https://github.com/shayanb/dlagrams/
+  year: 2021
+  start_year: 2021
+  status: active
+  media:
+    - name: DlAGRAMS Documentation
+      link: https://dlagrams.net/
