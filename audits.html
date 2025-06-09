@@ -39,7 +39,9 @@ excerpt: "A selected list of security reviews and public audit reports that I've
         <a href="{{ audit.project-url }}" target="_blank" class="audit-project">{{ audit.project }}</a>
         <span class="audit-separator">•</span>
         {% if audit.url and audit.url != "" %}
-          <a href="{{ audit.url }}" target="_blank" class="audit-title">{{ audit.title }}</a>
+          <a href="{{ audit.url }}" target="_blank" class="audit-title">
+            <i class="fa fa-file-text-o"></i> {{ audit.title }}
+          </a>
         {% else %}
           <span class="audit-title">{{ audit.title }}</span>
         {% endif %}
@@ -133,11 +135,27 @@ excerpt: "A selected list of security reviews and public audit reports that I've
   color: #4b5563;
   text-decoration: none;
   transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+a.audit-title {
+  font-weight: 500;
+  
+  i {
+    color: #ff6b35;
+    transition: transform 0.2s ease;
+  }
 }
 
 a.audit-title:hover {
   color: #1e3a5f;
   text-decoration: underline;
+  
+  i {
+    transform: translateX(2px);
+  }
 }
 
 /* Archive year styling */

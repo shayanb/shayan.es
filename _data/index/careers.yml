@@ -5,7 +5,7 @@
   link: https://thecreed.xyz/
   date: 2023 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
   job: Co-founder & Security Auditor
-  logo: "/img/companies/creed-logo.png"
+  logo: "/img/companies/creed-logo.svg"
   description: "Co-founded Creed, a boutique security firm specializing in smart contract audits and blockchain security. Leading security audits for DeFi protocols, Layer 2 solutions, and emerging blockchain technologies. Developed comprehensive security frameworks and methodologies for web3 projects."
   technologies: ["Solidity", "Security Auditing", "DeFi", "Smart Contracts"]
   current: true
@@ -14,7 +14,7 @@
   link: https://www.puffer.fi/
   date: 2023 - 2024
   job: Head of Security
-  logo: "/img/companies/puffer-logo.png"
+  logo: "/img/companies/puffer-logo.svg"
   description: "Led the security initiatives for Puffer Finance's liquid staking protocol. Designed and implemented comprehensive security frameworks, conducted internal audits, and coordinated external security reviews. Managed security operations for validator infrastructure and smart contract deployments."
   technologies: ["Ethereum Staking", "Liquid Staking", "Security Architecture", "Risk Management"]
   achievements: ["Launched secure liquid staking protocol", "Zero security incidents", "Established security best practices"]
@@ -23,7 +23,7 @@
   link: https://www.ethcap.co/
   date: 2021 - 2023
   job: Chief Technology Officer
-  logo: "/img/companies/ethcap-logo.png"
+  logo: "/img/companies/ethercapital-logo.png"
   description: "Served as CTO for Ether Capital, a publicly-traded Ethereum technology company. Led technical strategy, oversaw blockchain investments, and managed technology operations. Developed trading infrastructure, staking operations, and investment analysis tools for institutional Ethereum exposure."
   technologies: ["Ethereum", "DeFi", "Institutional Trading", "Staking Infrastructure"]
   achievements: ["Scaled staking operations to $100M+ TVL", "Led technical due diligence for investments", "Built institutional-grade infrastructure"]
@@ -32,7 +32,7 @@
   link: https://diligence.consensys.net/
   date: 2018 - 2021
   job: Security Engineer & Auditor
-  logo: "/img/companies/consensys-logo.png"
+  logo: "/img/companies/consensys-diligence-logo.png"
   description: "Security engineer and lead auditor at ConsenSys Diligence, conducting smart contract security audits for major DeFi protocols and blockchain projects. Developed security tools including Legions, participated in bug bounty programs, and contributed to Ethereum security standards."
   technologies: ["Smart Contract Auditing", "Solidity", "Security Tools", "DeFi Protocols"]
   achievements: ["Audited 100+ smart contracts", "Discovered critical vulnerabilities", "Developed open-source security tools"]
@@ -50,7 +50,7 @@
   link: http://www.i-Phone.ir/
   date: 2008 - 2012
   job: Co-founder, CTO
-  logo: "/img/companies/iphone-logo.png"
+  logo: "/img/companies/i-phone.ir-logo.jpg"
   description: "Co-founded and served as CTO of Iran's first iPhone community and e-commerce platform. Led technical development, content strategy, and community growth. Built one of the largest tech communities in Iran with millions of users."
   technologies: ["Web Development", "E-commerce", "Community Platforms", "Content Management"]
   achievements: ["Reached 1M+ monthly users", "Built largest iPhone community in Iran", "Successful exit"]

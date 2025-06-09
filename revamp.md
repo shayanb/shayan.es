@@ -763,3 +763,55 @@ looks good, a few things to think harder about:
 - bug: it only shows the submenus on mobile and not the desktop
 - ui bug: the color scheme of nav-submenu (font , color, bg) should be the same nav-item
 - make sure the above applies in both dark mode and light mode, on desktop and mobile
+
+--------
+
+
+> a minor issue to fix: ui bug on podcasts section, the pub-link 
+  colors are reversed in dark mode. make them similar to media-link 
+   
+  on mobile iphone talks page, the items under talks & presentations
+   are slightly out of window from the right side, align \\ on the 
+  same page, it seems that the in talk-card, the talk-media and 
+  talk-location-bottom are shown differently based on the length of 
+  the location. make sure they stay consistent in mobile (all 
+  aligned from left location adn media links in two different rows)
+  ⎿  ⧉ Selected 2 lines from revamp.md in Visual Studio Code
+
+
+
+  ----------
+ looks good-ish, the buttons are too long (width) on mobile, they 
+  should be button size. \\ make the pub links in 
+  podcast-actions-custom to follow the same format/class as 
+  media-links
+
+
+looks good but the media buttons are full width, make them button width. 
+
+under Hackathon Participation : on desktop the hackathon-card-minimal is not that minimal
+
+also the content of hackathon-card-minimal on mobile look a bit out of order, put the role label on the bottom right side of the card inline aligned with the location
+
+-------------
+
+
+on hackathons cards, make sure the hackathon-role role- s have the same background label size. 
+
+for some reason the alignment of conference-item-minimal content on desktop is now off as well.
+
+let's do this: for both conference-item-minimal and hackathon-card-minimal cards, use the similar object, the title top left (with hyperlink to the link), role/label if exist top right, date bottom left (the same format as is now), location bottom, right (not wrapped)
+
+
+------
+ a lot of debugging here with screenshots and back and forth for the card content alignments
+
+
+ -------------------------
+
+GN! run these tmr: 
+
+ in audit page, the audits that have a link are not that obvious that are clickable. add the report icon to the side of the ones that have a report (and the icon and the current text should be hyperlinked.)
+
+ the apps page, the featured app app cards are overflowing iphone screen from the right side. while on thid card, make the icon bigger. and move the "web"/tag to the right top side of the card.  
+

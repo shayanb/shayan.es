@@ -154,11 +154,11 @@ permalink: /about/
 .about-avatar-container::before {
   content: '';
   position: absolute;
-  top: 8px;
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 408px;
-  height: 408px;
+  width: 208px;
+  height: 208px;
   background: linear-gradient(135deg, #ff6b35, #1e3a5f, #ff6b35);
   border-radius: 25px;
   z-index: -1;
@@ -194,8 +194,8 @@ permalink: /about/
   }
   
   .about-avatar-container::before {
-    width: 308px;
-    height: 308px;
+    width: 208px;
+    height: 208px;
     border-radius: 20px;
     top: 6px;
   }
@@ -301,9 +301,9 @@ permalink: /about/
   }
   
   .about-avatar-container::before {
-    width: 258px;
-    height: 258px;
-    top: 5px;
+    width: 208px;
+    height: 208px;
+    top: 6px;
   }
   
   .split-content {

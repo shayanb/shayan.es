@@ -15,10 +15,10 @@ permalink: /publications/
       <span class="stat-number">{{ site.data.index.publications | size }}</span>
       <span class="stat-label">Total Publications</span>
     </div>
-    <div class="stat-item">
+    <!-- <div class="stat-item">
       <span class="stat-number">{{ site.data.index.publications | where_exp: "item", "item.published" | size }}</span>
       <span class="stat-label">Academic Papers</span>
-    </div>
+    </div> -->
     <div class="stat-item">
       <span class="stat-number">{{ site.data.index.publications | map: "year" | uniq | size }}</span>
       <span class="stat-label">Years Active</span>
@@ -570,7 +570,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 [data-theme="dark"] .pub-header {
-  background: var(--surface-color);
   border-bottom-color: var(--border-color);
 }
 

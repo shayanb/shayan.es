@@ -638,32 +638,34 @@
 
       // Minimal card styling for judge/mentor roles
       &.hackathon-card-minimal {
-        padding: 1rem;
+        padding: 0.5rem 0.75rem;
+        max-width: 280px;
         
         .hackathon-minimal-content {
           .hackathon-title-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
+            gap: 0.75rem;
+            margin-bottom: 0.4rem;
 
             h4 {
               color: $gray-900;
               margin: 0;
-              font-size: 1rem;
-              line-height: 1.3;
+              font-size: 0.85rem;
+              line-height: 1.2;
               flex: 1;
             }
 
             .hackathon-role {
-              padding: 0.2rem 0.6rem;
+              padding: 0.15rem 0.5rem;
               border-radius: $border-radius;
-              font-size: 0.7rem;
+              font-size: 0.65rem;
               font-weight: 500;
               text-transform: uppercase;
               letter-spacing: 0.05em;
               flex-shrink: 0;
+              min-width: fit-content;
 
               &.role-judge {
                 background: $primary;
@@ -674,15 +676,20 @@
                 background: $secondary;
                 color: $white;
               }
+
+              &.role-hacker {
+                background: $success;
+                color: $white;
+              }
             }
           }
 
           .hackathon-minimal-meta {
             display: flex;
-            gap: 1rem;
+            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
+            gap: 0.75rem;
+            font-size: 0.7rem;
             color: $gray-500;
 
             .hackathon-date {
@@ -693,17 +700,18 @@
               display: flex;
               align-items: center;
               gap: 0.25rem;
+              white-space: nowrap;
 
               i {
                 color: $secondary;
-                font-size: 0.75rem;
+                font-size: 0.7rem;
               }
             }
           }
         }
 
         &:hover {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
       }
     }
@@ -725,16 +733,18 @@
 
     .conferences-minimal-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1rem;
     }
 
     .conference-item-minimal {
       background: $gray-50;
       border-radius: $border-radius;
-      padding: 1rem;
+      padding: 0.75rem 1rem;
       transition: all 0.3s ease;
       border-left: 3px solid $gray-300;
+      overflow: hidden;
+      word-wrap: break-word;
 
       &:hover {
         background: $white;
@@ -744,24 +754,34 @@
       }
 
       .conference-minimal-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
         .conference-name-row {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          gap: 1rem;
+          gap: 0.75rem;
           margin-bottom: 0.5rem;
 
           h4 {
             color: $gray-800;
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.3;
             flex: 1;
+            min-width: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
 
             a {
               color: inherit;
               text-decoration: none;
               transition: color 0.3s ease;
+              word-wrap: break-word;
+              overflow-wrap: break-word;
 
               &:hover {
                 color: $primary;
@@ -773,48 +793,42 @@
           .conference-role-badge {
             background: $gray-600;
             color: $white;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 0.6rem;
             border-radius: $border-radius;
             font-size: 0.7rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             flex-shrink: 0;
+            min-width: fit-content;
+            white-space: nowrap;
           }
         }
 
         .conference-minimal-meta {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          font-size: 0.8rem;
+          align-items: flex-end;
+          gap: 1rem;
+          font-size: 0.75rem;
           color: $gray-500;
+          margin-top: auto;
 
           .conference-date {
             font-weight: 500;
+            white-space: nowrap;
           }
 
-          .conference-location {
+          .conference-location-bottom {
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            white-space: nowrap;
+            flex-shrink: 0;
 
             i {
               color: $secondary;
-              font-size: 0.75rem;
-            }
-          }
-
-          .talks-count {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            color: $primary;
-            font-weight: 500;
-
-            i {
-              font-size: 0.75rem;
+              font-size: 0.7rem;
             }
           }
         }
@@ -1418,6 +1432,9 @@
 
     .talks-section {
       .talk-card {
+        padding: 1.5rem;
+        overflow-x: hidden;
+        
         .talk-header {
           .talk-title-area {
             .talk-title-row {
@@ -1433,13 +1450,24 @@
 
             .talk-location {
               margin-top: 0.5rem;
+              word-break: break-word;
             }
           }
         }
 
         .talk-media {
           .media-links {
-            justify-content: center;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            
+            .media-link {
+              width: auto;
+              justify-content: center;
+              padding: 0.5rem 1rem;
+              box-sizing: border-box;
+            }
           }
         }
       }
@@ -1472,16 +1500,64 @@
               flex-direction: column;
               align-items: flex-start;
               gap: 0.5rem;
+              margin-bottom: 0.75rem;
 
-              .hackathon-role {
-                align-self: flex-end;
+              h4 {
+                font-size: 0.9rem;
+                margin: 0;
+                width: 100%;
               }
             }
 
             .hackathon-minimal-meta {
-              flex-direction: column;
-              align-items: flex-start;
-              gap: 0.5rem;
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              gap: 1rem;
+              margin-top: 0.5rem;
+              
+              .hackathon-date {
+                align-self: flex-start;
+              }
+              
+              .hackathon-location-and-role {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+              }
+              
+              .hackathon-location-bottom {
+                font-size: 0.75rem;
+                white-space: nowrap;
+              }
+              
+              .hackathon-role {
+                padding: 0.2rem 0.6rem;
+                border-radius: $border-radius;
+                font-size: 0.7rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                flex-shrink: 0;
+                min-width: fit-content;
+
+                &.role-judge {
+                  background: $primary;
+                  color: $white;
+                }
+
+                &.role-mentor {
+                  background: $secondary;
+                  color: $white;
+                }
+
+                &.role-hacker {
+                  background: $success;
+                  color: $white;
+                }
+              }
             }
           }
         }
@@ -1499,16 +1575,33 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 0.5rem;
+            margin-bottom: 0.75rem;
 
+            h4 {
+              margin: 0;
+              width: 100%;
+            }
+            
             .conference-role-badge {
               align-self: flex-end;
             }
           }
 
           .conference-minimal-meta {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-top: auto;
+            
+            .conference-date {
+              align-self: flex-start;
+            }
+            
+            .conference-location-bottom {
+              white-space: nowrap;
+              align-self: flex-end;
+            }
           }
         }
       }

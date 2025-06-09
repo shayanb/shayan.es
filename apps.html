@@ -20,6 +20,7 @@ permalink: /apps/
       <div class="featured-apps">
         {% for app in featured_apps %}
         <div class="app-card featured">
+          <span class="app-platform">{{ app.platform }}</span>
           <div class="app-icon">
             {% if app.logo %}
               <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
@@ -29,7 +30,6 @@ permalink: /apps/
           </div>
           <div class="app-content">
             <h3><button class="app-title-btn view-app-btn" data-app="{{ app.name | slugify }}">{{ app.name }}</button></h3>
-            <p class="app-platform">{{ app.platform }}</p>
             <p class="app-description">{{ app.short_description }}</p>
             <div class="app-actions">
               <button class="btn btn-primary view-app-btn" data-app="{{ app.name | slugify }}">
