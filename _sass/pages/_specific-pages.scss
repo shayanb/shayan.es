@@ -192,7 +192,7 @@
         z-index: 2; // Ensure button is above the clickable card
 
         &:hover {
-          background: darken($primary, 10%);
+          background: #2a5a68;
           transform: translateY(-2px);
         }
 
@@ -748,17 +748,52 @@
       grid-template-columns: 1fr;
 
       .app-card.featured {
-        flex-direction: column;
-        text-align: center;
+        // Keep flex-direction: row to maintain icon and title on same row
+        gap: 1rem;
+        
+        .app-icon {
+          width: 60px;
+          height: 60px;
+        }
+        
+        .app-content {
+          .app-actions {
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 0.5rem;
+            
+            .btn {
+              white-space: nowrap;
+              min-width: auto;
+              padding: 0.5rem 0.75rem;
+              font-size: 0.8rem;
+            }
+          }
+        }
       }
     }
 
     .app-item {
-      flex-direction: column;
-      text-align: center;
+      // Keep flex layout but adjust for mobile
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .app-icon.small {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .app-info {
+        min-width: 0; // Allow text to wrap properly
+        flex: 1;
+      }
 
       .app-links {
         justify-content: center;
+        width: 100%;
+        margin-top: 0.5rem;
       }
     }
   }

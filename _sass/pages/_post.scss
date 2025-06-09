@@ -39,7 +39,7 @@ section.post {
   font-size: 13px;
   font-weight: bold;
   color: $info;
-  border: 1px solid lighten($text-color, 45%);
+  border: 1px solid #ccc;
   border-radius: 0.4em;
   padding: 0.5em 1em;
 }
@@ -55,7 +55,7 @@ section.post {
 	margin-left: 10px;
 	&:hover,
 	&:focus {
-		color: lighten($primary, 14%);
+		color: #4a90a4;
 	}
 }
 

@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="screenshot-container">
             <img src="${app.screenshots[0]}" alt="${app.name} screenshot" class="screenshot-main" id="main-screenshot">
             ${app.screenshots.length > 1 ? `
-              <button class="screenshot-nav prev" onclick="changeScreenshot(-1)">
+              <button class="screenshot-nav prev" data-direction="-1">
                 <i class="fa fa-chevron-left"></i>
               </button>
-              <button class="screenshot-nav next" onclick="changeScreenshot(1)">
+              <button class="screenshot-nav next" data-direction="1">
                 <i class="fa fa-chevron-right"></i>
               </button>
               <div class="screenshot-indicator">
@@ -184,6 +184,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize screenshot navigation
     window.currentApp = app;
     window.currentScreenshotIndex = 0;
+    
+    // Add event listeners for screenshot navigation
+    const navButtons = modal.querySelectorAll('.screenshot-nav');
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const direction = parseInt(button.dataset.direction);
+        changeScreenshot(direction);
+      });
+    });
   }
 
   // Screenshot navigation functions

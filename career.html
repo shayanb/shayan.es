@@ -93,6 +93,32 @@ permalink: /career/
     {% endfor %}
   </div>
 
+  <!-- Nonprofit & Community Service Section -->
+  <div class="nonprofit-section">
+    <h2>Community & Non-Profit Work</h2>
+    <p class="section-subtitle">Leadership and contributions to community organizations</p>
+    
+    <div class="nonprofit-grid">
+      {% for nonprofit in site.data.index.nonprofit %}
+      <div class="nonprofit-item">
+        <div class="nonprofit-header">
+          <h4 class="nonprofit-title">
+            {% if nonprofit.link %}
+              <a href="{{ nonprofit.link }}" target="_blank" rel="noopener">
+                {{ nonprofit.name }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ nonprofit.name }}
+            {% endif %}
+          </h4>
+          <div class="nonprofit-role">{{ nonprofit.job }}</div>
+        </div>
+        <div class="nonprofit-date">{{ nonprofit.date }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 
   <div class="career-skills">
     <h2>Technical Expertise</h2>
@@ -173,6 +199,163 @@ permalink: /career/
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Nonprofit Section Styles */
+.nonprofit-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.nonprofit-section h2 {
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.nonprofit-section .section-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.nonprofit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.nonprofit-item {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nonprofit-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #ff6b35;
+}
+
+.nonprofit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.nonprofit-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.nonprofit-title a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nonprofit-title a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.nonprofit-title a i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+.nonprofit-role {
+  background: rgba(30, 58, 95, 0.1);
+  color: #1e3a5f;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(30, 58, 95, 0.2);
+}
+
+.nonprofit-date {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Dark Mode Support for Nonprofit */
+[data-theme="dark"] .nonprofit-section {
+  background: var(--surface-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .nonprofit-section h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nonprofit-section .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .nonprofit-item {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .nonprofit-title a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nonprofit-title a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .nonprofit-role {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .nonprofit-date {
+  color: var(--text-muted);
+}
+
+/* Mobile Responsive Nonprofit */
+@media (max-width: 768px) {
+  .nonprofit-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .nonprofit-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .nonprofit-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .nonprofit-role {
+    align-self: flex-start;
+  }
+  
+  .nonprofit-title {
+    font-size: 0.95rem;
+  }
 }
 </style>
 

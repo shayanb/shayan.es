@@ -28,7 +28,7 @@ ul.tag-cloud {
         color: $text-color;
         &:hover,
         &:focus {
-          color: lighten($text-color, 24%);
+          color: #999;
         }
       }
     }
@@ -50,7 +50,7 @@ ul.tag-cloud {
         color: $danger;
         &:hover,
         &:focus {
-          color: lighten($danger, 24%);
+          color: #ff9999;
         }
       }
     }

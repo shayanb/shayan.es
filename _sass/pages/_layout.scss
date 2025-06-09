@@ -63,7 +63,7 @@
         color: $secondary;
         &:hover,
         &:focus {
-          color: lighten($secondary, 14%);
+          color: #ff8555;
         }
       }
     }
@@ -84,7 +84,7 @@
       color: $secondary;
       &:hover,
       &:focus {
-        color: lighten($secondary, 14%);
+        color: #ff8555;
       }
     }
   }

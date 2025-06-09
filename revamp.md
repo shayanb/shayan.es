@@ -633,10 +633,30 @@ the dark mode toggle (theme-toggle, toggle-track) the moon goes slightly out of 
 
 add the data from reviews.yml to underneath the publications. change the page title to Academia everywhere
 
-add the data from nonprofit.yml to the career page
+add the data from nonprofit.yml to the career page, it should be separate and less spacetaking that the current career view
 
 for the app modals (and projects): change the screenshot-nav prev to be floating on the images themselves, they should visually look subtle and nice. make the screenshots container to have a fixed size (not change the size due to the image size differences)
+also make the app logo inside the modal bigger, like double the current size. 
 
 on apps page, in mobile view, the app title is dropped to the next line (below the icon), the icon and the app name should always be in the same row. also center the app-actions
 
 there are tons of warnings and some errors on jekyll, try to fix as many as possible. 
+
+---------------------------
+
+make the reviews-section much more concise, it can be similar to non-profit work section under the career. 
+
+on app modals screenshots, I still see the old screenshot-nav prev, and not the newly implemented one. and the screenshot container changes size on different picutres, it should have a fixed size.
+
+
+these errors exist when running jekyll:
+
+-----------------------------------
+
+for the academic reviews, bring review-role down to the same row as review-date, but make it align to the right side (date on the left, role on the right)
+
+
+these are tagged as fixed but not, investigate, debug and fix:
+- on app modals screenshots, I still see the old screenshot-nav prev, and not the newly implemented one. and the screenshot container changes size on different picutres, it should have a fixed size.
+- on the app page mobile view, make sure app-actions are in the same line and not moved to two lines (responsive)
+

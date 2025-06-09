@@ -338,7 +338,7 @@
     color: $white;
     
     &:hover {
-      background: darken($primary, 10%);
+      background: #2a5a68;
       transform: translateY(-2px);
       box-shadow: $shadow-button-hover;
     }
