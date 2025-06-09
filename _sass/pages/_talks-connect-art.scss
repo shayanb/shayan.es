@@ -637,6 +637,77 @@
         font-size: 0.875rem;
       }
 
+      // Media links styling for podcast cards to match talk cards exactly
+      &.podcast-card-custom {
+        .talk-media {
+          .media-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+
+            .media-link {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.6rem 1.25rem;
+              border-radius: $border-radius;
+              text-decoration: none;
+              font-size: 0.875rem;
+              font-weight: 500;
+              transition: all 0.3s ease;
+              border: 2px solid;
+              box-shadow: $shadow-sm;
+
+              &:hover {
+                transform: translateY(-2px);
+                box-shadow: $shadow-md;
+              }
+
+              &.youtube {
+                background: #ff0000;
+                color: $white;
+                border-color: #ff0000;
+
+                &:hover {
+                  background: transparent;
+                  color: #ff0000;
+                  border-color: #ff0000;
+                }
+
+                i {
+                  font-size: 1.1rem;
+                }
+              }
+
+              &.spotify {
+                background: #1db954;
+                color: $white;
+                border-color: #1db954;
+
+                &:hover {
+                  background: transparent;
+                  color: #1db954;
+                  border-color: #1db954;
+                }
+
+                i {
+                  font-size: 1rem;
+                }
+              }
+
+              i {
+                font-size: 1rem;
+                transition: transform 0.3s ease;
+              }
+
+              &:hover i {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+
       // Minimal card styling for judge/mentor roles
       &.hackathon-card-minimal {
         padding: 0.5rem 0.75rem;

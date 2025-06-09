@@ -36,6 +36,7 @@
       url: "/talks/#conferences"
       
 - title: "Projects"
+  url: "#"
   desktop: true
   hamburger: true
   submenu:

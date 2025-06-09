@@ -263,6 +263,38 @@
   }
 }
 
+// Dark Mode Support for Apps
+[data-theme="dark"] .apps-page {
+  .app-card {
+    background: var(--card-color);
+    color: var(--text-color);
+    
+    .app-content {
+      .app-header {
+        h3 {
+          .app-title-btn {
+            color: var(--text-color);
+            
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+        
+        .app-platform {
+          background: rgba(var(--text-color-rgb), 0.1);
+          color: var(--text-muted);
+          border-color: rgba(var(--text-color-rgb), 0.2);
+        }
+      }
+      
+      .app-description {
+        color: var(--text-muted);
+      }
+    }
+  }
+}
+
 // Career Page
 .career-page {
   max-width: 1000px;
@@ -638,47 +670,49 @@
       .app-content {
         flex: 1;
 
-        h3 {
+        .app-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 1rem;
           margin-bottom: 0.5rem;
-          
-          .app-title-btn {
-            background: none;
-            border: none;
-            padding: 0;
-            font-size: inherit;
-            font-weight: inherit;
-            font-family: inherit;
-            color: $gray-900;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            text-align: left;
-            width: 100%;
 
-            &:hover {
-              color: $primary;
+          h3 {
+            margin: 0;
+            flex: 1;
+            
+            .app-title-btn {
+              background: none;
+              border: none;
+              padding: 0;
+              font-size: inherit;
+              font-weight: inherit;
+              font-family: inherit;
+              color: $gray-900;
+              cursor: pointer;
+              transition: color 0.3s ease;
+              text-align: left;
+              width: 100%;
+
+              &:hover {
+                color: $primary;
+              }
             }
           }
-        }
 
-        .app-platform {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          background: rgba($secondary, 0.9);
-          color: $white;
-          padding: 0.25rem 0.65rem;
-          border-radius: $border-radius;
-          font-size: 0.7rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-          z-index: 10;
-          max-width: 120px;
-          text-align: center;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          .app-platform {
+            background: rgba($gray-500, 0.1);
+            color: $gray-600;
+            padding: 0.2rem 0.5rem;
+            border-radius: $border-radius * 0.75;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            border: 1px solid rgba($gray-500, 0.2);
+            white-space: nowrap;
+            flex-shrink: 0;
+            text-align: center;
+          }
         }
 
         .app-description {
@@ -833,14 +867,6 @@
           }
         }
         
-        .app-platform {
-          font-size: 0.6rem;
-          padding: 0.125rem 0.4rem;
-          top: 0.5rem;
-          right: 0.5rem;
-          max-width: 80px;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
       }
     }
   }
@@ -940,9 +966,23 @@
           min-width: 0; // Prevent overflow
           text-align: center; // Center content on mobile
           
-          h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
+          .app-header {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+
+            h3 {
+              margin-bottom: 0;
+              font-size: 1.25rem;
+              width: 100%;
+            }
+
+            .app-platform {
+              font-size: 0.6rem;
+              padding: 0.15rem 0.4rem;
+              align-self: center;
+            }
           }
           
           .app-description {
@@ -965,17 +1005,6 @@
               flex: 0 0 auto;
             }
           }
-        }
-        
-        .app-platform {
-          font-size: 0.625rem;
-          padding: 0.15rem 0.5rem;
-          top: 0.75rem;
-          right: 0.75rem;
-          letter-spacing: 0.025em;
-          font-weight: 500;
-          max-width: 100px;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
       }
     }
