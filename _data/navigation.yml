@@ -19,7 +19,7 @@
   hamburger: true
   submenu:
     - title: "Academic Reviews"
-      url: "/publications/#academic-reviews"
+      url: "/publications/#reviews-section"
       
 - title: "Speaking & Participation"
   url: "/talks/"

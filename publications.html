@@ -15,10 +15,10 @@ permalink: /publications/
       <span class="stat-number">{{ site.data.index.publications | size }}</span>
       <span class="stat-label">Total Publications</span>
     </div>
-    <!-- <div class="stat-item">
-      <span class="stat-number">{{ site.data.index.publications | where_exp: "item", "item.published" | size }}</span>
-      <span class="stat-label">Academic Papers</span>
-    </div> -->
+    <a href="#reviews-section" class="stat-item">
+      <span class="stat-number">{{ site.data.index.reviews | size }}</span>
+      <span class="stat-label">Academic Reviews</span>
+    </a>
     <div class="stat-item">
       <span class="stat-number">{{ site.data.index.publications | map: "year" | uniq | size }}</span>
       <span class="stat-label">Years Active</span>

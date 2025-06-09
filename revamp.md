@@ -815,3 +815,37 @@ GN! run these tmr:
 
  the apps page, the featured app app cards are overflowing iphone screen from the right side. while on thid card, make the icon bigger. and move the "web"/tag to the right top side of the card.  
 
+----------------------------
+
+
+minor bug fixes:
+
+publications page:
+- Academic research menu doesnt go to the right section (reviews-section)
+- in publications-stats, add one for academic reviews stat and link to the section
+  
+
+
+Talks page:
+- in the hackathon-card podcast-card-custom, for the podcast-actions-custom, the location/alignment is good but for the looks use the exact way as media-links in talk-media.
+
+
+Projects:
+- add project-links dark mode colors 
+  
+
+
+Apps:
+- in teh featured apps cards, move app-platform to be similar to a small label/tag on the right top side of the app-card -- currently it has broken implementation on all screensizes 
+
+------------------------
+
+- in the hackathon-card podcast-card-custom, for the podcast-actions-custom, the location/alignment is good but for the looks use the exact way as media-links in talk-media.
+
+navigation: /publications/#reviews-section doesn't jump in the reviews section, check if the id to jump to exists.
+- in the nav I removed the "project" top menu link to only have links in the sub menus, but when clicked in goes to the previous link (publications)
+
+back to the apps page, the app cards , the app-platform, should be subtle, maybe even smaller text on the right side of the app-card, and show the platform and the year. 
+
+
+

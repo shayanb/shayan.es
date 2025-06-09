@@ -189,18 +189,29 @@ permalink: /talks/
           <p class="hackathon-description">{{ podcast.description }}</p>
           {% endif %}
 
-          <div class="podcast-actions-custom">
-            {% if podcast.youtube_link %}
-            <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
-              <i class="fa fa-youtube"></i> Watch
-            </a>
-            {% endif %}
-            {% if podcast.spotify_link %}
-            <a href="{{ podcast.spotify_link }}" target="_blank" class="media-link spotify">
-              <i class="fa fa-spotify"></i> Listen
-            </a>
-            {% endif %}
+          {% if podcast.youtube_link or podcast.spotify_link %}
+          <div class="talk-footer-row">
+            <div class="talk-location-bottom">
+              <!-- Empty space for consistent layout -->
+            </div>
+            <div class="talk-media">
+              <div class="media-links">
+                {% if podcast.youtube_link %}
+                <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
+                  <i class="fa fa-youtube"></i>
+                  <span>Watch</span>
+                </a>
+                {% endif %}
+                {% if podcast.spotify_link %}
+                <a href="{{ podcast.spotify_link }}" target="_blank" class="media-link spotify">
+                  <i class="fa fa-spotify"></i>
+                  <span>Listen</span>
+                </a>
+                {% endif %}
+              </div>
+            </div>
           </div>
+          {% endif %}
         </div>
         {% endfor %}
       </div>
@@ -335,15 +346,12 @@ permalink: /talks/
                   {{ hackathon.name }}
                 {% endif %}
               </h4>
-              <span class="hackathon-role role-{{ hackathon.role }} desktop-only">{{ hackathon.role | capitalize }}</span>
+              <span class="hackathon-role role-{{ hackathon.role }}">{{ hackathon.role | capitalize }}</span>
             </div>
             <div class="hackathon-minimal-meta">
               <span class="hackathon-date">{{ hackathon.date }}</span>
-              <div class="hackathon-location-and-role">
-                <div class="hackathon-location-bottom">
-                  <i class="fa fa-map-marker"></i> {{ hackathon.location }}
-                </div>
-                <span class="hackathon-role role-{{ hackathon.role }} mobile-only">{{ hackathon.role | capitalize }}</span>
+              <div class="hackathon-location-bottom">
+                <i class="fa fa-map-marker"></i> {{ hackathon.location }}
               </div>
             </div>
           </div>
@@ -1091,20 +1099,6 @@ permalink: /talks/
   }
 }
 
-/* Responsive visibility classes */
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
-  
-  .mobile-only {
-    display: inline-block;
-  }
-}
 
 /* Dark Mode Support for Other Talks */
 [data-theme="dark"] .other-talk-card {

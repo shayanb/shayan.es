@@ -698,7 +698,7 @@
 
             .hackathon-location-bottom {
               display: flex;
-              align-items: right;
+              align-items: center;
               gap: 0.25rem;
               white-space: nowrap;
 
@@ -1507,6 +1507,10 @@
                 margin: 0;
                 width: 100%;
               }
+              
+              .hackathon-role {
+                align-self: flex-end;
+              }
             }
 
             .hackathon-minimal-meta {
@@ -1517,46 +1521,13 @@
               margin-top: 0.5rem;
               
               .hackathon-date {
-                align-self: flex-end;
-              }
-              
-              .hackathon-location-and-role {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                flex-wrap: wrap;
-                justify-content: flex-end;
+                align-self: flex-start;
               }
               
               .hackathon-location-bottom {
                 font-size: 0.75rem;
                 white-space: nowrap;
-              }
-              
-              .hackathon-role {
-                padding: 0.2rem 0.6rem;
-                border-radius: $border-radius;
-                font-size: 0.7rem;
-                font-weight: 500;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                flex-shrink: 0;
-                min-width: fit-content;
-
-                &.role-judge {
-                  background: $primary;
-                  color: $white;
-                }
-
-                &.role-mentor {
-                  background: $secondary;
-                  color: $white;
-                }
-
-                &.role-hacker {
-                  background: $success;
-                  color: $white;
-                }
+                align-self: flex-end;
               }
             }
           }
