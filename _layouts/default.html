@@ -25,43 +25,31 @@
           {% endfor %}
         </ul>
 
-        <!-- Hamburger Menu (Desktop: hamburger items only, Mobile: all items) -->
+        <!-- Hamburger Menu (All items for both desktop and mobile) -->
         <ul class="nav-menu-hamburger">
           {% for item in site.data.navigation %}
-            {% if item.hamburger %}
-            <li class="nav-item desktop-hamburger-item">
+            <li class="nav-item{% if item.submenu %} has-submenu{% endif %}">
               <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
                 {{ item.title }}
               </a>
+              {% if item.submenu %}
+              <ul class="nav-submenu">
+                {% for subitem in item.submenu %}
+                <li class="nav-subitem">
+                  <a href="{{ subitem.url }}" class="nav-link">{{ subitem.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
             </li>
-            {% endif %}
           {% endfor %}
-          
-          <!-- Mobile: Show all navigation items -->
-          {% for item in site.data.navigation %}
-            {% if item.desktop %}
-            <li class="nav-item mobile-nav-item">
-              <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
-                {{ item.title }}
-              </a>
-            </li>
-            {% endif %}
-          {% endfor %}
-          
-          <li class="nav-item mobile-nav-item theme-toggle-container">
-            <div class="theme-toggle-wrapper">
-              <span class="theme-label">Dark Mode</span>
-              <button class="theme-toggle" aria-label="Toggle dark mode">
-                <div class="toggle-track">
-                  <div class="toggle-thumb">
-                    <i class="fa fa-sun-o theme-icon-light"></i>
-                    <i class="fa fa-moon-o theme-icon-dark"></i>
-                  </div>
-                </div>
-              </button>
-            </div>
-          </li>
         </ul>
+        
+        <!-- Dark Mode Toggle (always visible) -->
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa fa-sun-o theme-icon-light"></i>
+          <i class="fa fa-moon-o theme-icon-dark"></i>
+        </button>
 
         <!-- Mobile Menu Toggle -->
         <button class="nav-toggle" aria-label="Toggle navigation">

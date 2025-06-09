@@ -213,6 +213,21 @@ input, textarea, select {
       color: $secondary;
     }
   }
+  
+  // Submenu styles
+  .nav-submenu {
+    background: var(--card-color);
+    border-color: var(--border-color);
+    
+    .nav-subitem a {
+      color: var(--text-color);
+      
+      &:hover {
+        background: var(--surface-color);
+        color: $secondary;
+      }
+    }
+  }
 
   .brand-name {
     color: var(--text-color);
@@ -1146,7 +1161,7 @@ input, textarea, select {
   transition: all 0.3s ease;
   
   &:hover {
-    animation: psychedelicFooterGlitch 0.8s ease-in-out;
+    animation: psychedelicFooterGlitch 2s ease-in-out infinite;
     cursor: default;
   }
 }
@@ -1165,7 +1180,7 @@ input, textarea, select {
     rgba(30, 58, 95, 0.1));
   z-index: -1;
   border-radius: 4px;
-  animation: psychedelicFooterPulse 0.8s ease-in-out;
+  animation: psychedelicFooterPulse 2s ease-in-out infinite;
 }
 
 // Remove old footer hover - now applied to .footer-text only
@@ -1243,8 +1258,8 @@ input, textarea, select {
   transition: all 0.3s ease;
 }
 
-.psychedelic-footer:hover .heart-icon {
-  animation: heartBeat 0.8s ease-in-out;
+.footer-text:hover .heart-icon {
+  animation: heartBeat 2s ease-in-out infinite;
   color: #e74c3c;
 }
 

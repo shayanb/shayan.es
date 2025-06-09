@@ -669,3 +669,64 @@ these are tagged as fixed but not, investigate, debug and fix:
 
 
 jekyll still has these errors, fix them:
+
+-----------------------
+
+actually, we need to add nested menu. let's redesign this menu (apply to both in desktop and mobile):
+
+- home
+- about
+- career
+- Academia (renamed from publications)
+    - Academic Reviews
+- Speaking & Participation (these submenus would go to talks page and jump to the correct header)
+    - Talks & Presentations
+    - Podcasts
+    - Hackathons
+    - Conferences
+
+- Projects
+    - open source
+    - apps
+    - audits
+- art
+- connect
+
+--
+move the dark mode toggle to the left side of the hamburger menu (in navbar), both for desktop and mobile
+
+
+change the footer-text animation to be the same as value-item in about page, continues while hovering
+
+
+======================================
+
+
+on app modals screenshots, add a click to enlarge icon and modal to open
+
+
+the menu looks good but is not nested, it should follow this structure:
+- home
+- about
+- career
+- Academia (renamed from publications)
+    - Academic Reviews
+- Speaking & Participation (these submenus would go to talks page and jump to the correct header)
+    - Talks & Presentations
+    - Podcasts
+    - Hackathons
+    - Conferences
+
+- Projects
+    - open source
+    - apps
+    - audits
+- art
+- connect
+
+
+ui bug on podcasts section, the pub-link colors are reversed in dark mode. make them similar to media-link  
+
+
+ui bug: the dark model toggle is not showing
+

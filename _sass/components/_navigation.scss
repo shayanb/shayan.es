@@ -187,6 +187,42 @@
     }
   }
 
+  // Theme toggle in navbar (always visible)
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: $gray-700;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    
+    &:hover {
+      color: $primary;
+      transform: scale(1.1);
+    }
+    
+    .theme-icon-light,
+    .theme-icon-dark {
+      transition: opacity 0.3s ease;
+    }
+    
+    .theme-icon-dark {
+      display: none;
+    }
+  }
+  
+  // Dark mode icon visibility
+  [data-theme="dark"] .theme-toggle {
+    .theme-icon-light {
+      display: none;
+    }
+    .theme-icon-dark {
+      display: inline;
+    }
+  }
+
   .nav-toggle {
     display: flex;
     flex-direction: column;

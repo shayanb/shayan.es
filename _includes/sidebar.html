@@ -9,18 +9,23 @@
   <span class="author_bio mbm">{{ author.bio }}</span>
   <nav class="nav">
     <ul class="nav-list">
-      <li class="nav-item">
-        <a href="{{ site.url }}/">home</a>
-        <span>/</span>
-      </li>
-      {% for page in site.pages %} {% if page.title %}
-      <li class="nav-item">
-        <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+      {% for item in site.data.navigation %}
+      <li class="nav-item{% if item.submenu %} has-submenu{% endif %}">
+        <a href="{{ item.url | relative_url }}">{{ item.title | downcase }}</a>
+        {% if item.submenu %}
+        <ul class="nav-submenu">
+          {% for subitem in item.submenu %}
+          <li class="nav-subitem">
+            <a href="{{ subitem.url | relative_url }}">{{ subitem.title | downcase }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
         {% unless forloop.last %}
-          <span>/</span>
+          <span class="nav-separator">/</span>
         {% endunless %}
       </li>
-      {% endif %} {% endfor %}
+      {% endfor %}
     </ul>
   </nav>
   {% include social-links.html %}
