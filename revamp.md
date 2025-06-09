@@ -706,12 +706,13 @@ on app modals screenshots, add a click to enlarge icon and modal to open
 
 
 the menu looks good but is not nested, it should follow this structure:
+
 - home
 - about
 - career
-- Academia (renamed from publications)
+- Academia 
     - Academic Reviews
-- Speaking & Participation (these submenus would go to talks page and jump to the correct header)
+- Speaking & Participation 
     - Talks & Presentations
     - Podcasts
     - Hackathons
@@ -730,3 +731,35 @@ ui bug on podcasts section, the pub-link colors are reversed in dark mode. make 
 
 ui bug: the dark model toggle is not showing
 
+------
+
+what happened to the dark mode toggle? make sure it is visible on the left side of nav-toggle
+
+
+also implement back the hamburger: true, desktop: true feature to show the menus selectively on the navbar.
+
+
+the implementation in the menu: make all the menu items are visible but using size and design, the top titles are more visible and the rest are smaller/subtler? - only subtle chic animation on mouse hover.
+
+
+-----
+
+the dark mode toggle is only visible in light mode. bring back the full implementation of the toggle switch with the animation, on the left side of nav-toggle
+
+the menu is all messed up! let's refactor, remove the header/navbar items, let's keep the navbar minimal, with the name on the left (as is now), and the dark mode toggle, and the hamburger menu on the right.
+
+when clicked on hamburger menu, a clean neat menu is shown that has nested identifiers for some of the items (maybe a `tree` kind of look) with smooth colors. animates subtly on mouse hover
+
+
+--------------------
+
+
+it seems that the menu structure is only implemented in mobile view and not desktop view.
+
+the look should be like nav-submenu are indented smaller version of nav-item
+-----------
+
+looks good, a few things to think harder about:
+- bug: it only shows the submenus on mobile and not the desktop
+- ui bug: the color scheme of nav-submenu (font , color, bg) should be the same nav-item
+- make sure the above applies in both dark mode and light mode, on desktop and mobile

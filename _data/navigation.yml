@@ -1,20 +1,30 @@
 - title: "Home"
   url: "/"
+  desktop: true
+  hamburger: true
   
 - title: "About"
   url: "/about/"
+  desktop: true
+  hamburger: true
   
 - title: "Career"
   url: "/career/"
+  desktop: true
+  hamburger: true
   
 - title: "Academia"
   url: "/publications/"
+  desktop: true
+  hamburger: true
   submenu:
     - title: "Academic Reviews"
       url: "/publications/#academic-reviews"
       
 - title: "Speaking & Participation"
   url: "/talks/"
+  desktop: true
+  hamburger: true
   submenu:
     - title: "Talks & Presentations"
       url: "/talks/#talks-presentations"
@@ -27,6 +37,8 @@
       
 - title: "Projects"
   url: "/projects/"
+  desktop: true
+  hamburger: true
   submenu:
     - title: "Open Source"
       url: "/projects/"
@@ -37,6 +49,10 @@
       
 - title: "Art"
   url: "/art/"
+  desktop: true
+  hamburger: true
   
 - title: "Connect"
   url: "/connect/"
+  desktop: true
+  hamburger: true

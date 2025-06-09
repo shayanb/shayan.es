@@ -457,14 +457,14 @@ input, textarea, select {
     }
 
     .pub-link {
-      background: var(--surface-color) !important;
+      background: var(--card-color) !important;
       color: var(--text-color) !important;
       border-color: var(--border-color) !important;
 
       &:hover {
-        background: var(--card-color) !important;
-        border-color: $secondary !important;
-        color: $secondary !important;
+        background: $primary !important;
+        border-color: $primary !important;
+        color: white !important;
       }
     }
   }

@@ -12,22 +12,30 @@
           <span class="brand-name">{{ site.owner.name }}</span>
         </a>
         
-        <!-- Desktop Navigation -->
-        <ul class="nav-menu-desktop">
-          {% for item in site.data.navigation %}
-            {% if item.desktop %}
-            <li class="nav-item">
-              <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
-                {{ item.title }}
-              </a>
-            </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+          <!-- Dark Mode Toggle (always visible) -->
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <div class="toggle-track">
+              <div class="toggle-thumb">
+                <i class="fa fa-sun-o theme-icon-light"></i>
+                <i class="fa fa-moon-o theme-icon-dark"></i>
+              </div>
+            </div>
+          </button>
 
-        <!-- Hamburger Menu (All items for both desktop and mobile) -->
+          <!-- Mobile Menu Toggle -->
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Hamburger Menu -->
         <ul class="nav-menu-hamburger">
           {% for item in site.data.navigation %}
+            {% if item.hamburger %}
             <li class="nav-item{% if item.submenu %} has-submenu{% endif %}">
               <a href="{{ item.url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
                 {{ item.title }}
@@ -42,21 +50,9 @@
               </ul>
               {% endif %}
             </li>
+            {% endif %}
           {% endfor %}
         </ul>
-        
-        <!-- Dark Mode Toggle (always visible) -->
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <i class="fa fa-sun-o theme-icon-light"></i>
-          <i class="fa fa-moon-o theme-icon-dark"></i>
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </nav>
   </header>

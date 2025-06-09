@@ -26,16 +26,7 @@ $(document).ready(function() {
     });
   }
   
-  // Mobile submenu toggle for sidebar navigation
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll('.nav-item.has-submenu > a').forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const parent = item.closest('.nav-item');
-        parent.classList.toggle('submenu-open');
-      });
-    });
-  }
+  // No submenu toggle needed - all items always visible
 
   // Smooth scroll for anchor links
   $('a[href^="#"]').on('click', function(e) {

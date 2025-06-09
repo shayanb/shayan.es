@@ -88,6 +88,29 @@ permalink: /apps/
     </div>
   </div>
 </div>
+
+  <!-- Screenshot Enlarge Modal -->
+  <div id="screenshot-modal" class="screenshot-fullscreen-modal">
+    <div class="screenshot-fullscreen-content">
+      <button class="screenshot-fullscreen-close" aria-label="Close enlarged view">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="screenshot-fullscreen-container">
+        <img src="" alt="Enlarged screenshot" class="screenshot-fullscreen-img" id="fullscreen-screenshot">
+        <div class="screenshot-fullscreen-nav">
+          <button class="screenshot-fullscreen-nav-btn prev" data-direction="-1" style="display: none;">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <button class="screenshot-fullscreen-nav-btn next" data-direction="1" style="display: none;">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="screenshot-fullscreen-indicator" style="display: none;">
+          <span class="current-screenshot-fullscreen">1</span> / <span class="total-screenshots-fullscreen">1</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -140,6 +163,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="screenshot-gallery">
           <div class="screenshot-container">
             <img src="${app.screenshots[0]}" alt="${app.name} screenshot" class="screenshot-main" id="main-screenshot">
+            <button class="screenshot-enlarge" data-action="enlarge" aria-label="Enlarge screenshot">
+              <i class="fa fa-expand"></i>
+            </button>
             ${app.screenshots.length > 1 ? `
               <button class="screenshot-nav prev" data-direction="-1">
                 <i class="fa fa-chevron-left"></i>
@@ -193,6 +219,14 @@ document.addEventListener('DOMContentLoaded', function() {
         changeScreenshot(direction);
       });
     });
+    
+    // Add event listener for screenshot enlarge
+    const enlargeBtn = modal.querySelector('.screenshot-enlarge');
+    if (enlargeBtn) {
+      enlargeBtn.addEventListener('click', () => {
+        openScreenshotFullscreen();
+      });
+    }
   }
 
   // Screenshot navigation functions
@@ -236,6 +270,84 @@ document.addEventListener('DOMContentLoaded', function() {
   closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+  });
+  
+  // Screenshot fullscreen functionality
+  const screenshotModal = document.getElementById('screenshot-modal');
+  const fullscreenClose = screenshotModal.querySelector('.screenshot-fullscreen-close');
+  const fullscreenImg = document.getElementById('fullscreen-screenshot');
+  const fullscreenNavBtns = screenshotModal.querySelectorAll('.screenshot-fullscreen-nav-btn');
+  const fullscreenIndicator = screenshotModal.querySelector('.screenshot-fullscreen-indicator');
+  const currentFullscreenIndicator = screenshotModal.querySelector('.current-screenshot-fullscreen');
+  const totalFullscreenIndicator = screenshotModal.querySelector('.total-screenshots-fullscreen');
+  
+  window.openScreenshotFullscreen = function() {
+    if (!window.currentApp || !window.currentApp.screenshots) return;
+    
+    const currentScreenshot = window.currentApp.screenshots[window.currentScreenshotIndex];
+    fullscreenImg.src = currentScreenshot;
+    
+    // Setup navigation if multiple screenshots
+    if (window.currentApp.screenshots.length > 1) {
+      fullscreenNavBtns.forEach(btn => btn.style.display = 'block');
+      fullscreenIndicator.style.display = 'block';
+      totalFullscreenIndicator.textContent = window.currentApp.screenshots.length;
+      updateFullscreenIndicator();
+    } else {
+      fullscreenNavBtns.forEach(btn => btn.style.display = 'none');
+      fullscreenIndicator.style.display = 'none';
+    }
+    
+    screenshotModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  
+  window.changeFullscreenScreenshot = function(direction) {
+    if (!window.currentApp || !window.currentApp.screenshots) return;
+    
+    const screenshots = window.currentApp.screenshots;
+    window.currentScreenshotIndex = (window.currentScreenshotIndex + direction + screenshots.length) % screenshots.length;
+    
+    fullscreenImg.src = screenshots[window.currentScreenshotIndex];
+    updateFullscreenIndicator();
+    
+    // Also update the modal screenshot
+    updateScreenshotDisplay();
+  };
+  
+  function updateFullscreenIndicator() {
+    if (currentFullscreenIndicator) {
+      currentFullscreenIndicator.textContent = window.currentScreenshotIndex + 1;
+    }
+  }
+  
+  // Event listeners for fullscreen modal
+  fullscreenClose.addEventListener('click', () => {
+    screenshotModal.style.display = 'none';
+    document.body.style.overflow = 'hidden'; // Keep main modal open
+  });
+  
+  fullscreenNavBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const direction = parseInt(button.dataset.direction);
+      changeFullscreenScreenshot(direction);
+    });
+  });
+  
+  // Close fullscreen modal on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && screenshotModal.style.display === 'flex') {
+      screenshotModal.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Keep main modal open
+    }
+  });
+  
+  // Close fullscreen modal on background click
+  screenshotModal.addEventListener('click', (e) => {
+    if (e.target === screenshotModal) {
+      screenshotModal.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Keep main modal open
+    }
   });
 
   window.addEventListener('click', (e) => {
