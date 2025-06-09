@@ -101,6 +101,7 @@
   website: "https://blockchaintraining.org"
   youtube: "https://www.youtube.com/watch?v=gfD1KBtLWZI"
   year: 2019
+  flag: US
 
 - name: "Smashing Smart Contracts: Detecting and Exploiting Vulnerabilities in EVM bytecode"
   descr: "Hacking & exploitation Solidity/EVM smart contracts, and practicing them on CaptureTheEther and OpenZeppelin Ethernaut challanges."

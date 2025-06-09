@@ -1,4 +1,4 @@
-# Shir Ya Khat Podcast Episodes
+# Podcast Episodes - Complete list including guest appearances
 # Complete list in reverse chronological order (newest first)
 
 - title: "AI & Blockchain: When Code Writes Back | هوش مصنوعی و بلاکچین: همگرایی فناوری‌ها"
@@ -71,6 +71,53 @@
   thumbnail: "/img/episodes/S07E01.jpg"
   episode_number: "S07E01"
 
+# 2023 Guest Appearances
+- title: "Ethereum Smart Contract Basics - CEP Livestream"
+  description: "Learn the basics of Ethereum Smart Contracts from the CEP committee. Covers what smart contracts can and cannot do, how they differ from normal addresses, security considerations, and real-world applications with guest Danielle Wall Elliott from Names."
+  youtube_link: "https://www.youtube.com/watch?v=ltD3pPcFS3U"
+  date: "2023-07-21"
+  channel: "C4 LIVE"
+  channel_url: "https://www.youtube.com/@LearnMoreWithC4"
+  thumbnail: "/img/episodes/ethereum-smart-contract-basics-cep-livestream-c4-live.jpg"
+  episode_number: "CEP"
+
+# 2022 Guest Appearances
+- title: "Blockchain Education"
+  description: "Special guest Dr. Jeremy Clark joins Shayan Eskandari and Jessica Levesque to discuss education in the blockchain space, covering curriculum development, industry standards, and the future of crypto education."
+  youtube_link: "https://www.youtube.com/watch?v=-QDIcMn-VL4"
+  date: "2022-06-01"
+  channel: "C4 LIVE"
+  channel_url: "https://www.youtube.com/@LearnMoreWithC4"
+  thumbnail: "/img/episodes/blockchain-education-c4-live.jpg"
+  episode_number: "C4"
+
+- title: "Introduction to DAOs"
+  description: "CEP committee members are joined by governance researcher Ann Brody and Willy Ogorzaly from Fox Foundation to explore Decentralized Autonomous Organizations. Learn about DAO structures, governance mechanisms, and real-world implementations."
+  youtube_link: "https://www.youtube.com/watch?v=1ZFe_7ehlWw"
+  date: "2022-04-27"
+  channel: "C4 LIVE"
+  channel_url: "https://www.youtube.com/@LearnMoreWithC4"
+  thumbnail: "/img/episodes/introduction-to-daos-c4-live.jpg"
+  episode_number: "DAO Special"
+
+- title: "Bitcoin vs. Ethereum"
+  description: "Bitcoin or Ethereum? Is one better than the other? Join C4 LIVE to learn how Bitcoin and Ethereum are similar, different, and why they both matter in the blockchain ecosystem."
+  youtube_link: "https://www.youtube.com/watch?v=JaLv-iesrB0"
+  date: "2022-02-09"
+  channel: "C4 LIVE"
+  channel_url: "https://www.youtube.com/@LearnMoreWithC4"
+  thumbnail: "/img/episodes/bitcoin-vs-ethereum-c4-live.jpg"
+  episode_number: "C4"
+
+- title: "Pioneering PRO-LEVEL Crypto Certification - C4's Jessica Levesque & Shayan Eskandari"
+  description: "Deep dive into professional crypto certification with C4's Executive Director Jessica Levesque and CEP Chair Shayan Eskandari. Covers Bitcoin and Ethereum certifications, education standards, and the future of blockchain credentials."
+  youtube_link: "https://www.youtube.com/watch?v=swqzdtR1a3Q"
+  date: "2022-01-06"
+  channel: "D-CORE Blockchain People"
+  channel_url: "https://www.youtube.com/c/DCOREBlockchainPeople"
+  thumbnail: "/img/episodes/pioneering-pro-level-crypto-certification-c4.jpg"
+  episode_number: "CEP"
+
 - title: "EIP (Ethereum Improvement Proposals) & Updating the Chain | فرایند به‌روز‌رسانی پروتکل اتریوم"
   description: "در این قسمت به چرایی نیاز به تغییر و بروزرسانی در محیط های مختلف نظیر نرم افزارهای سازمانی و نرم افزار های متن باز پرداختیم و روند بروزرسانی ها در اتریوم را از ایده تا اجرا بررسی کردیم."
   youtube_link: "https://youtu.be/FooJ87bP1y8"
@@ -83,6 +130,15 @@
   thumbnail: "/img/episodes/S05E01.jpeg"
   episode_number: "S05E01"
 
+# 2021 Guest Appearances
+- title: "Épisode 1: Shayan Eskandari | Extrait #1 : Non-Fungible Tokens"
+  description: "French language extract discussing Non-Fungible Tokens during the week when the most expensive digital artwork was sold for $69 million. Expert insights on the NFT revolution and digital art market."
+  youtube_link: "https://www.youtube.com/watch?v=TGjG07IOivg"
+  date: "2021-03-17"
+  channel: "D-CORE Blockchain People"
+  channel_url: "https://www.youtube.com/c/DCOREBlockchainPeople"
+  thumbnail: "/img/episodes/episode-1-shayan-eskandari-non-fungible-tokens.jpg"
+
 - title: "DeFi - Liquidation, Yield Farming, and Governance | تجمیع پروتکل‌‌های وام‌دهی و سيستم‌های حكمرانی غيرمتمركز"
   description: "در این قسمت به ادامه بررسی سیستم های وام‌دهی غیر‌متمرکز پرداختیم. با توضیحاتی در باره نقدینگی حضانتی و غیر‌حضانتی در این سیستم‌ها٫ به روش‌های تصمیم‌گیری برای متغیر‌هایی مثل سود سپرده و اسنتراتژی پروژه های تجمیع وام رسیدیم و در آخر جمع‌بندی کلی از این فصل از پادکست داشتیم."
   youtube_link: "https://youtu.be/kj-wVRP6mgg"
@@ -94,6 +150,15 @@
   channel_url: "https://shiryakhat.net/2020/12/defi-yield-aggregators-governance.html"
   thumbnail: "/img/episodes/S04E06.jpeg"
   episode_number: "S04E06"
+
+# 2020 Guest Appearances
+- title: "Startup Talks | Episode #1 | Shayan Eskandari: Blockchain, DeFi, Non Fungible Tokens and Oracles"
+  description: "Comprehensive discussion covering blockchain fundamentals, smart contracts, DeFi, automated market making, oracles, and entrepreneurship opportunities. Explores the intersection of blockchain with economic systems and decentralization principles."
+  youtube_link: "https://www.youtube.com/watch?v=elRch8Sa14A"
+  date: "2020-12-28"
+  channel: "Startup Talks"
+  channel_url: "https://www.youtube.com/@StartupTalks"
+  thumbnail: "/img/episodes/startup-talks-episode-1-shayan-eskandari.jpg"
 
 - title: "DeFi - Lending Protocols, Compound, and Wrapped Tokens | پروتکل‌‌های وام‌دهی"
   description: "در این قسمت به بررسی سیستم های وام‌دهی غیر‌متمرکز پرداختیم و آن را با سیستم وام دهی سنتی مقایسه کردیم. تاریخچه و مثال هایی از وام‌دهی در حوزه ی بلاکچین را برشمردیم. به توکن های Wrapped و استفاده از آنها به عنوان وثیقه اشاره کردیم و در آخر وام دهی در حوزه ی دیفای را با بررسی پروژه ی Compound تشریح کردیم."
@@ -155,16 +220,24 @@
   thumbnail: "/img/episodes/S04E01.jpeg"
   episode_number: "S04E01"
 
-- title: "Blockchain Through Philosophy - Interview with Creston Davis [English]"
-  description: "در این قسمت از پادکست شیر یا خط سعی کردیم تا به فناوری بلاک‌چین به عنوان یک فناوری رادیکال که می‌تواند تغییرات گسترده ای در مناسبات زندگی آینده انسان ایجاد کند، نگاه کنیم."
+- title: "Shir Ya Khat - Blockchain Through Philosophy - Creston Davis"
+  description: "Philosophical exploration of blockchain technology with Professor Creston Davis from Global Center for Advanced Studies. Examines blockchain as a radical technology that can bring transformative changes to human existence and social relationships."
   youtube_link: "https://www.youtube.com/watch?v=OThCgcFshKw"
   spotify_link: "https://open.spotify.com/episode/4NxZNKKwcxGYNnbsCWE0eh?si=5cFpykQ6QrCe3wDyfTH-KA"
-  apple_podcast: "https://podcasts.apple.com/us/podcast/blockchain-through-philosophy-interview-creston-davis/id1221206951?i=1000476408699"
-  date: "2020-04-24"
+  date: "2020-05-05"
   channel: "Shir Ya Khat Podcast"
-  channel_url: "https://shiryakhat.net/2020/04/blockchain-through-philosophy.html"
-  thumbnail: "/img/episodes/S03E07.jpeg"
+  channel_url: "https://shiryakhat.net"
+  thumbnail: "/img/episodes/shir-ya-khat-blockchain-philosophy-creston-davis.jpg"
   episode_number: "S03E07"
+
+- title: "TotalBitcoin Podcast Episode #76: Shayan Eskandari- Humanity's Freedom is Bitcoin"
+  description: "Discussion on Bitcoin's role in human freedom, covering COVID-19 impact in Iran, hardware wallets, security, private keys, technological innovations on Bitcoin, and the monetary evolution of cryptocurrency."
+  youtube_link: "https://www.youtube.com/watch?v=0sZtgdFVFVE"
+  date: "2020-03-19"
+  channel: "TotalBitcoin Podcast"
+  channel_url: "https://www.youtube.com/c/keyvandavani"
+  thumbnail: "/img/episodes/totalbitcoin-podcast-episode-76-shayan-eskandari.jpg"
+  episode_number: "Episode #76"
 
 - title: "Coronatimes - Spring is inside our homes"
   description: "این برنامه به اثرات ویروس کرونا (کوید-19) و دلایل سقوط بازارهای رمزارز و بازارهای اقتصادی جهانی، آینده این بازارها، فرصت های ایجاد شده برای کارهای راه دور و درآمدزایی و موضوعات دیگر به بحث و تبادل نظر می پردازد."

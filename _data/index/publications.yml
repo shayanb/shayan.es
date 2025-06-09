@@ -88,6 +88,7 @@
   github: https://github.com/shayanb/Bitcoin-PoS-PHP
   paper: https://ieeexplore.ieee.org/abstract/document/7816869/
   published: Advanced and Trusted Computing (ATC), 2016 Intl IEEE Conferences, Toulouse, France.
+  year: 2016
   media:
     - name: Cafe Aunja
       link: http://blog.theshayan.com/2014/10/23/have-your-coffee-with-bitcoin/
@@ -98,11 +99,12 @@
   descr: We live in an era where Internet is one of the daily needs of human life. People use Internet banking instead of going to banks, they use email rather than postal mail.This leads to a robust digital way of living, but this also means people are trusting middle companies and third parties for their online services. The need of having a digital form of money that is not being controlled by one entity is plain to see. Bitcoin is the first and the most popular decentralized virtual currency. It is based on cryptographic functions to remove the need of a central bank and regulates the generation of new units. In this thesis, we would like to look at available tools to facilitate users in holding and using Bitcoin by a perspective on usability and security, and then evaluate the possibilities for a small business to accept Bitcoin payments. Our focus is on the usability of these tools and developing a useful framework for comparing and evaluating future tools. While many security tools have been studied from a usability perspective, our work is the first to look at Bitcoin.
   paper: https://spectrum.library.concordia.ca/980859/
   published: Thesis (M.A. Sc.) - Concordia University, 2015
-
+  year: 2015
 
 - name: A first look at the usability of bitcoin key management
   descr: Bitcoin users are directly or indirectly forced to deal with public key cryptography, which has a number of security and usability challenges that differ from the password-based authentication underlying most online banking services. Users must ensure that keys are simultaneously accessible, resistant to digital theft and resilient to loss. In this paper, we contribute an evaluation framework for comparing Bitcoin key management approaches, and conduct a broad usability evaluation of six representative Bitcoin clients. We find that Bitcoin shares many of the fundamental challenges of key management known from other domains, but that Bitcoin may present a unique opportunity to rethink key management for end users.
   paper: https://arxiv.org/abs/1802.04351
+  year: 2015
   published: "<a href='https://www.ndss-symposium.org/ndss2015/workshops/' target='_blank'>USEC 15 NDSS Workshop on Usable Security (USEC) 2015</a>, San Diego, CA, USA, February 8, 2015, Internet Society"
   media:
     - name: The Morning Paper
@@ -127,3 +129,5 @@
   paper: https://ieeexplore.ieee.org/abstract/document/6688856/
   published: Software Reliability Engineering Workshops (ISSREW), 2013 IEEE International Symposium
   github: https://github.com/shayanb/TAF
+  year: 2013
+
