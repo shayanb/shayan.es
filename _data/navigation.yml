@@ -13,7 +13,7 @@
   desktop: true
   hamburger: true
   
-- title: "Academia"
+- title: "Publications"
   url: "/publications/"
   desktop: true
   hamburger: true
@@ -36,7 +36,6 @@
       url: "/talks/#conferences"
       
 - title: "Projects"
-  url: "/projects/"
   desktop: true
   hamburger: true
   submenu:

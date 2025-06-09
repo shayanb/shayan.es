@@ -469,7 +469,8 @@
 
       // Mixed layout for both full and minimal cards
       .hackathon-card-minimal {
-        max-width: 400px;
+        max-width: 100%;
+        max-height: 150px;
       }
     }
 
@@ -542,7 +543,7 @@
         flex-wrap: wrap;
         margin-bottom: 1rem;
         font-size: 0.875rem;
-        color: $gray-500;
+        color: var(--text-muted);
 
         .hackathon-date {
           font-weight: 500;
@@ -599,7 +600,7 @@
               display: flex;
               align-items: center;
               gap: 0.5rem;
-              color: $gray-700;
+              color: var(--text-muted);
               font-size: 0.875rem;
               margin-bottom: 0.25rem;
 
@@ -639,7 +640,6 @@
       // Minimal card styling for judge/mentor roles
       &.hackathon-card-minimal {
         padding: 0.5rem 0.75rem;
-        max-width: 280px;
         
         .hackathon-minimal-content {
           .hackathon-title-row {
@@ -647,7 +647,7 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 0.75rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 1rem;
 
             h4 {
               color: $gray-900;
@@ -688,7 +688,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
             font-size: 0.7rem;
             color: $gray-500;
 
@@ -698,7 +698,7 @@
 
             .hackathon-location-bottom {
               display: flex;
-              align-items: center;
+              align-items: right;
               gap: 0.25rem;
               white-space: nowrap;
 
@@ -811,7 +811,7 @@
           align-items: flex-end;
           gap: 1rem;
           font-size: 0.75rem;
-          color: $gray-500;
+          color: var(--text-muted);
           margin-top: auto;
 
           .conference-date {
@@ -1517,7 +1517,7 @@
               margin-top: 0.5rem;
               
               .hackathon-date {
-                align-self: flex-start;
+                align-self: flex-end;
               }
               
               .hackathon-location-and-role {

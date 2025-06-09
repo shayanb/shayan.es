@@ -67,7 +67,7 @@
     }
 
     .modal-platform {
-      color: $gray-600;
+      color: $gray-500;
       margin: 0;
     }
 
@@ -289,7 +289,7 @@
           }
 
           .modal-platform {
-            color: $gray-600;
+            color: var(--text-muted);
             margin: 0;
           }
         }
