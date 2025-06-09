@@ -190,25 +190,20 @@ permalink: /talks/
           {% endif %}
 
           {% if podcast.youtube_link or podcast.spotify_link %}
-          <div class="talk-footer-row">
-            <div class="talk-location-bottom">
-              <!-- Empty space for consistent layout -->
-            </div>
-            <div class="talk-media">
-              <div class="media-links">
-                {% if podcast.youtube_link %}
-                <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
-                  <i class="fa fa-youtube"></i>
-                  <span>Watch</span>
-                </a>
-                {% endif %}
-                {% if podcast.spotify_link %}
-                <a href="{{ podcast.spotify_link }}" target="_blank" class="media-link spotify">
-                  <i class="fa fa-spotify"></i>
-                  <span>Listen</span>
-                </a>
-                {% endif %}
-              </div>
+          <div class="podcast-media-footer">
+            <div class="media-links">
+              {% if podcast.youtube_link %}
+              <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
+                <i class="fa fa-youtube"></i>
+                <span>Watch</span>
+              </a>
+              {% endif %}
+              {% if podcast.spotify_link %}
+              <a href="{{ podcast.spotify_link }}" target="_blank" class="media-link spotify">
+                <i class="fa fa-spotify"></i>
+                <span>Listen</span>
+              </a>
+              {% endif %}
             </div>
           </div>
           {% endif %}
@@ -1016,6 +1011,87 @@ permalink: /talks/
   display: flex;
   gap: 0.75rem;
   margin-top: 1rem;
+}
+
+/* Podcast Card Media Footer - Center and Bottom Alignment */
+.podcast-card-custom {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.podcast-media-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.podcast-media-footer .media-links {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Apply the same media-link styling from talk cards to podcast cards */
+.podcast-media-footer .media-links .media-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.podcast-media-footer .media-links .media-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.podcast-media-footer .media-links .media-link.youtube {
+  background: #ff0000;
+  color: white;
+  border-color: #ff0000;
+}
+
+.podcast-media-footer .media-links .media-link.youtube:hover {
+  background: transparent;
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.podcast-media-footer .media-links .media-link.spotify {
+  background: #1db954;
+  color: white;
+  border-color: #1db954;
+}
+
+.podcast-media-footer .media-links .media-link.spotify:hover {
+  background: transparent;
+  color: #1db954;
+  border-color: #1db954;
+}
+
+.podcast-media-footer .media-links .media-link i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.podcast-media-footer .media-links .media-link:hover i {
+  transform: scale(1.1);
+}
+
+/* Dark mode support for podcast media footer */
+[data-theme="dark"] .podcast-media-footer {
+  border-top-color: var(--border-color);
 }
 
 /* Hackathon card sizing for judge/mentor on desktop */
