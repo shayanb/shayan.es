@@ -24,16 +24,18 @@
   desktop: true
   hamburger: true
 
-- title: "Publications"
-  url: "/publications/"
+- title: "Scholar"
+  url: "/scholar/"
   desktop: true
   hamburger: true
   submenu:
+    - title: "Publications"
+      url: "/scholar/#publications"
     - title: "Academic Reviews"
-      url: "/publications/#reviews-section"
+      url: "/scholar/#academic-reviews"
     - title: "Audits"
       url: "/audits/"
-      
+
 - title: "Speaking & Participation"
   url: "/talks/"
   desktop: true

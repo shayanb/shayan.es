@@ -76,10 +76,7 @@ $(document).ready(function() {
     // Find all sections on the page
     function findSections() {
       const sectionSelectors = [
-        'h2[id]', 'h3[id]', 'section[id]', 'div[id]',
-        '[id*="section"]', '[id*="about"]', '[id*="career"]',
-        '[id*="education"]', '[id*="projects"]', '[id*="publications"]',
-        '[id*="lectures"]', '[id*="conferences"]', '[id*="hackathons"]'
+        'h2[id]', 'h3[id]'
       ];
       
       sections = [];
@@ -90,11 +87,13 @@ $(document).ready(function() {
             if (rect.height > 0) {
               const title = getElementTitle(element);
               if (title) { // Only add sections with valid titles (excludes page headers)
+                // Use getBoundingClientRect + scrollY for more accurate positioning
+                const top = rect.top + window.scrollY;
                 sections.push({
                   id: element.id,
                   title: title,
                   element: element,
-                  top: element.offsetTop
+                  top: top
                 });
               }
             }
@@ -191,7 +190,7 @@ $(document).ready(function() {
         createSectionsList();
         updateButtonIcon();
       }
-    }, 1000);
+    }, 2000);
     
     // Close sections when clicking outside
     document.addEventListener('click', (e) => {
@@ -222,6 +221,11 @@ Feel free to explore the console for more surprises...
   // Secret command function
   window.secretCommand = function() {
     console.log('%c🎉 You found the secret command! Here\'s a cookie: 🍪', 'color: #ff6b35; font-size: 16px;');
+    console.log('%c yeah... I have not really implemented this yet...', 'color:rgb(54, 149, 146); font-size: 16px;');
+    console.log('%c but i am really glad you are here and reading this...', 'color:rgb(76, 74, 215); font-size: 16px;');
+    console.log('%c How are YOU doing? Are you happy? like in the general sense?', 'color:rgb(94, 10, 8); font-size: 16px;');
+    console.log('%c well... hope you are. anyhow hmu if you made it this far :) ', 'color:rgb(94, 10, 8); font-size: 16px;');
+    console.log('%c - - - - - - - - -', 'color:rgb(13, 226, 77); font-style: italic;');
     console.log('%cNow try the Konami code on the website: ↑ ↑ ↓ ↓ ← → ← → B A', 'color: #1e3a5f; font-style: italic;');
   };
 
@@ -369,12 +373,12 @@ Feel free to explore the console for more surprises...
     }
 
     // Console message
-    console.log('%c🎮 KONAMI CODE ACTIVATED! 🎮', 'color: #ff6b35; font-size: 24px; font-weight: bold;');
+    console.log('%c 🤗 You are Loved! ❤️', 'color: #ff6b35; font-size: 24px; font-weight: bold;');
     console.log('%c🎉 You are a true hacker! Enjoy the show! 🎉', 'color: #1e3a5f; font-size: 16px;');
     
     // Show a temporary notification
     const notification = document.createElement('div');
-    notification.innerHTML = '🎮 Konami Code Activated! 🎉';
+    notification.innerHTML = '🤗 You are loved! ❤️';
     notification.style.cssText = `
       position: fixed;
       top: 20px;
