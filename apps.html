@@ -20,12 +20,27 @@ permalink: /apps/
       <div class="featured-apps">
         {% for app in featured_apps %}
         <div class="app-card featured">
-          <div class="app-icon">
-            {% if app.logo %}
-              <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
+          <div class="app-icon-section">
+            {% if app.website %}
+              <a href="{{ app.website }}" target="_blank" rel="noopener" class="app-icon-link" title="Visit {{ app.name }}">
+                {% if app.logo %}
+                  <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
+                {% else %}
+                  <i class="fa fa-mobile"></i>
+                {% endif %}
+              </a>
             {% else %}
-              <i class="fa fa-mobile"></i>
+              <div class="app-icon">
+                {% if app.logo %}
+                  <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
+                {% else %}
+                  <i class="fa fa-mobile"></i>
+                {% endif %}
+              </div>
             {% endif %}
+            <button class="btn btn-sm btn-outline view-app-btn desktop-only" data-app="{{ app.name | slugify }}">
+              View Details <i class="fa fa-arrow-right"></i>
+            </button>
           </div>
           <div class="app-content">
             <div class="app-header">
@@ -34,14 +49,21 @@ permalink: /apps/
             </div>
             <p class="app-description">{{ app.short_description }}</p>
             <div class="app-actions">
-              <button class="btn btn-primary view-app-btn" data-app="{{ app.name | slugify }}">
-                Learn More
+              <div class="app-links">
+                {% if app.github %}
+                  <a href="{{ app.github }}" target="_blank" rel="noopener" class="app-link" title="GitHub">
+                    <i class="fa fa-github"></i>
+                  </a>
+                {% endif %}
+                {% if app.website %}
+                  <a href="{{ app.website }}" target="_blank" rel="noopener" class="app-link" title="Website">
+                    <i class="fa fa-globe"></i>
+                  </a>
+                {% endif %}
+              </div>
+              <button class="btn btn-sm view-app-btn mobile-only" data-app="{{ app.name | slugify }}">
+                Details <i class="fa fa-arrow-right"></i>
               </button>
-              {% if app.website %}
-                <a href="{{ app.website }}" target="_blank" class="btn btn-outline">
-                  <i class="fa fa-globe"></i> Visit
-                </a>
-              {% endif %}
             </div>
           </div>
         </div>
@@ -69,10 +91,21 @@ permalink: /apps/
             <p>{{ app.short_description }}</p>
           </div>
           <div class="app-links">
-            <button class="btn btn-sm view-app-btn" data-app="{{ app.name | slugify }}">Details</button>
-            {% if app.website %}
-              <a href="{{ app.website }}" target="_blank" class="btn btn-sm btn-outline">Visit</a>
-            {% endif %}
+            <div class="app-links-icons">
+              {% if app.github %}
+                <a href="{{ app.github }}" target="_blank" rel="noopener" class="app-link" title="GitHub">
+                  <i class="fa fa-github"></i>
+                </a>
+              {% endif %}
+              {% if app.website %}
+                <a href="{{ app.website }}" target="_blank" rel="noopener" class="app-link" title="Website">
+                  <i class="fa fa-globe"></i>
+                </a>
+              {% endif %}
+            </div>
+            <button class="btn btn-sm view-app-btn" data-app="{{ app.name | slugify }}">
+              Details <i class="fa fa-arrow-right"></i>
+            </button>
           </div>
         </div>
         {% endfor %}
@@ -100,10 +133,10 @@ permalink: /apps/
       <div class="screenshot-fullscreen-container">
         <img src="" alt="Enlarged screenshot" class="screenshot-fullscreen-img" id="fullscreen-screenshot">
         <div class="screenshot-fullscreen-nav">
-          <button class="screenshot-fullscreen-nav-btn prev" data-direction="-1" style="display: none;">
+          <button class="screenshot-nav prev" data-direction="-1" style="display: none;">
             <i class="fa fa-chevron-left"></i>
           </button>
-          <button class="screenshot-fullscreen-nav-btn next" data-direction="1" style="display: none;">
+          <button class="screenshot-nav next" data-direction="1" style="display: none;">
             <i class="fa fa-chevron-right"></i>
           </button>
         </div>

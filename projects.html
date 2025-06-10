@@ -180,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modalBody.innerHTML = `
       <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
+        ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
+        
         <div class="modal-left">
           <div class="modal-header">
             ${project.logo ? `<div class="modal-logo"><img src="${project.logo}" alt="${project.name} logo" class="modal-logo-image"></div>` : ''}
@@ -201,8 +203,6 @@ document.addEventListener('DOMContentLoaded', function() {
           
           ${mediaHtml}
         </div>
-        
-        ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
       </div>
     `;
 

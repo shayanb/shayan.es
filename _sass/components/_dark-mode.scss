@@ -525,6 +525,17 @@ input, textarea, select {
     .app-platform {
       color: var(--text-muted) !important;
     }
+
+    .app-link {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background: $secondary !important;
+        color: $white !important;
+      }
+    }
   }
 
   .apps-page {
@@ -857,16 +868,30 @@ input, textarea, select {
   .section-card {
     background: var(--card-color) !important;
     
-    .card-icon i {
-      color: #ff6b35 !important;
+    .card-icon {
+      background: var(--surface-color) !important;
+      
+      i {
+        color: #ff6b35 !important;
+      }
     }
     
     .card-title, h3, h4 {
-      color: #ff6b35 !important;
+      color: var(--text-color) !important;
     }
     
     .card-text, p, .description {
       color: var(--text-color) !important;
+    }
+    
+    &:hover {
+      .card-icon {
+        background: var(--surface-color) !important;
+        
+        i {
+          color: #ff6b35 !important;
+        }
+      }
     }
   }
 
