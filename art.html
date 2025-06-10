@@ -18,8 +18,8 @@ permalink: /art/
       {% for piece in site.data.index.art.video %}
       <div class="art-item video-art" data-art="video-{{ forloop.index }}">
         <div class="art-thumbnail">
-          {% if piece.screenshot %}
-            <img src="{{ piece.screenshot }}" alt="{{ piece.title }}" loading="lazy">
+          {% if piece.mainimage %}
+            <img src="{{ piece.mainimage }}" alt="{{ piece.title }}" loading="lazy">
             <div class="play-overlay">
               <i class="fa fa-play"></i>
             </div>
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: "{{ piece.title | escape }}",
         year: {{ piece.year }},
-        description: "{{ piece.description | escape }}",
+        description: {{ piece.description | jsonify }},
         video_url: "{{ piece.video_url }}",
         screenshot: "{{ piece.screenshot }}",
         duration: "{{ piece.duration }}",
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: "{{ piece.title | escape }}",
         year: {{ piece.year }},
-        description: "{{ piece.description | escape }}",
+        description: {{ piece.description | jsonify }},
         images: [{% for img in piece.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
         medium: "{{ piece.medium }}",
         dimensions: "{{ piece.dimensions }}"
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: "{{ piece.title | escape }}",
         year: {{ piece.year }},
-        description: "{{ piece.description | escape }}",
+        description: {{ piece.description | jsonify }},
         images: [{% for img in piece.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
         category: "{{ piece.category }}",
         event: "{{ piece.event }}"
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           ` : ''}
           
-          <p class="art-description">${piece.description}</p>
+          <div class="art-description">${piece.description}</div>
         </div>
       `;
     } else if (type === 'physical' || type === 'swag') {
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <div class="art-content">
           ${galleryHtml}
-          <p class="art-description">${piece.description}</p>
+          <div class="art-description">${piece.description}</div>
         </div>
       `;
     }

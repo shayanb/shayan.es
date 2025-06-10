@@ -1,7 +1,7 @@
 - name: "Uncovering Blockchain Challenges: Technical Nuances and their Unforeseen Consequences"
   descr: In this dissertation, we explore the technical nuances of blockchain technology, its diverse applications, and the unforeseen consequences that have emerged. Cryptojacking, initially seen as a potential disruptor to the convoluted online advertising industry, ultimately succumbed to its own success due to regulatory gaps and technical intricacies. The inherent transparency and permissionless nature of blockchain allow every participant to potentially exploit privileged information --adversarial environment--, leading to front-running attacks and extracting value from users. Additionally, oracles, vital for providing real-world data to decentralized applications, might change the trust assumptions based on their implementations, which necessitate a deeper understanding of their operational mechanisms. With the rise of cryptoassets as a significant financial sector, auditors face challenges in accurately evaluating and reporting these assets due to their novelty. This dissertation aims to bridge the gap between the ambitious promises of blockchain technology and its real-world implications, highlighting the technical nuances that often lead to misunderstandings. We argue that by narrowing the divide between traditional regulatory view and blockchain's technological advancements, both auditors and companies working with cryptoassets stand to gain from the enhanced transparency and the potential for real-time information reporting (e.g. financial statements) offered by this technology.
   year: 2024
-  published: "PhD thesis, Concordia University"
+  published: "PhD Dissertation, Concordia University"
   paper: https://spectrum.library.concordia.ca/id/eprint/994347/6/Eskandari_PhD_F2024.pdf
 
 - name: "SoK: Oracles from the Ground Truth to Market Manipulation"
@@ -15,12 +15,12 @@
   descr: Firms transacting using blockchain-based assets and liabilities have begun to enter capital markets in search for funding. Historically, firms have been able to raise substantial funding without an audited financial statement, however we project that in the future, audits will become a common requirement given increased competition among firms, increased scrutiny from regulators, past instances of fraud, and firms seeking an IPO. At the time of writing, accounting firms are hesitant to accept mandates from companies that hold a significant amount of cryptoassets primarily because the blockchain market introduces novel, technically sophisticated, and risky propositions that auditors are unequipped to handle. Through interviews with senior accounting professionals and structured brainstorming meetings with a multidisciplinary team of accountants and blockchain experts, we critically analyze the purported roadblocks to auditing blockchain firms and map them to traditional auditing practices, demonstrating that providing an audit opinion is challenging but not insurmountable.
   paper: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3359985
   year: 2020
-  published: "Journal of Information Systems ISYS-19-007"
+  published: "<a href='https://aaahq.org/Research/Journals/Journal-of-Information-Systems' target='_blank'>Journal of Information Systems</a>"
 
 - name: 'The Middleman is Dead, Long Live the Middleman: The “trust factor” and the psycho-social implications of blockchain'
   descr: "Blockchain is widely regarded as a breakthrough innovation that may have a profound impact on the economy and society, of a magnitude comparable to the effects of the introduction of the Internet itself. In essence, a blockchain is a decentralized peer-to-peer network with no central authority figure, which adds information to the distributed database by collectively validating the accuracy of data. Since each node of the network participates in the review and confirmation of the new information before being accepted, the need for a trustworthy intermediary is eliminated. However, as trust plays an essential role in affecting decisions when transacting with one another, it is important to understand which implications the decentralized nature of blockchain may have on individuals' sense of trust. In this contribution, we argue that the adoption of blockchain is not only a technological, but foremostly a psychological challenge, which crucially depends on the possibility of creating a trust management approach that matches the underlying distributed communication system. We first describe the decentralization technologies and possibilities they hold for the near future. Next, we discuss the psycho-social implications of the introduction of decentralized processes of trust, examining some potential scenarios, and outline a research agenda."
   year: 2019
-  published: "Frontiers in Blockchain Journal - Human-Centric Constituents in Times of Decentralization"
+  published: "<a href='https://www.frontiersin.org/journals/blockchain' target='_blank'>Frontiers in Blockchain Journal</a> - Human-Centric Constituents in Times of Decentralization"
   paper: https://www.frontiersin.org/articles/10.3389/fbloc.2019.00020/full
 
 - name: "Resolving the Multiple Withdrawal Attack on ERC20 Tokens"
@@ -48,7 +48,7 @@
   github: https://github.com/shayanb/cryptojacking-first-paper
   paper: https://arxiv.org/abs/1803.02887
   year: 2018
-  published: "<a href='https://sbblock.github.io/2018/' target='_blank'>IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B) 2018</a> University College London (UCL), London, UK"
+  published: "<a href='https://sbblock.github.io/2018/' target='_blank'>IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B)</a> University College London (UCL), London, UK"
   slides: https://github.com/shayanb/cryptojacking-first-paper/blob/master/Presentation/Cryptojacking_IEEESB2018.pdf
   media:
       - name: Schneier on Security
@@ -105,7 +105,7 @@
   descr: Bitcoin users are directly or indirectly forced to deal with public key cryptography, which has a number of security and usability challenges that differ from the password-based authentication underlying most online banking services. Users must ensure that keys are simultaneously accessible, resistant to digital theft and resilient to loss. In this paper, we contribute an evaluation framework for comparing Bitcoin key management approaches, and conduct a broad usability evaluation of six representative Bitcoin clients. We find that Bitcoin shares many of the fundamental challenges of key management known from other domains, but that Bitcoin may present a unique opportunity to rethink key management for end users.
   paper: https://arxiv.org/abs/1802.04351
   year: 2015
-  published: "<a href='https://www.ndss-symposium.org/ndss2015/workshops/' target='_blank'>USEC 15 NDSS Workshop on Usable Security (USEC) 2015</a>, San Diego, CA, USA, February 8, 2015, Internet Society"
+  published: "<a href='https://www.ndss-symposium.org/ndss2015/workshops/' target='_blank'>USEC 15 NDSS Workshop on Usable Security (USEC) 2015</a>, San Diego, USA, Internet Society"
   media:
     - name: The Morning Paper
       link: https://blog.acolyer.org/2017/02/22/a-first-look-at-the-usabilty-of-bitcoin-key-management/

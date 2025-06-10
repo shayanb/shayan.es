@@ -102,7 +102,7 @@ permalink: /scholar/
             <h3 class="pub-title">{{ pub.name }}</h3>
             {% if pub.published %}
             <div class="pub-venue-info">
-              <span class="venue-label">Published in:</span>
+              <span class="venue-label">Publication:</span>
               {% if pub.venue_url %}
                 <a href="{{ pub.venue_url }}" target="_blank" class="venue-name venue-link">
                   {{ pub.published }}
@@ -1037,6 +1037,10 @@ document.addEventListener('DOMContentLoaded', function() {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
+
+  h2 {
+    text-align: center;
+  }
 }
 
 .academic-timeline::before {

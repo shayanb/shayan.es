@@ -2,18 +2,18 @@
 # Video art and physical artworks
 
 video:
-  - title: "Ethereum Genesis"
-    year: 2024
-    description: "A generative video piece exploring the visual representation of blockchain transactions and smart contract executions."
-    video_url: "https://www.youtube.com/embed/example1"
-    screenshot: "/img/art/ethereum-genesis-thumb.jpg"
-    duration: "3:42"
-    medium: "Generative video"
+  - title: "Bitcoin Transaction (VJ Edition)"
+    year: 2016
+    description: "Bitcoin is a digital money, meaning it's Digital, simple. It is based on 0 and 1s, as they say. A more efficient way of showing 0 and 1s is by using their hexadecimal representation a.k.a base 16. <br><br> All historical data of all Bitcoin transactions ever happened are stored in a big database called 'Blockchain', and that is because these hexadecimal numbers are grouped together in batches called 'block' and appended to the previous data on the database with a cryptographic method to prove the order and sanity, so basically a chain, a Blockchain. <br><br> Everyone running a Bitcoin full node, have a fully secure copy of this database. It’s just like torrent, when you download a linux image, you actually connect to some other computers and download the file from them, a peer to peer connection. So when you run Bitcoin software on your computer, It starts downloading that database and verify all the blocks, one by one, to make sure it’s a legit copy that everyone else have. <br> That is the basics of Bitcoin. <br><br> Transaction hash: <a href='https://www.blockchain.com/explorer/transactions/btc/7f2875779f2429ee76e50857c6407e56ecc5ba7b0c9cfb102a477e50072233fa' target='_blank'>7f2875779f2429ee76e50857c6407e56ecc5ba7b0c9cfb102a477e50072233fa</a>"
+    video_url: "https://www.youtube.com/embed/mp7Y2YQyn_g"
+    mainimage: "/img/art/digital/bitcoin-transactions-image.png"
+    duration: "2:39"
+    medium: "Experimental"
     
   - title: "Cryptographic Patterns"
     year: 2023
     description: "An animated visualization of hash functions and cryptographic algorithms, transforming mathematical concepts into flowing visual poetry."
-    video_url: "https://www.youtube.com/embed/example2"
+    video_url: "https://www.youtube.com/watch?v=mp7Y2YQyn_g"
     screenshot: "/img/art/crypto-patterns-thumb.jpg"
     duration: "2:18"
     medium: "Digital animation"
