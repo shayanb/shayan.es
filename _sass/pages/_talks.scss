@@ -390,6 +390,12 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
+      align-items: start;
+      
+      // Use masonry layout on supported browsers for better fitting
+      @supports (grid-template-rows: masonry) {
+        grid-template-rows: masonry;
+      }
     }
 
     .hackathon-card {
@@ -432,13 +438,13 @@
         .hackathon-role {
           padding: 0.25rem 0.75rem;
           border-radius: $border-radius;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           font-weight: 500;
           text-transform: uppercase;
           letter-spacing: 0.05em;
 
           &.role-judge {
-            background: $primary;
+            background: $info;
             color: $white;
           }
 
@@ -553,6 +559,105 @@
         color: $gray-600;
         line-height: 1.6;
         font-size: 0.875rem;
+      }
+
+      // Minimal card styling for judge/mentor roles
+      &.hackathon-card-minimal {
+        padding: 1.5rem;
+        min-height: auto;
+        
+        // Make minimal cards more compact and proportional
+        .hackathon-header {
+          margin-bottom: 0.75rem;
+        }
+        
+        .hackathon-meta {
+          margin-bottom: 0;
+        }
+        
+        // Force minimal cards to be smaller height to fit better
+        max-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        .hackathon-minimal-content {
+          .hackathon-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            gap: 1rem;
+
+            h4 {
+              margin: 0;
+              font-size: 1rem;
+              color: $gray-900;
+              flex: 1;
+
+              .hackathon-link {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                  color: $primary;
+                  text-decoration: underline;
+                }
+              }
+            }
+
+            .hackathon-role {
+              padding: 0.25rem 0.75rem;
+              border-radius: $border-radius;
+              font-size: 0.7rem;
+              font-weight: 500;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              flex-shrink: 0;
+
+              &.role-judge {
+                background: $info;
+                color: $white;
+              }
+
+              &.role-mentor {
+                background: $secondary;
+                color: $white;
+              }
+
+              &.role-hacker {
+                background: $success;
+                color: $white;
+              }
+            }
+          }
+
+          .hackathon-minimal-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: $gray-500;
+
+            .hackathon-date {
+              font-weight: 500;
+            }
+
+            .hackathon-location-bottom {
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+              text-align: right;
+
+              i {
+                color: $secondary;
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
       }
     }
   }

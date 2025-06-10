@@ -83,3 +83,31 @@ physical:
       - "/img/art/metamorphosis.jpg"
     medium: "Recycled electronics and resin"
     dimensions: "12x8x6 inches"
+
+swag:
+  - title: "ETHGlobal Hacker Pack"
+    year: 2024
+    description: "Custom sticker pack and merchandise designed for ETHGlobal hackathon participants. Features blockchain-themed designs and developer humor."
+    images:
+      - "/img/art/ethglobal-stickers.jpg"
+      - "/img/art/ethglobal-tshirt.jpg"
+      - "/img/art/ethglobal-bag.jpg"
+    category: "Stickers & Apparel"
+    event: "ETHGlobal Hackathons"
+    
+  - title: "Smart Contract Security Stickers"
+    year: 2023
+    description: "Educational sticker series illustrating common smart contract vulnerabilities and security best practices. Distributed at security conferences and workshops."
+    images:
+      - "/img/art/security-stickers-1.jpg"
+      - "/img/art/security-stickers-2.jpg"
+    category: "Educational Stickers"
+    event: "Security Conferences"
+    
+  - title: "Blockchain Developer Pins"
+    year: 2023
+    description: "Enamel pin collection celebrating different aspects of blockchain development - from consensus mechanisms to DeFi protocols."
+    images:
+      - "/img/art/dev-pins-collection.jpg"
+    category: "Enamel Pins"
+    event: "Developer Meetups"

@@ -514,13 +514,13 @@
         .hackathon-role {
           padding: 0.25rem 0.75rem;
           border-radius: $border-radius;
-          font-size: 0.75rem;
+          font-size: 0.65rem;
           font-weight: 500;
           text-transform: uppercase;
           letter-spacing: 0.05em;
 
           &.role-judge {
-            background: $primary;
+            background: $info;
             color: $white;
           }
 
@@ -745,7 +745,7 @@
               min-width: fit-content;
 
               &.role-judge {
-                background: $primary;
+                background: $info;
                 color: $white;
               }
 

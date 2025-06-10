@@ -71,8 +71,45 @@ permalink: /art/
   </section>
   {% endif %}
 
+  <!-- Stickers & Swag Section -->
+  {% if site.data.index.art.swag and site.data.index.art.swag.size > 0 %}
+  <section class="art-section">
+    <h2><i class="fa fa-tags"></i> Stickers & Swag</h2>
+    <div class="art-grid">
+      {% for piece in site.data.index.art.swag %}
+      <div class="art-item swag-art" data-art="swag-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if piece.images and piece.images.size > 0 %}
+            <img src="{{ piece.images[0] }}" alt="{{ piece.title }}" loading="lazy">
+            {% if piece.images.size > 1 %}
+            <div class="multiple-images-indicator">
+              <i class="fa fa-images"></i>
+              <span>{{ piece.images.size }}</span>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-tags"></i>
+            </div>
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <h3>{{ piece.title }}</h3>
+          <div class="swag-meta">
+            <span class="art-year">{{ piece.year }}</span>
+            {% if piece.category %}
+            <span class="swag-category">{{ piece.category }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   <!-- Empty State -->
-  {% unless site.data.index.art.video.size > 0 or site.data.index.art.physical.size > 0 %}
+  {% unless site.data.index.art.video.size > 0 or site.data.index.art.physical.size > 0 or site.data.index.art.swag.size > 0 %}
   <div class="empty-state">
     <i class="fa fa-paint-brush"></i>
     <h3>Coming Soon</h3>
@@ -124,6 +161,18 @@ document.addEventListener('DOMContentLoaded', function() {
         dimensions: "{{ piece.dimensions }}"
       }{% unless forloop.last %},{% endunless %}
       {% endfor %}
+    ],
+    swag: [
+      {% for piece in site.data.index.art.swag %}
+      {
+        title: "{{ piece.title | escape }}",
+        year: {{ piece.year }},
+        description: "{{ piece.description | escape }}",
+        images: [{% for img in piece.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        category: "{{ piece.category }}",
+        event: "{{ piece.event }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
     ]
   };
 
@@ -155,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <p class="art-description">${piece.description}</p>
         </div>
       `;
-    } else if (type === 'physical') {
+    } else if (type === 'physical' || type === 'swag') {
       let galleryHtml = '';
       if (piece.images && piece.images.length > 0) {
         galleryHtml = `
@@ -191,6 +240,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="art-year">${piece.year}</span>
             ${piece.medium ? `<span class="art-medium">${piece.medium}</span>` : ''}
             ${piece.dimensions ? `<span class="art-dimensions">${piece.dimensions}</span>` : ''}
+            ${piece.category ? `<span class="art-category">${piece.category}</span>` : ''}
+            ${piece.event ? `<span class="art-event">${piece.event}</span>` : ''}
           </div>
         </div>
         
@@ -205,8 +256,8 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
     
-    // Initialize image navigation for physical art
-    if (type === 'physical') {
+    // Initialize image navigation for physical art and swag
+    if (type === 'physical' || type === 'swag') {
       window.currentArtPiece = piece;
       window.currentArtImageIndex = 0;
     }
@@ -429,6 +480,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .art-year {
   background: #ff6b35 !important;
+  color: #fff !important;
+}
+
+.swag-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.swag-category {
+  background: #10b981 !important;
+  color: #fff !important;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+}
+
+.art-category {
+  background: #10b981 !important;
+  color: #fff !important;
+}
+
+.art-event {
+  background: #3b82f6 !important;
   color: #fff !important;
 }
 

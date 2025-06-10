@@ -10,7 +10,7 @@
   project_name: "AiVS"
   project_link: "https://ethglobal.com/showcase/aivs-o2t7f"
   tech_stack: ["Solidity", "CDP AgentKit", "Python"]
-  awards: ["Coinbase Developer Platform", "Gaia and Collab.Land", EigenLayer - Eigen Agents"]
+  awards: ["Coinbase Developer Platform", "Gaia and Collab.Land", "EigenLayer - Eigen Agents"]
   description: "A multi AI Agent framework that utilizes EigenLayer AVS for a distributed justice system"
 
 - name: "OSC RegHackTO"
@@ -23,15 +23,16 @@
   awards: ["1st Prize Winner"]
   description: "An open-source Proof-of-Compliance standard on the blockchain. <br> RegHackTO was organized by the Ontario Securities Commission (OSC) as the first hackathon by a securities regulator in Canada."
 
-- name: "ETHDenver"
-  date: "March 2023"
-  location: "New York, US"
-  role: "judge"
 
 - name: "ETHGlobal Bangkok"
   date: "November 2024"
   location: "Bangkok, TH"
   role: "mentor"
+
+- name: "ETHDenver"
+  date: "March 2023"
+  location: "New York, US"
+  role: "judge"
 
 - name: "ETHGlobal Istanbul"
   date: "November 2023"
@@ -53,4 +54,8 @@
   location: "New York, US"
   role: "mentor"
 
+- name: "ETHToronto"
+  date: "August 2022"
+  location: "Toronto, CA"
+  role: "judge"
 
