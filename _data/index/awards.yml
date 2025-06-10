@@ -1,0 +1,12 @@
+- name: "Professor Hugh McQueen Award of Excellence"
+  issuer: "Gina Cody School of Engineering and Computer Science - Concordia University"
+  date: "Jun 2019"
+  institution: "Concordia University"
+  description: "Award of excellence recognizing outstanding academic achievement and contributions to the field of engineering and computer science."
+
+- name: "Fonds de recherche du Québec – Nature et technologies (FRQNT) Doctoral research scholarship"
+  issuer: "Fonds de recherche du Québec – Nature et technologies (FRQNT)"
+  date: "Jan 2019"
+  institution: "Concordia University"
+  description: "The purpose of Fonds de recherche du Québec – Nature et technologies (FRQNT) scholarship programs is to foster student interest in research and to financially assist the best candidates in undertaking or continuing a Master's or Doctoral's program in natural science, mathematics or engineering research."
+  link: "https://frqnt.gouv.qc.ca/en/"

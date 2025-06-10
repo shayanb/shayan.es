@@ -184,9 +184,42 @@ permalink: /scholar/
     {% endfor %}
   </div>
 
+  <!-- Scholarships & Awards Section -->
+  <div class="awards-section">
+    <h2 id="scholarships-awards">Scholarships & Awards</h2>
+    <p class="section-subtitle">Academic recognition and research funding achievements</p>
+    
+    <div class="awards-grid">
+      {% for award in site.data.index.awards %}
+      <div class="award-item">
+        <div class="award-header">
+          <h4 class="award-title">{{ award.name }}</h4>
+          <div class="award-date">{{ award.date }}</div>
+        </div>
+        <div class="award-issuer">
+          {% if award.link %}
+            <a href="{{ award.link }}" target="_blank" rel="noopener">
+              {{ award.issuer }}
+              <i class="fa fa-external-link"></i>
+            </a>
+          {% else %}
+            {{ award.issuer }}
+          {% endif %}
+        </div>
+        {% if award.institution %}
+        <div class="award-institution">Associated with {{ award.institution }}</div>
+        {% endif %}
+        {% if award.description %}
+        <div class="award-description">{{ award.description }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
   <!-- Academic Reviews Section -->
   <div class="reviews-section">
-    <h2 id="academic-reviews">Academic Reviews & Service</h2>
+    <h2 id="academic-reviews">Academic Reviews</h2>
     <p class="section-subtitle">Peer review activities and program committee participation</p>
     
     <div class="reviews-grid">
@@ -1405,5 +1438,184 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Dark Mode Support for Publications Section Header */
 [data-theme="dark"] .publications-section-header h2 {
   color: var(--text-color);
+}
+
+/* Awards Section Styles */
+.awards-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.awards-section h2 {
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.awards-section .section-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.awards-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.award-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #ff6b35;
+}
+
+.award-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-left-color: #1e3a5f;
+}
+
+.award-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.award-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.award-date {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.award-issuer {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.award-issuer a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.award-issuer a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.award-issuer a i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+.award-institution {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.award-description {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Dark Mode Support for Awards */
+[data-theme="dark"] .awards-section {
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--card-color) 100%);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .awards-section h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .awards-section .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .award-item {
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .award-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .award-issuer a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .award-issuer a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .award-institution {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .award-description {
+  color: var(--text-muted);
+}
+
+/* Mobile Responsive Awards */
+@media (max-width: 768px) {
+  .awards-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .award-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .award-date {
+    align-self: flex-start;
+    font-size: 0.75rem;
+  }
+  
+  .award-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .award-item {
+    padding: 1.25rem;
+  }
 }
 </style>
