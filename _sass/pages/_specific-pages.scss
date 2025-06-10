@@ -320,6 +320,20 @@
         color: var(--text-muted);
       }
     }
+    
+    .app-links {
+      .app-link {
+        background: var(--surface-color);
+        color: var(--text-color);
+        border-color: var(--border-color);
+        
+        &:hover {
+          background: $secondary;
+          color: $white;
+          border-color: $secondary;
+        }
+      }
+    }
   }
   
   .app-item {
@@ -348,13 +362,14 @@
     .app-links {
       .app-links-icons {
         .app-link {
-          background: var(--surface-color);
-          color: var(--text-color);
-          border-color: var(--border-color);
+          background: var(--surface-color) !important;
+          color: var(--text-color) !important;
+          border-color: var(--border-color) !important;
           
           &:hover {
-            background: $secondary;
-            color: $white;
+            background: $secondary !important;
+            color: $white !important;
+            border-color: $secondary !important;
           }
         }
       }
@@ -1004,6 +1019,25 @@
           display: flex;
           align-items: center;
           flex-shrink: 0;
+          background: $primary;
+          color: $white;
+          border: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: #2a5a68;
+            transform: translateY(-2px);
+          }
+          
+          i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+          }
+          
+          &:hover i {
+            transform: translateX(3px);
+          }
         }
         
         // Mobile: stack vertically
@@ -1135,7 +1169,7 @@
   }
 
   .apps-page {
-    padding: 1rem;
+    padding: 1rem 0.75rem;
     
     .featured-section {
       h2 {
@@ -1240,6 +1274,8 @@
       grid-template-areas: 
         "icon info"
         "links links";
+      padding: 1rem; // Reduce padding to prevent touching screen edges
+      margin: 0 0.25rem; // Add small margin for breathing room
         
       .app-icon.small {
         grid-area: icon;
@@ -1255,6 +1291,29 @@
       .app-links {
         grid-area: links;
         margin-left: 0; // Reset margin for mobile grid layout
+        
+        .btn-sm {
+          // Make details button identical to featured apps
+          background: $primary;
+          color: $white;
+          border: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: #2a5a68;
+            transform: translateY(-2px);
+          }
+          
+          i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+          }
+          
+          &:hover i {
+            transform: translateX(3px);
+          }
+        }
       }
     }
   }
