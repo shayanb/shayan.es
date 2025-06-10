@@ -586,6 +586,33 @@
 
       .modal-left {
         padding: 2rem;
+        
+        .modal-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+
+          .modal-logo {
+            flex-shrink: 0;
+            
+            .modal-logo-image {
+              width: 80px;
+              height: 80px;
+              object-fit: contain;
+              border-radius: $border-radius;
+            }
+          }
+
+          .modal-title-area {
+            flex: 1;
+            
+            h2 {
+              margin: 0 0 0.5rem 0;
+              color: $primary;
+            }
+          }
+        }
       }
 
       .modal-right {
@@ -891,7 +918,7 @@
   }
 }
 
-// Dark Mode Support for Screenshot Container
+// Dark Mode Support for Screenshot Container and Modals
 [data-theme="dark"] {
   .screenshot-container {
     background: var(--surface-color) !important;
@@ -914,6 +941,16 @@
     &:hover {
       background: rgba(0, 0, 0, 0.9) !important;
       color: white !important;
+    }
+  }
+  
+  // Project modal logo dark mode support
+  .projects-page #project-modal {
+    .modal-logo {
+      .modal-logo-image {
+        background: var(--surface-color);
+        padding: 0.25rem;
+      }
     }
   }
 }

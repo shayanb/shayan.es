@@ -14,6 +14,11 @@ permalink: /projects/
     {% for project in site.data.index.projects %}
     <div class="project-card clickable-card" data-project="{{ project.name | slugify }}" role="button" tabindex="0">
       <div class="project-header">
+        {% if project.logo %}
+        <div class="project-logo">
+          <img src="{{ project.logo }}" alt="{{ project.name }} logo" class="logo-image">
+        </div>
+        {% endif %}
         <div class="project-title-area">
           <h3>{{ project.name }}</h3>
           <div class="project-meta">
@@ -92,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
       startYear: "{{ project.start_year }}",
       endYear: "{{ project.end_year }}",
       status: "{{ project.status }}",
+      logo: "{{ project.logo }}",
       media: {{ project.media | jsonify }},
       screenshots: [{% if project.screenshots %}{% for screenshot in project.screenshots %}"{{ screenshot }}"{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}]
     }{% unless forloop.last %},{% endunless %}
@@ -156,10 +162,13 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="modal-layout">
         <div class="modal-left">
           <div class="modal-header">
-            <h2>${project.name}</h2>
-            <div class="modal-meta">
-              ${timelineHtml}
-              ${statusHtml}
+            ${project.logo ? `<div class="modal-logo"><img src="${project.logo}" alt="${project.name} logo" class="modal-logo-image"></div>` : ''}
+            <div class="modal-title-area">
+              <h2>${project.name}</h2>
+              <div class="modal-meta">
+                ${timelineHtml}
+                ${statusHtml}
+              </div>
             </div>
           </div>
           

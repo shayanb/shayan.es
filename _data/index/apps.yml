@@ -148,7 +148,7 @@
 
 - name: "Auctionify"
   platform: "Web"
-  logo: "/img/apps/auctionify-logo.png"
+  logo: "/img/apps/auctionify.svg"
   short_description: "Decentralized Ethereum Auction Platform"
   description: "A decentralized stand-alone platform that facilitates Ethereum blockchain as a fair auctioning and payment infrastructure. Features customizable auction creation, automated bidding and refunds, and a user-friendly interface designed for non-technical users."
   website: "https://auctionify.xyz/"
@@ -156,6 +156,6 @@
   year: 2018
   featured: false
   tags: ["Ethereum", "DeFi", "Auctions", "Smart Contracts"]
-  screenshots:
-    - "/img/apps/auctionify-screenshot-1.png"
-    - "/img/apps/auctionify-screenshot-2.png"
+  # screenshots:
+  #   - "/img/apps/auctionify-screenshot-1.png"
+  #   - "/img/apps/auctionify-screenshot-2.png"

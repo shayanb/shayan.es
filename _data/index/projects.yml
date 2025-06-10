@@ -1,11 +1,14 @@
 - name: Legions - Ethereum/EVM Node Security Toolkit
   descr: Legions is a handy toolkit for (security) researchers poking around EVM (Ethereum Virtual Machine) nodes and smart contracts, now with a slick command-line interface, with auto complete commands and history.
   website: https://consensys.net/diligence/blog/2020/06/legions-a-tool-for-seekers/
+  logo:  "/img/projects/legions-logo.png"
   github: https://github.com/ConsenSys/Legions
   year: 2020
   start_year: 2019
   end_year: 2020
   status: completed
+  screenshots:
+  - "/img/projects/legions-screenshot.gif"
 
 - name: Catena Blockchain Suite
   descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilising smart contracts and hardware security modules, Catena enables a new level of data consistency and integrity. Government of Canada, piloted by National Research Council (NRC) is using the Catena Blockchain Suite on the Ethereum blockchain, to publish funding and grant information in real time.
@@ -15,6 +18,12 @@
   start_year: 2017
   end_year: 2019
   status: completed
+  logo:  "/img/projects/catena-logo.png"
+  screenshots:
+  - "/img/projects/catena-screenshot-1.png"
+  - "/img/projects/catena-screenshot-2.png"
+  - "/img/projects/catena-screenshot-3.png"
+
   media:
     - name: National Research Council Canada
       link: https://www.nrc-cnrc.gc.ca/eng/stories/2018/blockchains.html
@@ -115,7 +124,7 @@
   github: https://github.com/tintinweb/smart-contract-vulndb
   year: 2023
   start_year: 2023
-  status: active
+  status: completed
   media:
     - name: GitHub Repository
       link: https://github.com/tintinweb/smart-contract-vulndb
@@ -126,7 +135,7 @@
   github: https://github.com/shayanb/dlagrams/
   year: 2021
   start_year: 2021
-  status: active
+  status: completed
   media:
     - name: DlAGRAMS Documentation
       link: https://dlagrams.net/

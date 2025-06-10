@@ -88,12 +88,15 @@ $(document).ready(function() {
           if (element.id && element.offsetParent !== null) {
             const rect = element.getBoundingClientRect();
             if (rect.height > 0) {
-              sections.push({
-                id: element.id,
-                title: getElementTitle(element),
-                element: element,
-                top: element.offsetTop
-              });
+              const title = getElementTitle(element);
+              if (title) { // Only add sections with valid titles (excludes page headers)
+                sections.push({
+                  id: element.id,
+                  title: title,
+                  element: element,
+                  top: element.offsetTop
+                });
+              }
             }
           }
         });
@@ -108,8 +111,18 @@ $(document).ready(function() {
     }
     
     function getElementTitle(element) {
+      // Skip page headers (h1 elements that are direct children of .page-header)
+      if (element.closest('.page-header')) {
+        return null;
+      }
+      
       if (element.querySelector('h1, h2, h3, h4')) {
-        return element.querySelector('h1, h2, h3, h4').textContent.trim();
+        const headerElement = element.querySelector('h1, h2, h3, h4');
+        // Skip if this is a page header
+        if (headerElement.closest('.page-header')) {
+          return null;
+        }
+        return headerElement.textContent.trim();
       }
       if (element.textContent && element.children.length < 3) {
         return element.textContent.slice(0, 30).trim();

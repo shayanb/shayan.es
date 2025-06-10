@@ -997,15 +997,35 @@ input, textarea, select {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 0.75rem 0;
-  min-width: 200px;
-  max-width: 250px;
-  max-height: 300px;
+  padding: 0.5rem 0;
+  min-width: 220px;
+  max-width: 280px;
+  max-height: 350px;
   overflow-y: auto;
   border: 1px solid #e5e7eb;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f3f4f6;
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 2px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+    
+    &:hover {
+      background: #9ca3af;
+    }
+  }
   
   &:not([style*="display: none"]) {
     opacity: 1;
@@ -1017,15 +1037,16 @@ input, textarea, select {
   width: 100%;
   background: none;
   border: none;
-  padding: 0.75rem 1rem;
+  padding: 0.625rem 1rem;
   text-align: left;
   color: #374151;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  line-height: 1.3;
   
   &:hover {
     background: #f3f4f6;
@@ -1038,8 +1059,9 @@ input, textarea, select {
   
   i {
     color: #9ca3af;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     transition: color 0.2s ease;
+    flex-shrink: 0;
   }
 }
 
@@ -1104,6 +1126,19 @@ input, textarea, select {
       background: var(--card-color);
       border-color: var(--border-color);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      scrollbar-color: var(--border-color) var(--surface-color);
+      
+      &::-webkit-scrollbar-track {
+        background: var(--surface-color);
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        
+        &:hover {
+          background: var(--text-muted);
+        }
+      }
     }
     
     .nav-section-link {

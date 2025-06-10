@@ -65,9 +65,24 @@
     .project-header {
       padding: 2rem 2rem 1rem;
       border-bottom: 1px solid $gray-100;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+
+      .project-logo {
+        flex-shrink: 0;
+        
+        .logo-image {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+          border-radius: $border-radius;
+        }
+      }
 
       .project-title-area {
         margin-bottom: 1rem;
+        flex: 1;
 
         h3 {
           color: $gray-900;
@@ -217,6 +232,13 @@
     
     .project-header {
       border-bottom-color: var(--border-color);
+      
+      .project-logo {
+        .logo-image {
+          background: var(--surface-color);
+          padding: 0.25rem;
+        }
+      }
       
       h3 {
         color: var(--text-color);

@@ -848,4 +848,12 @@ navigation: /publications/#reviews-section doesn't jump in the reviews section, 
 back to the apps page, the app cards , the app-platform, should be subtle, maybe even smaller text on the right side of the app-card, and show the platform and the year. 
 
 
+------------------------------
 
+
+in the publications page, nav-sections:
+- remove the page header from the list
+- make sure the nav-sections doesnt have scroll and adjust its size and spacing
+
+
+for projects, added logo and screenshot (a gif) for Legions project, but they are now showing. 
