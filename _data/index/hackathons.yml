@@ -13,6 +13,20 @@
   awards: ["Coinbase Developer Platform", "Gaia and Collab.Land", EigenLayer - Eigen Agents"]
   description: "A multi AI Agent framework that utilizes EigenLayer AVS for a distributed justice system"
 
+- name: "OSC RegHackTO"
+  date: "November 2016"
+  location: "Toronto, CA"
+  role: "hacker"
+  project_name: "KeyStamp"
+  project_link: "https://www.youtube.com/watch?v=DfhJWgULsm0"
+  tech_stack: ["Cryptography", "Python", "Bitcoin"]
+  awards: ["1st Prize Winner"]
+  description: "An open-source Proof-of-Compliance standard on the blockchain. <br> RegHackTO was organized by the Ontario Securities Commission (OSC) as the first hackathon by a securities regulator in Canada."
+
+- name: "ETHDenver"
+  date: "March 2023"
+  location: "New York, US"
+  role: "judge"
 
 - name: "ETHGlobal Bangkok"
   date: "November 2024"
@@ -40,12 +54,3 @@
   role: "mentor"
 
 
-- name: "OSC RegHackTO"
-  date: "November 2016"
-  location: "Toronto, CA"
-  role: "hacker"
-  project_name: "KeyStamp"
-  project_link: "https://www.youtube.com/watch?v=DfhJWgULsm0"
-  tech_stack: ["Cryptography", "Python", "Bitcoin"]
-  awards: ["1st Prize"]
-  description: "An open-source Proof-of-Compliance standard on the blockchain"

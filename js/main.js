@@ -76,7 +76,7 @@ $(document).ready(function() {
     // Find all sections on the page
     function findSections() {
       const sectionSelectors = [
-        'h2[id]', 'h3[id]'
+        'h2[id]', 'h3[id]', 'section[id]'
       ];
       
       sections = [];
@@ -115,6 +115,22 @@ $(document).ready(function() {
         return null;
       }
       
+      // For section elements, look for the first header inside
+      if (element.tagName === 'SECTION') {
+        const headerElement = element.querySelector('h1, h2, h3, h4');
+        if (headerElement && !headerElement.closest('.page-header')) {
+          return headerElement.textContent.trim();
+        }
+        // Fallback to ID-based title for sections
+        return element.id.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      }
+      
+      // For header elements, return their text directly
+      if (element.tagName.match(/^H[1-6]$/)) {
+        return element.textContent.trim();
+      }
+      
+      // For other elements with headers inside
       if (element.querySelector('h1, h2, h3, h4')) {
         const headerElement = element.querySelector('h1, h2, h3, h4');
         // Skip if this is a page header
@@ -123,9 +139,11 @@ $(document).ready(function() {
         }
         return headerElement.textContent.trim();
       }
+      
       if (element.textContent && element.children.length < 3) {
         return element.textContent.slice(0, 30).trim();
       }
+      
       return element.id.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
     

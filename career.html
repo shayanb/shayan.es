@@ -43,24 +43,27 @@ permalink: /career/
       <div class="career-marker"></div>
       <div class="career-content">
         <div class="career-header">
-          <div class="career-title-area">
-            <h3>{{ career.job }}</h3>
-            <span class="career-date">{{ career.date }}</span>
-          </div>
-          <div class="company-info">
-            {% if career.logo %}
-            <div class="company-logo">
-              <img src="{{ career.logo }}" alt="{{ career.name }} logo" loading="lazy">
+          <div class="career-main-info">
+            <div class="career-left">
+              <h3>{{ career.job }}</h3>
+              <span class="career-date">{{ career.date }}</span>
             </div>
-            {% endif %}
-            <div class="career-company">
-              {% if career.link %}
-                <a href="{{ career.link }}" target="_blank" rel="noopener">
+            <div class="career-right">
+
+              <div class="career-company">
+                {% if career.link %}
+                  <a href="{{ career.link }}" target="_blank" rel="noopener">
+                    {{ career.name }}
+                    <i class="fa fa-external-link"></i>
+                  </a>
+                {% else %}
                   {{ career.name }}
-                  <i class="fa fa-external-link"></i>
-                </a>
-              {% else %}
-                {{ career.name }}
+                {% endif %}
+              </div>
+              {% if career.logo %}
+              <div class="company-logo">
+                <img src="{{ career.logo }}" alt="{{ career.name }} logo" loading="lazy">
+              </div>
               {% endif %}
             </div>
           </div>
