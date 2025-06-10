@@ -635,6 +635,12 @@
         color: $gray-600;
         line-height: 1.6;
         font-size: 0.875rem;
+
+        &.rtl-text {
+          direction: rtl;
+          text-align: right;
+          font-family: 'Tahoma', 'Arial', sans-serif;
+        }
       }
 
       // Media links styling for podcast cards to match talk cards exactly

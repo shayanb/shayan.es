@@ -186,7 +186,27 @@ permalink: /talks/
           </div>
 
           {% if podcast.description %}
+          {% comment %} Check if description is primarily Persian by looking for common Persian words and patterns {% endcomment %}
+          {% assign persian_indicators = 'در,این,به,از,با,که,را,و,یا,برای,است,می,شود,های,بر,تا,کرد,گفت,دیگر,بود,کند,شد,داشت,خود,همه,اما,چون,علی,محمد,احمد,علیرضا,مهدی,حسن,حسین,آن,ان,ای,ها,ات,تان,تون,مان,مون,شان,شون,خواهد,خواهیم,خواهند,باشد,باشیم,باشند,کردم,کردی,کرد,کردیم,کردید,کردند,هست,هستم,هستی,هستیم,هستید,هستند' | split: ',' %}
+          {% assign is_persian = false %}
+          {% assign persian_word_count = 0 %}
+          
+          {% for word in persian_indicators %}
+            {% if podcast.description contains word %}
+              {% assign persian_word_count = persian_word_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          
+          {% comment %} If we find 2 or more Persian indicator words, consider it Persian text {% endcomment %}
+          {% if persian_word_count >= 2 %}
+            {% assign is_persian = true %}
+          {% endif %}
+          
+          {% if is_persian %}
+          <p class="hackathon-description rtl-text">{{ podcast.description }}</p>
+          {% else %}
           <p class="hackathon-description">{{ podcast.description }}</p>
+          {% endif %}
           {% endif %}
 
           {% if podcast.youtube_link or podcast.spotify_link %}
