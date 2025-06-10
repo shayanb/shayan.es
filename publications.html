@@ -25,18 +25,29 @@ permalink: /scholar/
           <div class="milestone-year">{{ edu.date | split: ' - ' | first }}</div>
         </div>
         <div class="milestone-content">
-          <div class="milestone-degree">
+          <div class="milestone-degree">{{ edu.name }}</div>
+          <div class="milestone-university">
             {% if edu.link %}
               <a href="{{ edu.link }}" target="_blank" rel="noopener">
-                {{ edu.name | remove: ' <a href="https://x.com/sbetamc/status/1846955502749864078" target="_blank" <i class="fa fa-graduation-cap" aria-hidden="true" title="Graduation"></i></a>' }}
+                {{ edu.University | default: edu.university }}
                 <i class="fa fa-external-link"></i>
               </a>
             {% else %}
-              {{ edu.name }}
+              {{ edu.University | default: edu.university }}
             {% endif %}
           </div>
+          <div class="milestone-department">{{ edu.department }}</div>
           <div class="milestone-period">{{ edu.date }}</div>
-          <div class="milestone-description">{{ edu.descr }}</div>
+          <div class="milestone-description">
+            {% if edu.descr_link %}
+              <a href="{{ edu.descr_link }}" target="_blank" rel="noopener" class="thesis-link">
+                {{ edu.descr }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ edu.descr }}
+            {% endif %}
+          </div>
         </div>
       </div>
       {% endfor %}
@@ -1048,7 +1059,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .timeline-line {
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: 10%;
   right: 10%;
   height: 4px;
@@ -1067,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .timeline-milestone {
   position: absolute;
-  top: 40px;
+  top: 20px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -1118,12 +1129,12 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .milestone-content {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   text-align: center;
-  width: 300px;
-  padding: 1.5rem;
+  width: 280px;
+  padding: 1rem;
   background: white;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #f0f0f0;
   transition: all 0.3s ease;

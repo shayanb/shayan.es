@@ -51,4 +51,25 @@
   <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
   <!-- 32x32 -->
   <link rel="shortcut icon" href="{{ '/favicon.png' | relative_url }}">
+
+  <!-- Dark mode initialization (before body renders to prevent flash) -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      // Add a class to indicate theme is ready
+      document.documentElement.classList.add('theme-loaded');
+    })();
+  </script>
+  
+  <!-- Prevent flash of unstyled content -->
+  <style>
+    /* Hide body until theme is set */
+    body { 
+      visibility: hidden; 
+    }
+    html.theme-loaded body { 
+      visibility: visible; 
+    }
+  </style>
 </head>

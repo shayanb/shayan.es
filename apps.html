@@ -74,7 +74,7 @@ permalink: /apps/
 
     {% if other_apps.size > 0 %}
     <div class="other-apps-section">
-      <h2>Other Projects</h2>
+      <h2>Other Apps</h2>
       <div class="apps-list">
         {% for app in other_apps %}
         <div class="app-item">
@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="modal-left modal-content-second">
             <div class="modal-header">
               ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
+              <div class="modal-text-content">
                 <h2>${app.name}</h2>
                 <p class="modal-platform">${app.platform} • ${app.year}</p>
               </div>

@@ -325,8 +325,8 @@ Feel free to explore the console for more surprises...
   const themeToggle = document.querySelector('.theme-toggle');
   const body = document.body;
   
-  // Check for saved theme preference or default to light mode
-  const currentTheme = localStorage.getItem('theme') || 'light';
+  // Theme is already set on documentElement in head.html, sync with body
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
   body.setAttribute('data-theme', currentTheme);
 
   if (themeToggle) {
@@ -334,6 +334,8 @@ Feel free to explore the console for more surprises...
       const currentTheme = body.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       
+      // Set theme on both documentElement and body
+      document.documentElement.setAttribute('data-theme', newTheme);
       body.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
