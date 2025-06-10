@@ -2,24 +2,50 @@
 # role: judge, mentor, hacker
 # For hacker role, include project details and awards
 
-- name: "ETHGlobal San Francisco 2024"
-  date: "October 2024"
-  location: "San Francisco, CA"
-  role: "judge"
-  description: "Judged blockchain and Web3 projects"
 
-- name: "HackMIT 2023"
-  date: "September 2023"
-  location: "Cambridge, MA"
-  role: "mentor"
-  description: "Mentored teams on security best practices"
-
-- name: "ETHDenver 2023"
-  date: "February 2023"
-  location: "Denver, CO"
+- name: "Agentic Ethereum"
+  date: "February 2025"
+  location: "EthGlobal"
   role: "hacker"
-  project_name: "DeFi Security Scanner"
-  project_link: "https://github.com/example/defi-scanner"
-  tech_stack: ["Solidity", "React", "Node.js"]
-  awards: ["Best Security Tool", "Sponsor Prize - Chainlink"]
-  description: "Built an automated security scanner for DeFi protocols"
+  project_name: "AiVS"
+  project_link: "https://ethglobal.com/showcase/aivs-o2t7f"
+  tech_stack: ["Solidity", "CDP AgentKit", "Python"]
+  awards: ["Coinbase Developer Platform", "Gaia and Collab.Land", EigenLayer - Eigen Agents"]
+  description: "A multi AI Agent framework that utilizes EigenLayer AVS for a distributed justice system"
+
+
+- name: "ETHGlobal Bangkok"
+  date: "November 2024"
+  location: "Bangkok, TH"
+  role: "mentor"
+
+- name: "ETHGlobal Istanbul"
+  date: "November 2023"
+  location: "Istanbul, TR"
+  role: "mentor"
+
+- name: "ETHGlobal New York"
+  date: "September 2023"
+  location: "New York, US"
+  role: "mentor"
+
+- name: "ETHGlobal Lisbon"
+  date: "May 2023"
+  location: "Lisbon, PT"
+  role: "mentor"
+
+- name: "Cafe New York"
+  date: "September 2023"
+  location: "New York, US"
+  role: "mentor"
+
+
+- name: "OSC RegHackTO"
+  date: "November 2016"
+  location: "Toronto, CA"
+  role: "hacker"
+  project_name: "KeyStamp"
+  project_link: "https://www.youtube.com/watch?v=DfhJWgULsm0"
+  tech_stack: ["Cryptography", "Python", "Bitcoin"]
+  awards: ["1st Prize"]
+  description: "An open-source Proof-of-Compliance standard on the blockchain"

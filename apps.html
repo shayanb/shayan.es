@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
       screenshotsHtml = `
         <div class="screenshot-gallery">
           <div class="screenshot-container">
-            <img src="${app.screenshots[0]}" alt="${app.name} screenshot" class="screenshot-main" id="main-screenshot">
+            <img src="${app.screenshots[0]}" alt="${app.name} screenshot" class="screenshot-main" id="main-screenshot" style="cursor: pointer;" onclick="openScreenshotFullscreen()">
             <button class="screenshot-enlarge" data-action="enlarge" aria-label="Enlarge screenshot">
               <i class="fa fa-expand"></i>
             </button>

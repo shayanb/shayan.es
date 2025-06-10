@@ -372,7 +372,6 @@
               align-items: center;
               justify-content: center;
               z-index: 2;
-              opacity: 0;
               backdrop-filter: blur(4px);
               box-shadow: 0 2px 8px rgba($black, 0.15);
 
@@ -395,9 +394,6 @@
               }
             }
 
-            &:hover .screenshot-nav {
-              opacity: 1;
-            }
             
             .screenshot-enlarge {
               position: absolute;
@@ -416,7 +412,6 @@
               transition: all 0.3s ease;
               font-size: 14px;
               z-index: 10;
-              opacity: 0;
               
               &:hover {
                 background: rgba(0, 0, 0, 0.9);
@@ -426,10 +421,6 @@
               i {
                 pointer-events: none;
               }
-            }
-            
-            &:hover .screenshot-enlarge {
-              opacity: 1;
             }
 
             .screenshot-indicator {
@@ -579,6 +570,11 @@
 // Projects Page Modal Styles
 .projects-page {
   #project-modal {
+    .modal-content {
+      max-width: 1000px;
+      padding: 0;
+    }
+
     .modal-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -656,8 +652,8 @@
               background: rgba($white, 0.9);
               border: none;
               color: $gray-700;
-              width: 32px;
-              height: 32px;
+              width: 36px;
+              height: 36px;
               border-radius: 6px;
               cursor: pointer;
               transition: all 0.3s ease;
@@ -665,7 +661,6 @@
               align-items: center;
               justify-content: center;
               z-index: 2;
-              opacity: 0;
               backdrop-filter: blur(4px);
               box-shadow: 0 2px 8px rgba($black, 0.15);
 
@@ -676,20 +671,59 @@
               }
 
               &.prev {
-                left: 6px;
+                left: 8px;
               }
 
               &.next {
-                right: 6px;
+                right: 8px;
               }
 
               i {
-                font-size: 0.75rem;
+                font-size: 0.875rem;
               }
             }
 
-            &:hover .screenshot-nav {
-              opacity: 1;
+            
+            .screenshot-enlarge {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              background: rgba(0, 0, 0, 0.7);
+              color: white;
+              border: none;
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              font-size: 14px;
+              z-index: 10;
+              
+              &:hover {
+                background: rgba(0, 0, 0, 0.9);
+                transform: scale(1.1);
+              }
+              
+              i {
+                pointer-events: none;
+              }
+            }
+
+            .screenshot-indicator {
+              position: absolute;
+              bottom: 10px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: rgba($black, 0.8);
+              color: $white;
+              padding: 0.25rem 0.75rem;
+              border-radius: 15px;
+              font-size: 0.875rem;
+              font-weight: 500;
+              z-index: 2;
             }
           }
 

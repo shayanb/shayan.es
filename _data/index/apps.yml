@@ -2,7 +2,7 @@
 # Real projects by Shayan
 
 - name: "PadSnap"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/apps/padsnap-logo.png"
   short_description: "Image Resize & Padding Tool 🎞️ 📸"
   description: "An intuitive web application for resizing and adding padding to images. Perfect for social media content creators, designers, and anyone who needs to quickly adjust image dimensions while maintaining aspect ratios."
@@ -15,7 +15,7 @@
     - "/img/apps/padsnap-screenshot-2.png"
 
 - name: "ethduties"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/apps/ethduties-logo.png"
   short_description: "Ethereum Validator Duties Tracker"
   description: "A comprehensive tracking tool for Ethereum validators to monitor their duties, performance, and rewards. Helps validators stay on top of their validation responsibilities and track their staking performance."
@@ -32,7 +32,7 @@
     - "/img/apps/ethduties-screenshot-5.png"
 
 - name: "EtherTrip"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/apps/ethertrip-logo.png"
   short_description: "Psychedelic Ethereum Galaxy Visualizer"
   description: "An interactive and mesmerizing visualization of the Ethereum blockchain that transforms transaction data into a beautiful, psychedelic galaxy experience. Explore the blockchain like never before with this artistic interpretation of network activity."
@@ -49,7 +49,7 @@
 
 
 - name: "FocalFlow"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/placeholder-logo.png"
   short_description: "Create mesmerizing animations with stationary focal points or something else"
   description: "FocalFlow is a browser-based creative tool that empowers artists and photographers to create unique animations from photo series."
@@ -64,7 +64,7 @@
 
 
 - name: "Ethereum Validator Calculator"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/apps/EIP-7251-calcualator-logo.png"
   short_description: "Staking Rewards Calculator (Pectra Edition)"
   description: "Calculate potential staking rewards for Ethereum validators with the latest Pectra upgrade (EIP-7251: Increased MAX_EFFECTIVE_BALANCE). This tool helps validators and potential stakers understand their expected returns and optimize their staking strategies."
@@ -79,7 +79,7 @@
     - "/img/apps/EIP-7251-calcualator-screenshot-3.png"
 
 - name: "Life Timeline Creator"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/apps/lifetimeline-logo.png"
   short_description: "Interactive Timeline Visualization Tool"
   description: "An interactive web application that allows users to create, customize, and visualize timelines for projects, historical events, or personal milestones. Features drag-and-drop functionality and multiple viewing modes."
@@ -105,9 +105,10 @@
   screenshots:
     - "/img/apps/shiryakhat-screenshot-1.png"
     - "/img/apps/shiryakhat-screenshot-2.png"
+    - "/img/apps/shiryakhat-screenshot-3.png"
 
 - name: "Pangana"
-  platform: "Web"
+  platform: "Website"
   logo: "/img/apps/pangana-logo.png"
   short_description: "Web3 Security Consulting & Blockchain Architecture"
   description: "Technology and consulting company bridging ancient Persian wisdom with modern blockchain security. Specializing in Web3 security consulting, smart contract audits, blockchain architecture design, and professional training services."
@@ -118,36 +119,37 @@
   screenshots:
     - "/img/apps/pangana-screenshot-1.png"
     - "/img/apps/pangana-screenshot-2.png"
+    - "/img/apps/pangana-screenshot-3.png"
 
 - name: "The Creed"
-  platform: "Web"
-  logo: "/img/apps/thecreed-logo.png"
+  platform: "Website"
+  logo: "/img/companies/creed-logo.svg"
   short_description: "Web3 Cybersecurity DAO Platform"
   description: "A community-driven platform for Web3 cybersecurity professionals. The Creed DAO connects vetted security hackers with bug bounty opportunities and security audit services, fostering flexible work arrangements and long-term incentive alignment."
   website: "https://thecreed.xyz"
-  year: 2023
+  year: 2025
   featured: false
   tags: ["Security", "DAO", "Web3", "Community"]
-  screenshots:
-    - "/img/apps/thecreed-screenshot-1.png"
-    - "/img/apps/thecreed-screenshot-2.png"
+  # screenshots: # TODO
+  #   - "/img/apps/thecreed-screenshot-1.png"
+  #   - "/img/apps/thecreed-screenshot-2.png"
 
-- name: "RoofSlapper (Dona Roof Slapper V2)"
-  platform: "Web"
+- name: "Jay Pegs Auto Mart RoofSlapper"
+  platform: "WebApp"
   logo: "/img/apps/roofslapper-logo.png"
   short_description: "Instant Retro UI for Smart Contract Interactions"
-  description: "RoofSlapper (also known as eth95) is an instant retro UI for calling any contract function you want. Easy to use interface for car dealerships and Jaypegs Automart Sedona owners. Features multiple roof slaps for multiple Donas, ability to roof slap a random Dona, and general Ethereum smart contract interaction capabilities with proxy support."
-  website: "https://eth95.dev"
+  description: "Easy to use interface Jaypegs Automart Sedona NFT owners. Features multiple roof slaps for multiple Donas, ability to roof slap a random Dona, and general Ethereum smart contract interaction capabilities with proxy support."
+  website: "https://donaroofslapper.netlify.app/"
   github: "https://github.com/shayanb/roofSlapper"
   year: 2021
   featured: false
-  tags: ["Ethereum", "Smart Contracts", "Interactive", "Web3", "Developer Tools"]
+  tags: ["Ethereum", "Smart Contracts", "roofslap", "Web3", "jaypegs automart"]
   screenshots:
-    - "/img/apps/roofslapper-screenshot-1.png"
-    - "/img/apps/roofslapper-screenshot-2.png"
+    - "/img/apps/sedonaRoofSlapper-screenshot.png"
+  logo: "/img/apps/sedonaRoofSlapper-logo.jpg"
 
 - name: "Auctionify"
-  platform: "Web"
+  platform: "WebApp"
   logo: "/img/apps/auctionify.svg"
   short_description: "Decentralized Ethereum Auction Platform"
   description: "A decentralized stand-alone platform that facilitates Ethereum blockchain as a fair auctioning and payment infrastructure. Features customizable auction creation, automated bidding and refunds, and a user-friendly interface designed for non-technical users."
@@ -159,3 +161,15 @@
   # screenshots:
   #   - "/img/apps/auctionify-screenshot-1.png"
   #   - "/img/apps/auctionify-screenshot-2.png"
+
+
+- name: "Tehran Traffic"
+  platform: "iOS"
+  short_description: "Tehran Traffic displays the traffic flow of Tehran's streets, Find the best route and don't get stuck in the traffic."
+  description: "Tehran Traffic displays the traffic flow of Tehran's streets, Find the best route and don't get stuck in the traffic. Optimized for slow internet connections such that it's really easy to use with GPRS or 3G internet connections."
+  year: 2010
+  featured: false
+  tags: ["iphone", "apple", "appstore", "tehran", "swift"]
+  screenshots:
+    - "/img/apps/tehrantraffic-screenshot-1.jpg"
+  logo: "/img/apps/tehrantraffic-logo.png"

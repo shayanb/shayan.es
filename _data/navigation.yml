@@ -12,7 +12,18 @@
   url: "/career/"
   desktop: true
   hamburger: true
-  
+
+    
+- title: "Projects"
+  url: "/projects/"
+  desktop: true
+  hamburger: true
+
+- title: "Apps"
+  url: "/apps/"
+  desktop: true
+  hamburger: true
+
 - title: "Publications"
   url: "/publications/"
   desktop: true
@@ -37,17 +48,7 @@
     - title: "Conferences"
       url: "/talks/#conferences"
       
-- title: "Projects"
-  url: "/projects/"
-  desktop: true
-  hamburger: true
 
-- title: "Apps"
-  url: "/apps/"
-  desktop: true
-  hamburger: true
-
-      
 - title: "Art"
   url: "/art/"
   desktop: true

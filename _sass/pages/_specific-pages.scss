@@ -4,12 +4,12 @@
 .projects-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
   }
 
@@ -23,7 +23,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 400px; /* Ensure uniform card height */
+    min-height: 320px; /* Reduced from 400px */
 
     &::before {
       content: '';
@@ -63,50 +63,49 @@
     }
 
     .project-header {
-      padding: 2rem 2rem 1rem;
+      padding: 1.5rem 1.5rem 1rem;
       border-bottom: 1px solid $gray-100;
       display: flex;
       align-items: flex-start;
-      gap: 1.5rem;
+      gap: 1rem;
 
       .project-logo {
         flex-shrink: 0;
         
         .logo-image {
-          width: 60px;
-          height: 60px;
+          width: 50px;
+          height: 50px;
           object-fit: contain;
           border-radius: $border-radius;
         }
       }
 
       .project-title-area {
-        margin-bottom: 1rem;
         flex: 1;
 
         h3 {
           color: $gray-900;
           margin: 0 0 0.5rem 0;
-          font-size: 1.25rem;
+          font-size: 1.125rem;
           line-height: 1.3;
         }
 
         .project-meta {
           display: flex;
-          gap: 1rem;
+          gap: 0.75rem;
           align-items: center;
           flex-wrap: wrap;
 
           .project-years {
             color: $gray-400;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             font-weight: 500;
           }
 
           .project-status {
             padding: 0.125rem 0.5rem;
             border-radius: $border-radius;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -128,56 +127,29 @@
           }
         }
       }
-
-      .project-links {
-        display: flex;
-        gap: 0.5rem;
-        justify-content: flex-end;
-
-        .project-link {
-          width: 35px;
-          height: 35px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: $gray-100;
-          color: $gray-600;
-          border-radius: $border-radius;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          position: relative;
-          z-index: 2; // Ensure links are above the clickable card
-
-          &:hover {
-            background: $secondary;
-            color: $white;
-            transform: scale(1.1);
-          }
-        }
-      }
     }
 
     .project-body {
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       flex: 1; /* Take up remaining space */
       display: flex;
       flex-direction: column;
 
       .project-description {
         color: $gray-600;
-        line-height: 1.6;
+        line-height: 1.5;
         margin-bottom: auto; /* Push media to bottom */
-        font-size: 0.9rem;
+        font-size: 0.875rem;
       }
 
       .project-media {
-        margin-top: 1rem;
-        padding-top: 1rem;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
         border-top: 1px solid $gray-100;
 
         .media-label {
           color: $gray-500;
-          font-size: 0.875rem;
+          font-size: 0.8rem;
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -190,19 +162,50 @@
     }
 
     .project-footer {
-      padding: 1rem 2rem 2rem;
+      padding: 1rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .project-links {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+
+        .project-link {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $gray-100;
+          color: $gray-600;
+          border-radius: $border-radius;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          z-index: 2; // Ensure links are above the clickable card
+          font-size: 0.875rem;
+
+          &:hover {
+            background: $secondary;
+            color: $white;
+            transform: scale(1.1);
+          }
+        }
+      }
 
       .view-details-btn {
         background: $primary;
         color: $white;
         border: none;
-        padding: 0.75rem 1.5rem;
+        padding: 0.625rem 1.25rem;
         border-radius: $border-radius;
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 500;
         width: 100%;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         position: relative;
         z-index: 2; // Ensure button is above the clickable card
 
@@ -250,6 +253,9 @@
         }
       }
       
+    }
+    
+    .project-footer {
       .project-links {
         .project-link {
           background: var(--surface-color);

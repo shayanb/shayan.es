@@ -32,18 +32,6 @@ permalink: /projects/
             {% endunless %}
           </div>
         </div>
-        <div class="project-links">
-          {% if project.github %}
-            <a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link" title="GitHub">
-              <i class="fa fa-github"></i>
-            </a>
-          {% endif %}
-          {% if project.website %}
-            <a href="{{ project.website }}" target="_blank" rel="noopener" class="project-link" title="Website">
-              <i class="fa fa-globe"></i>
-            </a>
-          {% endif %}
-        </div>
       </div>
       
       <div class="project-body">
@@ -57,6 +45,18 @@ permalink: /projects/
       </div>
       
       <div class="project-footer">
+        <div class="project-links">
+          {% if project.github %}
+            <a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+          {% endif %}
+          {% if project.website %}
+            <a href="{{ project.website }}" target="_blank" rel="noopener" class="project-link" title="Website">
+              <i class="fa fa-globe"></i>
+            </a>
+          {% endif %}
+        </div>
         <button class="view-details-btn" data-project="{{ project.name | slugify }}">
           View Details <i class="fa fa-arrow-right"></i>
         </button>
@@ -72,6 +72,29 @@ permalink: /projects/
     <span class="modal-close">&times;</span>
     <div class="modal-body">
       <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<!-- Screenshot Enlarge Modal -->
+<div id="project-screenshot-modal" class="screenshot-fullscreen-modal">
+  <div class="screenshot-fullscreen-content">
+    <button class="screenshot-fullscreen-close" aria-label="Close enlarged view">
+      <i class="fa fa-times"></i>
+    </button>
+    <div class="screenshot-fullscreen-container">
+      <img src="" alt="Enlarged screenshot" class="screenshot-fullscreen-img" id="fullscreen-project-screenshot">
+      <div class="screenshot-fullscreen-nav">
+        <button class="screenshot-fullscreen-nav-btn prev" data-direction="-1" style="display: none;">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="screenshot-fullscreen-nav-btn next" data-direction="1" style="display: none;">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="screenshot-fullscreen-indicator" style="display: none;">
+        <span class="current-screenshot-fullscreen">1</span> / <span class="total-screenshots-fullscreen">1</span>
+      </div>
     </div>
   </div>
 </div>
@@ -123,25 +146,22 @@ document.addEventListener('DOMContentLoaded', function() {
       screenshotsHtml = `
         <div class="screenshot-gallery">
           <div class="screenshot-container">
-            <img src="${project.screenshots[0]}" alt="${project.name} screenshot" class="screenshot-main" id="main-project-screenshot">
+            <img src="${project.screenshots[0]}" alt="${project.name} screenshot" class="screenshot-main" id="main-project-screenshot" style="cursor: pointer;" onclick="openProjectScreenshotFullscreen()">
+            <button class="screenshot-enlarge" data-action="enlarge" aria-label="Enlarge screenshot">
+              <i class="fa fa-expand"></i>
+            </button>
             ${project.screenshots.length > 1 ? `
-              <button class="screenshot-nav prev" onclick="changeProjectScreenshot(-1)">
+              <button class="screenshot-nav prev" data-direction="-1">
                 <i class="fa fa-chevron-left"></i>
               </button>
-              <button class="screenshot-nav next" onclick="changeProjectScreenshot(1)">
+              <button class="screenshot-nav next" data-direction="1">
                 <i class="fa fa-chevron-right"></i>
               </button>
+              <div class="screenshot-indicator">
+                <span class="current-screenshot">1</span> / <span class="total-screenshots">${project.screenshots.length}</span>
+              </div>
             ` : ''}
           </div>
-          ${project.screenshots.length > 1 ? `
-            <div class="screenshot-thumbnails">
-              ${project.screenshots.map((screenshot, index) => 
-                `<img src="${screenshot}" alt="${project.name} screenshot ${index + 1}" 
-                 class="screenshot-thumb ${index === 0 ? 'active' : ''}" 
-                 onclick="selectProjectScreenshot(${index})">`
-              ).join('')}
-            </div>
-          ` : ''}
         </div>
       `;
     }
@@ -159,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     modalBody.innerHTML = `
-      <div class="modal-layout">
+      <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
         <div class="modal-left">
           <div class="modal-header">
             ${project.logo ? `<div class="modal-logo"><img src="${project.logo}" alt="${project.name} logo" class="modal-logo-image"></div>` : ''}
@@ -182,9 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ${mediaHtml}
         </div>
         
-        <div class="modal-right">
-          ${screenshotsHtml}
-        </div>
+        ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
       </div>
     `;
 
@@ -194,6 +212,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize screenshot navigation
     window.currentProject = project;
     window.currentProjectScreenshotIndex = 0;
+    
+    // Add event listeners for screenshot navigation
+    const navButtons = modal.querySelectorAll('.screenshot-nav');
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const direction = parseInt(button.dataset.direction);
+        changeProjectScreenshot(direction);
+      });
+    });
+    
+    // Add event listener for screenshot enlarge
+    const enlargeBtn = modal.querySelector('.screenshot-enlarge');
+    if (enlargeBtn) {
+      enlargeBtn.addEventListener('click', () => {
+        openProjectScreenshotFullscreen();
+      });
+    }
   }
 
   // Project screenshot navigation functions
@@ -215,15 +250,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateProjectScreenshotDisplay() {
     const mainScreenshot = document.getElementById('main-project-screenshot');
-    const thumbnails = document.querySelectorAll('.screenshot-thumb');
+    const currentIndicator = document.querySelector('.current-screenshot');
     
     if (mainScreenshot && window.currentProject.screenshots[window.currentProjectScreenshotIndex]) {
       mainScreenshot.src = window.currentProject.screenshots[window.currentProjectScreenshotIndex];
     }
     
-    thumbnails.forEach((thumb, index) => {
-      thumb.classList.toggle('active', index === window.currentProjectScreenshotIndex);
-    });
+    if (currentIndicator) {
+      currentIndicator.textContent = window.currentProjectScreenshotIndex + 1;
+    }
   }
 
   // Event listeners
@@ -269,6 +304,84 @@ document.addEventListener('DOMContentLoaded', function() {
   closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+  });
+  
+  // Screenshot fullscreen functionality
+  const projectScreenshotModal = document.getElementById('project-screenshot-modal');
+  const projectFullscreenClose = projectScreenshotModal.querySelector('.screenshot-fullscreen-close');
+  const projectFullscreenImg = document.getElementById('fullscreen-project-screenshot');
+  const projectFullscreenNavBtns = projectScreenshotModal.querySelectorAll('.screenshot-fullscreen-nav-btn');
+  const projectFullscreenIndicator = projectScreenshotModal.querySelector('.screenshot-fullscreen-indicator');
+  const currentProjectFullscreenIndicator = projectScreenshotModal.querySelector('.current-screenshot-fullscreen');
+  const totalProjectFullscreenIndicator = projectScreenshotModal.querySelector('.total-screenshots-fullscreen');
+  
+  window.openProjectScreenshotFullscreen = function() {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    const currentScreenshot = window.currentProject.screenshots[window.currentProjectScreenshotIndex];
+    projectFullscreenImg.src = currentScreenshot;
+    
+    // Setup navigation if multiple screenshots
+    if (window.currentProject.screenshots.length > 1) {
+      projectFullscreenNavBtns.forEach(btn => btn.style.display = 'block');
+      projectFullscreenIndicator.style.display = 'block';
+      totalProjectFullscreenIndicator.textContent = window.currentProject.screenshots.length;
+      updateProjectFullscreenIndicator();
+    } else {
+      projectFullscreenNavBtns.forEach(btn => btn.style.display = 'none');
+      projectFullscreenIndicator.style.display = 'none';
+    }
+    
+    projectScreenshotModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  
+  window.changeProjectFullscreenScreenshot = function(direction) {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    const screenshots = window.currentProject.screenshots;
+    window.currentProjectScreenshotIndex = (window.currentProjectScreenshotIndex + direction + screenshots.length) % screenshots.length;
+    
+    projectFullscreenImg.src = screenshots[window.currentProjectScreenshotIndex];
+    updateProjectFullscreenIndicator();
+    
+    // Also update the modal screenshot
+    updateProjectScreenshotDisplay();
+  };
+  
+  function updateProjectFullscreenIndicator() {
+    if (currentProjectFullscreenIndicator) {
+      currentProjectFullscreenIndicator.textContent = window.currentProjectScreenshotIndex + 1;
+    }
+  }
+  
+  // Event listeners for fullscreen modal
+  projectFullscreenClose.addEventListener('click', () => {
+    projectScreenshotModal.style.display = 'none';
+    document.body.style.overflow = 'hidden'; // Keep main modal open
+  });
+  
+  projectFullscreenNavBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const direction = parseInt(button.dataset.direction);
+      changeProjectFullscreenScreenshot(direction);
+    });
+  });
+  
+  // Close fullscreen modal on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectScreenshotModal.style.display === 'flex') {
+      projectScreenshotModal.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Keep main modal open
+    }
+  });
+  
+  // Close fullscreen modal on background click
+  projectScreenshotModal.addEventListener('click', (e) => {
+    if (e.target === projectScreenshotModal) {
+      projectScreenshotModal.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Keep main modal open
+    }
   });
 
   window.addEventListener('click', (e) => {
