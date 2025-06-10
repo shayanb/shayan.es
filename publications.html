@@ -10,6 +10,38 @@ permalink: /publications/
     <p class="page-subtitle">Research papers, reviews, and academic contributions</p>
   </div>
 
+  <!-- Academic Journey Timeline -->
+  <div class="academic-timeline">
+    <div class="timeline-container">
+      <div class="timeline-line">
+        <div class="timeline-progress"></div>
+      </div>
+      
+      {% assign sorted_education = site.data.index.education | reverse %}
+      {% for edu in sorted_education %}
+      <div class="timeline-milestone" data-year="{{ edu.date | split: ' - ' | first }}">
+        <div class="milestone-dot">
+          <div class="milestone-year">{{ edu.date | split: ' - ' | first }}</div>
+        </div>
+        <div class="milestone-content">
+          <div class="milestone-degree">
+            {% if edu.link %}
+              <a href="{{ edu.link }}" target="_blank" rel="noopener">
+                {{ edu.name | remove: ' <a href="https://x.com/sbetamc/status/1846955502749864078" target="_blank" <i class="fa fa-graduation-cap" aria-hidden="true" title="Graduation"></i></a>' }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ edu.name }}
+            {% endif %}
+          </div>
+          <div class="milestone-period">{{ edu.date }}</div>
+          <div class="milestone-description">{{ edu.descr }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
   <div class="publications-stats">
     <div class="stat-item">
       <span class="stat-number">{{ site.data.index.publications | size }}</span>
@@ -29,6 +61,12 @@ permalink: /publications/
         <span class="stat-label">Citations <i class="fa fa-external-link"></i></span>
       </a>
     </div>
+  </div>
+
+  <!-- Publications Section Header -->
+  <div class="publications-section-header">
+    <h2>Publications</h2>
+    <div class="section-divider"></div>
   </div>
 
   <div class="publications-filters">
@@ -252,6 +290,58 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+
+  // Add smooth scroll to stats when timeline milestone is clicked
+  const milestones = document.querySelectorAll('.milestone-dot');
+  milestones.forEach(milestone => {
+    milestone.addEventListener('click', () => {
+      const statsSection = document.querySelector('.publications-stats');
+      if (statsSection) {
+        statsSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    });
+  });
+
+  // Page load animation for timeline
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const timeline = entry.target;
+        
+        // Animate progress bar (desktop only)
+        const progressBar = timeline.querySelector('.timeline-progress');
+        if (progressBar && window.innerWidth > 768) {
+          progressBar.style.animation = 'progressAnimation 2s ease-in-out forwards';
+        }
+        
+        // Animate milestones with staggered delay
+        const milestones = timeline.querySelectorAll('.timeline-milestone');
+        milestones.forEach((milestone, index) => {
+          milestone.style.opacity = '0';
+          milestone.style.transform = window.innerWidth > 768 ? 'translateY(30px)' : 'translateY(20px)';
+          
+          setTimeout(() => {
+            milestone.style.transition = 'all 0.6s ease-out';
+            milestone.style.opacity = '1';
+            milestone.style.transform = 'translateY(0)';
+          }, (index + 1) * 300);
+        });
+        
+        // Disconnect observer after first animation
+        timelineObserver.unobserve(timeline);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Observe the timeline
+  const academicTimeline = document.querySelector('.academic-timeline');
+  if (academicTimeline) {
+    timelineObserver.observe(academicTimeline);
+  }
 });
 </script>
 
@@ -877,5 +967,373 @@ document.addEventListener('DOMContentLoaded', function() {
   .review-title {
     font-size: 0.95rem;
   }
+}
+
+/* Academic Timeline Styles */
+.academic-timeline {
+  margin: 3rem 0;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.academic-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  min-height: 350px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 80px;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: #e9ecef;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.timeline-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+  border-radius: 2px;
+  width: 0%;
+  transition: all 0.3s ease;
+}
+
+.timeline-milestone {
+  position: absolute;
+  top: 40px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Position milestones along the timeline */
+.timeline-milestone:nth-child(2) { 
+  left: 5%;
+  transform: translateX(-50%);
+}
+.timeline-milestone:nth-child(3) { 
+  left: 50%;
+  transform: translateX(-50%);
+}
+.timeline-milestone:nth-child(4) { 
+  left: 95%;
+  transform: translateX(-50%);
+}
+
+.milestone-dot {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff6b35 0%, #1e3a5f 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid white;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+  position: relative;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.milestone-dot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+}
+
+.milestone-year {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.milestone-content {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 280px;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.milestone-content:hover {
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #ff6b35;
+}
+
+
+.milestone-degree {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.milestone-degree a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.milestone-degree a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.milestone-degree a i {
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+  opacity: 0.7;
+}
+
+.milestone-period {
+  font-size: 0.9rem;
+  color: #ff6b35;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.milestone-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .academic-timeline {
+    margin: 2rem 0;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .timeline-container {
+    padding: 1rem 0;
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+  }
+  
+  .timeline-line {
+    display: none;
+  }
+  
+  .timeline-progress {
+    display: none;
+  }
+  
+  .timeline-milestone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-milestone:nth-child(2),
+  .timeline-milestone:nth-child(3),
+  .timeline-milestone:nth-child(4) {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .milestone-dot {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .milestone-year {
+    font-size: 0.9rem;
+  }
+  
+  .milestone-content {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    left: auto;
+    transform: none;
+    padding: 1.5rem;
+  }
+  
+  .timeline-milestone:nth-child(3) .milestone-content {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .academic-timeline {
+    padding: 1rem 0.25rem;
+  }
+  
+  .timeline-container {
+    gap: 1.5rem;
+  }
+  
+  .milestone-content {
+    padding: 1rem;
+    max-width: 280px;
+  }
+  
+  .milestone-degree {
+    font-size: 1rem;
+  }
+  
+  .milestone-period {
+    font-size: 0.8rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.85rem;
+  }
+  
+  .milestone-dot {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .milestone-year {
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .academic-timeline {
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--card-color) 100%);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .timeline-line {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .milestone-content {
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .milestone-degree {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .milestone-degree a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .milestone-degree a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .milestone-description {
+  color: var(--text-muted);
+}
+
+/* Loading Animation Enhancement */
+.academic-timeline {
+  animation: timelineSlideIn 0.8s ease-out;
+}
+
+@keyframes timelineSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Publications Section Header */
+.publications-section-header {
+  margin: 3rem 0 2rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.publications-section-header h2 {
+  color: #1e3a5f;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.publications-section-header .section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Dark Mode Support for Publications Section Header */
+[data-theme="dark"] .publications-section-header h2 {
+  color: var(--text-color);
 }
 </style>

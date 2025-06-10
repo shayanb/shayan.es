@@ -578,36 +578,52 @@
     .modal-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 400px;
+      min-height: 500px;
 
       .modal-left {
         padding: 2rem;
-        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         .modal-header {
-          display: flex;
-          align-items: flex-start;
-          gap: 1rem;
           margin-bottom: 1.5rem;
 
-          .modal-logo {
-            flex-shrink: 0;
-            
-            .modal-logo-image {
-              width: 80px;
-              height: 80px;
-              object-fit: contain;
-              border-radius: $border-radius;
-            }
+          &:has(.modal-logo) {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
           }
 
-          .modal-title-area {
-            flex: 1;
-            
-            h2 {
-              margin: 0 0 0.5rem 0;
-              color: $primary;
-            }
+          .modal-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: $border-radius;
           }
+
+          h2 {
+            margin: 0 0 0.5rem 0;
+            color: $primary;
+          }
+
+          .modal-platform {
+            color: var(--text-muted);
+            margin: 0;
+          }
+        }
+
+        .modal-description {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          flex-grow: 1;
+        }
+
+        .modal-links {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
         }
       }
 
@@ -618,17 +634,31 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 1rem;
+        gap: 2rem;
+
+        .modal-logo-container {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+
+          .modal-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: $border-radius;
+            box-shadow: $shadow-md;
+          }
+        }
 
         .screenshot-gallery {
           width: 100%;
-          max-width: 300px;
+          max-width: 400px;
 
           .screenshot-container {
             position: relative;
             margin-bottom: 1rem;
             width: 100%;
-            height: 300px;
+            height: 400px;
             background: $gray-100;
             border-radius: $border-radius;
             overflow: hidden;
@@ -683,7 +713,6 @@
               }
             }
 
-            
             .screenshot-enlarge {
               position: absolute;
               top: 10px;
