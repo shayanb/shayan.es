@@ -93,7 +93,7 @@
     - "/img/apps/lifetimeline-screenshot-2.png"
     - "/img/apps/lifetimeline-screenshot-3.png"
 
-- name: "Shir Ya Khat"
+- name: "ShirYaKhat"
   platform: "Website"
   logo: "/img/apps/shiryakhat-logo.png"
   short_description: "Persian Blockchain Podcast & Educational Platform"

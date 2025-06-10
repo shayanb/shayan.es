@@ -133,10 +133,10 @@ permalink: /apps/
       <div class="screenshot-fullscreen-container">
         <img src="" alt="Enlarged screenshot" class="screenshot-fullscreen-img" id="fullscreen-screenshot">
         <div class="screenshot-fullscreen-nav">
-          <button class="screenshot-nav prev" data-direction="-1" style="display: none;">
+          <button class="screenshot-fullscreen-nav-btn prev" data-direction="-1" style="display: none;">
             <i class="fa fa-chevron-left"></i>
           </button>
-          <button class="screenshot-nav next" data-direction="1" style="display: none;">
+          <button class="screenshot-fullscreen-nav-btn next" data-direction="1" style="display: none;">
             <i class="fa fa-chevron-right"></i>
           </button>
         </div>
@@ -217,25 +217,52 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
-    modalBody.innerHTML = `
-      <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
-        <div class="modal-left">
-          <div class="modal-header">
-            ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
-            <div class="modal-text-content">
-              <h2>${app.name}</h2>
-              <p class="modal-platform">${app.platform} • ${app.year}</p>
+    // Check if mobile to determine layout order
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile && screenshotsHtml) {
+      // Mobile layout: screenshots first, then content
+      modalBody.innerHTML = `
+        <div class="modal-layout mobile-layout">
+          <div class="modal-right modal-screenshots-first">
+            ${screenshotsHtml}
+          </div>
+          <div class="modal-left modal-content-second">
+            <div class="modal-header">
+              ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
+                <h2>${app.name}</h2>
+                <p class="modal-platform">${app.platform} • ${app.year}</p>
+              </div>
             </div>
+            
+            <p class="modal-description">${app.description}</p>
+            
+            ${linksHtml}
+          </div>
+        </div>
+      `;
+    } else {
+      // Desktop layout: content first, then screenshots
+      modalBody.innerHTML = `
+        <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
+          <div class="modal-left">
+            <div class="modal-header">
+              ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
+              <div class="modal-text-content">
+                <h2>${app.name}</h2>
+                <p class="modal-platform">${app.platform} • ${app.year}</p>
+              </div>
+            </div>
+            
+            <p class="modal-description">${app.description}</p>
+            
+            ${linksHtml}
           </div>
           
-          <p class="modal-description">${app.description}</p>
-          
-          ${linksHtml}
+          ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
         </div>
-        
-        ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
-      </div>
-    `;
+      `;
+    }
 
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -387,6 +414,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Handle window resize for mobile layout changes
+  window.addEventListener('resize', () => {
+    // If modal is open and we need to adjust layout
+    if (modal.style.display === 'block' && window.currentApp) {
+      const currentAppId = Object.keys(apps).find(id => apps[id] === window.currentApp);
+      if (currentAppId) {
+        showAppDetails(currentAppId);
+      }
     }
   });
 });

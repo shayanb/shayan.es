@@ -35,7 +35,6 @@
   - "/img/projects/catena-screenshot-1.png"
   - "/img/projects/catena-screenshot-2.png"
   - "/img/projects/catena-screenshot-3.png"
-
   media:
     - name: National Research Council Canada
       link: https://www.nrc-cnrc.gc.ca/eng/stories/2018/blockchains.html
@@ -141,7 +140,7 @@
   github: https://github.com/bitaccess
   year: 2015
   start_year: 2015
-  end_year: 2016
+  end_year: 2017
   status: completed
   logo:  "/img/projects/bitaccess-logo.png"
   screenshots:
@@ -155,4 +154,21 @@
       link: https://news.bitcoin.com/bitaccess-releases-instant-transactions-avoiding-block-waiting/
     - name: CoinDesk
       link: https://www.coindesk.com/press-releases/bitaccess-extends-instant-bitcoin-purchases-nearly-1000-locations-us/
+
+
+
+- name: Bitcoin Point of Sale (Cafe Aunja)
+  descr: Bitcoin Point of Sale - Customized for Cafe Aunja, Montreal. This was the first cafe in east Canada to accept Bitcoin for coffee. 
+  website: https://arxiv.org/abs/1802.04236
+  github: https://github.com/shayanb/Bitcoin-PoS-PHP
+  year: 2014
+  start_year: 2014
+  end_year: 2016
+  status: completed
+  screenshots:
+  - "/img/projects/bitcoinpos-screenshot-1.png"
+  - "/img/projects/bitcoinpos-screenshot-2.png"
+  media:
+    - name: CoinTelegraph
+      link: https://cointelegraph.com/news/new-bitcoin-merchants-and-businesses-the-grid-privatefly-flanders-university-ronald-mcdonald-house-and-more
 

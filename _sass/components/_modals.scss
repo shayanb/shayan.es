@@ -256,7 +256,7 @@
     position: relative;
     margin-bottom: 1rem;
     width: 100%;
-    height: 400px;
+    height: 350px;
     background: $gray-100;
     border-radius: $border-radius;
     overflow: hidden;
@@ -501,14 +501,27 @@
             .screenshot-container {
               .screenshot-nav {
                 &.prev {
-                  left: -15px;
+                  left: 5px;
                 }
 
                 &.next {
-                  right: -15px;
+                  right: 5px;
                 }
               }
             }
+          }
+        }
+        
+        // Mobile-specific layout: screenshots first
+        &.mobile-layout {
+          .modal-screenshots-first {
+            order: 1;
+            padding: 1rem 1.5rem;
+          }
+          
+          .modal-content-second {
+            order: 2;
+            padding: 0 1.5rem 1.5rem 1.5rem;
           }
         }
       }
@@ -768,9 +781,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.367);
-      color: rgba(8, 2, 2, 0.249);
-      border: 1px;
+      background: rgba(255, 255, 255, 0.9);
+      color: rgba(0, 0, 0, 0.8);
+      border: none;
       border-radius: 50%;
       width: 60px;
       height: 60px;
@@ -781,9 +794,11 @@
       transition: all 0.3s ease;
       font-size: 24px;
       backdrop-filter: blur(10px);
+      z-index: 10;
 
       &:hover {
-        background: rgba(9, 9, 9, 0.3);
+        background: rgba(255, 255, 255, 0.95);
+        color: $secondary;
         transform: translateY(-50%) scale(1.1);
       }
 
