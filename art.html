@@ -18,8 +18,8 @@ permalink: /art/
       {% for piece in site.data.index.art.video %}
       <div class="art-item video-art" data-art="video-{{ forloop.index }}">
         <div class="art-thumbnail">
-          {% if piece.mainimage %}
-            <img src="{{ piece.mainimage }}" alt="{{ piece.title }}" loading="lazy">
+          {% if piece.image %}
+            <img src="{{ piece.image }}" alt="{{ piece.title }}" loading="lazy">
             <div class="play-overlay">
               <i class="fa fa-play"></i>
             </div>
@@ -72,10 +72,50 @@ permalink: /art/
   {% endif %}
 
   <!-- Stickers & Swag Section -->
-  {% if site.data.index.art.swag and site.data.index.art.swag.size > 0 %}
+  {% assign has_stickers = false %}
+  {% if site.data.index.art.sticker.size > 0 %}
+    {% assign has_stickers = true %}
+  {% endif %}
+  {% assign has_swag = false %}
+  {% if site.data.index.art.swag.size > 0 %}
+    {% assign has_swag = true %}
+  {% endif %}
+  {% if has_stickers or has_swag %}
   <section class="art-section">
     <h2><i class="fa fa-tags"></i> Stickers & Swag</h2>
     <div class="art-grid">
+      
+      <!-- Stickers -->
+      {% for sticker in site.data.index.art.sticker %}
+      <div class="art-item sticker-art" data-art="sticker-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if sticker.images and sticker.images.size > 0 %}
+            <img src="{{ sticker.images[0] }}" alt="{{ sticker.title }}" loading="lazy">
+            {% if sticker.images.size > 1 %}
+            <div class="multiple-images-indicator">
+              <i class="fa fa-images"></i>
+              <span>{{ sticker.images.size }}</span>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-tags"></i>
+            </div>
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <h3>{{ sticker.title }}</h3>
+          <div class="swag-meta">
+            <span class="art-year">{{ sticker.year }}</span>
+            {% if sticker.category %}
+            <span class="swag-category">{{ sticker.category }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      <!-- Swag -->
       {% for piece in site.data.index.art.swag %}
       <div class="art-item swag-art" data-art="swag-{{ forloop.index }}">
         <div class="art-thumbnail">
@@ -104,12 +144,17 @@ permalink: /art/
         </div>
       </div>
       {% endfor %}
+      
     </div>
   </section>
   {% endif %}
 
   <!-- Empty State -->
-  {% unless site.data.index.art.video.size > 0 or site.data.index.art.physical.size > 0 or site.data.index.art.swag.size > 0 %}
+  {% assign has_any_art = false %}
+  {% if site.data.index.art.video.size > 0 or site.data.index.art.physical.size > 0 or site.data.index.art.sticker.size > 0 or site.data.index.art.swag.size > 0 %}
+    {% assign has_any_art = true %}
+  {% endif %}
+  {% unless has_any_art %}
   <div class="empty-state">
     <i class="fa fa-paint-brush"></i>
     <h3>Coming Soon</h3>
@@ -162,6 +207,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }{% unless forloop.last %},{% endunless %}
       {% endfor %}
     ],
+    sticker: [
+      {% for sticker in site.data.index.art.sticker %}
+      {
+        title: "{{ sticker.title | escape }}",
+        year: {{ sticker.year }},
+        description: {{ sticker.description | jsonify }},
+        images: [{% for img in sticker.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        category: "{{ sticker.category }}",
+        event: "{{ sticker.event }}",
+        type: "{{ sticker.type }}",
+        tag: "{{ sticker.tag }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
     swag: [
       {% for piece in site.data.index.art.swag %}
       {
@@ -204,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="art-description">${piece.description}</div>
         </div>
       `;
-    } else if (type === 'physical' || type === 'swag') {
+    } else if (type === 'physical' || type === 'swag' || type === 'sticker') {
       let galleryHtml = '';
       if (piece.images && piece.images.length > 0) {
         galleryHtml = `
@@ -242,6 +301,8 @@ document.addEventListener('DOMContentLoaded', function() {
             ${piece.dimensions ? `<span class="art-dimensions">${piece.dimensions}</span>` : ''}
             ${piece.category ? `<span class="art-category">${piece.category}</span>` : ''}
             ${piece.event ? `<span class="art-event">${piece.event}</span>` : ''}
+            ${piece.type ? `<span class="art-type">${piece.type}</span>` : ''}
+            ${piece.tag ? `<span class="art-tag">${piece.tag}</span>` : ''}
           </div>
         </div>
         
@@ -256,8 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
     
-    // Initialize image navigation for physical art and swag
-    if (type === 'physical' || type === 'swag') {
+    // Initialize image navigation for physical art, swag, and stickers
+    if (type === 'physical' || type === 'swag' || type === 'sticker') {
       window.currentArtPiece = piece;
       window.currentArtImageIndex = 0;
     }
@@ -301,15 +362,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  closeBtn.addEventListener('click', () => {
+  function closeModal() {
+    // Stop any playing videos by resetting iframe src
+    const videoIframes = modal.querySelectorAll('iframe');
+    videoIframes.forEach(iframe => {
+      const src = iframe.src;
+      iframe.src = '';
+      iframe.src = src; // Reset to stop playback
+    });
+    
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-  });
+  }
+
+  closeBtn.addEventListener('click', closeModal);
 
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+      closeModal();
     }
   });
 });
@@ -408,16 +478,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .multiple-images-indicator {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  color: #374151;
+  padding: 0.375rem 0.625rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.375rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.multiple-images-indicator:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
+}
+
+.multiple-images-indicator i {
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .art-info {
@@ -425,17 +511,63 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .art-info h3 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.75rem 0;
   color: #333;
   font-size: 1.125rem;
   font-weight: 600;
 }
 
-.art-year {
-  color: #ff6b35;
-  font-weight: 500;
-  font-size: 0.9rem;
+/* Grid card metadata styling */
+.swag-meta,
+.sticker-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
+
+.swag-meta span,
+.sticker-meta span {
+  position: relative;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.swag-meta .art-year,
+.sticker-meta .art-year {
+  background: linear-gradient(135deg, #64748b, #94a3b8) !important;
+  color: #f8fafc !important;
+  border-color: rgba(100, 116, 139, 0.2) !important;
+  box-shadow: 0 1px 3px rgba(100, 116, 139, 0.15) !important;
+}
+
+.swag-meta .swag-category,
+.swag-meta .sticker-category,
+.sticker-meta .swag-category,
+.sticker-meta .sticker-category {
+  background: linear-gradient(135deg, #6ee7b7, #a7f3d0) !important;
+  color: #065f46 !important;
+  border-color: rgba(110, 231, 183, 0.2) !important;
+  box-shadow: 0 1px 3px rgba(110, 231, 183, 0.15) !important;
+}
+
+.swag-meta .sticker-tag,
+.sticker-meta .sticker-tag {
+  background: linear-gradient(135deg, #fcd34d, #fde68a) !important;
+  color: #92400e !important;
+  border-color: rgba(252, 211, 77, 0.2) !important;
+  box-shadow: 0 1px 3px rgba(252, 211, 77, 0.15) !important;
+}
+
 
 .empty-state {
   text-align: center;
@@ -466,21 +598,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .art-meta {
   display: flex;
-  gap: 1rem;
+  gap: 0.375rem;
   flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+  line-height: 1.2;
+  max-width: 75%;
 }
 
 .art-meta span {
-  background: #f8f9fa;
-  padding: 0.25rem 0.75rem;
-  border-radius: 16px;
-  font-size: 0.875rem;
-  color: #666;
+  position: relative;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  width: fit-content;
+  display: inline-block;
+}
+
+.art-meta span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  z-index: -1;
 }
 
 .art-year {
-  background: #ff6b35 !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #64748b, #94a3b8) !important;
+  color: #f8fafc !important;
+  border-color: rgba(100, 116, 139, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(100, 116, 139, 0.15) !important;
 }
 
 .swag-meta {
@@ -490,22 +651,78 @@ document.addEventListener('DOMContentLoaded', function() {
   flex-wrap: wrap;
 }
 
-.swag-category {
-  background: #10b981 !important;
-  color: #fff !important;
-  padding: 0.25rem 0.75rem;
-  border-radius: 16px;
-  font-size: 0.875rem;
-}
-
+.swag-category,
 .art-category {
-  background: #10b981 !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #6ee7b7, #a7f3d0) !important;
+  color: #065f46 !important;
+  border-color: rgba(110, 231, 183, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(110, 231, 183, 0.15) !important;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
 }
 
 .art-event {
-  background: #3b82f6 !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #93c5fd, #bfdbfe) !important;
+  color: #1e3a8a !important;
+  border-color: rgba(147, 197, 253, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(147, 197, 253, 0.15) !important;
+}
+
+.art-type {
+  background: linear-gradient(135deg, #c4b5fd, #ddd6fe) !important;
+  color: #581c87 !important;
+  border-color: rgba(196, 181, 253, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(196, 181, 253, 0.15) !important;
+}
+
+.art-tag {
+  background: linear-gradient(135deg, #fcd34d, #fde68a) !important;
+  color: #92400e !important;
+  border-color: rgba(252, 211, 77, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(252, 211, 77, 0.15) !important;
+}
+
+.art-medium {
+  background: linear-gradient(135deg, #d1d5db, #e5e7eb) !important;
+  color: #374151 !important;
+  border-color: rgba(209, 213, 219, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(209, 213, 219, 0.15) !important;
+}
+
+.art-dimensions {
+  background: linear-gradient(135deg, #9ca3af, #d1d5db) !important;
+  color: #1f2937 !important;
+  border-color: rgba(156, 163, 175, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(156, 163, 175, 0.15) !important;
+}
+
+.art-duration {
+  background: linear-gradient(135deg, #fca5a5, #fecaca) !important;
+  color: #991b1b !important;
+  border-color: rgba(252, 165, 165, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(252, 165, 165, 0.15) !important;
+}
+
+/* Hover effects for metadata tags */
+.art-meta span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .art-meta span {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .art-meta span::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
 }
 
 .video-container {

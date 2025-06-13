@@ -1,0 +1,484 @@
+<a name="stickers"></a>
+<h1><span data-i18n="stickers.art_stickers"><u>Art & Stickers</u></span></h1>
+
+<div class="art-grid">
+{% for sticker in site.data.index.art.sticker %}
+    <div class="art-item sticker-art" data-art="sticker-{{ forloop.index }}">
+        <div class="art-thumbnail">
+            {% if sticker.images and sticker.images.size > 0 %}
+                <img src="{{ sticker.images[0] }}" alt="{{ sticker.title }}" loading="lazy">
+                {% if sticker.images.size > 1 %}
+                <div class="multiple-images-indicator">
+                    <i class="fa fa-images"></i>
+                    <span>{{ sticker.images.size }}</span>
+                </div>
+                {% endif %}
+            {% else %}
+                <div class="art-placeholder">
+                    <i class="fa fa-tags"></i>
+                </div>
+            {% endif %}
+        </div>
+        <div class="art-info">
+            <h3>{{ sticker.title }}</h3>
+            <div class="sticker-meta">
+                <span class="art-year">{{ sticker.year }}</span>
+                {% if sticker.category %}
+                <span class="sticker-category">{{ sticker.category }}</span>
+                {% endif %}
+                {% if sticker.tag %}
+                <span class="sticker-tag">{{ sticker.tag }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<!-- Sticker Modal -->
+<div id="sticker-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<style>
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.art-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.art-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.art-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.art-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.art-item:hover .art-thumbnail img {
+  transform: scale(1.05);
+}
+
+.art-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 3rem;
+}
+
+.multiple-images-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.art-info {
+  padding: 1.5rem;
+}
+
+.art-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.sticker-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.art-year {
+  background: #ff6b35;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.sticker-category {
+  background: #10b981;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+}
+
+.sticker-tag {
+  background: #3b82f6;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: #aaa;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.art-modal-header h2 {
+  margin: 0 0 1rem 0;
+  color: #1e3a5f;
+}
+
+.art-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.art-meta span {
+  background: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.art-category {
+  background: #10b981 !important;
+  color: #fff !important;
+}
+
+.art-event {
+  background: #3b82f6 !important;
+  color: #fff !important;
+}
+
+.image-gallery {
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.gallery-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.gallery-nav.prev {
+  left: 1rem;
+}
+
+.gallery-nav.next {
+  right: 1rem;
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.art-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.art-thumb.active,
+.art-thumb:hover {
+  opacity: 1;
+}
+
+.art-description {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .art-item {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .art-info h3 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-placeholder {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-content {
+  background: var(--card-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-meta span {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-description {
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .art-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 2% auto;
+    padding: 1rem;
+  }
+  
+  .art-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .image-thumbnails {
+    justify-content: center;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('sticker-modal');
+  const modalBody = modal.querySelector('.modal-body');
+  const closeBtn = modal.querySelector('.modal-close');
+  const stickerItems = document.querySelectorAll('.sticker-art');
+
+  // Sticker data
+  const stickerData = [
+    {% for sticker in site.data.index.art.sticker %}
+    {
+      title: "{{ sticker.title | escape }}",
+      year: {{ sticker.year }},
+      description: {{ sticker.description | jsonify }},
+      images: [{% for img in sticker.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+      category: "{{ sticker.category }}",
+      event: "{{ sticker.event }}",
+      type: "{{ sticker.type }}",
+      tag: "{{ sticker.tag }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  function showStickerDetails(stickerId) {
+    const index = parseInt(stickerId.split('-')[1]) - 1;
+    const sticker = stickerData[index];
+    if (!sticker) return;
+
+    let galleryHtml = '';
+    if (sticker.images && sticker.images.length > 0) {
+      galleryHtml = `
+        <div class="image-gallery">
+          <div class="main-image">
+            <img src="${sticker.images[0]}" alt="${sticker.title}" id="main-sticker-image">
+            ${sticker.images.length > 1 ? `
+              <button class="gallery-nav prev" onclick="changeStickerImage(-1)">
+                <i class="fa fa-chevron-left"></i>
+              </button>
+              <button class="gallery-nav next" onclick="changeStickerImage(1)">
+                <i class="fa fa-chevron-right"></i>
+              </button>
+            ` : ''}
+          </div>
+          ${sticker.images.length > 1 ? `
+            <div class="image-thumbnails">
+              ${sticker.images.map((img, index) => 
+                `<img src="${img}" alt="${sticker.title} ${index + 1}" 
+                 class="art-thumb ${index === 0 ? 'active' : ''}" 
+                 onclick="selectStickerImage(${index})">`
+              ).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+    
+    const contentHtml = `
+      <div class="art-modal-header">
+        <h2>${sticker.title}</h2>
+        <div class="art-meta">
+          <span class="art-year">${sticker.year}</span>
+          ${sticker.category ? `<span class="art-category">${sticker.category}</span>` : ''}
+          ${sticker.event ? `<span class="art-event">${sticker.event}</span>` : ''}
+          ${sticker.type ? `<span class="art-type">${sticker.type}</span>` : ''}
+          ${sticker.tag ? `<span class="art-tag">${sticker.tag}</span>` : ''}
+        </div>
+      </div>
+      
+      <div class="art-content">
+        ${galleryHtml}
+        <div class="art-description">${sticker.description}</div>
+      </div>
+    `;
+
+    modalBody.innerHTML = contentHtml;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    window.currentStickerPiece = sticker;
+    window.currentStickerImageIndex = 0;
+  }
+
+  // Image navigation functions
+  window.changeStickerImage = function(direction) {
+    if (!window.currentStickerPiece || !window.currentStickerPiece.images) return;
+    
+    const images = window.currentStickerPiece.images;
+    window.currentStickerImageIndex = (window.currentStickerImageIndex + direction + images.length) % images.length;
+    
+    updateStickerImageDisplay();
+  };
+
+  window.selectStickerImage = function(index) {
+    if (!window.currentStickerPiece || !window.currentStickerPiece.images) return;
+    
+    window.currentStickerImageIndex = index;
+    updateStickerImageDisplay();
+  };
+
+  function updateStickerImageDisplay() {
+    const mainImage = document.getElementById('main-sticker-image');
+    const thumbnails = document.querySelectorAll('.art-thumb');
+    
+    if (mainImage && window.currentStickerPiece.images[window.currentStickerImageIndex]) {
+      mainImage.src = window.currentStickerPiece.images[window.currentStickerImageIndex];
+    }
+    
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === window.currentStickerImageIndex);
+    });
+  }
+
+  // Event listeners
+  stickerItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const stickerId = item.dataset.art;
+      showStickerDetails(stickerId);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
+</script>
+
+<br><hr style="height:1px;border:none;color:#333;background-color:#333;" />

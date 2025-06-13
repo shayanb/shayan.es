@@ -6,17 +6,17 @@ video:
     year: 2016
     description: "Bitcoin is a digital money, meaning it's Digital, simple. It is based on 0 and 1s, as they say. A more efficient way of showing 0 and 1s is by using their hexadecimal representation a.k.a base 16. <br><br> All historical data of all Bitcoin transactions ever happened are stored in a big database called 'Blockchain', and that is because these hexadecimal numbers are grouped together in batches called 'block' and appended to the previous data on the database with a cryptographic method to prove the order and sanity, so basically a chain, a Blockchain. <br><br> Everyone running a Bitcoin full node, have a fully secure copy of this database. It’s just like torrent, when you download a linux image, you actually connect to some other computers and download the file from them, a peer to peer connection. So when you run Bitcoin software on your computer, It starts downloading that database and verify all the blocks, one by one, to make sure it’s a legit copy that everyone else have. <br> That is the basics of Bitcoin. <br><br> Transaction hash: <a href='https://www.blockchain.com/explorer/transactions/btc/7f2875779f2429ee76e50857c6407e56ecc5ba7b0c9cfb102a477e50072233fa' target='_blank'>7f2875779f2429ee76e50857c6407e56ecc5ba7b0c9cfb102a477e50072233fa</a>"
     video_url: "https://www.youtube.com/embed/mp7Y2YQyn_g"
-    mainimage: "/img/art/digital/bitcoin-transactions-image.png"
+    image: "/img/art/digital/bitcoin-transactions-image.png"
     duration: "2:39"
     medium: "Experimental"
     
-  - title: "Cryptographic Patterns"
-    year: 2023
-    description: "An animated visualization of hash functions and cryptographic algorithms, transforming mathematical concepts into flowing visual poetry."
-    video_url: "https://www.youtube.com/watch?v=mp7Y2YQyn_g"
-    screenshot: "/img/art/crypto-patterns-thumb.jpg"
-    duration: "2:18"
-    medium: "Digital animation"
+  - title: "The Heart of Diligence"
+    year: 2021
+    description: "An animated visualization dynamics between the people at the heart of Diligence, how they all work in concert - sometimes bumping into each other -  and merging conflicts. <br><br> [This is not a technical piece] <br><br> A big portion of code auditing is staring at the screen at someone else’s code, and asking yourself: 'Why did they do it this way? Is there something they know that I don’t know? Why is there nothing about this function in the documentation?'<br> If you are a lucky auditor, things start to make sense hours or days into the audit. Then you have to start writing up what you learned and what you found as risky behaviour (a.k.a. vulnerability). Then you move on to compiling all of them together in a representable manner into a report. <br><br> There is no easy way to estimate how much time you’ll need to be done with a code review. Is reading everything once enough? What if the code has integrated many yield-farming interest-bearing tokens with a double-sided market that incentives users for specific behaviour? How do you measure code auditing? Punch cards can’t do shower thoughts. <br><br> This video, simply, shows all the efforts the Diligence team members put into creating audit reports. Nothing on how much time they were reading the code, how much time they spent pair-auditing or in meetings discussing the ‘what ifs’. <br><br> To explain what this video is showing on a technical level, we commit all audit reports in a Git repository. The flashes in the video are commits and all the dots are a file in this giant hive. It’s beautiful to see the dynamics between the people at the heart of Diligence, how they all work in concert - sometimes bumping into each other -  and merging conflicts. <br><br> No Rolex was worn during creation of these 115 audit reports. <br>  Music by: <a href='https://open.spotify.com/artist/5oqnYMMKOfzOWNIiPhlzb3?dl_branch=1&nd=1' target='_blank'>Le Brute</a> <br><br> ConsenSys Diligence"
+    video_url: "https://www.youtube.com/embed/zBwf81Ahtew?si=V6QbDd4Xt45Z9eJk"
+    image: "/img/art/digital/the-heart-of-diligence.png"
+    duration: "5:07"
+    medium: "Code Evolution Visualization"
 
 physical:
   - title: "Digital Harmony"
@@ -83,6 +83,103 @@ physical:
       - "/img/art/metamorphosis.jpg"
     medium: "Recycled electronics and resin"
     dimensions: "12x8x6 inches"
+
+sticker:
+  - title: "Coin Iran Academy - DevConnect Istanbul"
+    year: 2023
+    description: "Conference stickers and magnets from DevConnect Istanbul event, featuring Coin Iran Academy branding and blockchain community themes."
+    images:
+      - "/img/art/stickers/coiniranacademy-devconnect-ist-01.jpeg"
+      - "/img/art/stickers/coiniranacademy-devconnectistanbul-magnet-01.jpeg"
+    category: "Conference Stickers"
+    event: "DevConnect Istanbul"
+    type: "sticker"
+    tag: "conference"
+
+  - title: "Creed CCard Collection"
+    year: 2024
+    description: "Creative card-style sticker designs for the Creed project, featuring modern typography and sleek branding elements."
+    images:
+      - "/img/art/stickers/creed-CCard-01.jpeg"
+      - "/img/art/stickers/creed-CCard-02.jpeg"
+    category: "Project Stickers"
+    type: "sticker"
+    tag: "branding"
+
+  - title: "Dili Event Stickers"
+    year: 2023
+    description: "Commemorative stickers for Dili events including 'Breaking Ethereum' and hackathon winner celebrations."
+    images:
+      - "/img/art/stickers/dili-breakingEthereum-01.jpeg"
+      - "/img/art/stickers/dili-hackthecode-hackathonwinner-01.jpeg"
+    category: "Event Stickers"
+    event: "Dili Hackathons"
+    type: "sticker"
+    tag: "hackathon"
+
+  - title: "ETH Merge - So Yesterday"
+    year: 2022
+    description: "Commemorative sticker celebrating the Ethereum merge, featuring retro-futuristic design elements."
+    images:
+      - "/img/art/stickers/eth-merge-soYesterday-01.jpeg"
+    category: "Commemorative Stickers"
+    event: "Ethereum Merge"
+    type: "sticker"
+    tag: "ethereum"
+
+  - title: "ETHCap - Maple Alien Collection"
+    year: 2024
+    description: "Quirky alien-themed sticker series for ETHCap, combining Canadian identity with extraterrestrial humor."
+    images:
+      - "/img/art/stickers/ethcap-canadianalien-01.jpeg"
+      - "/img/art/stickers/ethcap-canadianalien-02.jpeg"
+      - "/img/art/stickers/ethcap-canadianalien-03.jpeg"
+    category: "Character Stickers"
+    event: "ETHCap"
+    type: "sticker"
+    tag: "character"
+
+  - title: "Iran Unchained NFT Series"
+    year: 2023
+    description: "Sticker collection for Iran Unchained NFT project, including first series designs and project logo."
+    images:
+      - "/img/art/stickers/iranunchained-NFT1stseries-01.jpeg"
+      - "/img/art/stickers/iranunchained-NFT1stseries-02.jpeg"
+      - "/img/art/stickers/iranunchained-logo-01.jpeg"
+    category: "NFT Project Stickers"
+    type: "sticker"
+    tag: "nft"
+
+  - title: "Personal Philosophy Stickers"
+    year: 2024
+    description: "Collection of personal philosophy and life-themed stickers, including motivational and introspective designs."
+    images:
+      - "/img/art/stickers/me-BeKindCauseWEDIE-01.jpeg"
+      - "/img/art/stickers/me-PhD-myFriend-01.jpeg"
+      - "/img/art/stickers/me-truthNFT-01.jpeg"
+    category: "Personal Stickers"
+    type: "sticker"
+    tag: "philosophy"
+
+  - title: "Temporary Tattoo Designs"
+    year: 2024
+    description: "Artistic temporary tattoo designs featuring whimsical and satirical themes, from cute graphics to social commentary."
+    images:
+      - "/img/art/stickers/me-aCuteTempTattooHappy-tempTattoo-01.jpeg"
+      - "/img/art/stickers/me-theunicornridingmoneygoingtowar-temptattoo-01.jpeg"
+    category: "Temporary Tattoos"
+    type: "temp-tattoo"
+    tag: "body-art"
+
+  - title: "Puffer - Mainnet Launch"
+    year: 2024
+    description: "Commemorative sticker celebrating the Puffer protocol mainnet launch, featuring protocol branding and launch theme."
+    images:
+      - "/img/art/stickers/puffer-mainnetlaunch-01.jpeg"
+    category: "Protocol Launch Stickers"
+    event: "Puffer Mainnet Launch"
+    type: "sticker"
+    tag: "protocol"
 
 swag:
   - title: "ETHGlobal Hacker Pack"
