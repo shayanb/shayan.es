@@ -172,7 +172,8 @@ class CryptoSpaceInvaders {
                 width: 48,
                 height: 48,
                 protocol: protocol,
-                health: 1,
+                health: this.aggressiveProtocols.includes(protocol.name.toLowerCase()) ? 2 : 1,
+                maxHealth: this.aggressiveProtocols.includes(protocol.name.toLowerCase()) ? 2 : 1,
                 lastShot: 0,
                 aggressive: this.aggressiveProtocols.includes(protocol.name.toLowerCase()),
                 iconData: null
@@ -249,7 +250,7 @@ class CryptoSpaceInvaders {
     
     drawInvaders() {
         this.invaders.forEach(invader => {
-            // Draw the crypto icon if loaded, otherwise show placeholder
+            // Draw the crypto icon first
             if (invader.iconData) {
                 this.iconLoader.drawIcon(
                     this.ctx, 
@@ -275,11 +276,40 @@ class CryptoSpaceInvaders {
                 );
             }
             
-            // Aggressive indicator (red border)
-            if (invader.aggressive) {
-                this.ctx.strokeStyle = '#ff0000';
-                this.ctx.lineWidth = 3;
-                this.ctx.strokeRect(invader.x, invader.y, invader.width, invader.height);
+            // Draw protective shield for aggressive protocols with full health
+            if (invader.aggressive && invader.health === invader.maxHealth) {
+                this.ctx.save();
+                
+                const centerX = invader.x + invader.width / 2;
+                const centerY = invader.y + invader.height / 2;
+                const shieldRadius = invader.width / 2 + 8;
+                
+                // Create shield gradient
+                const gradient = this.ctx.createRadialGradient(
+                    centerX, centerY, shieldRadius - 6,
+                    centerX, centerY, shieldRadius + 2
+                );
+                gradient.addColorStop(0, 'rgba(255, 0, 0, 0)');
+                gradient.addColorStop(0.7, 'rgba(255, 0, 0, 0.3)');
+                gradient.addColorStop(0.9, 'rgba(255, 0, 0, 0.6)');
+                gradient.addColorStop(1, 'rgba(255, 0, 0, 0.8)');
+                
+                // Draw shield circle
+                this.ctx.beginPath();
+                this.ctx.arc(centerX, centerY, shieldRadius, 0, Math.PI * 2);
+                this.ctx.strokeStyle = gradient;
+                this.ctx.lineWidth = 4;
+                this.ctx.stroke();
+                
+                // Add shield energy effect with animation
+                const time = Date.now() * 0.005;
+                this.ctx.strokeStyle = `rgba(255, 100, 100, ${0.5 + Math.sin(time) * 0.3})`;
+                this.ctx.lineWidth = 2;
+                this.ctx.beginPath();
+                this.ctx.arc(centerX, centerY, shieldRadius - 2, 0, Math.PI * 2);
+                this.ctx.stroke();
+                
+                this.ctx.restore();
             }
         });
     }
@@ -545,11 +575,24 @@ class CryptoSpaceInvaders {
             
             this.invaders.forEach((invader, iIndex) => {
                 if (this.isColliding(projectile, invader)) {
-                    this.createExplosion(invader.x + invader.width / 2, invader.y + invader.height / 2);
-                    this.audioSystem.playExplosion();
-                    this.invaders.splice(iIndex, 1);
+                    // Remove projectile
                     this.projectiles.splice(pIndex, 1);
-                    this.score += 10;
+                    
+                    // Reduce invader health
+                    invader.health--;
+                    
+                    if (invader.health <= 0) {
+                        // Invader destroyed
+                        this.createExplosion(invader.x + invader.width / 2, invader.y + invader.height / 2);
+                        this.audioSystem.playExplosion();
+                        this.invaders.splice(iIndex, 1);
+                        this.score += invader.aggressive ? 20 : 10; // More points for aggressive protocols
+                    } else {
+                        // Invader hit but still alive (glow will disappear)
+                        this.audioSystem.playShoot(0); // Play a softer hit sound
+                        this.score += 5; // Partial points for hitting aggressive protocol
+                    }
+                    
                     this.updateUI();
                 }
             });

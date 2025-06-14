@@ -128,12 +128,11 @@ class GameAudio {
         this.createTone(300, 0.15, 'triangle', 0.1);
     }
 
-    // Game over sound - shorter retro calm ending
+    // Game over sound - very short ending
     playGameOver() {
         this.resume();
-        this.createTone(440, 0.3, 'sine', 0.2);
-        setTimeout(() => this.createTone(330, 0.3, 'sine', 0.15), 300);
-        setTimeout(() => this.createTone(220, 0.4, 'sine', 0.1), 600);
+        this.createTone(330, 0.2, 'sine', 0.15);
+        setTimeout(() => this.createTone(220, 0.3, 'sine', 0.1), 200);
     }
 
     // Wave complete sound
