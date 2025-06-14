@@ -15,6 +15,7 @@ class CryptoSpaceInvaders {
         this.wave = 1;
         this.weaponType = 0; // 0: arrow, 1: book, 2: tweet, 3: matrix
         this.weaponNames = ['Arrow', 'Book', 'Tweet', 'Matrix'];
+        this.weaponEmojis = ['→', '📖', '🐦', '⚡'];
         this.laserCount = 3; // Limited laser shots per game
         
         // Game objects
@@ -125,14 +126,43 @@ class CryptoSpaceInvaders {
         const protocols = [...this.cryptoData.protocols];
         const invaderCount = Math.min(this.settings.waveInvaderCount + this.wave, protocols.length);
         
-        // Shuffle protocols array
+        // Create a selection pool that limits repetition (max 2-3 per icon)
+        const selectedProtocols = [];
+        const usageCount = new Map();
+        const maxUsage = 3; // Maximum times an icon can be used
+        
+        // Shuffle protocols array first
         for (let i = protocols.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [protocols[i], protocols[j]] = [protocols[j], protocols[i]];
         }
         
-        for (let i = 0; i < invaderCount; i++) {
-            const protocol = protocols[i];
+        // Select protocols with limited repetition
+        for (const protocol of protocols) {
+            const currentUsage = usageCount.get(protocol.name) || 0;
+            if (currentUsage < maxUsage && selectedProtocols.length < invaderCount) {
+                selectedProtocols.push(protocol);
+                usageCount.set(protocol.name, currentUsage + 1);
+            }
+            if (selectedProtocols.length >= invaderCount) break;
+        }
+        
+        // If we need more invaders and haven't reached the limit, allow some repetition
+        while (selectedProtocols.length < invaderCount) {
+            for (const protocol of protocols) {
+                const currentUsage = usageCount.get(protocol.name) || 0;
+                if (currentUsage < maxUsage) {
+                    selectedProtocols.push(protocol);
+                    usageCount.set(protocol.name, currentUsage + 1);
+                    if (selectedProtocols.length >= invaderCount) break;
+                }
+            }
+            // Safety break to avoid infinite loop
+            if (selectedProtocols.length === 0) break;
+        }
+        
+        for (let i = 0; i < selectedProtocols.length; i++) {
+            const protocol = selectedProtocols[i];
             const col = i % 6;
             const row = Math.floor(i / 6);
             
@@ -596,7 +626,7 @@ class CryptoSpaceInvaders {
         document.getElementById('scoreValue').textContent = this.score;
         document.getElementById('livesValue').textContent = this.lives;
         document.getElementById('waveValue').textContent = this.wave;
-        document.getElementById('weaponValue').textContent = this.weaponNames[this.weaponType];
+        document.getElementById('weaponValue').textContent = this.weaponEmojis[this.weaponType];
         document.getElementById('laserValue').textContent = this.laserCount;
     }
     
