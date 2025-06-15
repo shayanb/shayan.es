@@ -18,6 +18,18 @@
       "Bash(touch:*)",
       "Bash(grep:*)",
       "WebFetch(domain:shiryakhat.net)"
+      "WebFetch(domain:shiryakhat.net)",
+      "WebFetch(domain:pangana.com)",
+      "WebFetch(domain:thecreed.xyz)",
+      "WebFetch(domain:auctionify.xyz)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:shayanb.github.io)",
+      "Bash(cp:*)",
+      "Bash(for file in *Meet C4*)",
+      "Bash(done)",
+      "Bash(python3:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }
