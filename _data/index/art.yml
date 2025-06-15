@@ -9,6 +9,7 @@ video:
     image: "/img/art/digital/bitcoin-transactions-image.png"
     duration: "2:39"
     medium: "Experimental"
+    tags: ["bitcoin", "blockchain", "visualization", "educational"]
     
   - title: "The Heart of Diligence"
     year: 2021
@@ -17,57 +18,9 @@ video:
     image: "/img/art/digital/the-heart-of-diligence.png"
     duration: "5:07"
     medium: "Code Evolution Visualization"
+    tags: ["git", "visualization", "code", "team", "collaboration"]
 
 physical:
-  - title: "Digital Harmony"
-    year: 2023
-    description: "A visual exploration of the intersection between digital and analog worlds, featuring fragments of circuit boards, vintage photographs, and hand-painted elements."
-    images:
-      - "/img/art/digital-harmony.jpg"
-    medium: "Mixed media on canvas"
-    dimensions: "24x36 inches"
-    
-  - title: "Blockchain Dreams"
-    year: 2022
-    description: "An abstract representation of distributed networks and cryptographic concepts, using geometric patterns and metallic accents."
-    images:
-      - "/img/art/blockchain-dreams.jpg"
-    medium: "Acrylic on canvas"
-    dimensions: "18x24 inches"
-    
-  - title: "Urban Perspectives"
-    year: 2023
-    description: "Exploring urban landscapes through analog photography"
-    images:
-      - "/img/art/urban-1.jpg"
-      - "/img/art/urban-2.jpg"
-      - "/img/art/urban-3.jpg"
-    medium: "35mm Film Photography"
-    
-  - title: "Digital Abstractions"
-    year: 2022
-    description: "Algorithmic art created with Processing and p5.js"
-    images:
-      - "/img/art/digital-1.jpg"
-      - "/img/art/digital-2.jpg"
-    medium: "Generative Art"
-    
-  - title: "Street Photography Collection"
-    year: 2021
-    description: "Candid moments captured in various cities"
-    images:
-      - "/img/art/street-1.jpg"
-      - "/img/art/street-2.jpg"
-    medium: "Digital & Film Photography"
-    
-  - title: "Urban Decay"
-    year: 2023
-    description: "A series exploring the contrast between technological progress and urban decay in modern cities."
-    images:
-      - "/img/art/urban-decay.jpg"
-    medium: "Film Photography (Kodak Tri-X 400)"
-    dimensions: "Series of 12"
-    
   - title: "Digital Landscapes"
     year: 2022
     description: "Analog photography of digital screens and interfaces, questioning the boundary between physical and virtual reality."
@@ -75,6 +28,7 @@ physical:
       - "/img/art/digital-landscapes.jpg"
     medium: "Film Photography (Fuji Pro 400H)"
     dimensions: "Series of 8"
+    tags: ["photography", "digital", "analog", "technology"]
     
   - title: "Metamorphosis"
     year: 2021
@@ -83,6 +37,26 @@ physical:
       - "/img/art/metamorphosis.jpg"
     medium: "Recycled electronics and resin"
     dimensions: "12x8x6 inches"
+    
+  - title: "A Technology known as 'Money'"
+    year: 2018
+    description: "An exploration of the intersection between technology and monetary systems, examining how digital currencies challenge traditional concepts of value and exchange."
+    images:
+      - "/img/art/physical/atechnologynamedmoney-march2018-01.JPG"
+      - "/img/art/physical/atechnologynamedmoney-march2018-02.JPG"
+    medium: "Mixed media"
+    tags: ["money", "technology", "crypto", "economics"]
+    
+  - title: "Smokey Skull"
+    year: 2020
+    description: "A mixed media artwork featuring layered textures and atmospheric effects, combining traditional and contemporary artistic techniques in a framed composition."
+    images:
+      - "/img/art/physical/smokey-skull-frame-mixedMediaArt-01.JPG"
+      - "/img/art/physical/smokey-skull-frame-mixedMediaArt-02.JPG"
+    medium: "Mixed media art"
+    dimensions: "24x36 inches"
+    tags: ["skull", "atmospheric", "texture", "mixed-media"]
+
 
 sticker:
   - title: "Coin Iran Academy - DevConnect Istanbul"
@@ -95,6 +69,8 @@ sticker:
     event: "DevConnect Istanbul"
     type: "sticker"
     tag: "conference"
+    tags: ["test", "coiniran"]
+
 
   - title: "Creed CCard Collection"
     year: 2024
