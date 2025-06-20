@@ -857,3 +857,9 @@ in the publications page, nav-sections:
 
 
 for projects, added logo and screenshot (a gif) for Legions project, but they are now showing. 
+
+
+
+=============== Many moons later ================
+
+

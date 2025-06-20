@@ -31,7 +31,7 @@
 - name: ConsenSys Diligence
   link: https://diligence.consensys.net/
   date: 2018 - 2021
-  job: Security Engineer & Auditor
+  job: Security Engineer & Senior Auditor
   logo: "/img/companies/consensys-diligence-logo.png"
   description: "Security engineer and lead auditor at ConsenSys Diligence, conducting smart contract security audits for major DeFi protocols and blockchain projects. Developed security tools including Legions, participated in bug bounty programs, and contributed to Ethereum security standards."
   technologies: ["Smart Contract Auditing", "Solidity", "Security Tools", "DeFi Protocols"]

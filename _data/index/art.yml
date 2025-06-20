@@ -21,22 +21,6 @@ video:
     tags: ["git", "visualization", "code", "team", "collaboration"]
 
 physical:
-  - title: "Digital Landscapes"
-    year: 2022
-    description: "Analog photography of digital screens and interfaces, questioning the boundary between physical and virtual reality."
-    images:
-      - "/img/art/digital-landscapes.jpg"
-    medium: "Film Photography (Fuji Pro 400H)"
-    dimensions: "Series of 8"
-    tags: ["photography", "digital", "analog", "technology"]
-    
-  - title: "Metamorphosis"
-    year: 2021
-    description: "A sculptural piece created from discarded computer components, representing the lifecycle of technology."
-    images:
-      - "/img/art/metamorphosis.jpg"
-    medium: "Recycled electronics and resin"
-    dimensions: "12x8x6 inches"
     
   - title: "A Technology known as 'Money'"
     year: 2018
@@ -57,7 +41,18 @@ physical:
     dimensions: "24x36 inches"
     tags: ["skull", "atmospheric", "texture", "mixed-media"]
 
-
+swag:
+  - title: "Diligence Juggling Balls"
+    year: 2019
+    description: "Branded juggling balls with Diligence colors, distributed at DevCon5 in Osaka, Japan. These balls symbolize the balance and skill required in code auditing, reflecting the playful yet serious nature of the work."
+    images:
+      - "/img/art/physical/diligence-juggling-balls-01.jpg"
+      - "/img/art/physical/diligence-juggling-balls-02.gif"
+      - "/img/art/ethglobal-bag.jpg"
+    category: "Swag"
+    event: "DevCon 5"
+    
+    
 sticker:
   - title: "Coin Iran Academy - DevConnect Istanbul"
     year: 2023
@@ -157,30 +152,4 @@ sticker:
     type: "sticker"
     tag: "protocol"
 
-swag:
-  - title: "ETHGlobal Hacker Pack"
-    year: 2024
-    description: "Custom sticker pack and merchandise designed for ETHGlobal hackathon participants. Features blockchain-themed designs and developer humor."
-    images:
-      - "/img/art/ethglobal-stickers.jpg"
-      - "/img/art/ethglobal-tshirt.jpg"
-      - "/img/art/ethglobal-bag.jpg"
-    category: "Stickers & Apparel"
-    event: "ETHGlobal Hackathons"
-    
-  - title: "Smart Contract Security Stickers"
-    year: 2023
-    description: "Educational sticker series illustrating common smart contract vulnerabilities and security best practices. Distributed at security conferences and workshops."
-    images:
-      - "/img/art/security-stickers-1.jpg"
-      - "/img/art/security-stickers-2.jpg"
-    category: "Educational Stickers"
-    event: "Security Conferences"
-    
-  - title: "Blockchain Developer Pins"
-    year: 2023
-    description: "Enamel pin collection celebrating different aspects of blockchain development - from consensus mechanisms to DeFi protocols."
-    images:
-      - "/img/art/dev-pins-collection.jpg"
-    category: "Enamel Pins"
-    event: "Developer Meetups"
+

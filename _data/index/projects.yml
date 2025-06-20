@@ -75,9 +75,6 @@
   year: 2023
   start_year: 2023
   status: completed
-  media:
-    - name: GitHub Repository
-      link: https://github.com/tintinweb/smart-contract-vulndb
 
 - name: DlAGRAMS
   descr: Draw.io Library for Blockchain, Cryptocurrency, and DeFi. A specialized icon library providing comprehensive blockchain diagramming tools including cryptocurrency icons, wallet symbols, and DeFi application assets. Compatible with Draw.io web and desktop versions, enabling easy URL-based or local file import for creating professional blockchain architecture diagrams.

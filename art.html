@@ -145,7 +145,65 @@ permalink: /art/
   <section class="art-section">
     <h2><i class="fa fa-tags"></i> Stickers & Swag</h2>
     <div class="art-grid">
+ 
       
+    <!-- Swag -->
+    {% for piece in site.data.index.art.swag %}
+    <div class="art-item swag-art" data-art="swag-{{ forloop.index }}">
+      <div class="art-thumbnail">
+        {% if piece.images and piece.images.size > 0 %}
+          <img src="{{ piece.images[0] }}" alt="{{ piece.title }}" loading="lazy">
+          {% if piece.images.size > 1 %}
+          <div class="multiple-images-indicator">
+            <div class="stacked-cards-icon">
+              <div class="card-back"></div>
+              <div class="card-front"></div>
+            </div>
+            <span>{{ piece.images.size }}</span>
+          </div>
+          {% endif %}
+        {% else %}
+          <div class="art-placeholder">
+            <i class="fa fa-tags"></i>
+          </div>
+        {% endif %}
+        {% if piece.tags and piece.tags.size > 0 %}
+        <div class="thumbnail-tags">
+          {% for tag in piece.tags limit:2 %}
+          <span class="thumbnail-tag">{{ tag }}</span>
+          {% endfor %}
+          {% if piece.tags.size > 2 %}
+          <span class="thumbnail-tag more">+{{ piece.tags.size | minus: 2 }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="art-info">
+        <div class="art-content">
+          <div class="art-header">
+            <h3>{{ piece.title }}</h3>
+            <div class="art-meta">
+              <span class="art-year">{{ piece.year }}</span>
+              {% if piece.category %}
+              <span class="art-category">{{ piece.category }}</span>
+              {% endif %}
+              {% if piece.event %}
+              <span class="art-event">{{ piece.event }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <!-- {% if piece.tags and piece.tags.size > 0 %}
+          <div class="art-tags">
+            {% for tag in piece.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %} -->
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
       <!-- Stickers -->
       {% for sticker in site.data.index.art.sticker %}
       <div class="art-item sticker-art" data-art="sticker-{{ forloop.index }}">
@@ -203,62 +261,6 @@ permalink: /art/
       </div>
       {% endfor %}
       
-      <!-- Swag -->
-      {% for piece in site.data.index.art.swag %}
-      <div class="art-item swag-art" data-art="swag-{{ forloop.index }}">
-        <div class="art-thumbnail">
-          {% if piece.images and piece.images.size > 0 %}
-            <img src="{{ piece.images[0] }}" alt="{{ piece.title }}" loading="lazy">
-            {% if piece.images.size > 1 %}
-            <div class="multiple-images-indicator">
-              <div class="stacked-cards-icon">
-                <div class="card-back"></div>
-                <div class="card-front"></div>
-              </div>
-              <span>{{ piece.images.size }}</span>
-            </div>
-            {% endif %}
-          {% else %}
-            <div class="art-placeholder">
-              <i class="fa fa-tags"></i>
-            </div>
-          {% endif %}
-          {% if piece.tags and piece.tags.size > 0 %}
-          <div class="thumbnail-tags">
-            {% for tag in piece.tags limit:2 %}
-            <span class="thumbnail-tag">{{ tag }}</span>
-            {% endfor %}
-            {% if piece.tags.size > 2 %}
-            <span class="thumbnail-tag more">+{{ piece.tags.size | minus: 2 }}</span>
-            {% endif %}
-          </div>
-          {% endif %}
-        </div>
-        <div class="art-info">
-          <div class="art-content">
-            <div class="art-header">
-              <h3>{{ piece.title }}</h3>
-              <div class="art-meta">
-                <span class="art-year">{{ piece.year }}</span>
-                {% if piece.category %}
-                <span class="art-category">{{ piece.category }}</span>
-                {% endif %}
-                {% if piece.event %}
-                <span class="art-event">{{ piece.event }}</span>
-                {% endif %}
-              </div>
-            </div>
-            <!-- {% if piece.tags and piece.tags.size > 0 %}
-            <div class="art-tags">
-              {% for tag in piece.tags %}
-              <span class="tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            {% endif %} -->
-          </div>
-        </div>
-      </div>
-      {% endfor %}
       
     </div>
   </section>
@@ -598,57 +600,25 @@ document.addEventListener('DOMContentLoaded', function() {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background: rgba(0, 0, 0, 0.4);
-  color: rgba(255, 255, 255, 0.9);
-  padding: 0.25rem 0.5rem;
-  border-radius: 16px;
-  font-size: 0.65rem;
-  font-weight: 500;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  color: #374151;
+  padding: 0.375rem 0.625rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  opacity: 0.8;
+  gap: 0.375rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
 .multiple-images-indicator:hover {
-  opacity: 1;
   transform: translateY(-1px);
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-}
-
-/* Light mode styles */
-@media (prefers-color-scheme: light) {
-  .multiple-images-indicator {
-    background: rgba(255, 255, 255, 0.75);
-    color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  }
-  
-  .multiple-images-indicator:hover {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .multiple-images-indicator {
-    background: rgba(0, 0, 0, 0.6);
-    color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  }
-  
-  .multiple-images-indicator:hover {
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  }
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
 }
 
 .multiple-images-indicator i {
@@ -659,77 +629,36 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Stacked cards icon */
 .stacked-cards-icon {
   position: relative;
-  width: 11px;
-  height: 9px;
-  margin-right: 3px;
-  opacity: 0.9;
+  width: 12px;
+  height: 10px;
+  margin-right: 2px;
 }
 
 .card-back,
 .card-front {
   position: absolute;
-  width: 9px;
-  height: 7px;
-  border-radius: 1.5px;
-  transition: all 0.3s ease;
+  width: 10px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Default (neutral) styles */
 .card-back {
   top: 0;
   left: 2px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 0.5px solid rgba(255, 255, 255, 0.8);
-  transform: rotate(4deg);
+  background: rgba(255, 255, 255, 0.7);
+  transform: rotate(3deg);
   z-index: 1;
 }
 
 .card-front {
   top: 2px;
   left: 0;
-  background: rgba(255, 255, 255, 0.85);
-  border: 0.5px solid rgba(255, 255, 255, 0.95);
-  transform: rotate(-3deg);
+  background: rgba(255, 255, 255, 0.95);
+  transform: rotate(-2deg);
   z-index: 2;
-}
-
-/* Light mode styles */
-@media (prefers-color-scheme: light) {
-  .card-back {
-    background: rgba(0, 0, 0, 0.5);
-    border-color: rgba(0, 0, 0, 0.6);
-  }
-  
-  .card-front {
-    background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(0, 0, 0, 0.8);
-  }
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .card-back {
-    background: rgba(255, 255, 255, 0.5);
-    border-color: rgba(255, 255, 255, 0.6);
-  }
-  
-  .card-front {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(255, 255, 255, 0.9);
-  }
-}
-
-/* Hover effect for the entire indicator */
-.multiple-images-indicator:hover .stacked-cards-icon {
-  opacity: 1;
-}
-
-.multiple-images-indicator:hover .card-back {
-  transform: rotate(6deg) scale(1.05);
-}
-
-.multiple-images-indicator:hover .card-front {
-  transform: rotate(-4deg) scale(1.05);
 }
 
 .art-info {

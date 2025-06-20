@@ -710,7 +710,7 @@ input, textarea, select {
     }
     
     &:hover {
-      i {
+      i, h3, h4, p {
         color: #ff6b35 !important;
       }
     }
@@ -825,7 +825,7 @@ input, textarea, select {
     }
     
     &:hover {
-      i {
+      i, h3, h4, p {
         color: #ff6b35 !important;
       }
     }

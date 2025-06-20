@@ -87,7 +87,7 @@ permalink: /talks/
               <div class="talk-title-row">
                 <h3>
                   {% if lecture.website %}
-                    <a href="{{ lecture.website }}" target="_blank" class="conference-link">{{ lecture.name }}</a>
+                    {{ lecture.name }}
                   {% else %}
                     {{ lecture.name }}
                   {% endif %}
@@ -112,7 +112,7 @@ permalink: /talks/
           <div class="talk-footer-row">
             {% if lecture.location %}
             <div class="talk-location-bottom">
-              <i class="fa fa-map-marker"></i> {{ lecture.location }}
+              <i class="fa fa-map-marker"></i><a href="{{ lecture.website }}" target="_blank" class="conference-link"> {{ lecture.location }} </a>
             </div>
             {% endif %}
             
@@ -419,7 +419,7 @@ permalink: /talks/
 }
 
 .conference-link:hover {
-  color: #ff6b35;
+  color: inherit;
   text-decoration: underline;
 }
 
