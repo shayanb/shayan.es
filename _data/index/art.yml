@@ -61,7 +61,7 @@ swag:
 
   - title: "SuperBitcoiners Keychain"
     year: 2016
-    description: "OpenSource Metal SuperBitcoiner Keychain. These keychains were only sold online with Bitcoin or was distributed to a selected few of the early bitcoiners and core Bitcoin developers. <br> By Bitcoiners, For Bitcoiners <br> <br> Super awesome design by @Phneep, Bitcoinaut."
+    description: "OpenSource Metal SuperBitcoiner Keychain. These keychains were only sold online with Bitcoin or was distributed to a selected few of the early bitcoiners and core Bitcoin developers. <br> By Bitcoiners, For Bitcoiners <br> <br> Super awesome design by <a href='https://phneep.com/' target='_blank'> @Phneep</a>, Bitcoinaut."
     images:
       - "/img/art/physical/superbitcoiner-keychain-01.jpeg"
       - "/img/art/physical/superbitcoiner-keychain-02.jpeg"

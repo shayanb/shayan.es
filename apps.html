@@ -38,9 +38,6 @@ permalink: /apps/
                 {% endif %}
               </div>
             {% endif %}
-            <button class="btn btn-sm btn-outline view-app-btn desktop-only" data-app="{{ app.name | slugify }}">
-              View Details <i class="fa fa-arrow-right"></i>
-            </button>
           </div>
           <div class="app-content">
             <div class="app-header">
@@ -61,7 +58,7 @@ permalink: /apps/
                   </a>
                 {% endif %}
               </div>
-              <button class="btn btn-sm view-app-btn mobile-only" data-app="{{ app.name | slugify }}">
+              <button class="btn btn-sm view-app-btn" data-app="{{ app.name | slugify }}">
                 Details <i class="fa fa-arrow-right"></i>
               </button>
             </div>

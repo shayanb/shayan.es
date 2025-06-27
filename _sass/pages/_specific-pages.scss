@@ -712,51 +712,18 @@
       }
     }
 
-    .app-links {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .app-link {
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: $gray-100;
-      color: $gray-600;
-      border-radius: $border-radius;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1.5px solid #e5e7eb;
-      font-size: 0.875rem;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-
-      &:hover {
-        background: $secondary;
-        color: $white;
-        transform: scale(1.1);
-      }
-    }
-
-    .app-icon-links {
-      display: flex;
-      gap: 0.5rem;
-    }
 
     .app-card.featured {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       background: $white;
-      padding: 2rem;
-      border-radius: $border-radius * 2;
+      padding: 1.5rem;
+      border-radius: $border-radius;
       box-shadow: $shadow;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      min-height: 140px;
 
       &:hover {
         transform: translateY(-5px);
@@ -767,35 +734,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        justify-content: center;
         flex-shrink: 0;
 
         .app-icon-link {
           display: block;
-          transition: transform 0.3s ease;
+          transition: opacity 0.3s ease;
 
           &:hover {
-            transform: scale(1.05);
+            opacity: 0.8;
           }
         }
-
-        .view-app-btn {
-          white-space: nowrap;
-        }
       }
 
-      .desktop-only {
-        display: block;
-      }
-
-      .mobile-only {
-        display: none;
-      }
 
       .app-icon,
       .app-icon-link img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border-radius: $border-radius * 2;
         overflow: hidden;
         flex-shrink: 0;
@@ -824,6 +780,8 @@
 
       .app-content {
         flex: 1;
+        display: flex;
+        flex-direction: column;
 
         .app-header {
           display: flex;
@@ -846,7 +804,7 @@
               color: $gray-900;
               cursor: pointer;
               transition: color 0.3s ease;
-              text-align: center;
+              text-align: left;
               width: 100%;
 
               &:hover {
@@ -873,15 +831,86 @@
         .app-description {
           color: $gray-600;
           line-height: 1.6;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1rem;
+          flex: 1;
         }
 
         .app-actions {
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-end;
           align-items: center;
-          gap: 1rem;
-          flex-wrap: wrap;
+          gap: 0.75rem;
+          margin-top: auto;
+          
+          .app-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+          }
+          
+          .app-link {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $gray-100;
+            color: $gray-600;
+            border-radius: $border-radius;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1.5px solid #e5e7eb;
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            // Force exact same box model as button
+            padding: 0;
+            margin: 0;
+            vertical-align: baseline;
+
+            &:hover {
+              background: $secondary;
+              color: $white;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+          }
+          
+          .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            background: $primary;
+            color: $white;
+            border: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: $border-radius;
+            line-height: 1;
+            margin: 0;
+            vertical-align: baseline;
+            // Ensure consistent positioning
+            min-height: 32px;
+            max-height: 32px;
+            
+            &:hover {
+              background: #2a5a68;
+              transform: translateY(-2px);
+            }
+            
+            i {
+              margin-left: 0.5rem;
+              transition: transform 0.3s ease;
+            }
+            
+            &:hover i {
+              transform: translateX(3px);
+            }
+          }
         }
       }
     }
@@ -905,17 +934,18 @@
       background: $white;
       padding: 1.5rem;
       border-radius: $border-radius;
-      box-shadow: $shadow-sm;
+      box-shadow: $shadow;
       transition: all 0.3s ease;
+      min-height: 120px;
 
       &:hover {
-        box-shadow: $shadow;
+        box-shadow: $shadow-lg;
         transform: translateX(5px);
       }
 
       .app-icon.small {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         border-radius: $border-radius;
         overflow: hidden;
         flex-shrink: 0;
@@ -940,6 +970,8 @@
 
       .app-info {
         flex: 1;
+        display: flex;
+        flex-direction: column;
 
         h4 {
           margin-bottom: 0.25rem;
@@ -966,12 +998,13 @@
         .app-platform {
           color: $gray-500;
           font-size: 0.875rem;
-          margin-bottom: 0.25rem;
+          margin-bottom: 0.5rem;
         }
 
         p {
           color: $gray-600;
           margin: 0;
+          flex: 1;
         }
       }
 
@@ -1002,11 +1035,15 @@
             position: relative;
             z-index: 2;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            // Force exact same box model as button
+            padding: 0;
+            margin: 0;
+            vertical-align: baseline;
 
             &:hover {
               background: $secondary;
               color: $white;
-              transform: scale(1.1);
               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             }
           }
@@ -1024,6 +1061,13 @@
           border: none;
           font-weight: 500;
           transition: all 0.3s ease;
+          border-radius: $border-radius;
+          line-height: 1;
+          margin: 0;
+          vertical-align: baseline;
+          // Ensure consistent positioning
+          min-height: 32px;
+          max-height: 32px;
           
           &:hover {
             background: #2a5a68;
@@ -1195,13 +1239,8 @@
         overflow: hidden;
 
         .app-icon-section {
-          .desktop-only {
-            display: none;
-          }
-        }
-
-        .mobile-only {
-          display: block;
+          align-items: center;
+          justify-content: center;
         }
         
         .app-icon {
@@ -1242,7 +1281,7 @@
           }
           
           .app-actions {
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             margin-top: 1rem;
             flex-wrap: nowrap;
@@ -1279,8 +1318,8 @@
         
       .app-icon.small {
         grid-area: icon;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
       }
       
       .app-info {
