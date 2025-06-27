@@ -1,50 +1,50 @@
 # Recent highlights for homepage
 # These are featured items that will appear on the homepage with clickable links
 
-- title: "Smart Contract Security Research"
-  type: "Publication"
-  description: "Latest research on DeFi protocol vulnerabilities"
-  link: "/scholar/"
+- title: "AI & Blockchain: When Code Writes Back"
+  type: "Podcast"
+  description: "در این اپیزود از پادکست شیر یا خط، به بررسی هم‌افزایی جذاب و آینده‌ساز دو تکنولوژی هوش مصنوعی و بلاکچین می‌پردازیم"
+  link: "/talks/#podcasts"
   action: "publication"
-  target: "smart-contract-security-defi"
-  year: 2024
+  target: "podcasts"
+  year: 2025
 
-- title: "PadSnap App Launch"
+- title: "EtherTrip"
   type: "App"
-  description: "Image resizing tool for content creators"
-  link: "/apps/"
-  action: "app"
-  target: "padsnap"
-  year: 2024
-
-- title: "EthDuties Validator Tracker"
-  type: "Project"
-  description: "Ethereum validator monitoring platform"
+  description: "Ethereum Blockchain Visualizer (Psychedelic Edition)"
   link: "/apps/"
   action: "app" 
-  target: "ethduties"
-  year: 2023
+  target: "ethertrip"
+  year: 2025
 
-- title: "Security Audit: Major DeFi Protocol"
-  type: "Security Audit"
-  description: "Comprehensive audit identifying critical vulnerabilities"
+- title: "Security Reviews and Public Audits"
+  type: "Security Audits"
+  description: "A Selected List of Security Reviews and Public Audits"
   link: "/audits/"
   action: "page"
   target: ""
   year: 2024
 
-- title: "DEF CON 32 Presentation"
-  type: "Talk"
-  description: "Smart Contract Security: Beyond the Basics"
-  link: "/talks/"
+- title: "AiVS (short for AI Agents + AVS)"
+  type: "Hackathon"
+  description: "A multi AI Agent framework that utilizes EigenLayer AVS for a distributed justice system"
+  link: "/talks//#hackathons"
   action: "page"
   target: ""
-  year: 2024
+  year: 2025
 
-- title: "ConsenSys Security Lead"
+- title: "Co-founder of Creed"
   type: "Career"
   description: "Leading blockchain security initiatives"
   link: "/career/"
   action: "page"
   target: ""
+  year: 2024
+
+- title: "PhD Dissertation"
+  type: "Scholar"
+  description: "Uncovering Blockchain Challenges: Technical Nuances & their Unforeseen Consequences"
+  link: "/scholar/#publications"
+  action: "publication"
+  target: "smart-contract-security-defi"
   year: 2024

@@ -3,12 +3,14 @@
 
 - name: Creed
   link: https://thecreed.xyz/
-  date: 2023 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: 2024 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
   job: Co-founder & Security Auditor
   logo: "/img/companies/creed-logo.svg"
-  description: "Co-founded Creed, a boutique security firm specializing in smart contract audits and blockchain security. Leading security audits for DeFi protocols, Layer 2 solutions, and emerging blockchain technologies. Developed comprehensive security frameworks and methodologies for web3 projects."
-  technologies: ["Solidity", "Security Auditing", "DeFi", "Smart Contracts"]
+  description: "Co-founded Creed, A grassroots collective of security professionals changing how Web3 security is delivered and compensated"
+  technologies: ["Web3", "Security Review", "Solidity", "Audit", "Smart Contracts"]
   current: true
+  achievements: ["Web3 Risk assessment methodology", "Security Reviews for 20+ DeFi projects" ]
+
 
 - name: Puffer Finance
   link: https://www.puffer.fi/
@@ -16,17 +18,17 @@
   job: Head of Security
   logo: "/img/companies/puffer-logo.svg"
   description: "Led the security initiatives for Puffer Finance's liquid staking protocol. Designed and implemented comprehensive security frameworks, conducted internal audits, and coordinated external security reviews. Managed security operations for validator infrastructure and smart contract deployments."
-  technologies: ["Ethereum Staking", "Liquid Staking", "Security Architecture", "Risk Management"]
-  achievements: ["Launched secure liquid staking protocol", "Zero security incidents", "Established security best practices"]
+  technologies: ["Ethereum Staking", "Liquid Staking", "Eigenlayer", "Security Architecture"]
+  achievements: ["Launched secure liquid staking protocol (mainnet)", "Incident response & recovery", "Established security & development best practices"]
 
 - name: Ether Capital
   link: https://www.ethcap.co/
   date: 2021 - 2023
   job: Chief Technology Officer
   logo: "/img/companies/ethercapital-logo.png"
-  description: "Served as CTO for Ether Capital, a publicly-traded Ethereum technology company. Led technical strategy, oversaw blockchain investments, and managed technology operations. Developed trading infrastructure, staking operations, and investment analysis tools for institutional Ethereum exposure."
-  technologies: ["Ethereum", "DeFi", "Institutional Trading", "Staking Infrastructure"]
-  achievements: ["Scaled staking operations to $100M+ TVL", "Led technical due diligence for investments", "Built institutional-grade infrastructure"]
+  description: "Served as Chief Technology Officer (CTO) for Ether Capital, a publicly-traded Ethereum technology company based in Canada. Established a technology team and developed Ethereum staking infrastructure. Led technical team and strategy for developing Ethereum staking infrastructure, and Operation Security (OpSec). Developed institutional staking dashboards to close the gap between the crypto-assets with financial statements and annual audits."
+  technologies: ["Ethereum", "Institutional Custody", "Staking Infrastructure"]
+  achievements: ["Scaled staking operations to $100M+ TVL", "Created and led a technical team", "Built institutional-grade infrastructure"]
 
 - name: ConsenSys Diligence
   link: https://diligence.consensys.net/

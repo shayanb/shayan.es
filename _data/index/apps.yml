@@ -34,13 +34,13 @@
 - name: "EtherTrip"
   platform: "WebApp"
   logo: "/img/apps/ethertrip-logo.png"
-  short_description: "Psychedelic Ethereum Galaxy Visualizer"
-  description: "An interactive and mesmerizing visualization of the Ethereum blockchain that transforms transaction data into a beautiful, psychedelic galaxy experience. Explore the blockchain like never before with this artistic interpretation of network activity."
-  website: "https://shayanb.github.io/EtherTrip/"
+  short_description: "Ethereum Blockchain Visualizer (Psychedelic Edition)"
+  description: "Take a psychedelic journey through the Ethereum blockchain with real-time 3D visualization and immersive audio synthesis."
+  website: "https://ethertrip.me"
   github: "https://github.com/shayanb/EtherTrip"
   year: 2025
   featured: true
-  tags: ["Ethereum", "Visualization", "Art"]
+  tags: ["Ethereum", "Visualization", "Real-time data", "Art"]
   screenshots:
     - "/img/apps/ethertrip-screenshot-1.png"
     - "/img/apps/ethertrip-screenshot-2.png"

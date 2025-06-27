@@ -863,3 +863,8 @@ for projects, added logo and screenshot (a gif) for Legions project, but they ar
 =============== Many moons later ================
 
 
+TODO:
+
+- the link in stat-item Academic Reviews in scholars page, doesn't work 
+- slightly change the audits pages to be more center and consistent with the rest of the website
+- 

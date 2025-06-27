@@ -46,13 +46,30 @@ swag:
     year: 2019
     description: "Branded juggling balls with Diligence colors, distributed at DevCon5 in Osaka, Japan. These balls symbolize the balance and skill required in code auditing, reflecting the playful yet serious nature of the work."
     images:
-      - "/img/art/physical/diligence-juggling-balls-01.jpg"
+      - "/img/art/physical/diligence-juggling-balls-01.jpeg"
       - "/img/art/physical/diligence-juggling-balls-02.gif"
-      - "/img/art/ethglobal-bag.jpg"
     category: "Swag"
-    event: "DevCon 5"
-    
-    
+    event: "DevCon 5 Osaka"
+
+  - title: "Dili4Life Pins"
+    year: 2019
+    description: "Dili4Life Pins with ConsenSys Diligence colors, distributed at Ethereum Conferences."
+    images:
+      - "/img/art/physical/diligence-pins-dili4life-01.jpeg"
+    category: "Swag"
+    # event: "DevCon 5 Osaka"   
+
+  - title: "SuperBitcoiners Keychain"
+    year: 2016
+    description: "OpenSource Metal SuperBitcoiner Keychain. These keychains were only sold online with Bitcoin or was distributed to a selected few of the early bitcoiners and core Bitcoin developers. <br> By Bitcoiners, For Bitcoiners <br> <br> Super awesome design by @Phneep, Bitcoinaut."
+    images:
+      - "/img/art/physical/superbitcoiner-keychain-01.jpeg"
+      - "/img/art/physical/superbitcoiner-keychain-02.jpeg"
+      - "/img/art/physical/superbitcoiner-keychain-03.jpeg"
+      - "/img/art/physical/superbitcoiner-keychain-04.jpeg"
+    category: "Swag"
+    event: "Open Source"
+  
 sticker:
   - title: "Coin Iran Academy - DevConnect Istanbul"
     year: 2023
