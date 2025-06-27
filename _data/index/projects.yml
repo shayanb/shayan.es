@@ -1,4 +1,4 @@
-- name: AiVS
+- name: AiVS (AI Agents + EigenLayer AVS)
   descr: AiVS (short for AI Agents + AVS) is a framework that leverages the power of AI-driven decision-making in conjunction with decentralized Autonomous/Actively Validation Services (such as EigenLayer) to securely distribute tasks and verify outcomes on-chain. <br><br> ETHGlobal Agentic Ethereum Hackathon 2025 Participant and Winner of multiple awards including Coinbase Developer Platform, Gaia and Collab.Land, and EigenLayer - Eigen Agents.
   website: https://ethglobal.com/showcase/aivs-o2t7f
   github: https://github.com/Agentopians/AiVS

@@ -12,7 +12,16 @@ permalink: /talks/
 
   <!-- Speaking Stats - Moved to Top -->
   <div class="speaking-stats">
+     {% assign total_talks = 0 %}
+    {% for conf in site.data.index.conferences %}
+      {% if conf.talks_given %}
+        {% assign total_talks = total_talks | plus: conf.talks_given.size %}
+      {% endif %}
+    {% endfor %}
+    {% assign total_talks = total_talks | plus: site.data.index.lectures.size %}
+    {% assign total_talks = total_talks | plus: site.data.index.podcasts.size %}      
     <h2>Overview</h2>
+    <h3 class="overview-subtitle">(Total Presentations: {{ total_talks }}+)</h3>
     <div class="stats-grid">
       <a href="#academic-lectures" class="stat-card stat-card-clickable">
         <div class="stat-icon">
@@ -43,24 +52,6 @@ permalink: /talks/
           <span class="stat-label">Hackathons</span>
         </div>
       </a>
-      
-      <div class="stat-card">
-        <div class="stat-icon">
-          <i class="fa fa-microphone"></i>
-        </div>
-        <div class="stat-content">
-          {% assign total_talks = 0 %}
-          {% for conf in site.data.index.conferences %}
-            {% if conf.talks_given %}
-              {% assign total_talks = total_talks | plus: conf.talks_given.size %}
-            {% endif %}
-          {% endfor %}
-          {% assign total_talks = total_talks | plus: site.data.index.lectures.size %}
-          {% assign total_talks = total_talks | plus: site.data.index.podcasts.size %}
-          <span class="stat-number">{{ total_talks }}+</span>
-          <span class="stat-label">Total Presentations</span>
-        </div>
-      </div>
       
       <a href="#podcasts" class="stat-card stat-card-clickable">
         <div class="stat-icon">
@@ -411,6 +402,41 @@ permalink: /talks/
 </div>
 
 <style>
+/* Overview Subtitle Styling */
+.overview-subtitle {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #8b5cf6;
+  margin: -1.5rem 0 1.5rem 0;
+  font-style: normal;
+  text-align: center;
+  letter-spacing: 0.5px;
+  position: relative;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+
+
+/* Dark Mode Support for Overview Subtitle */
+[data-theme="dark"] .overview-subtitle {
+  background: linear-gradient(135deg, #a78bfa, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .overview-subtitle::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(167, 139, 250, 0.4) 20%, rgba(167, 139, 250, 0.7) 50%, rgba(167, 139, 250, 0.4) 80%, transparent 100%);
+}
+
+[data-theme="dark"] .overview-subtitle::after {
+  background: rgba(167, 139, 250, 0.08);
+}
+
 /* Conference Link Styles */
 .conference-link {
   color: inherit;

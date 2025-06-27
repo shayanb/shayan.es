@@ -25,10 +25,10 @@
   target: ""
   year: 2024
 
-- title: "AiVS (short for AI Agents + AVS)"
+- title: "AiVS (AI Agents + AVS)"
   type: "Hackathon"
-  description: "A multi AI Agent framework that utilizes EigenLayer AVS for a distributed justice system"
-  link: "/talks//#hackathons"
+  description: "A multi AI Agent framework that utilizes EigenLayer AVS to create a distributed justice system"
+  link: "/projects/"
   action: "page"
   target: ""
   year: 2025
