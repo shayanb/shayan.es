@@ -164,15 +164,27 @@
   url: https://github.com/PufferFinance/UniFi/blob/b8955768fa6abc399fd0adeba3fc2c71ec99467e/docs/reports/Creed_PufferUnifi_Final_Sep2024.pdf
   year: 2024/09
 
+- title: ECDSA Validator
+  project: OneBalance
+  project-url: https://www.onebalance.io/
+  url: 
+  year: 2024/10
+
 - title: TokenDrip
   project: Turtle Club
   project-url: https://turtle.club/
   url: 
   year: 2024/12
 
-- title: FX Pool
+- title: FX Pool V3
   project: Xave Finance
   project-url: https://xave.co
+  url: 
+  year: 2025/02
+
+- title: Earn
+  project: MetaMask
+  project-url: https://metamask.io/earn
   url: 
   year: 2025/02
 
@@ -181,3 +193,9 @@
   project-url: https://www.onebalance.io/
   url: 
   year: 2025/03
+
+- title: Web3Auth - TOPRF Secure Backup
+  project: MetaMask
+  project-url: https://web3auth.io/
+  url: 
+  year: 2025/05

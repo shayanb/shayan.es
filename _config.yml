@@ -1,7 +1,7 @@
 # Site Settings
 locale: "en-US"
 title: "Shayan Eskandari"
-tagline: "Senior Security Engineer & Creative Technologist"
+tagline: "Senior Security Engineer & Human-Centered Technologist"
 description: "Personal portfolio of Shayan Eskandari - Security Research, Creative Technology, and Blockchain Innovation"
 keywords: ["security research", "blockchain", "smart contracts", "software engineering", "cybersecurity", "vulnerability research", "ethereum", "defi", "security audits", "cryptography", "creative technology"]
 baseurl: ""
@@ -30,8 +30,8 @@ pagination:
 owner:
   name: Shayan Eskandari
   avatar: shayan.jpeg
-  job: "Senior Security Engineer & Creative Technologist"
-  bio: "Senior Security Engineer & Creative Technologist"
+  job: "Senior Security Engineer & Human-Centered Technologist"
+  bio: "Senior Security Engineer & Human-Centered Technologist"
   email: me@shayan.es
   disqus-shortname:
   twitter: sbetamc

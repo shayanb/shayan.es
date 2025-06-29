@@ -13,17 +13,6 @@
   desktop: true
   hamburger: true
 
-    
-- title: "Projects"
-  url: "/projects/"
-  desktop: true
-  hamburger: true
-
-- title: "Apps"
-  url: "/apps/"
-  desktop: true
-  hamburger: true
-
 - title: "Scholar"
   url: "/scholar/"
   desktop: true
@@ -39,6 +28,18 @@
     #   url: "/scholar/#academic-reviews"
     # - title: "Audits"
     #   url: "/audits/"
+       
+- title: "Projects"
+  url: "/projects/"
+  desktop: true
+  hamburger: true
+
+- title: "Apps"
+  url: "/apps/"
+  desktop: true
+  hamburger: true
+
+
 
 - title: "Speaking & Participation"
   url: "/talks/"
