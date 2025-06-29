@@ -5,15 +5,15 @@ permalink: /audits/
 excerpt: "A selected list of security reviews and public audit reports that I've worked on."
 ---
 
+<div class="audits-page">
+  <div class="page-header">
+    <h1>Security Audits</h1>
+    {% if page.excerpt %}
+    <p class="page-subtitle">{{ page.excerpt }}</p>
+    {% endif %}
+  </div> 
 
-<div class="page-header">
-  <h1>Security Audits</h1>
-  {% if page.excerpt %}
-  <p class="page-subtitle">{{ page.excerpt }}</p>
-  {% endif %}
-</div> 
-
-<div class="archive">
+  <div class="archive">
   <div class="timeline" id="timeline">
 
     {% assign sorted_audits = site.data.index.audits | sort: 'year' | reverse %}
@@ -78,8 +78,16 @@ excerpt: "A selected list of security reviews and public audit reports that I've
   </div>
 
 </div>
+</div>
 
 <style>
+/* Audits Page Container */
+.audits-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 /* Audit Page Styles */
 .audit-item {
   display: flex;
@@ -208,6 +216,10 @@ a.audit-title:hover {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+  .audits-page {
+    padding: 1rem;
+  }
+  
   .audit-content {
     flex-direction: column;
     align-items: flex-start;

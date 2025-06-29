@@ -29,7 +29,7 @@ permalink: /talks/
         </div>
         <div class="stat-content">
           <span class="stat-number">{{ site.data.index.lectures | size }}</span>
-          <span class="stat-label">Academic Lectures</span>
+          <span class="stat-label">Talks & Presentations</span>
         </div>
       </a>
       
@@ -1201,6 +1201,167 @@ permalink: /talks/
 
 [data-theme="dark"] .other-action.github:hover {
   background: rgba(255, 107, 53, 0.15);
+}
+
+/* Talks Grid Layout - Max 2 Columns */
+.talks-section .talks-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+  max-width: 1200px !important;
+  gap: 2rem !important;
+  margin: 0 auto !important;
+}
+
+/* Ensure max 2 columns on larger screens */
+@media (min-width: 1000px) {
+  .talks-section .talks-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Talk Card Improvements */
+.talks-section .talk-card {
+  background: #fff !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  transition: all 0.3s ease !important;
+  border-left: 4px solid #ff6b35 !important;
+  height: fit-content !important;
+}
+
+.talks-section .talk-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  border-left-color: #1e3a5f !important;
+}
+
+/* Talk Header Layout */
+.talks-section .talk-header .talk-title-area .talk-title-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.talks-section .talk-header .talk-title-area .talk-title-row h3 {
+  color: #1f2937 !important;
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  flex: 1 !important;
+}
+
+.talks-section .talk-header .talk-title-area .talk-badges {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* Media Links Styling */
+.talks-section .talk-media .media-links {
+  display: flex !important;
+  gap: 0.75rem !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+}
+
+.talks-section .talk-media .media-links .media-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.6rem 1.25rem !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.talks-section .talk-media .media-links .media-link:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.talks-section .talk-media .media-links .media-link.youtube {
+  background: #ff0000 !important;
+  color: white !important;
+  border-color: #ff0000 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.youtube:hover {
+  background: transparent !important;
+  color: #ff0000 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.slides {
+  background: #d04423 !important;
+  color: white !important;
+  border-color: #d04423 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.slides:hover {
+  background: transparent !important;
+  color: #d04423 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.github {
+  background: #333 !important;
+  color: white !important;
+  border-color: #333 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.github:hover {
+  background: transparent !important;
+  color: #333 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.paper {
+  background: #4285f4 !important;
+  color: white !important;
+  border-color: #4285f4 !important;
+}
+
+.talks-section .talk-media .media-links .media-link.paper:hover {
+  background: transparent !important;
+  color: #4285f4 !important;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 768px) and (min-width: 481px) {
+  .talks-section .talks-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Mobile Responsiveness for Talks */
+@media (max-width: 480px) {
+  .talks-section .talks-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .talks-section .talk-card {
+    padding: 1.5rem !important;
+  }
+  
+  .talks-section .talk-media .media-links {
+    justify-content: center !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  
+  .talks-section .talk-media .media-links .media-link {
+    flex: none !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
 }
 
 /* Responsive Design */

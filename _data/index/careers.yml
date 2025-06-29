@@ -35,24 +35,24 @@
   date: 2018 - 2021
   job: Security Engineer & Senior Auditor
   logo: "/img/companies/consensys-diligence-logo.png"
-  description: "Security engineer and lead auditor at ConsenSys Diligence, conducting smart contract security audits for major DeFi protocols and blockchain projects. Developed security tools including Legions, participated in bug bounty programs, and contributed to Ethereum security standards."
-  technologies: ["Smart Contract Auditing", "Solidity", "Security Tools", "DeFi Protocols"]
-  achievements: ["Audited 100+ smart contracts", "Discovered critical vulnerabilities", "Developed open-source security tools"]
+  description: "Security engineer and lead auditor at ConsenSys Diligence, conducting smart contract security audits for major DeFi protocols and Web3 projects. Developed security tools including Legions, participated in bug bounty programs, and contributed to Ethereum security best practices guideline."
+  technologies: ["Smart Contract Auditing", "Solidity", "Security Tools", "Security Reviews"]
+  achievements: ["Audited 50+ smart contract protocols", "Championed early ETH2 cross-client security", "Developed open-source security tools"]
 
 - name: Bitaccess
   link: http://www.bitaccess.co
   date: 2015 - 2018
   job: Blockchain Engineer
   logo: "/img/companies/bitaccess-logo.png"
-  description: "Blockchain engineer at Bitaccess, developing Bitcoin ATM software and enterprise wallet solutions. Built scalable backend infrastructure, implemented security protocols, and contributed to the expansion of Bitcoin ATM network across North America."
-  technologies: ["Bitcoin", "ATM Software", "Payment Processing", "Cryptocurrency Infrastructure"]
-  achievements: ["Deployed 1000+ ATMs", "Built enterprise wallet platform", "Processed millions in transactions"]
+  description: "Blockchain engineer at Bitaccess, developing Bitcoin ATM software and enterprise ATM wallet management solutions. Built scalable backend infrastructure, implemented security protocols, and contributed to the expansion of Bitcoin ATM network globally."
+  technologies: ["Bitcoin", "ATM Software", "Payment Processing", "Google App Engine", "Python"]
+  achievements: ["Cloud wallet processed more than $1B of Bitcoin transactions by 2022", "Deployed 1000+ ATMs firmware", "Built enterprise cloud wallet management platform", "Security protocols for Bitcoin ATM operations"]
 
 - name: i-Phone.ir
   link: http://www.i-Phone.ir/
   date: 2008 - 2012
   job: Co-founder, CTO
   logo: "/img/companies/i-phone.ir-logo.jpg"
-  description: "Co-founded and served as CTO of Iran's first iPhone community and e-commerce platform. Led technical development, content strategy, and community growth. Built one of the largest tech communities in Iran with millions of users."
-  technologies: ["Web Development", "E-commerce", "Community Platforms", "Content Management"]
-  achievements: ["Reached 1M+ monthly users", "Built largest iPhone community in Iran", "Successful exit"]
+  description: "Co-founded and served as CTO of Iran's first iPhone community and the technical office. Led research and development, content strategy, and technical support for Apple/iPhone users."
+  technologies: ["Hardware", "Sofware", "Repairs", "iOS", "Cydia", "Community", "Support"]
+  # achievements: ["Reached 1M+ monthly users", "Built largest iPhone community in Iran", "Successful exit"]

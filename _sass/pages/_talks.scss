@@ -75,7 +75,15 @@
 
     .talks-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      max-width: 1200px;
       gap: 2rem;
+      margin: 0 auto;
+      
+      // Ensure max 2 columns
+      @media (min-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .talk-card {
@@ -95,11 +103,36 @@
       .talk-header {
         margin-bottom: 1.5rem;
 
-        h3 {
-          color: $gray-900;
-          margin-bottom: 0.75rem;
-          font-size: 1.25rem;
-          line-height: 1.3;
+        .talk-title-area {
+          .talk-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+
+            h3 {
+              color: $gray-900;
+              margin: 0;
+              font-size: 1.25rem;
+              line-height: 1.3;
+              flex: 1;
+            }
+
+            .talk-badges {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              flex-shrink: 0;
+
+              .flag-icon {
+                width: 20px;
+                height: auto;
+                border-radius: 2px;
+                box-shadow: $shadow-sm;
+              }
+            }
+          }
         }
 
         .talk-meta {
@@ -150,18 +183,25 @@
           display: flex;
           gap: 0.75rem;
           flex-wrap: wrap;
+          justify-content: flex-end;
 
           .media-link {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: $border-radius;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            }
 
             &.youtube {
               background: #ff0000;
@@ -663,6 +703,18 @@
   }
 }
 
+// Tablet Responsiveness for Talks
+@media (max-width: 768px) and (min-width: 481px) {
+  .talks-page {
+    .talks-section {
+      .talks-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  }
+}
+
 // Mobile Responsiveness for Talks
 @media (max-width: $small-screen) {
   .talks-page {
@@ -673,6 +725,11 @@
     }
 
     .talks-section {
+      .talks-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
       .talk-card {
         .talk-header {
           .talk-meta {
@@ -685,6 +742,15 @@
         .talk-media {
           .media-links {
             justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          }
+          
+          .media-link {
+            flex: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
           }
         }
       }
