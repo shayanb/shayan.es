@@ -175,7 +175,12 @@ permalink: /talks/
           
           {% if lecture.location %}
           <div class="other-talk-location">
-            <i class="fa fa-map-marker"></i> {{ lecture.location }}
+            <i class="fa fa-map-marker"></i> 
+            {% if lecture.website %}
+              <a href="{{ lecture.website }}" target="_blank" class="location-link">{{ lecture.location }}</a>
+            {% else %}
+              {{ lecture.location }}
+            {% endif %}
           </div>
           {% endif %}
           
@@ -1290,7 +1295,7 @@ permalink: /talks/
   text-decoration: none !important;
   font-size: 0.875rem !important;
   font-weight: 500 !important;
-  transition: all 0.3s ease !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease !important;
   border: 2px solid !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
 }
@@ -1300,46 +1305,46 @@ permalink: /talks/
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
 }
 
-.talks-section .talk-media .media-links .media-link.youtube {
+.talks-page .talks-section .talk-media .media-links .media-link.youtube {
   background: transparent !important;
   color: #ff0000 !important;
   border-color: #ff0000 !important;
 }
 
-.talks-section .talk-media .media-links .media-link.youtube:hover {
+.talks-page .talks-section .talk-media .media-links .media-link.youtube:hover {
   background: #ff0000 !important;
   color: white !important;
 }
 
-.talks-section .talk-media .media-links .media-link.slides {
+.talks-page .talks-section .talk-media .media-links .media-link.slides {
   background: transparent !important;
   color: #d04423 !important;
   border-color: #d04423 !important;
 }
 
-.talks-section .talk-media .media-links .media-link.slides:hover {
+.talks-page .talks-section .talk-media .media-links .media-link.slides:hover {
   background: #d04423 !important;
   color: white !important;
 }
 
-.talks-section .talk-media .media-links .media-link.github {
+.talks-page .talks-section .talk-media .media-links .media-link.github {
   background: transparent !important;
   color: #333 !important;
   border-color: #333 !important;
 }
 
-.talks-section .talk-media .media-links .media-link.github:hover {
+.talks-page .talks-section .talk-media .media-links .media-link.github:hover {
   background: #333 !important;
   color: white !important;
 }
 
-.talks-section .talk-media .media-links .media-link.paper {
+.talks-page .talks-section .talk-media .media-links .media-link.paper {
   background: transparent !important;
   color: #4285f4 !important;
   border-color: #4285f4 !important;
 }
 
-.talks-section .talk-media .media-links .media-link.paper:hover {
+.talks-page .talks-section .talk-media .media-links .media-link.paper:hover {
   background: #4285f4 !important;
   color: white !important;
 }
@@ -1383,46 +1388,46 @@ permalink: /talks/
 }
 
 /* Dark Mode Media Link Colors */
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.youtube {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.youtube {
   background: transparent !important;
   color: #ff4444 !important;
   border-color: #ff4444 !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.youtube:hover {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.youtube:hover {
   background: #ff4444 !important;
   color: white !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.slides {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.slides {
   background: transparent !important;
   color: #ff6b35 !important;
   border-color: #ff6b35 !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.slides:hover {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.slides:hover {
   background: #ff6b35 !important;
   color: white !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.github {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.github {
   background: transparent !important;
   color: #ccc !important;
   border-color: #ccc !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.github:hover {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.github:hover {
   background: #ccc !important;
   color: #333 !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.paper {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.paper {
   background: transparent !important;
   color: #6da4d9 !important;
   border-color: #6da4d9 !important;
 }
 
-[data-theme="dark"] .talks-section .talk-media .media-links .media-link.paper:hover {
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.paper:hover {
   background: #6da4d9 !important;
   color: white !important;
 }
@@ -1555,6 +1560,22 @@ permalink: /talks/
 [data-theme="dark"] .other-talk-actions .other-action.paper:hover {
   background: #6da4d9 !important;
   color: white !important;
+}
+
+/* Location Link Styling for Workshop Cards */
+.location-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.location-link:hover {
+  color: #ff6b35 !important;
+  text-decoration: underline !important;
+}
+
+[data-theme="dark"] .location-link:hover {
+  color: #ff6b35 !important;
 }
 
 /* Tablet Responsiveness */
