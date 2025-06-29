@@ -13,15 +13,15 @@ permalink: /talks/
   <!-- Speaking Stats - Moved to Top -->
   <div class="speaking-stats">
      {% assign total_talks = 0 %}
-    {% for conf in site.data.index.conferences %}
+    <!-- {% for conf in site.data.index.conferences %}
       {% if conf.talks_given %}
         {% assign total_talks = total_talks | plus: conf.talks_given.size %}
       {% endif %}
-    {% endfor %}
+    {% endfor %} -->
     {% assign total_talks = total_talks | plus: site.data.index.lectures.size %}
     {% assign total_talks = total_talks | plus: site.data.index.podcasts.size %}      
     <h2>Overview</h2>
-    <h3 class="overview-subtitle">(Total Presentations: {{ total_talks }}+)</h3>
+    <h3 class="overview-subtitle">(Public Engagements: {{ total_talks }}+)</h3>
     <div class="stats-grid">
       <a href="#academic-lectures" class="stat-card stat-card-clickable">
         <div class="stat-icon">
@@ -42,6 +42,7 @@ permalink: /talks/
           <span class="stat-label">Conferences</span>
         </div>
       </a>
+      
       
       <a href="#hackathons" class="stat-card stat-card-clickable">
         <div class="stat-icon">
@@ -72,6 +73,7 @@ permalink: /talks/
       <div class="talks-grid">
         {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
         {% for lecture in sorted_lectures %}
+        {% if lecture.type == 'talk' %}
         <div class="talk-card">
           <div class="talk-header">
             <div class="talk-title-area">
@@ -140,9 +142,77 @@ permalink: /talks/
           </div>
           {% endif %}
         </div>
+        {% endif %}
         {% endfor %}
       </div>
     </section>
+
+    <!-- Other Talks Section (Grid Layout) -->
+    <section id="workshops-panels" class="other-talks-section">
+      <h2>Workshops & Panels</h2>
+      <div class="other-talks-grid">
+        {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
+        {% for lecture in sorted_lectures %}
+        {% if lecture.type == 'workshop' or lecture.type == 'other' or lecture.type == 'panel' %}
+        <div class="other-talk-card">
+          <div class="other-talk-header">
+            <h4 class="other-talk-title">
+              {% if lecture.website %}
+                <a href="{{ lecture.website }}" target="_blank" class="other-talk-link">{{ lecture.name }}</a>
+              {% else %}
+                {{ lecture.name }}
+              {% endif %}
+            </h4>
+            <div class="other-talk-badges">
+              {% if lecture.year %}
+                <span class="other-talk-year">{{ lecture.year }}</span>
+              {% endif %}
+              {% if lecture.flag %}
+                <img src="/img/flags/{{ lecture.flag }}.png" alt="{{ lecture.flag }}" class="other-flag-icon">
+              {% endif %}
+            </div>
+          </div>
+          
+          {% if lecture.location %}
+          <div class="other-talk-location">
+            <i class="fa fa-map-marker"></i> {{ lecture.location }}
+          </div>
+          {% endif %}
+          
+          {% if lecture.descr %}
+          <p class="other-talk-description">{{ lecture.descr }}</p>
+          {% endif %}
+          
+          {% if lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          <div class="other-talk-actions">
+            {% if lecture.youtube %}
+              <a href="{{ lecture.youtube }}" target="_blank" class="other-action youtube">
+                <i class="fa fa-youtube"></i>
+              </a>
+            {% endif %}
+            {% if lecture.slides %}
+              <a href="{{ lecture.slides }}" target="_blank" class="other-action slides">
+                <i class="fa fa-file-powerpoint-o"></i>
+              </a>
+            {% endif %}
+            {% if lecture.github %}
+              <a href="{{ lecture.github }}" target="_blank" class="other-action github">
+                <i class="fa fa-github"></i>
+              </a>
+            {% endif %}
+            {% if lecture.paper %}
+              <a href="{{ lecture.paper }}" target="_blank" class="other-action paper">
+                <i class="fa fa-file-pdf-o"></i>
+              </a>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
 
     <!-- Podcasts Section -->
     <section id="podcasts" class="hackathons-section">
@@ -223,71 +293,6 @@ permalink: /talks/
       </div>
     </section>
 
-    <!-- Other Talks Section (Grid Layout) -->
-    <section class="other-talks-section">
-      <h2>Additional Talks & Workshops</h2>
-      <div class="other-talks-grid">
-        {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
-        {% for lecture in sorted_lectures %}
-        {% if lecture.type == 'workshop' or lecture.type == 'other' or lecture.type == 'panel' %}
-        <div class="other-talk-card">
-          <div class="other-talk-header">
-            <h4 class="other-talk-title">
-              {% if lecture.website %}
-                <a href="{{ lecture.website }}" target="_blank" class="other-talk-link">{{ lecture.name }}</a>
-              {% else %}
-                {{ lecture.name }}
-              {% endif %}
-            </h4>
-            <div class="other-talk-badges">
-              {% if lecture.year %}
-                <span class="other-talk-year">{{ lecture.year }}</span>
-              {% endif %}
-              {% if lecture.flag %}
-                <img src="/img/flags/{{ lecture.flag }}.png" alt="{{ lecture.flag }}" class="other-flag-icon">
-              {% endif %}
-            </div>
-          </div>
-          
-          {% if lecture.location %}
-          <div class="other-talk-location">
-            <i class="fa fa-map-marker"></i> {{ lecture.location }}
-          </div>
-          {% endif %}
-          
-          {% if lecture.descr %}
-          <p class="other-talk-description">{{ lecture.descr }}</p>
-          {% endif %}
-          
-          {% if lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
-          <div class="other-talk-actions">
-            {% if lecture.youtube %}
-              <a href="{{ lecture.youtube }}" target="_blank" class="other-action youtube">
-                <i class="fa fa-youtube"></i>
-              </a>
-            {% endif %}
-            {% if lecture.slides %}
-              <a href="{{ lecture.slides }}" target="_blank" class="other-action slides">
-                <i class="fa fa-file-powerpoint-o"></i>
-              </a>
-            {% endif %}
-            {% if lecture.github %}
-              <a href="{{ lecture.github }}" target="_blank" class="other-action github">
-                <i class="fa fa-github"></i>
-              </a>
-            {% endif %}
-            {% if lecture.paper %}
-              <a href="{{ lecture.paper }}" target="_blank" class="other-action paper">
-                <i class="fa fa-file-pdf-o"></i>
-              </a>
-            {% endif %}
-          </div>
-          {% endif %}
-        </div>
-        {% endif %}
-        {% endfor %}
-      </div>
-    </section>
 
     <!-- Hackathons Section -->
     <section id="hackathons" class="hackathons-section">
@@ -1210,6 +1215,7 @@ permalink: /talks/
   max-width: 1200px !important;
   gap: 2rem !important;
   margin: 0 auto !important;
+  align-items: start !important;
 }
 
 /* Ensure max 2 columns on larger screens */
@@ -1227,7 +1233,14 @@ permalink: /talks/
   box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
   transition: all 0.3s ease !important;
   border-left: 4px solid #ff6b35 !important;
-  height: fit-content !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Ensure consistent footer positioning */
+.talks-section .talk-footer-row {
+  margin-top: auto !important;
 }
 
 .talks-section .talk-card:hover {
@@ -1288,47 +1301,260 @@ permalink: /talks/
 }
 
 .talks-section .talk-media .media-links .media-link.youtube {
-  background: #ff0000 !important;
-  color: white !important;
+  background: transparent !important;
+  color: #ff0000 !important;
   border-color: #ff0000 !important;
 }
 
 .talks-section .talk-media .media-links .media-link.youtube:hover {
-  background: transparent !important;
-  color: #ff0000 !important;
+  background: #ff0000 !important;
+  color: white !important;
 }
 
 .talks-section .talk-media .media-links .media-link.slides {
-  background: #d04423 !important;
-  color: white !important;
+  background: transparent !important;
+  color: #d04423 !important;
   border-color: #d04423 !important;
 }
 
 .talks-section .talk-media .media-links .media-link.slides:hover {
-  background: transparent !important;
-  color: #d04423 !important;
+  background: #d04423 !important;
+  color: white !important;
 }
 
 .talks-section .talk-media .media-links .media-link.github {
-  background: #333 !important;
-  color: white !important;
+  background: transparent !important;
+  color: #333 !important;
   border-color: #333 !important;
 }
 
 .talks-section .talk-media .media-links .media-link.github:hover {
-  background: transparent !important;
-  color: #333 !important;
+  background: #333 !important;
+  color: white !important;
 }
 
 .talks-section .talk-media .media-links .media-link.paper {
-  background: #4285f4 !important;
-  color: white !important;
+  background: transparent !important;
+  color: #4285f4 !important;
   border-color: #4285f4 !important;
 }
 
 .talks-section .talk-media .media-links .media-link.paper:hover {
+  background: #4285f4 !important;
+  color: white !important;
+}
+
+/* Dark Mode Support for Talks */
+[data-theme="dark"] .talks-section .talk-card {
+  background: var(--card-color) !important;
+  border-left-color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-card:hover {
+  border-left-color: #1e3a5f !important;
+}
+
+[data-theme="dark"] .talks-section .talk-header .talk-title-area .talk-title-row h3 {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .talks-section .talk-description {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .talks-section .talk-location-bottom {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .talks-section .conference-link {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .talks-section .conference-link:hover {
+  color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link {
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link:hover {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Dark Mode Media Link Colors */
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.youtube {
   background: transparent !important;
+  color: #ff4444 !important;
+  border-color: #ff4444 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.youtube:hover {
+  background: #ff4444 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.slides {
+  background: transparent !important;
+  color: #ff6b35 !important;
+  border-color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.slides:hover {
+  background: #ff6b35 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.github {
+  background: transparent !important;
+  color: #ccc !important;
+  border-color: #ccc !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.github:hover {
+  background: #ccc !important;
+  color: #333 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.paper {
+  background: transparent !important;
+  color: #6da4d9 !important;
+  border-color: #6da4d9 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link.paper:hover {
+  background: #6da4d9 !important;
+  color: white !important;
+}
+
+/* Workshop Cards Action Styling */
+.other-talk-actions .other-action {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 5px !important;
+  font-size: 12px !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  margin-right: 6px !important;
+  background: transparent !important;
+  border: 1px solid currentColor !important;
+}
+
+.other-talk-actions .other-action:hover {
+  transform: translateY(-1px) !important;
+}
+
+.other-talk-actions .other-action.youtube {
+  color: #ff0000 !important;
+  border-color: #ff0000 !important;
+}
+
+.other-talk-actions .other-action.youtube:hover {
+  background: #ff0000 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.slides {
+  color: #d04423 !important;
+  border-color: #d04423 !important;
+}
+
+.other-talk-actions .other-action.slides:hover {
+  background: #d04423 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.github {
+  color: #333 !important;
+  border-color: #333 !important;
+}
+
+.other-talk-actions .other-action.github:hover {
+  background: #333 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.paper {
   color: #4285f4 !important;
+  border-color: #4285f4 !important;
+}
+
+.other-talk-actions .other-action.paper:hover {
+  background: #4285f4 !important;
+  color: white !important;
+}
+
+/* Dark Mode Workshop Cards */
+[data-theme="dark"] .other-talk-card {
+  background: var(--card-color) !important;
+}
+
+[data-theme="dark"] .other-talk-title {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .other-talk-link {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .other-talk-link:hover {
+  color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .other-talk-location {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .other-talk-description {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action {
+  background: transparent !important;
+  border: 1px solid currentColor !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.youtube {
+  color: #ff4444 !important;
+  border-color: #ff4444 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.youtube:hover {
+  background: #ff4444 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.slides {
+  color: #ff6b35 !important;
+  border-color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.slides:hover {
+  background: #ff6b35 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.github {
+  color: #ccc !important;
+  border-color: #ccc !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.github:hover {
+  background: #ccc !important;
+  color: #333 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.paper {
+  color: #6da4d9 !important;
+  border-color: #6da4d9 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.paper:hover {
+  background: #6da4d9 !important;
+  color: white !important;
 }
 
 /* Tablet Responsiveness */

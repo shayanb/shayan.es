@@ -29,12 +29,14 @@
   desktop: true
   hamburger: true
   submenu:
+    - title: "Academic Journey"
+      url: "/scholar/#academic-journey"
     - title: "Publications"
       url: "/scholar/#publications"
-    - title: "Scholarships"
-      url: "/scholar/#scholarships-awards"    
-    - title: "Academic Reviews"
-      url: "/scholar/#academic-reviews"
+    # - title: "Scholarships"
+    #   url: "/scholar/#scholarships-awards"    
+    # - title: "Academic Reviews"
+    #   url: "/scholar/#academic-reviews"
     # - title: "Audits"
     #   url: "/audits/"
 
@@ -43,14 +45,14 @@
   desktop: true
   hamburger: true
   submenu:
-    - title: "Talks & Presentations"
-      url: "/talks/#talks-presentations"
+    - title: "Talks & Workshops"
+      url: "/talks/#academic-lectures"
     - title: "Podcasts"
       url: "/talks/#podcasts"
     - title: "Hackathons"
       url: "/talks/#hackathons"
-    - title: "Conferences"
-      url: "/talks/#conferences"
+    # - title: "Conferences"
+    #   url: "/talks/#conferences"
       
 
 - title: "Artistic Works"
