@@ -36,15 +36,22 @@ excerpt: "A selected list of security reviews and public audit reports that I've
     <li class="audit-item">
       <div class="audit-month">{{ audit.year | date: "%b" }}</div>
       <div class="audit-content">
-        <a href="{{ audit.project-url }}" target="_blank" class="audit-project">{{ audit.project }}</a>
-        <span class="audit-separator">•</span>
-        {% if audit.url and audit.url != "" %}
-          <a href="{{ audit.url }}" target="_blank" class="audit-title">
-            <i class="fa fa-file-text-o"></i> {{ audit.title }}
-          </a>
-        {% else %}
+        <div class="audit-main">
+          <a href="{{ audit.project-url }}" target="_blank" class="audit-project">{{ audit.project }}</a>
+          <span class="audit-separator">•</span>
           <span class="audit-title">{{ audit.title }}</span>
-        {% endif %}
+        </div>
+        <div class="audit-actions">
+          {% if audit.url and audit.url != "" %}
+          <a href="{{ audit.url }}" target="_blank" class="audit-report-btn">
+            <i class="fa fa-file-text-o"></i> Report
+          </a>
+          {% else %}
+          <span class="audit-report-btn audit-report-disabled">
+            <i class="fa fa-file-text-o"></i> Report
+          </span>
+          {% endif %}
+        </div>
       </div>
     </li>
  
@@ -119,8 +126,20 @@ excerpt: "A selected list of security reviews and public audit reports that I've
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.audit-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.audit-actions {
+  flex-shrink: 0;
 }
 
 .audit-project {
@@ -141,29 +160,47 @@ excerpt: "A selected list of security reviews and public audit reports that I've
 
 .audit-title {
   color: #4b5563;
-  text-decoration: none;
-  transition: color 0.2s ease;
+}
+
+.audit-report-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-a.audit-title {
+  padding: 0.5rem 1rem;
+  background: #ff6b35;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
   font-weight: 500;
-  
-  i {
-    color: #ff6b35;
-    transition: transform 0.2s ease;
-  }
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
 }
 
-a.audit-title:hover {
-  color: #1e3a5f;
-  text-decoration: underline;
-  
-  i {
-    transform: translateX(2px);
-  }
+.audit-report-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+  text-decoration: none;
+  color: #fff;
+}
+
+.audit-report-btn i {
+  font-size: 0.8rem;
+}
+
+.audit-report-disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.audit-report-disabled:hover {
+  background: #e5e7eb;
+  color: #9ca3af;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Archive year styling */
@@ -202,8 +239,32 @@ a.audit-title:hover {
   color: var(--text-color);
 }
 
-[data-theme="dark"] a.audit-title:hover {
+[data-theme="dark"] .audit-report-btn {
+  background: rgba(255, 107, 53, 0.1);
   color: #ff6b35;
+  border: 1px solid #ff6b35;
+  box-shadow: 0 2px 4px rgba(255, 107, 53, 0.1);
+}
+
+[data-theme="dark"] .audit-report-btn:hover {
+  background: rgba(255, 107, 53, 0.2);
+  color: #ff8555;
+  border-color: #ff8555;
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .audit-report-disabled {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+  border: 1px solid #4b5563;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .audit-report-disabled:hover {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+  border-color: #4b5563;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] .archive-year {
@@ -222,8 +283,23 @@ a.audit-title:hover {
   
   .audit-content {
     flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .audit-main {
+    flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+  }
+  
+  .audit-actions {
+    align-self: flex-end;
+  }
+  
+  .audit-report-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
   
   .audit-separator {

@@ -46,7 +46,7 @@ permalink: /connect/
           <i class="fa fa-twitter"></i>
         </div>
         <div class="platform-content">
-          <h3>Twitter</h3>
+          <h3>X (Twitter)</h3>
         </div>
       </a>
       {% endif %}
@@ -118,8 +118,8 @@ permalink: /connect/
       </a>
       {% endif %}
 
-      <!-- Stack Overflow -->
-      <a href="https://stackoverflow.com/users/2161575/shayan" target="_blank" rel="noopener" class="platform-card stackoverflow">
+      {% if site.owner.stackoverflow %}
+      <a href="https://stackoverflow.com/users/{{ site.owner.stackoverflow }}/shayan" target="_blank" rel="noopener" class="platform-card stackoverflow">
         <div class="platform-icon">
           <i class="fa fa-stack-overflow"></i>
         </div>
@@ -127,9 +127,10 @@ permalink: /connect/
           <h3>Stack Overflow</h3>
         </div>
       </a>
+      {% endif %}
 
-      <!-- Google Scholar -->
-      <a href="https://scholar.google.com/citations?user=K9xYnSQAAAAJ" target="_blank" rel="noopener" class="platform-card scholar">
+      {% if site.owner.google-scholar %}
+      <a href="https://scholar.google.com/citations?user={{ site.owner.google-scholar }}" target="_blank" rel="noopener" class="platform-card scholar">
         <div class="platform-icon">
           <i class="fa fa-graduation-cap"></i>
         </div>
@@ -137,9 +138,10 @@ permalink: /connect/
           <h3>Google Scholar</h3>
         </div>
       </a>
+      {% endif %}
 
-      <!-- ORCID -->
-      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener" class="platform-card orcid">
+      {% if site.owner.orcid %}
+      <a href="https://orcid.org/{{ site.owner.orcid }}" target="_blank" rel="noopener" class="platform-card orcid">
         <div class="platform-icon">
           <i class="fa fa-id-card-o"></i>
         </div>
@@ -147,12 +149,12 @@ permalink: /connect/
           <h3>ORCID</h3>
         </div>
       </a>
+      {% endif %}
 
-      <!-- YouTube (if available) -->
-      {% if site.owner.youtube and site.owner.youtube != "" %}
+      {% if site.owner.youtube %}
       <a href="https://youtube.com/@{{ site.owner.youtube }}" target="_blank" rel="noopener" class="platform-card youtube">
         <div class="platform-icon">
-          <i class="fa fa-youtube"></i>
+          <i class="fa fa-youtube-play"></i>
         </div>
         <div class="platform-content">
           <h3>YouTube</h3>
