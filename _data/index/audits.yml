@@ -37,26 +37,26 @@
   project: The LAO
   project-url: https://www.thelao.io/
   url: https://consensys.net/diligence/audits/2020/01/the-lao/
-  year: 2020/1
+  year: 2020/01
 
 
 - title:  Skale Network Delegations & Token (ERC777)
   project: Skale
   project-url: https://skale.space/
   url: https://consensys.net/diligence/audits/2020/01/skale-token/
-  year: 2020/1
+  year: 2020/01
 
 - title: PoCo (Proof of Contribution) protocol
   project: iExec
   project-url: https://iex.ec/
   url: https://consensys.net/diligence/audits/2020/03/iexec-poco/
-  year: 2020/3
+  year: 2020/03
 
 - title: rICO - Reversible Initial Coin Offering
   project: Lukso
   project-url: https://lukso.network/
   url: https://consensys.net/diligence/audits/2020/04/rico/
-  year: 2020/4
+  year: 2020/04
 
 
 - title: Smart contract (Fairswap & Oracle) audit
@@ -125,19 +125,19 @@
   project: Gitcoin
   project-url: https://gitcoin.co/
   url: https://consensys.net/diligence/audits/2021/04/gitcoin-token-distribution/
-  year: 2021/4
+  year: 2021/04
 
 - title: BTCPlus and Plus assets framework
   project: NUTS Finance
   project-url: https://www.nuts.finance/
   url: https://consensys.net/diligence/audits/2021/05/nuts-finance-btcplus/
-  year: 2021/5
+  year: 2021/05
 
 - title: Dynamic Tranches
   project: Idle Finance
   project-url: https://idle.finance/
   url: https://consensys.net/diligence/audits/2021/06/idle-finance/
-  year: 2021/6
+  year: 2021/06
 
 
 - title: Liquid Staking Architecture
@@ -188,7 +188,7 @@
   url: 
   year: 2025/02
 
-- title: PortalERC20
+- title: Portal ERC20
   project: OneBalance
   project-url: https://www.onebalance.io/
   url: 

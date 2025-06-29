@@ -71,81 +71,84 @@ swag:
     event: "Open Source"
   
 sticker:
-  - title: "Coin Iran Academy - DevConnect Istanbul"
+  - title: "CoinIran Academy"
     year: 2023
     description: "Conference stickers and magnets from DevConnect Istanbul event, featuring Coin Iran Academy branding and blockchain community themes."
     images:
       - "/img/art/stickers/coiniranacademy-devconnect-ist-01.jpeg"
       - "/img/art/stickers/coiniranacademy-devconnectistanbul-magnet-01.jpeg"
-    category: "Conference Stickers"
+    category: "Stickers"
     event: "DevConnect Istanbul"
     type: "sticker"
     tag: "conference"
-    tags: ["test", "coiniran"]
+    tags: ["magnet", "ethereum"]
 
 
   - title: "Creed CCard Collection"
     year: 2024
-    description: "Creative card-style sticker designs for the Creed project, featuring modern typography and sleek branding elements."
+    description: "Creative card-style sticker designs for Creed, featuring modern typography and sleek branding elements."
     images:
       - "/img/art/stickers/creed-CCard-01.jpeg"
       - "/img/art/stickers/creed-CCard-02.jpeg"
-    category: "Project Stickers"
+    category: "Stickers"
+    event: "Creed"
     type: "sticker"
     tag: "branding"
 
-  - title: "Dili Event Stickers"
+  - title: "ConsenSys Diligence Stickers"
     year: 2023
-    description: "Commemorative stickers for Dili events including 'Breaking Ethereum' and hackathon winner celebrations."
+    description: "Commemorative stickers for Diligence events including 'Breaking Ethereum', hackathon winner celebrations, and more."
     images:
       - "/img/art/stickers/dili-breakingEthereum-01.jpeg"
       - "/img/art/stickers/dili-hackthecode-hackathonwinner-01.jpeg"
-    category: "Event Stickers"
-    event: "Dili Hackathons"
+    category: "Stickers"
+    event: "ConsenSys Diligence"
     type: "sticker"
-    tag: "hackathon"
+    # tag: "hackathon"
 
   - title: "ETH Merge - So Yesterday"
     year: 2022
-    description: "Commemorative sticker celebrating the Ethereum merge, featuring retro-futuristic design elements."
+    description: "Commemorative sticker celebrating the successful Ethereum merge, featuring retro-futuristic design elements."
     images:
       - "/img/art/stickers/eth-merge-soYesterday-01.jpeg"
-    category: "Commemorative Stickers"
+    category: "Stickers"
     event: "Ethereum Merge"
     type: "sticker"
-    tag: "ethereum"
+    tags: ["Commemorative"]
 
   - title: "ETHCap - Maple Alien Collection"
     year: 2024
-    description: "Quirky alien-themed sticker series for ETHCap, combining Canadian identity with extraterrestrial humor."
+    description: "A take on Canadian Ethereum space, some say it looks like a quirky alien-themed sticker, combining Canadian identity with extraterrestrial humor."
     images:
       - "/img/art/stickers/ethcap-canadianalien-01.jpeg"
       - "/img/art/stickers/ethcap-canadianalien-02.jpeg"
       - "/img/art/stickers/ethcap-canadianalien-03.jpeg"
-    category: "Character Stickers"
-    event: "ETHCap"
+    category: "Stickers"
+    event: "Ether Capital"
     type: "sticker"
     tag: "character"
 
   - title: "Iran Unchained NFT Series"
     year: 2023
-    description: "Sticker collection for Iran Unchained NFT project, including first series designs and project logo."
+    description: "Sticker collection for Iran Unchained, supporting Iranian NFT artists through grants, including first series designs and project logo."
     images:
       - "/img/art/stickers/iranunchained-NFT1stseries-01.jpeg"
       - "/img/art/stickers/iranunchained-NFT1stseries-02.jpeg"
       - "/img/art/stickers/iranunchained-logo-01.jpeg"
-    category: "NFT Project Stickers"
+    category: "Stickers"
+    event: "IranUnchained"
     type: "sticker"
-    tag: "nft"
+    tags: ["NFT"]
 
-  - title: "Personal Philosophy Stickers"
-    year: 2024
-    description: "Collection of personal philosophy and life-themed stickers, including motivational and introspective designs."
+  - title: "My Sticker Designs"
+    year: 2025
+    description: "Collection of personal designed that include my philosophy and take on life, some with dark humour, including introspective designs."
     images:
       - "/img/art/stickers/me-BeKindCauseWEDIE-01.jpeg"
       - "/img/art/stickers/me-PhD-myFriend-01.jpeg"
       - "/img/art/stickers/me-truthNFT-01.jpeg"
-    category: "Personal Stickers"
+    category: "Stickers"
+    event: "Personal Collection"
     type: "sticker"
     tag: "philosophy"
 
@@ -164,9 +167,9 @@ sticker:
     description: "Commemorative sticker celebrating the Puffer protocol mainnet launch, featuring protocol branding and launch theme."
     images:
       - "/img/art/stickers/puffer-mainnetlaunch-01.jpeg"
-    category: "Protocol Launch Stickers"
-    event: "Puffer Mainnet Launch"
+    category: "Sticker"
+    event: "Puffer Finance"
     type: "sticker"
-    tag: "protocol"
+    tags: ["Commemorative"]
 
 

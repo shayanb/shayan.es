@@ -2,8 +2,8 @@
 locale: "en-US"
 title: "Shayan Eskandari"
 tagline: "Senior Security Engineer & Human-Centered Technologist"
-description: "Personal portfolio of Shayan Eskandari - Security Research, Creative Technology, and Blockchain Innovation"
-keywords: ["security research", "blockchain", "smart contracts", "software engineering", "cybersecurity", "vulnerability research", "ethereum", "defi", "security audits", "cryptography", "creative technology"]
+description: "Personal portfolio of Shayan Eskandari - Security Research, Blockchain Innovation, and Human-Centered Technologist"
+keywords: ["security research", "blockchain", "smart contracts", "Human-Centered Technologist", "cybersecurity", "ethical research", "ethereum", "defi", "security audits", "cryptography", "creative technology"]
 baseurl: ""
 url: "https://shayan.es"
 logo: "/img/logo.png"

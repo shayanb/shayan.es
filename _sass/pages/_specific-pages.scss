@@ -750,12 +750,11 @@
 
       .app-icon,
       .app-icon-link img {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         border-radius: $border-radius * 2;
         overflow: hidden;
         flex-shrink: 0;
-        box-shadow: $shadow-sm;
         object-fit: cover;
       }
 
@@ -1244,10 +1243,9 @@
         }
         
         .app-icon {
-          width: 80px;
-          height: 80px;
+          width: 100px;
+          height: 100px;
           margin: 0 auto; // Center the icon
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .app-content {
@@ -1265,6 +1263,11 @@
               margin-bottom: 0;
               font-size: 1.25rem;
               width: 100%;
+              text-align: center;
+              
+              .app-title-btn {
+                text-align: center;
+              }
             }
 
             .app-platform {
@@ -1281,7 +1284,7 @@
           }
           
           .app-actions {
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
             margin-top: 1rem;
             flex-wrap: nowrap;
