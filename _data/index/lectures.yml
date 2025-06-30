@@ -121,7 +121,7 @@
 
 - name: "Smashing Smart Contracts: Detecting and Exploiting Vulnerabilities in EVM bytecode"
   descr: "Hacking & exploitation Solidity/EVM smart contracts, and practicing them on CaptureTheEther and OpenZeppelin Ethernaut challanges."
-  location: "Blockchain Village @ DEFCON 27, Las Vegas, USA"
+  location: "Blockchain Village (DEFCON 27), LV, USA"
   website: "https://www.blockchainvillage.net"
   github: https://github.com/ConsenSys/smashing-smart-contracts-workshop
   year: 2019
