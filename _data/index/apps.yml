@@ -4,12 +4,12 @@
 - name: "PadSnap"
   platform: "WebApp"
   logo: "/img/apps/padsnap-logo.png"
-  short_description: "Image Resize & Padding Tool 🎞️ 📸"
-  description: "An intuitive web application for resizing and adding padding to images. Perfect for social media content creators, designers, and anyone who needs to quickly adjust image dimensions while maintaining aspect ratios."
+  short_description: "Padding images to custom sizes, pain free. 🎞️ 📸"
+  description: "PadSnap is a simple web application that pads your photos with customizable borders so they fit Instagram's recommended post dimensions without cropping or quality loss. Runs on your browser and supports batch processing, custom colors, and instant previews."
   website: "https://padsnap.app"
   year: 2025
   featured: true
-  tags: ["Image Processing", "Web Tools", "Design"]
+  tags: ["Image Processing", "Web Tools", "Design", "Photography"]
   screenshots:
     - "/img/apps/padsnap-screenshot-1.png"
     - "/img/apps/padsnap-screenshot-2.png"
@@ -18,12 +18,12 @@
   platform: "WebApp"
   logo: "/img/apps/ethduties-logo.png"
   short_description: "Ethereum Validator Duties Tracker"
-  description: "A comprehensive tracking tool for Ethereum validators to monitor their duties, performance, and rewards. Helps validators stay on top of their validation responsibilities and track their staking performance."
+  description: "ETH Duties Tracker is a web application that helps Ethereum validators monitor their upcoming duties including block proposals, attestations, and sync committee participation. It provides real-time notifications and a dashboard view of all validator activities, useful for maintenance planning."
   website: "https://ethduti.es/"
   github: "https://github.com/shayanb/ethduties"
   year: 2025
   featured: true
-  tags: ["Ethereum", "Blockchain", "Staking"]
+  tags: ["Ethereum", "Blockchain", "Staking", "Home Staker"]
   screenshots:
     - "/img/apps/ethduties-screenshot-1.png"
     - "/img/apps/ethduties-screenshot-2.png"
@@ -51,8 +51,8 @@
 - name: "FocalFlow"
   platform: "WebApp"
   logo: "/img/placeholder-logo.png"
-  short_description: "Create mesmerizing animations with stationary focal points or something else"
-  description: "FocalFlow is a browser-based creative tool that empowers artists and photographers to create unique animations from photo series."
+  short_description: "Object-centric Animation Creator"
+  description: "FocalFlow is a browser-based creative tool that Transform a series of photographs containing a recurring object into captivating animated sequences where the focal point remains perfectly still, or animate following the focal flow."
   website: "https://shayanb.github.io/FocalFlow/"
   github: "https://github.com/shayanb/FocalFlow"
   year: 2025
@@ -72,7 +72,7 @@
   github: "https://github.com/shayanb/EIP-7251-calcualator"
   year: 2025
   featured: false
-  tags: ["Ethereum", "Calculator", "EIP-7251"]
+  tags: ["Ethereum", "Staking", "Calculator", "EIP-7251"]
   screenshots:
     - "/img/apps/EIP-7251-calcualator-screenshot-1.png"
     - "/img/apps/EIP-7251-calcualator-screenshot-2.png"
@@ -82,7 +82,7 @@
   platform: "WebApp"
   logo: "/img/apps/lifetimeline-logo.png"
   short_description: "Interactive Timeline Visualization Tool"
-  description: "An interactive web application that allows users to create, customize, and visualize timelines for projects, historical events, or personal milestones. Features drag-and-drop functionality and multiple viewing modes."
+  description: "An interactive web application that allows users to create, customize, and visualize timelines, with the focus of multi-dimensionality of life/events."
   website: "https://shayanb.github.io/timeline/"
   github: "https://github.com/shayanb/timeline"
   year: 2025
@@ -96,7 +96,7 @@
 - name: "ShirYaKhat"
   platform: "Website"
   logo: "/img/apps/shiryakhat-logo.png"
-  short_description: "Persian Blockchain Podcast & Educational Platform"
+  short_description: "Persian Blockchain Podcast Website"
   description: "A pioneering Persian-language blockchain and cryptocurrency educational podcast founded in 2016. Making blockchain knowledge accessible to Farsi speakers through live discussions with global experts, educational content, and community engagement."
   website: "https://shiryakhat.net"
   year: 2025
@@ -111,7 +111,7 @@
   platform: "Website"
   logo: "/img/apps/pangana-logo.png"
   short_description: "Web3 Security Consulting & Blockchain Architecture"
-  description: "Technology and consulting company bridging ancient Persian wisdom with modern blockchain security. Specializing in Web3 security consulting, smart contract audits, blockchain architecture design, and professional training services."
+  description: "Technology and consulting company bridging wisdom with modern blockchain security. Specializing in Web3 security consulting, smart contract audits, blockchain architecture design, and professional training services."
   website: "https://pangana.com"
   year: 2018
   featured: false
@@ -125,14 +125,15 @@
   platform: "Website"
   logo: "/img/companies/creed-logo.svg"
   short_description: "Web3 Cybersecurity DAO Platform"
-  description: "A community-driven platform for Web3 cybersecurity professionals. The Creed DAO connects vetted security hackers with bug bounty opportunities and security audit services, fostering flexible work arrangements and long-term incentive alignment."
+  description: "A grassroots collective of security professionals changing how Web3 security is delivered and compensated."
   website: "https://thecreed.xyz"
   year: 2025
   featured: false
-  tags: ["Security", "DAO", "Web3", "Community"]
-  # screenshots: # TODO
-  #   - "/img/apps/thecreed-screenshot-1.png"
-  #   - "/img/apps/thecreed-screenshot-2.png"
+  tags: ["Security", "DAO", "Web3", "Collective"]
+  screenshots: 
+    - "/img/apps/thecreed-website-screenshot-1.png"
+    - "/img/apps/thecreed-website-screenshot-2.png"
+    - "/img/apps/thecreed-website-screenshot-3.png"
 
 - name: "Jay Pegs Auto Mart RoofSlapper"
   platform: "WebApp"
