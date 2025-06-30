@@ -66,22 +66,22 @@ permalink: /about/
             <div class="expertise-item">
               <i class="fa fa-shield"></i>
               <h3>Security Research</h3>
-              <p>Smart contract auditing, vulnerability discovery, and security architecture design</p>
+              <p>Smart contract auditing, risk assessment, and security architecture design</p>
             </div>
             <div class="expertise-item">
               <i class="fa fa-link"></i>
               <h3>Blockchain Technology</h3>
-              <p>Ethereum, DeFi protocols, MEV, and distributed systems</p>
+              <p>Ethereum, staking, Bitcoin, and decentralized system design</p>
             </div>
             <div class="expertise-item">
               <i class="fa fa-code"></i>
-              <h3>Software Development</h3>
-              <p>Full-stack development, security tools, and automation</p>
+              <h3>AI-driven Development</h3>
+              <p>Full-stack AI development and automation</p>
             </div>
             <div class="expertise-item">
               <i class="fa fa-graduation-cap"></i>
               <h3>Education & Mentorship</h3>
-              <p>Conference speaking, workshops, and hackathon mentoring</p>
+              <p>Conference speaking, podcast host, and hackathon mentoring</p>
             </div>
           </div>
         </div>
@@ -97,15 +97,15 @@ permalink: /about/
         </div>
         <div class="value-item">
           <h3>🌍 Open Source</h3>
-          <p>Contributing to and supporting open-source security tools</p>
+          <p>Contributing to and supporting open-source tools and protocols</p>
         </div>
         <div class="value-item">
           <h3>📚 Knowledge Sharing</h3>
-          <p>Teaching and mentoring the next generation of security professionals</p>
+          <p>Teaching and mentoring the next generation of technologists</p>
         </div>
         <div class="value-item">
           <h3>🎨 Creative Problem Solving</h3>
-          <p>Approaching security challenges with innovative solutions</p>
+          <p>Approaching technical challenges with innovative solutions</p>
         </div>
       </div>
     </section>
