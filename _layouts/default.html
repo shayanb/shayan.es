@@ -79,8 +79,8 @@
         </a>
       {% endif %}
       {% if site.owner.twitter %}
-        <a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank" rel="noopener" aria-label="Twitter" class="social-item twitter">
-          <i class="fa fa-twitter"></i>
+        <a href="https://x.com/{{ site.owner.twitter }}" target="_blank" rel="noopener" aria-label="X (formerly Twitter)" class="social-item twitter">
+          <span class="x-icon">𝕏</span>
         </a>
       {% endif %}
       {% if site.owner.instagram %}
@@ -88,14 +88,14 @@
           <i class="fa fa-instagram"></i>
         </a>
       {% endif %}
-      {% if site.owner.keybase %}
-        <a href="https://keybase.io/{{ site.owner.keybase }}" target="_blank" rel="noopener" aria-label="Keybase" class="social-item keybase">
-          <i class="fa fa-key"></i>
+      {% if site.owner.youtube %}
+        <a href="https://youtube.com/@{{ site.owner.youtube }}" target="_blank" rel="noopener" aria-label="YouTube" class="social-item youtube">
+          <i class="fa fa-youtube"></i>
         </a>
       {% endif %}
-      {% if site.owner.email %}
-        <a href="mailto:{{ site.owner.email }}" aria-label="Email" class="social-item email">
-          <i class="fa fa-envelope"></i>
+      {% if site.owner.google_scholar %}
+        <a href="https://scholar.google.com/citations?user={{ site.owner.google_scholar }}" target="_blank" rel="noopener" aria-label="Google Scholar" class="social-item google-scholar">
+          <i class="fa fa-graduation-cap"></i>
         </a>
       {% endif %}
     </div>

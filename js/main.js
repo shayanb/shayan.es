@@ -272,7 +272,8 @@ Feel free to explore the console for more surprises...
   const socialItems = document.querySelectorAll('.social-item');
 
   if (socialToggle && socialMenu) {
-    socialToggle.addEventListener('click', () => {
+    socialToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isActive = socialMenu.classList.contains('active');
       
       if (isActive) {
@@ -297,10 +298,15 @@ Feel free to explore the console for more surprises...
         });
       }
     });
+    
+    // Prevent menu from closing when clicking on menu items
+    socialMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!socialContainer.contains(e.target)) {
+      if (socialMenu.classList.contains('active')) {
         socialMenu.classList.remove('active');
         socialToggle.classList.remove('active');
         socialContainer.classList.remove('menu-open');

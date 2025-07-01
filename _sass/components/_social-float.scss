@@ -84,6 +84,11 @@
         transform: scale(1.1);
         box-shadow: $shadow-card-hover;
       }
+      
+      // Enhanced dark mode hover effects
+      [data-theme="dark"] &:hover {
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+      }
 
       @media (max-width: $small-screen) {
         width: 45px;
@@ -114,12 +119,32 @@
       }
 
       &.twitter {
-        background: #1da1f2;
+        background: #000000;
         animation-delay: 0.2s;
         
         &.animate {
           bottom: 260px;
           transform: scale(1);
+        }
+        
+        .x-icon {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: white;
+        }
+        
+        // Dark mode styling
+        [data-theme="dark"] & {
+          background: #1a1a1a;
+          
+          .x-icon {
+            color: #ffffff;
+          }
+          
+          &:hover {
+            background: #333333;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+          }
         }
       }
 
@@ -133,8 +158,8 @@
         }
       }
 
-      &.keybase {
-        background: #ff6f21;
+      &.youtube {
+        background: #ff0000;
         animation-delay: 0.3s;
         
         &.animate {
@@ -143,8 +168,8 @@
         }
       }
 
-      &.email {
-        background: $orange;
+      &.google-scholar {
+        background: #4285f4;
         animation-delay: 0.35s;
         
         &.animate {
@@ -159,8 +184,8 @@
         &.linkedin.animate { bottom: 170px; }
         &.twitter.animate { bottom: 220px; }
         &.instagram.animate { bottom: 270px; }
-        &.keybase.animate { bottom: 320px; }
-        &.email.animate { bottom: 370px; }
+        &.youtube.animate { bottom: 320px; }
+        &.google-scholar.animate { bottom: 370px; }
       }
     }
   }

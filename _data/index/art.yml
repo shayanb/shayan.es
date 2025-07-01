@@ -24,22 +24,23 @@ physical:
     
   - title: "A Technology known as 'Money'"
     year: 2018
-    description: "An exploration of the intersection between technology and monetary systems, examining how digital currencies challenge traditional concepts of value and exchange."
+    description: "An exploration of the intersection between technology and monetary systems, examining how digital currencies challenge traditional concepts of value and exchange. <br><br> This provocative mixed media installation dissects the artificial construct we call \"money\" by presenting its most absurd and contradictory manifestations. <br> The central tableau showcases a deliberate collection of monetary paradoxes: Cuban pesos that render the collector complicit in illegal exportation, hyperinflated Zimbabwean trillion-dollar notes that mock the very concept of worth, and Canadian Tire money—a corporate scrip that highlights how private entities can manufacture their own economies. Each bill represents a different breakdown in the social contract of monetary trust.<br> The accompanying frames trace money's evolution from physical tokens to digital abstractions. Ancient coins speak to humanity's earliest attempts to standardize value through precious metals, while a Bitcoin medallion represents our latest experiment in consensual hallucination—a currency backed not by gold or governments but by collective belief in cryptographic proof. The Mt. Gox two-factor authentication card serves as a modern relic, a tangible reminder of how quickly digital fortunes can vanish into the ether. <br> The piece functions as an archaeological study of our present moment, It suggests that money, like all technologies, is neither neutral nor inevitable—it is a reflection of power structures, cultural values, and collective agreements that can be rewritten at any moment"
     images:
       - "/img/art/physical/atechnologynamedmoney-march2018-01.JPG"
       - "/img/art/physical/atechnologynamedmoney-march2018-02.JPG"
     medium: "Mixed media"
-    tags: ["money", "technology", "crypto", "economics"]
+    dimensions: "4 frames"
+    tags: ["collective", "money"]
     
   - title: "Smokey Skull"
-    year: 2020
-    description: "A mixed media artwork featuring layered textures and atmospheric effects, combining traditional and contemporary artistic techniques in a framed composition."
+    year: 2017
+    description: "Smokey Skull confronts the viewer with an unflinching meditation on mortality through the detritus of desire. This mixed media assemblage transforms the vibrant packaging of Jamaican Camel cigarettes and Cuban tobacco into a spectral skull—a contemporary memento mori that whispers the ancient reminder: \"remember you must die.\" <br> The work operates on multiple planes of meaning. The skull, humanity's most enduring symbol of death, emerges not from bone but from the very objects that promise pleasure while delivering destruction. Each colorful package, once a vessel of corporate seduction, now forms the architecture of demise. The \"smoke\" itself—carefully deconstructed tobacco leaves scattered like ash—becomes both the act and its consequence, the inhalation and the final exhalation. <br> The artist presents us with a philosophical paradox: in seeking to consume, we ourselves are consumed. The skull does not judge; it merely is—a silent witness to the human condition where pleasure and pain, life and death, choice and consequence intertwine in an eternal dance. This is not merely an anti-smoking statement but a broader reflection on how we negotiate desire, mortality, and the weight of our choices in an age of endless consumption."
     images:
       - "/img/art/physical/smokey-skull-frame-mixedMediaArt-01.JPG"
       - "/img/art/physical/smokey-skull-frame-mixedMediaArt-02.JPG"
     medium: "Mixed media art"
-    dimensions: "24x36 inches"
-    tags: ["skull", "atmospheric", "texture", "mixed-media"]
+    dimensions: "20x20 inches"
+    tags: ["consumerism", "death"]
 
 swag:
   - title: "Diligence Juggling Balls"

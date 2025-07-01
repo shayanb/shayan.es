@@ -55,7 +55,7 @@ permalink: /about/
             </div>
             <div class="timeline-item">
               <span class="year">2013-2015</span>
-              <h4>Discovered Bitcoin</h4>
+              <h4>wth is Bit coin</h4>
               <p>While researching "Anomoly detection in Linux Kernel" I came across Bitcoin, and it seemed too good to be true. I spent six months trying to break it, but, as I often joke, it broke me. Later that year, I switched my master’s program to focus on the Bitcoin usability</p>
             </div>
           </div>
