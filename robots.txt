@@ -26,7 +26,7 @@ Disallow: /_data/
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://shayan.es/sitemap.xml
 
 # LLM-specific crawlers
 User-agent: GPTBot
