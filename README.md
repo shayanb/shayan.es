@@ -133,7 +133,10 @@ This website embodies a commitment to transparency, security, and the responsibl
 **Content & Images:** All Rights Reserved - Personal portfolio content
 
 This version of the website is built on top of the previous version that was developed in 2018 using **[Leonids](http://renyuanz.github.io/leonids)**. 
+
+
 ---
 
 *Built with ❤️ and ☕ by Shayan Eskandari*
+
 *Last updated: July 2025*

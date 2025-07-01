@@ -1,0 +1,105 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>{{ site.url }}/img/shayan.jpeg</image:loc>
+      <image:caption>Shayan Eskandari - Senior Blockchain Security Engineer and Human-Centered Technologist
+
+</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Key Portfolio Pages -->
+  <url>
+    <loc>{{ site.url }}/about/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>{{ site.url }}/career/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>{{ site.url }}/audits/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>{{ site.url }}/apps/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>{{ site.url }}/art/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>{{ site.url }}/connect/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  {% for post in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {% endfor %}
+
+  <!-- Only include meaningful content pages -->
+  {% assign pages = site.pages | where_exp: "page", "page.url != '/404.html'" %}
+  {% assign pages = pages | where_exp: "page", "page.url != '/feed.xml'" %}
+  {% assign pages = pages | where_exp: "page", "page.url != '/sitemap.xml'" %}
+  {% assign pages = pages | where_exp: "page", "page.url != '/robots.txt'" %}
+  {% assign pages = pages | where_exp: "page", "page.extname != '.css'" %}
+  {% assign pages = pages | where_exp: "page", "page.extname != '.map'" %}
+  {% assign pages = pages | where_exp: "page", "page.path contains '.html' or page.path contains '.md'" %}
+  
+  {% for page in pages %}
+    {% unless page.url == '/' or page.url == '/about/' or page.url == '/career/' or page.url == '/audits/' or page.url == '/apps/' or page.url == '/art/' or page.url == '/connect/' %}
+      {% unless page.path contains '_' or page.path contains 'css/' or page.path contains 'js/' or page.path contains 'fonts/' %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+      {% endunless %}
+    {% endunless %}
+  {% endfor %}
+
+  <!-- Feed -->
+  <url>
+    <loc>{{ site.url }}/feed.xml</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

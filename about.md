@@ -2,6 +2,8 @@
 layout: page
 title: About
 permalink: /about/
+description: "Learn about Shayan Eskandari's professional journey as a Senior Security Engineer, Blockchain Researcher, and Human-Centered Technologist. PhD in Information Systems Engineering from Concordia University, currently co-founder at Creed."
+keywords: ["Shayan Eskandari", "blockchain security", "smart contract auditing", "cybersecurity research", "PhD", "Concordia University", "Creed", "security engineer"]
 ---
 
 <div class="about-page">

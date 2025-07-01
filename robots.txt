@@ -1,0 +1,45 @@
+User-agent: *
+Allow: /
+
+# Prioritize key content
+Allow: /about/
+Allow: /career/
+Allow: /audits/
+Allow: /apps/
+Allow: /art/
+Allow: /connect/
+Allow: /articles/
+
+# Important files
+Allow: /feed.xml
+Allow: /sitemap.xml
+
+
+# Block development files
+Disallow: /_site/
+Disallow: /_sass/
+Disallow: /_layouts/
+Disallow: /_includes/
+Disallow: /_data/
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: {{ site.url }}/sitemap.xml
+
+# LLM-specific crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
