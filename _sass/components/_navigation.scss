@@ -66,17 +66,45 @@
     overflow-y: auto;
     z-index: 1000;
     
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 107, 53, 0.3);
+      border-radius: 3px;
+      
+      &:hover {
+        background: rgba(255, 107, 53, 0.5);
+      }
+    }
+    
     &.active {
       transform: translateY(0) scale(1);
       opacity: 1;
       visibility: visible;
     }
     
-    // Responsive sizing
+    // Mobile optimizations
     @media (max-width: $medium-screen) {
       width: calc(100vw - 3rem);
       max-width: 300px;
       right: 1.5rem;
+      padding: 1rem 0;
+      max-height: calc(100vh - 100px);
+    }
+    
+    @media (max-width: $small-screen) {
+      width: calc(100vw - 2rem);
+      right: 1rem;
+      padding: 0.75rem 0;
+      max-height: calc(100vh - 90px);
     }
     
     @media (min-width: #{$medium-screen + 1px}) {
@@ -97,6 +125,16 @@
         text-decoration: none;
         transition: all 0.2s ease;
         border-left: 3px solid transparent;
+        
+        @media (max-width: $medium-screen) {
+          padding: 0.6rem 1.25rem;
+          font-size: 0.95rem;
+        }
+        
+        @media (max-width: $small-screen) {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
         
         &:hover {
           background: rgba(255, 107, 53, 0.08);
@@ -137,6 +175,16 @@
           transition: all 0.2s ease;
           border-left: 3px solid transparent;
           
+          @media (max-width: $medium-screen) {
+            padding: 0.4rem 1.25rem 0.4rem 2.5rem;
+            font-size: 0.825rem;
+          }
+          
+          @media (max-width: $small-screen) {
+            padding: 0.375rem 1rem 0.375rem 2rem;
+            font-size: 0.8rem;
+          }
+          
           &:hover {
             background: rgba(255, 107, 53, 0.08);
             color: #ff6b35;
@@ -157,6 +205,19 @@
   [data-theme="dark"] .nav-menu-hamburger {
     background: rgba(17, 24, 39, 0.98);
     border-color: rgba(255, 255, 255, 0.08);
+    
+    // Dark mode scrollbar
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 107, 53, 0.4);
+      
+      &:hover {
+        background: rgba(255, 107, 53, 0.6);
+      }
+    }
     
     .nav-item > .nav-link {
       color: #e5e7eb;
