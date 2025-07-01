@@ -20,13 +20,15 @@ permalink: /about/
       <h2>Who I Am</h2>
       <p>I'm a security researcher ("hacker"), technologist, and educator, who bridges the gap between cutting-edge blockchain technology and real-world security challenges. With a PhD on the topic of "<a href="/scholar/#publications"><i>Uncovering Blockchain Challenges: Technical Nuances and Their Unforeseen Consequences</i></a>", I combine rigorous research with hands-on industry experience to advance the security of decentralized systems.</p>
       
-      <p>From an early age, I had a talent for breaking things, whether it was my grandma's radio or school's computer. My first company started from jailbreaking my friends iPhones (and iPod touches RIP), and I was drawn to the thrill of finding exploits and learning the inside out of every system I encountered. This passion for understanding how things work, and where they can fail, has been a constant throughout my career.</p>
+      <p>From an early age, I had a talent for breaking things, whether it was my grandma's radio or school's computer. My first company started from jailbreaking my friends iPhones (and iPod touches-RIP), and I was drawn to the thrill of finding exploits and learning the inside out of every system I encountered. This passion for understanding how things work, and where they can fail, has been a constant throughout my career.</p>
 
-      <p>My <a href="/career/">professional evolution</a> began as a "Blockchain Engineer" at Bitaccess, when we were still figuring out what Bitcoin could become while learning about the challenges of a ATM mass production. I then transitioned to a Security Engineer role at ConsenSys Diligence, where I found my true calling in Web3 code auditing and security reviews. Ether Capital was my next stop, where I served as Chief Technology Officer, diving deep into the publicly traded markets (TradFi) with a focus on Ethereum technology and staking.  Now, at Creed, we are trying out a new approach to security work in Web3. Along the way, I've contributed to the community through <a href="/talks/#academic-lectures">talks</a>, <a href="/talks/#podcasts">podcasts</a>, and <a href="/scholar/#publications">research publications</a> that explore the intersection of technology, applied philosophy, and governance.</p>
+      <p>My <a href="/career/">professional evolution</a> began as a "Blockchain Engineer" at Bitaccess, when we were still figuring out what Bitcoin could become while learning about the challenges of ATM mass production. I then transitioned to a Security Engineer role at ConsenSys Diligence, where I found my true calling in Web3 code auditing and security reviews. Ether Capital was my next stop, where I served as Chief Technology Officer, diving deep into the publicly traded markets (TradFi) with a focus on Ethereum technology and staking.  Now, at Creed, we are trying out a new approach to security work in Web3. Along the way, I've contributed to the community through <a href="/talks/#academic-lectures">talks</a>, <a href="/talks/#podcasts">podcasts</a>, and <a href="/scholar/#publications">research publications</a> that explore the intersection of technology, applied philosophy, and governance.</p>
       
       <p>I'm passionate about education and human connection, especially through <a href="/talks/#workshops-panels">workshops, panels</a>, <a href="/talks/#podcasts">podcasts</a>, and collaborate on interdisciplinary research around decentralized systems. </p>
       
-      <p>When I'm not debugging smart contracts or reverse-engineering protocols, you might find me creating <a href="/art/">digital art</a> that explores the intersection of technology and human creativity, or experimenting with <a href="https://www.instagram.com/shayanbahal" target="_blank"> analogue photography</a>, or building <a href="/projects/">tools</a> that make complex blockchain concepts more accessible. Lately, I've been obsessing over "vibecoding"—that magical moment when an idea transforms into a living, fully functioning application. My latest experiments in bringing these digital dreams to life using AI can be found in my <a href="/apps/">app collection</a>.</p>
+      <p>When I'm not debugging smart contracts or reverse-engineering protocols, you might find me creating <a href="/art/">digital art</a> that explores the intersection of technology and human creativity, or experimenting with <a href="https://www.instagram.com/shayanbahal" target="_blank"> analogue photography</a>, or building <a href="/projects/">tools</a> that make complex blockchain concepts more accessible. Lately, I've been obsessing over "vibecoding", that magical moment when an idea transforms into a fully functioning application within a few hours. My latest experiments in bringing these digital dreams to life using AI can be found in my <a href="/apps/">app collection</a>.</p>
+
+      <p>↑ ↑ ↓ ↓ ← → ← → B A</p>
     </section>
 
     <!-- Split Layout Section -->
@@ -54,7 +56,7 @@ permalink: /about/
             <div class="timeline-item">
               <span class="year">2013-2015</span>
               <h4>Discovered Bitcoin</h4>
-              <p>While researching "Anomoly detection in Linux Kernel" I came across Bitcoin, and it seemed too good to be true. I spent six months trying to break it, but, as I often joke, it broke me. Later that year, I switched my master’s program to focus on the usability of Bitcoin </p>
+              <p>While researching "Anomoly detection in Linux Kernel" I came across Bitcoin, and it seemed too good to be true. I spent six months trying to break it, but, as I often joke, it broke me. Later that year, I switched my master’s program to focus on the Bitcoin usability</p>
             </div>
           </div>
         </div>
@@ -66,7 +68,7 @@ permalink: /about/
             <div class="expertise-item">
               <i class="fa fa-shield"></i>
               <h3>Security Research</h3>
-              <p>Smart contract auditing, risk assessment, and security architecture design</p>
+              <p>Security code review, Smart contract auditing, risk assessment, and architecture design</p>
             </div>
             <div class="expertise-item">
               <i class="fa fa-link"></i>
@@ -76,7 +78,7 @@ permalink: /about/
             <div class="expertise-item">
               <i class="fa fa-code"></i>
               <h3>AI-driven Development</h3>
-              <p>Full-stack AI development and automation</p>
+              <p>Full-stack AI development, workflows, and automation</p>
             </div>
             <div class="expertise-item">
               <i class="fa fa-graduation-cap"></i>

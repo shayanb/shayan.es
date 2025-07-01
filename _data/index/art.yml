@@ -83,6 +83,17 @@ sticker:
     tag: "conference"
     tags: ["magnet", "ethereum"]
 
+  - title: "My Sticker Designs"
+    year: 2025
+    description: "Collection of personal designed that include my philosophy and take on life, some with dark humour, including introspective designs."
+    images:
+      - "/img/art/stickers/me-BeKindCauseWEDIE-01.jpeg"
+      - "/img/art/stickers/me-PhD-myFriend-01.jpeg"
+      - "/img/art/stickers/me-truthNFT-01.jpeg"
+    category: "Stickers"
+    event: "Personal Collection"
+    type: "sticker"
+    tag: "philosophy"
 
   - title: "Creed CCard Collection"
     year: 2024
@@ -139,18 +150,6 @@ sticker:
     event: "IranUnchained"
     type: "sticker"
     tags: ["NFT"]
-
-  - title: "My Sticker Designs"
-    year: 2025
-    description: "Collection of personal designed that include my philosophy and take on life, some with dark humour, including introspective designs."
-    images:
-      - "/img/art/stickers/me-BeKindCauseWEDIE-01.jpeg"
-      - "/img/art/stickers/me-PhD-myFriend-01.jpeg"
-      - "/img/art/stickers/me-truthNFT-01.jpeg"
-    category: "Stickers"
-    event: "Personal Collection"
-    type: "sticker"
-    tag: "philosophy"
 
   - title: "Temporary Tattoo Designs"
     year: 2024

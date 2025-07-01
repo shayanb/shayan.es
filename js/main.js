@@ -240,11 +240,13 @@ Feel free to explore the console for more surprises...
   window.secretCommand = function() {
     console.log('%c🎉 You found the secret command! Here\'s a cookie: 🍪', 'color: #ff6b35; font-size: 16px;');
     console.log('%c yeah... I have not really implemented this yet...', 'color:rgb(54, 149, 146); font-size: 16px;');
-    console.log('%c but i am really glad you are here and reading this...', 'color:rgb(76, 74, 215); font-size: 16px;');
+    console.log('%c but I am really glad you are here and reading this...', 'color:rgb(76, 74, 215); font-size: 16px;');
     console.log('%c How are YOU doing? Are you happy? like in the general sense?', 'color:rgb(94, 10, 8); font-size: 16px;');
-    console.log('%c well... hope you are. anyhow hmu if you made it this far :) ', 'color:rgb(94, 10, 8); font-size: 16px;');
+    console.log('%c well... hope you are. anyhow hit me up if you made it this far :)', 'color:rgb(94, 10, 8); font-size: 16px;');
     console.log('%c - - - - - - - - -', 'color:rgb(13, 226, 77); font-style: italic;');
-    console.log('%cNow try the Konami code on the website: ↑ ↑ ↓ ↓ ← → ← → B A', 'color: #1e3a5f; font-style: italic;');
+    setTimeout(() => {
+      console.log('%cNow try the Konami code on the website: ↑ ↑ ↓ ↓ ← → ← → B A', 'color: #1e3a5f; font-style: italic;');
+    }, 1000);
   };
 
   // Konami Code Easter Egg
@@ -395,10 +397,12 @@ Feel free to explore the console for more surprises...
     // Console message
     console.log('%c 🤗 You are Loved! ❤️', 'color: #ff6b35; font-size: 24px; font-weight: bold;');
     console.log('%c🎉 You are a true hacker! Enjoy the show! 🎉', 'color: #1e3a5f; font-size: 16px;');
-    
+    setTimeout(() => {
+      console.log('%c and do not forget, Be kind cause we all die!', 'color:rgb(94, 10, 8); font-size: 16px;');
+    }, 1000);
     // Show a temporary notification
     const notification = document.createElement('div');
-    notification.innerHTML = '🤗 You are loved! ❤️';
+    notification.innerHTML = 'Be kind cause we all die! ❤️';
     notification.style.cssText = `
       position: fixed;
       top: 20px;
