@@ -72,24 +72,18 @@ layout: null
   </url>
   {% endfor %}
 
-  <!-- Only include meaningful content pages -->
-  {% assign pages = site.pages | where_exp: "page", "page.url != '/404.html'" %}
-  {% assign pages = pages | where_exp: "page", "page.url != '/feed.xml'" %}
-  {% assign pages = pages | where_exp: "page", "page.url != '/sitemap.xml'" %}
-  {% assign pages = pages | where_exp: "page", "page.url != '/robots.txt'" %}
-  {% assign pages = pages | where_exp: "page", "page.extname != '.css'" %}
-  {% assign pages = pages | where_exp: "page", "page.extname != '.map'" %}
-  {% assign pages = pages | where_exp: "page", "page.path contains '.html' or page.path contains '.md'" %}
-  
-  {% for page in pages %}
-    {% unless page.url == '/' or page.url == '/about/' or page.url == '/career/' or page.url == '/audits/' or page.url == '/apps/' or page.url == '/art/' or page.url == '/connect/' %}
-      {% unless page.path contains '_' or page.path contains 'css/' or page.path contains 'js/' or page.path contains 'fonts/' %}
+  <!-- Additional Pages -->
+  {% for page in site.pages %}
+    {% unless page.url == '/' or page.url == '/about/' or page.url == '/career/' or page.url == '/audits/' or page.url == '/apps/' or page.url == '/art/' or page.url == '/connect/' or page.url == '/404.html' or page.url == '/feed.xml' or page.url == '/sitemap.xml' or page.url == '/robots.txt' %}
+      {% unless page.path contains '_' or page.path contains 'css/' or page.path contains 'js/' or page.path contains 'fonts/' or page.name contains '.css' or page.name contains '.map' %}
+        {% if page.path contains '.html' or page.path contains '.md' %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+        {% endif %}
       {% endunless %}
     {% endunless %}
   {% endfor %}
