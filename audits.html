@@ -1,28 +1,28 @@
 ---
 layout: page
-title:  Audits
+title: Security Reviews
 permalink: /audits/
-excerpt: "A selected list of security reviews and public audit reports that I've worked on."
+excerpt: "A Selected List of Security Reviews and Public Audits"
 ---
 
+<div class="audits-page">
+  <div class="page-header">
+    <h1>Security Code Reviews</h1>
+    {% if page.excerpt %}
+    <p class="page-subtitle">{{ page.excerpt }}</p>
+    {% endif %}
+  </div> 
 
-{% if page.excerpt %}
-<div class="post-description">
-  <p>
-    {{ page.excerpt }}
-  </p>
-</div>
-{% endif %} 
-
-<div class="archive">
+  <div class="archive">
   <div class="timeline" id="timeline">
 
-    {% for audit in site.data.index.audits %}
+    {% assign sorted_audits = site.data.index.audits | sort: 'year' | reverse %}
+    {% for audit in sorted_audits %}
 
     
 
     {% capture year %}{{ audit.year | date: '%Y' }}{% endcapture %}
-    {% capture prevyear %}{{ site.data.index.audits[forloop.index].year | date: '%Y' }}{% endcapture %}
+    {% capture prevyear %}{{ sorted_audits[forloop.index].year | date: '%Y' }}{% endcapture %}
     
 
     {% if forloop.first %}
@@ -33,9 +33,26 @@ excerpt: "A selected list of security reviews and public audit reports that I've
     {% endif %}
 
 
-    <li>
-      <div style="width:60px;float:left;">{{ audit.year | date: "%b" }}</div> 
-      <a href="{{ audit.project-url }}" target="_blank"><b>{{ audit.project }}</b></a> ➫ {% if audit.url and audit.url != "" %}<a href="{{ audit.url }}" target="_blank">{{ audit.title }}</a>{% else %}{{ audit.title }}{% endif %}
+    <li class="audit-item">
+      <div class="audit-month">{{ audit.year | date: "%b" }}</div>
+      <div class="audit-content">
+        <div class="audit-main">
+          <a href="{{ audit.project-url }}" target="_blank" class="audit-project">{{ audit.project }}</a>
+          <span class="audit-separator">•</span>
+          <span class="audit-title">{{ audit.title }}</span>
+        </div>
+        <div class="audit-actions">
+          {% if audit.url and audit.url != "" %}
+          <a href="{{ audit.url }}" target="_blank" class="audit-report-btn">
+            <i class="fa fa-file-text-o"></i> Report
+          </a>
+          {% else %}
+          <span class="audit-report-btn audit-report-disabled">
+            <i class="fa fa-file-text-o"></i> Report
+          </span>
+          {% endif %}
+        </div>
+      </div>
     </li>
  
 
@@ -68,3 +85,234 @@ excerpt: "A selected list of security reviews and public audit reports that I've
   </div>
 
 </div>
+</div>
+
+<style>
+/* Audits Page Container */
+.audits-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Audit Page Styles */
+.audit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.audit-item:last-child {
+  border-bottom: none;
+}
+
+.audit-item:hover {
+  padding-left: 0.5rem;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.audit-month {
+  flex: 0 0 60px;
+  font-weight: 600;
+  color: #ff6b35;
+  font-size: 0.95rem;
+}
+
+.audit-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.audit-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.audit-actions {
+  flex-shrink: 0;
+}
+
+.audit-project {
+  font-weight: 600;
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.audit-project:hover {
+  color: #ff6b35;
+}
+
+.audit-separator {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.audit-title {
+  color: #4b5563;
+}
+
+.audit-report-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ff6b35;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
+}
+
+.audit-report-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+  text-decoration: none;
+  color: #fff;
+}
+
+.audit-report-btn i {
+  font-size: 0.8rem;
+}
+
+.audit-report-disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.audit-report-disabled:hover {
+  background: #e5e7eb;
+  color: #9ca3af;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Archive year styling */
+.archive-year {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ff6b35;
+  display: inline-block;
+}
+
+.archive-title:first-child .archive-year {
+  margin-top: 0;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .audit-item {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .audit-item:hover {
+  background: var(--surface-color);
+}
+
+[data-theme="dark"] .audit-project {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .audit-project:hover {
+  color: #ff8555;
+}
+
+[data-theme="dark"] .audit-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .audit-report-btn {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border: 1px solid #ff6b35;
+  box-shadow: 0 2px 4px rgba(255, 107, 53, 0.1);
+}
+
+[data-theme="dark"] .audit-report-btn:hover {
+  background: rgba(255, 107, 53, 0.2);
+  color: #ff8555;
+  border-color: #ff8555;
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .audit-report-disabled {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+  border: 1px solid #4b5563;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .audit-report-disabled:hover {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+  border-color: #4b5563;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .archive-year {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .audit-separator {
+  color: var(--text-muted);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .audits-page {
+    padding: 1rem;
+  }
+  
+  .audit-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .audit-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .audit-actions {
+    align-self: flex-end;
+  }
+  
+  .audit-report-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .audit-separator {
+    display: none;
+  }
+  
+  .audit-month {
+    flex: 0 0 50px;
+    font-size: 0.85rem;
+  }
+  
+  .archive-year {
+    font-size: 1.5rem;
+  }
+}
+</style>

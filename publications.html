@@ -1,0 +1,1636 @@
+---
+layout: page
+title: Scholar
+permalink: /scholar/
+---
+
+<div class="publications-page">
+  <div class="page-header">
+    <h1>Scholar</h1>
+    <p class="page-subtitle">Academic Profile, Research Publications, Scholarships, Reviews, and Academic Contributions</p>
+  </div>
+
+  <!-- Academic Journey Timeline -->
+  <div class="academic-timeline">
+    <h2 id="academic-journey">Academic Journey</h2>
+    <div class="timeline-container">
+      <div class="timeline-line">
+        <div class="timeline-progress"></div>
+      </div>
+      
+      {% assign sorted_education = site.data.index.education | reverse %}
+      {% for edu in sorted_education %}
+      <div class="timeline-milestone" data-year="{{ edu.date | split: ' - ' | first }}">
+        <div class="milestone-dot">
+          <div class="milestone-year">{{ edu.date | split: ' - ' | first }}</div>
+        </div>
+        <div class="milestone-content">
+          <div class="milestone-degree">{{ edu.name }}</div>
+          <div class="milestone-university">
+            {% if edu.link %}
+              <a href="{{ edu.link }}" target="_blank" rel="noopener">
+                {{ edu.University | default: edu.university }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ edu.University | default: edu.university }}
+            {% endif %}
+          </div>
+          <div class="milestone-department">{{ edu.department }}</div>
+          <div class="milestone-period">{{ edu.date }}</div>
+          <div class="milestone-description">
+            {% if edu.descr_link %}
+              <a href="{{ edu.descr_link }}" target="_blank" rel="noopener" class="thesis-link">
+                {{ edu.descr }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ edu.descr }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="publications-stats">
+    <div class="stat-item">
+      <span class="stat-number">{{ site.data.index.publications | size }}</span>
+      <span class="stat-label">Total Publications</span>
+    </div>
+    <a href="#academic-reviews" class="stat-item">
+      <span class="stat-number">{{ site.data.index.reviews | size }}</span>
+      <span class="stat-label">Academic Reviews</span>
+    </a>
+    <div class="stat-item">
+      <span class="stat-number">{{ site.data.index.publications | map: "year" | uniq | size }}</span>
+      <span class="stat-label">Years Active</span>
+    </div>
+    <div class="stat-item google-scholar">
+      <a href="https://scholar.google.com/citations?user=K9xYnSQAAAAJ" target="_blank" class="scholar-link">
+        <span class="stat-number">1108</span>
+        <span class="stat-label">Citations <i class="fa fa-external-link"></i></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Publications Section Header -->
+  <div class="publications-section-header">
+    <h2 id="publications">Publications</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="publications-filters">
+    
+    <button class="filter-btn active" data-filter="all">All</button>
+    <!-- <button class="filter-btn" data-filter="academic">Academic Papers</button>
+    <button class="filter-btn" data-filter="article">Articles</button> -->
+    <button class="filter-btn" data-filter="recent">Recent</button>
+  </div>
+
+  <div class="publications-list">
+    {% assign sorted_pubs = site.data.index.publications | sort: 'year' | reverse %}
+    {% for pub in sorted_pubs %}
+    <article class="publication-item" data-year="{{ pub.year }}" data-type="{% if pub.published %}academic{% else %}article{% endif %}">
+      <!-- Body contains everything including header -->
+      <div class="pub-body">
+        <!-- Header with year and title inside body -->
+        <div class="pub-header">
+          <div class="pub-year-number">{{ pub.year }}</div>
+          <div class="pub-title-container">
+            <h3 class="pub-title">{{ pub.name }}</h3>
+            {% if pub.published %}
+            <div class="pub-venue-info">
+              <span class="venue-label">Publication:</span>
+              {% if pub.venue_url %}
+                <a href="{{ pub.venue_url }}" target="_blank" class="venue-name venue-link">
+                  {{ pub.published }}
+                  <i class="fa fa-external-link"></i>
+                </a>
+              {% else %}
+                <span class="venue-name">{{ pub.published }}</span>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        
+        <div class="pub-abstract-container">
+          <div class="abstract-header">
+            <h4 class="abstract-label">Abstract</h4>
+            <div class="pub-links">
+              {% if pub.paper %}
+              <a href="{{ pub.paper }}" class="pub-link" target="_blank">
+                <i class="fa fa-file-pdf-o"></i> Paper
+              </a>
+              {% endif %}
+              
+              {% if pub.youtube %}
+              <a href="{{ pub.youtube }}" class="pub-link youtube" target="_blank">
+                <i class="fa fa-youtube"></i> Presentation
+              </a>
+              {% endif %}
+              
+              {% if pub.slides %}
+              <a href="{{ pub.slides }}" class="pub-link slides" target="_blank">
+                <i class="fa fa-file-powerpoint-o"></i> Slides
+              </a>
+              {% endif %}
+              
+              {% if pub.media %}
+              <button class="pub-link media-toggle" data-publication="{{ forloop.index }}">
+                <i class="fa fa-newspaper-o"></i> Media Coverage ({{ pub.media.size }})
+              </button>
+              {% endif %}
+            </div>
+          </div>
+          <blockquote class="pub-abstract" data-publication="{{ forloop.index }}">
+            <div class="abstract-content">
+              {% assign word_count = pub.descr | number_of_words %}
+              {% if word_count > 50 %}
+                <div class="abstract-preview">{{ pub.descr | truncatewords: 50 }}</div>
+                <div class="abstract-full" style="display: none;">{{ pub.descr }}</div>
+              {% else %}
+                <div class="abstract-full">{{ pub.descr }}</div>
+              {% endif %}
+            </div>
+            {% if word_count > 50 %}
+            <button class="abstract-toggle" data-publication="{{ forloop.index }}">
+              <span class="toggle-text">Read more</span>
+              <i class="fa fa-chevron-down"></i>
+            </button>
+            {% endif %}
+          </blockquote>
+        </div>
+        
+        {% if pub.media %}
+        <div class="media-coverage" style="display: none;">
+          <h4><i class="fa fa-newspaper-o"></i> Media Coverage</h4>
+          <div class="media-links">
+            {% for media_item in pub.media %}
+            {% if media_item.link and media_item.name %}
+            <a href="{{ media_item.link }}" target="_blank" class="media-link">
+              <i class="fa fa-external-link"></i>
+              <span>{{ media_item.name }}</span>
+            </a>
+            {% elsif media_item.url and media_item.title %}
+            <a href="{{ media_item.url }}" target="_blank" class="media-link">
+              <i class="fa fa-external-link"></i>
+              <span>{{ media_item.title }}</span>
+              {% if media_item.source %}<small>({{ media_item.source }})</small>{% endif %}
+            </a>
+            {% elsif media_item %}
+            <a href="{{ media_item }}" target="_blank" class="media-link">
+              <i class="fa fa-external-link"></i>
+              <span>{{ media_item | split: '/' | last | remove: '.html' | replace: '-', ' ' | capitalize }}</span>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Scholarships & Awards Section -->
+  <div class="awards-section">
+    <h2 id="scholarships-awards">Scholarships & Awards</h2>
+    <p class="section-subtitle">Academic recognition and research funding achievements</p>
+    
+    <div class="awards-grid">
+      {% for award in site.data.index.awards %}
+      <div class="award-item">
+        <div class="award-header">
+          <h4 class="award-title">{{ award.name }}</h4>
+          <div class="award-date">{{ award.date }}</div>
+        </div>
+        <div class="award-issuer">
+          {% if award.link %}
+            <a href="{{ award.link }}" target="_blank" rel="noopener">
+              {{ award.issuer }}
+              <i class="fa fa-external-link"></i>
+            </a>
+          {% else %}
+            {{ award.issuer }}
+          {% endif %}
+        </div>
+        {% if award.institution %}
+        <div class="award-institution">Associated with {{ award.institution }}</div>
+        {% endif %}
+        {% if award.description %}
+        <div class="award-description">{{ award.description }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Academic Reviews Section -->
+  <div class="reviews-section">
+    <h2 id="academic-reviews">Academic Reviews</h2>
+    <p class="section-subtitle">Peer review activities and program committee participation</p>
+    
+    <div class="reviews-grid">
+      {% assign sorted_reviews = site.data.index.reviews | sort: 'date' | reverse %}
+      {% for review in sorted_reviews %}
+      <div class="review-item">
+        <div class="review-header">
+          <h4 class="review-title">
+            {% if review.link %}
+              <a href="{{ review.link }}" target="_blank" rel="noopener">
+                {{ review.name }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ review.name }}
+            {% endif %}
+          </h4>
+        </div>
+        <div class="review-meta">
+          <div class="review-date">{{ review.date }}</div>
+          <div class="review-role">{{ review.job }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const publications = document.querySelectorAll('.publication-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      
+      publications.forEach(pub => {
+        if (filter === 'all') {
+          pub.style.display = 'flex';
+        } else if (filter === 'recent') {
+          const year = parseInt(pub.dataset.year);
+          pub.style.display = year >= new Date().getFullYear() - 2 ? 'flex' : 'none';
+        } else {
+          pub.style.display = pub.dataset.type === filter ? 'flex' : 'none';
+        }
+      });
+    });
+  });
+
+  // Abstract toggle for mobile
+  document.querySelectorAll('.abstract-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pubId = toggle.dataset.publication;
+      const abstract = document.querySelector(`.pub-abstract[data-publication="${pubId}"]`);
+      const preview = abstract.querySelector('.abstract-preview');
+      const full = abstract.querySelector('.abstract-full');
+      const toggleText = toggle.querySelector('.toggle-text');
+      
+      if (preview.style.display !== 'none') {
+        // Show full text
+        preview.style.display = 'none';
+        full.style.display = 'block';
+        toggleText.textContent = 'Read less';
+        toggle.classList.add('expanded');
+      } else {
+        // Show preview
+        preview.style.display = 'block';
+        full.style.display = 'none';
+        toggleText.textContent = 'Read more';
+        toggle.classList.remove('expanded');
+      }
+    });
+  });
+
+  // Media coverage toggle
+  document.querySelectorAll('.media-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const coverage = toggle.closest('.publication-item').querySelector('.media-coverage');
+      if (coverage) {
+        coverage.style.display = coverage.style.display === 'none' ? 'block' : 'none';
+        
+        // Update button text
+        const isVisible = coverage.style.display === 'block';
+        const icon = toggle.querySelector('i');
+        const text = toggle.childNodes[toggle.childNodes.length - 1];
+        if (isVisible) {
+          icon.className = 'fa fa-times';
+          text.textContent = ' Hide Media Coverage';
+        } else {
+          icon.className = 'fa fa-newspaper-o';
+          const mediaCount = coverage.querySelectorAll('.media-link').length;
+          text.textContent = ` Media Coverage (${mediaCount})`;
+        }
+      }
+    });
+  });
+
+
+  // Add smooth scroll to stats when timeline milestone is clicked
+  const milestones = document.querySelectorAll('.milestone-dot');
+  milestones.forEach(milestone => {
+    milestone.addEventListener('click', () => {
+      const statsSection = document.querySelector('.publications-stats');
+      if (statsSection) {
+        statsSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    });
+  });
+
+  // Page load animation for timeline
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const timeline = entry.target;
+        
+        // Animate progress bar (desktop only)
+        const progressBar = timeline.querySelector('.timeline-progress');
+        if (progressBar && window.innerWidth > 768) {
+          progressBar.style.animation = 'progressAnimation 2s ease-in-out forwards';
+        }
+        
+        // Animate milestones with staggered delay
+        const milestones = timeline.querySelectorAll('.timeline-milestone');
+        milestones.forEach((milestone, index) => {
+          milestone.style.opacity = '0';
+          if (window.innerWidth > 768) {
+            // Desktop: preserve translateX(-50%) and add translateY
+            milestone.style.transform = 'translateX(-50%) translateY(30px)';
+          } else {
+            // Mobile: just translateY since mobile doesn't use translateX positioning
+            milestone.style.transform = 'translateY(20px)';
+          }
+          
+          setTimeout(() => {
+            milestone.style.transition = 'all 0.6s ease-out';
+            milestone.style.opacity = '1';
+            if (window.innerWidth > 768) {
+              // Desktop: preserve translateX(-50%) and reset translateY
+              milestone.style.transform = 'translateX(-50%) translateY(0)';
+            } else {
+              // Mobile: just reset translateY
+              milestone.style.transform = 'translateY(0)';
+            }
+          }, (index + 1) * 300);
+        });
+        
+        // Disconnect observer after first animation
+        timelineObserver.unobserve(timeline);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Observe the timeline
+  const academicTimeline = document.querySelector('.academic-timeline');
+  if (academicTimeline) {
+    timelineObserver.observe(academicTimeline);
+  }
+});
+</script>
+
+<style>
+/* Publication Item Layout */
+.publication-item {
+  padding: 0;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.publication-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+}
+
+.pub-header {
+  padding: 0 0 2rem 0;
+  background: transparent;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.pub-year-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6b35;
+  line-height: 1;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.pub-title-container {
+  flex: 1;
+}
+
+.pub-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+}
+
+.pub-venue-info {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.venue-label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.venue-name {
+  color: #1e3a5f;
+  font-weight: 500;
+}
+
+.venue-link {
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: #ff6b35;
+    text-decoration: underline;
+  }
+  
+  i {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    opacity: 0.7;
+  }
+}
+
+/* Abstract Section */
+.pub-body {
+  padding: 1.5rem;
+}
+
+.pub-abstract-container {
+  width: 90%;
+  margin: 0 auto 2rem;
+}
+
+.abstract-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.abstract-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ff6b35;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pub-abstract {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+  margin: 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-left: 3px solid #ff6b35;
+  border-radius: 0 6px 6px 0;
+  position: relative;
+  font-style: normal;
+}
+
+.abstract-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  color: #ff6b35;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.abstract-toggle:hover {
+  color: #ff8555;
+}
+
+.abstract-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.abstract-toggle.expanded i {
+  transform: rotate(180deg);
+}
+
+
+/* Publication Links */
+.pub-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pub-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: #fff;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1.5px solid #e5e7eb;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pub-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.pub-link.youtube {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.pub-link.youtube:hover {
+  background: #ff0000;
+  color: white;
+}
+
+.pub-link.slides {
+  border-color: #d04423;
+  color: #d04423;
+}
+
+.pub-link.slides:hover {
+  background: #d04423;
+  color: white;
+}
+
+/* Dark mode support for publication links */
+[data-theme="dark"] .pub-link {
+  background: var(--card-color);
+  color: var(--text-color);
+  border-color: var(--surface-color);
+}
+
+[data-theme="dark"] .pub-link:hover {
+  background: var(--card-color);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+/* Venue Name Wrapping */
+.venue-name {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.pub-venue {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  pointer-events: none; /* Prevent hover conflicts */
+}
+
+.pub-venue i {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* Media Coverage Improvements */
+.media-coverage {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.media-coverage h4 {
+  margin: 0 0 1rem 0;
+  color: #1e3a5f;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.media-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.media-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1e3a5f;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.media-link:hover {
+  background: #fff;
+  border-color: #ff6b35;
+  color: #ff6b35;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.media-link small {
+  color: #666;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+/* Media Toggle Button */
+.media-toggle {
+  background: transparent !important;
+  border: 1px solid #dee2e6 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.media-toggle:hover {
+  background: #f8f9fa !important;
+  border-color: #ff6b35 !important;
+  color: #ff6b35 !important;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .publication-item {
+  background: var(--card-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .pub-header {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .pub-year-number {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .pub-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .venue-label {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .venue-name {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .abstract-label {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .pub-abstract {
+  color: var(--text-color);
+  background: var(--surface-color);
+  border-left-color: #ff6b35;
+}
+
+
+[data-theme="dark"] .pub-body {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .media-coverage {
+  background: var(--surface-color);
+  border-color: var(--surface-color);
+}
+
+[data-theme="dark"] .media-coverage h4 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .media-link {
+  background: var(--card-color);
+  border-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .media-link:hover {
+  background: var(--card-color);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .media-link small {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .pub-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .pub-year-number {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .pub-title-container {
+    text-align: center;
+  }
+  
+  .pub-title {
+    font-size: 1.25rem;
+  }
+  
+  .pub-body {
+    padding: 1rem;
+  }
+  
+  
+  .pub-abstract-container {
+    width: 100%;
+  }
+  
+  .pub-abstract {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .abstract-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .pub-links {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .pub-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .media-coverage {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .media-links {
+    gap: 0.5rem;
+  }
+  
+  .media-link {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pub-header {
+    padding: 1rem;
+  }
+  
+  .pub-body {
+    padding: 1rem;
+  }
+  
+  .pub-year-number {
+    font-size: 1.75rem;
+  }
+  
+  .pub-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  
+  .venue-name {
+    font-size: 0.85rem;
+  }
+  
+  .pub-abstract {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+  
+  .reviews-section {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+}
+
+/* Reviews Section Styles */
+.reviews-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.reviews-section h2 {
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.reviews-section .section-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.review-item {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #ff6b35;
+}
+
+.review-header {
+  margin-bottom: 0.75rem;
+}
+
+.review-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.review-title a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.review-title a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.review-title a i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.review-date {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.review-role {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* Dark Mode Support for Reviews */
+[data-theme="dark"] .reviews-section {
+  background: var(--surface-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .reviews-section h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .reviews-section .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .review-item {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .review-title a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .review-title a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .review-date {
+  color: var(--text-muted);
+}
+
+/* Mobile Responsive Reviews */
+@media (max-width: 768px) {
+  .reviews-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .review-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .review-title {
+    font-size: 0.95rem;
+  }
+}
+
+/* Academic Timeline Styles */
+.academic-timeline {
+  margin: 3rem 0;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.academic-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  min-height: 350px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 60px;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  background: #e9ecef;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.timeline-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+  border-radius: 2px;
+  width: 0%;
+  transition: all 0.3s ease;
+}
+
+.timeline-milestone {
+  position: absolute;
+  top: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Position milestones along the timeline - Desktop default */
+.timeline-milestone:nth-child(2) { 
+  left: 18%;
+  transform: translateX(-50%);
+}
+.timeline-milestone:nth-child(3) { 
+  left: 50%;
+  transform: translateX(-50%);
+}
+.timeline-milestone:nth-child(4) { 
+  left: 82%;
+  transform: translateX(-50%);
+}
+
+.milestone-dot {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff6b35 0%, #1e3a5f 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid white;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+  position: relative;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.milestone-dot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+}
+
+.milestone-year {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.milestone-content {
+  margin-top: 1rem;
+  text-align: center;
+  width: 280px;
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.milestone-content:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-color: #ff6b35;
+}
+
+
+.milestone-degree {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.milestone-degree a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.milestone-degree a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.milestone-degree a i {
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+  opacity: 0.7;
+}
+
+.milestone-period {
+  font-size: 0.9rem;
+  color: #ff6b35;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 107, 53, 0.1);
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.milestone-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  font-style: italic;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Mobile Responsive Design - Clean Vertical Timeline */
+@media (max-width: 768px) {
+  .academic-timeline {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  }
+  
+  .timeline-container {
+    position: relative;
+    padding: 0;
+    max-width: none;
+    margin: 0;
+    min-height: auto;
+  }
+  
+  /* Vertical line for mobile timeline */
+  .timeline-line {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 25px;
+    width: 3px;
+    height: auto;
+    right: auto;
+    background: linear-gradient(180deg, #ff6b35 0%, #1e3a5f 100%);
+    border-radius: 2px;
+  }
+  
+  .timeline-progress {
+    display: none;
+  }
+  
+  /* Reset all milestone positioning */
+  .timeline-milestone {
+    position: relative !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin-bottom: 2rem;
+    padding-left: 0;
+  }
+  
+  .timeline-milestone:nth-child(2),
+  .timeline-milestone:nth-child(3),
+  .timeline-milestone:nth-child(4) {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-bottom: 2rem;
+  }
+  
+  /* Compact dots for mobile */
+  .milestone-dot {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .milestone-year {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  
+  /* Mobile-optimized content cards */
+  .milestone-content {
+    flex: 1;
+    margin: 0;
+    text-align: left;
+    width: auto;
+    max-width: none;
+    position: relative;
+    left: auto;
+    transform: none;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid #ff6b35;
+    transition: all 0.2s ease;
+  }
+  
+  /* Subtle mobile hover effects */
+  .milestone-content:hover {
+    transform: none !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15) !important;
+    border-left-color: #ff8555 !important;
+  }
+  
+  .timeline-milestone:nth-child(3) .milestone-content {
+    margin: 0;
+    text-align: left;
+    border-left: 3px solid #ff6b35;
+  }
+  
+  /* Adjust content within cards for mobile */
+  .milestone-degree {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  
+  .milestone-period {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .academic-timeline {
+    padding: 0.75rem 0.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .milestone-dot {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.75rem;
+  }
+  
+  .milestone-year {
+    font-size: 0.7rem;
+  }
+  
+  .milestone-content {
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+  
+  .milestone-degree {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .milestone-period {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .milestone-description {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .academic-timeline {
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--card-color) 100%);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .timeline-line {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .milestone-content {
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .milestone-degree {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .milestone-degree a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .milestone-degree a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .milestone-description {
+  color: var(--text-muted);
+}
+
+/* Loading Animation Enhancement */
+.academic-timeline {
+  animation: timelineSlideIn 0.8s ease-out;
+}
+
+@keyframes timelineSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Publications Section Header */
+.publications-section-header {
+  margin: 3rem 0 2rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.publications-section-header h2 {
+  color: #1e3a5f;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.publications-section-header .section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Dark Mode Support for Publications Section Header */
+[data-theme="dark"] .publications-section-header h2 {
+  color: var(--text-color);
+}
+
+/* Awards Section Styles */
+.awards-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.awards-section h2 {
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.awards-section .section-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.awards-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.award-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #ff6b35;
+}
+
+.award-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-left-color: #1e3a5f;
+}
+
+.award-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.award-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.award-date {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.award-issuer {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.award-issuer a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.award-issuer a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.award-issuer a i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+.award-institution {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.award-description {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Dark Mode Support for Awards */
+[data-theme="dark"] .awards-section {
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--card-color) 100%);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .awards-section h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .awards-section .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .award-item {
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .award-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .award-issuer a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .award-issuer a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .award-institution {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .award-description {
+  color: var(--text-muted);
+}
+
+/* Mobile Responsive Awards */
+@media (max-width: 768px) {
+  .awards-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .award-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .award-date {
+    align-self: flex-start;
+    font-size: 0.75rem;
+  }
+  
+  .award-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .award-item {
+    padding: 1.25rem;
+  }
+}
+</style>

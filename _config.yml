@@ -1,71 +1,100 @@
-#
-###################################
-# Site wide configuration
-####################################
-#
-title: Shayan Eskandari
-email: me@shayan.es
-description: Shayan Eskandari Website - CTFO / Head of Security.
-url: https://shayan.es # the base hostname & protocol for your site
-keywords: ["Shayan Eskandari","Shayan", "Eskandari" ,"Blockchain", "Security", "Bitcoin", "Ethereum", "Engineer", "Decentralization", "STS"]
+# Site Settings
+locale: "en-US"
+title: "Shayan Eskandari"
+tagline: "Senior Security Engineer & Human-Centered Technologist"
+description: "Personal portfolio of Shayan Eskandari - Security Research, Blockchain Innovation, and Human-Centered Technologist"
+keywords: ["security research", "blockchain", "smart contracts", "Human-Centered Technologist", "cybersecurity", "ethical research", "ethereum", "defi", "security audits", "cryptography", "creative technology"]
+baseurl: ""
+url: "https://shayan.es"
+logo: "/img/logo.png"
 
-#
-###################################
-# Jekyll configuration
-####################################
-#
-timezone:          America/New_York
-markdown:          kramdown
-highlighter:       rouge
-excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+# Jekyll Configuration
+permalink: /articles/:year-:month/:title
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
 
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+# Pagination
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
-#
-###################################
-# Site Owner configuration
-####################################
-#
+# Site Owner
 owner:
   name: Shayan Eskandari
   avatar: shayan.jpeg
-  job: "PhD / Security Geek"
-  bio: "Based in Toronto 🇨🇦"
+  job: "Senior Security Engineer & Human-Centered Technologist"
+  bio: "Senior Security Engineer & Human-Centered Technologist"
   email: me@shayan.es
-  #disqus-shortname: renyuanzblog
-  twitter: sbetamc #username
-  facebook: #username
+  disqus-shortname:
+  twitter: sbetamc
+  facebook: 
   google:
-    plus: #username
-    analytics: G-PBFCXL9V1S
+    analytics: G-1YV4JXJDXM
     verify:
     ad-client:
     ad-slot:
-    site-verification: "eXNCznk_xXFAGUB-CyrLeDiuWaP8H5VUUdPTBvVAozg"
   bing-verify:
-  github: shayanb #username
-  stackoverflow: 1402429/shayan  # from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: shayane #username
-  xing: #username
-  medium: sbetamc
-  instagram: #username
-  lastfm: #username
-  tumblr: #username
-  pinterest: #username
-  foursquare: #username
-  steam: #username
-  dribbble: #username
+  github: shayanb
+  linkedin: shayane
+  instagram: shayanbahal
+  orcid: "0000-0001-7405-9249"
+  stackoverflow: 1402429
+  linkedin: shayane
+  google-scholar: "K9xYnSQAAAAJ"
+  dribbble:
   youtube: sbetamc
-  soundcloud: #username
-  weibo: #username
-  flickr: #username
-  codepen: #username
-  telegram: #username
-  # blog: http://blog.theshayan.com/
-  googlescholar: K9xYnSQAAAAJ
+  soundcloud:
+  keybase: shayanb
+  telegram:
+  reddit:
+  medium: sbetamc
+  mastodon:
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude files
+exclude:
+  - README.md
+  - LICENSE.txt
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
+  - CLAUDE.md
+  - revamp.md
+
+# Include files
+include:
+  - .htaccess
+  - _pages
+
+# Default values
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      share: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"

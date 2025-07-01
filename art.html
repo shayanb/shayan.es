@@ -1,0 +1,1271 @@
+---
+layout: page
+title: Art
+permalink: /art/
+---
+
+<div class="art-page">
+  <div class="page-header">
+    <h1>Artistic Works</h1>
+    <p class="page-subtitle">Creative Explorations at the Intersection of Technology & Art, Swag Designs, and Stickers</p>
+  </div>
+
+  <!-- Video Art Section -->
+  {% if site.data.index.art.video and site.data.index.art.video.size > 0 %}
+  <section class="art-section">
+    <h2><i class="fa fa-video-camera"></i> Video Art</h2>
+    <div class="art-grid">
+      {% for piece in site.data.index.art.video %}
+      <div class="art-item video-art" data-art="video-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if piece.image %}
+            <img src="{{ piece.image }}" alt="{{ piece.title }}" loading="lazy">
+            <div class="play-overlay">
+              <i class="fa fa-play"></i>
+            </div>
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-video-camera"></i>
+            </div>
+          {% endif %}
+          {% if piece.tags and piece.tags.size > 0 %}
+          <div class="thumbnail-tags">
+            {% for tag in piece.tags limit:2 %}
+            <span class="thumbnail-tag">{{ tag }}</span>
+            {% endfor %}
+            {% if piece.tags.size > 2 %}
+            <span class="thumbnail-tag more">+{{ piece.tags.size | minus: 2 }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <div class="art-content">
+            <div class="art-header">
+              <h3>{{ piece.title }}</h3>
+              <div class="art-meta">
+                <span class="art-year">{{ piece.year }}</span>
+                {% if piece.medium %}
+                <span class="art-medium">{{ piece.medium }}</span>
+                {% endif %}
+                {% if piece.duration %}
+                <span class="art-duration">{{ piece.duration }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <!-- {% if piece.tags and piece.tags.size > 0 %}
+            <div class="art-tags">
+              {% for tag in piece.tags %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %} -->
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Physical Art Section -->
+  {% if site.data.index.art.physical and site.data.index.art.physical.size > 0 %}
+  <section class="art-section">
+    <h2><i class="fa fa-picture-o"></i> Physical Art</h2>
+    <div class="art-grid">
+      {% for piece in site.data.index.art.physical %}
+      <div class="art-item physical-art" data-art="physical-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if piece.images and piece.images.size > 0 %}
+            <img src="{{ piece.images[0] }}" alt="{{ piece.title }}" loading="lazy">
+            {% if piece.images.size > 1 %}
+            <div class="multiple-images-indicator">
+              <div class="stacked-cards-icon">
+                <div class="card-back"></div>
+                <div class="card-front"></div>
+              </div>
+              <span>{{ piece.images.size }}</span>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-picture-o"></i>
+            </div>
+          {% endif %}
+          {% if piece.tags and piece.tags.size > 0 %}
+          <div class="thumbnail-tags">
+            {% for tag in piece.tags limit:2 %}
+            <span class="thumbnail-tag">{{ tag }}</span>
+            {% endfor %}
+            {% if piece.tags.size > 2 %}
+            <span class="thumbnail-tag more">+{{ piece.tags.size | minus: 2 }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <div class="art-content">
+            <div class="art-header">
+              <h3>{{ piece.title }}</h3>
+              <div class="art-meta">
+                <span class="art-year">{{ piece.year }}</span>
+                {% if piece.medium %}
+                <span class="art-medium">{{ piece.medium }}</span>
+                {% endif %}
+                {% if piece.dimensions %}
+                <span class="art-dimensions">{{ piece.dimensions }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <!-- {% if piece.tags and piece.tags.size > 0 %}
+            <div class="art-tags">
+              {% for tag in piece.tags %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %} -->
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Stickers & Swag Section -->
+  {% assign has_stickers = false %}
+  {% if site.data.index.art.sticker.size > 0 %}
+    {% assign has_stickers = true %}
+  {% endif %}
+  {% assign has_swag = false %}
+  {% if site.data.index.art.swag.size > 0 %}
+    {% assign has_swag = true %}
+  {% endif %}
+  {% if has_stickers or has_swag %}
+  <section class="art-section">
+    <h2><i class="fa fa-tags"></i> Stickers & Swag</h2>
+    <div class="art-grid">
+ 
+      
+    <!-- Swag -->
+    {% for piece in site.data.index.art.swag %}
+    <div class="art-item swag-art" data-art="swag-{{ forloop.index }}">
+      <div class="art-thumbnail">
+        {% if piece.images and piece.images.size > 0 %}
+          <img src="{{ piece.images[0] }}" alt="{{ piece.title }}" loading="lazy">
+          {% if piece.images.size > 1 %}
+          <div class="multiple-images-indicator">
+            <div class="stacked-cards-icon">
+              <div class="card-back"></div>
+              <div class="card-front"></div>
+            </div>
+            <span>{{ piece.images.size }}</span>
+          </div>
+          {% endif %}
+        {% else %}
+          <div class="art-placeholder">
+            <i class="fa fa-tags"></i>
+          </div>
+        {% endif %}
+        {% if piece.tags and piece.tags.size > 0 %}
+        <div class="thumbnail-tags">
+          {% for tag in piece.tags limit:2 %}
+          <span class="thumbnail-tag">{{ tag }}</span>
+          {% endfor %}
+          {% if piece.tags.size > 2 %}
+          <span class="thumbnail-tag more">+{{ piece.tags.size | minus: 2 }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="art-info">
+        <div class="art-content">
+          <div class="art-header">
+            <h3>{{ piece.title }}</h3>
+            <div class="art-meta">
+              <span class="art-year">{{ piece.year }}</span>
+              {% if piece.category %}
+              <span class="art-category">{{ piece.category }}</span>
+              {% endif %}
+              {% if piece.event %}
+              <span class="art-event">{{ piece.event }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <!-- {% if piece.tags and piece.tags.size > 0 %}
+          <div class="art-tags">
+            {% for tag in piece.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %} -->
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+      <!-- Stickers -->
+      {% for sticker in site.data.index.art.sticker %}
+      <div class="art-item sticker-art" data-art="sticker-{{ forloop.index }}">
+        <div class="art-thumbnail">
+          {% if sticker.images and sticker.images.size > 0 %}
+            <img src="{{ sticker.images[0] }}" alt="{{ sticker.title }}" loading="lazy">
+            {% if sticker.images.size > 1 %}
+            <div class="multiple-images-indicator">
+              <div class="stacked-cards-icon">
+                <div class="card-back"></div>
+                <div class="card-front"></div>
+              </div>
+              <span>{{ sticker.images.size }}</span>
+            </div>
+            {% endif %}
+          {% else %}
+            <div class="art-placeholder">
+              <i class="fa fa-tags"></i>
+            </div>
+          {% endif %}
+          {% if sticker.tags and sticker.tags.size > 0 %}
+          <div class="thumbnail-tags">
+            {% for tag in sticker.tags limit:2 %}
+            <span class="thumbnail-tag">{{ tag }}</span>
+            {% endfor %}
+            {% if sticker.tags.size > 2 %}
+            <span class="thumbnail-tag more">+{{ sticker.tags.size | minus: 2 }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <div class="art-content">
+            <div class="art-header">
+              <h3>{{ sticker.title }}</h3>
+              <div class="art-meta">
+                <span class="art-year">{{ sticker.year }}</span>
+                {% if sticker.category %}
+                <span class="art-category">{{ sticker.category }}</span>
+                {% endif %}
+                {% if sticker.event %}
+                <span class="art-event">{{ sticker.event }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <!-- {% if sticker.tags and sticker.tags.size > 0 %}
+            <div class="art-tags">
+              {% for tag in sticker.tags %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %} -->
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Empty State -->
+  {% assign has_any_art = false %}
+  {% if site.data.index.art.video.size > 0 or site.data.index.art.physical.size > 0 or site.data.index.art.sticker.size > 0 or site.data.index.art.swag.size > 0 %}
+    {% assign has_any_art = true %}
+  {% endif %}
+  {% unless has_any_art %}
+  <div class="empty-state">
+    <i class="fa fa-paint-brush"></i>
+    <h3>Coming Soon</h3>
+    <p>Artistic works will be featured here. Stay tuned for creative explorations!</p>
+  </div>
+  {% endunless %}
+</div>
+
+<!-- Art Modal -->
+<div id="art-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('art-modal');
+  const modalBody = modal.querySelector('.modal-body');
+  const closeBtn = modal.querySelector('.modal-close');
+  const artItems = document.querySelectorAll('.art-item');
+
+  // Art data
+  const artData = {
+    video: [
+      {% for piece in site.data.index.art.video %}
+      {
+        title: "{{ piece.title | escape }}",
+        year: {{ piece.year }},
+        description: {{ piece.description | jsonify }},
+        video_url: "{{ piece.video_url }}",
+        screenshot: "{{ piece.screenshot }}",
+        duration: "{{ piece.duration }}",
+        medium: "{{ piece.medium }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    physical: [
+      {% for piece in site.data.index.art.physical %}
+      {
+        title: "{{ piece.title | escape }}",
+        year: {{ piece.year }},
+        description: {{ piece.description | jsonify }},
+        images: [{% for img in piece.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        medium: "{{ piece.medium }}",
+        dimensions: "{{ piece.dimensions }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    sticker: [
+      {% for sticker in site.data.index.art.sticker %}
+      {
+        title: "{{ sticker.title | escape }}",
+        year: {{ sticker.year }},
+        description: {{ sticker.description | jsonify }},
+        images: [{% for img in sticker.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        category: "{{ sticker.category }}",
+        event: "{{ sticker.event }}",
+        type: "{{ sticker.type }}",
+        tag: "{{ sticker.tag }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    swag: [
+      {% for piece in site.data.index.art.swag %}
+      {
+        title: "{{ piece.title | escape }}",
+        year: {{ piece.year }},
+        description: {{ piece.description | jsonify }},
+        images: [{% for img in piece.images %}"{{ img }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+        category: "{{ piece.category }}",
+        event: "{{ piece.event }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  };
+
+  function showArtDetails(artId) {
+    const [type, index] = artId.split('-');
+    const piece = artData[type][parseInt(index) - 1];
+    if (!piece) return;
+
+    let contentHtml = '';
+    
+    if (type === 'video') {
+      contentHtml = `
+        <div class="art-modal-header">
+          <h2>${piece.title}</h2>
+          <div class="art-meta">
+            <span class="art-year">${piece.year}</span>
+            ${piece.medium ? `<span class="art-medium">${piece.medium}</span>` : ''}
+            ${piece.duration ? `<span class="art-duration">${piece.duration}</span>` : ''}
+          </div>
+        </div>
+        
+        <div class="art-content">
+          ${piece.video_url ? `
+            <div class="video-container">
+              <iframe src="${piece.video_url}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          ` : ''}
+          
+          <div class="art-description">${piece.description}</div>
+        </div>
+      `;
+    } else if (type === 'physical' || type === 'swag' || type === 'sticker') {
+      let galleryHtml = '';
+      if (piece.images && piece.images.length > 0) {
+        galleryHtml = `
+          <div class="image-gallery">
+            <div class="main-image">
+              <img src="${piece.images[0]}" alt="${piece.title}" id="main-art-image">
+              ${piece.images.length > 1 ? `
+                <button class="gallery-nav prev" onclick="changeArtImage(-1)">
+                  <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav next" onclick="changeArtImage(1)">
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+              ` : ''}
+            </div>
+            ${piece.images.length > 1 ? `
+              <div class="image-thumbnails">
+                ${piece.images.map((img, index) => 
+                  `<img src="${img}" alt="${piece.title} ${index + 1}" 
+                   class="art-thumb ${index === 0 ? 'active' : ''}" 
+                   onclick="selectArtImage(${index})">`
+                ).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+      
+      contentHtml = `
+        <div class="art-modal-header">
+          <h2>${piece.title}</h2>
+          <div class="art-meta">
+            <span class="art-year">${piece.year}</span>
+            ${piece.medium ? `<span class="art-medium">${piece.medium}</span>` : ''}
+            ${piece.dimensions ? `<span class="art-dimensions">${piece.dimensions}</span>` : ''}
+            ${piece.category ? `<span class="art-category">${piece.category}</span>` : ''}
+            ${piece.event ? `<span class="art-event">${piece.event}</span>` : ''}
+            ${piece.type ? `<span class="art-type">${piece.type}</span>` : ''}
+            ${piece.tag ? `<span class="art-tag">${piece.tag}</span>` : ''}
+          </div>
+          <div class="art-description">${piece.description}</div>
+        </div>
+        
+        <div class="art-content">
+          ${galleryHtml}
+        </div>
+      `;
+    }
+
+    modalBody.innerHTML = contentHtml;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Initialize image navigation for physical art, swag, and stickers
+    if (type === 'physical' || type === 'swag' || type === 'sticker') {
+      window.currentArtPiece = piece;
+      window.currentArtImageIndex = 0;
+    }
+  }
+
+  // Image navigation functions for physical art
+  window.changeArtImage = function(direction) {
+    if (!window.currentArtPiece || !window.currentArtPiece.images) return;
+    
+    const images = window.currentArtPiece.images;
+    window.currentArtImageIndex = (window.currentArtImageIndex + direction + images.length) % images.length;
+    
+    updateArtImageDisplay();
+  };
+
+  window.selectArtImage = function(index) {
+    if (!window.currentArtPiece || !window.currentArtPiece.images) return;
+    
+    window.currentArtImageIndex = index;
+    updateArtImageDisplay();
+  };
+
+  function updateArtImageDisplay() {
+    const mainImage = document.getElementById('main-art-image');
+    const thumbnails = document.querySelectorAll('.art-thumb');
+    
+    if (mainImage && window.currentArtPiece.images[window.currentArtImageIndex]) {
+      mainImage.src = window.currentArtPiece.images[window.currentArtImageIndex];
+    }
+    
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === window.currentArtImageIndex);
+    });
+  }
+
+  // Event listeners
+  artItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const artId = item.dataset.art;
+      showArtDetails(artId);
+    });
+  });
+
+  function closeModal() {
+    // Stop any playing videos by resetting iframe src
+    const videoIframes = modal.querySelectorAll('iframe');
+    videoIframes.forEach(iframe => {
+      const src = iframe.src;
+      iframe.src = '';
+      iframe.src = src; // Reset to stop playback
+    });
+    
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+});
+</script>
+
+<style>
+.art-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.art-section {
+  margin-bottom: 4rem;
+}
+
+.art-section h2 {
+  color: #1e3a5f;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ff6b35;
+  display: inline-block;
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.art-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.art-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.art-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.art-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.art-item:hover .art-thumbnail img {
+  transform: scale(1.05);
+}
+
+.art-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 3rem;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.art-item:hover .play-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.multiple-images-indicator {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  color: #374151;
+  padding: 0.375rem 0.625rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.multiple-images-indicator:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
+}
+
+.multiple-images-indicator i {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Stacked cards icon */
+.stacked-cards-icon {
+  position: relative;
+  width: 12px;
+  height: 10px;
+  margin-right: 2px;
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  width: 10px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-back {
+  top: 0;
+  left: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  transform: rotate(3deg);
+  z-index: 1;
+}
+
+.card-front {
+  top: 2px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+
+.art-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.art-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.art-info h3 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Grid card metadata styling */
+.swag-meta,
+.sticker-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.swag-meta span,
+.sticker-meta span {
+  position: relative;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.swag-meta .art-year,
+.sticker-meta .art-year {
+  background: linear-gradient(135deg, #64748b, #94a3b8) !important;
+  color: #f8fafc !important;
+  border-color: rgba(100, 116, 139, 0.2) !important;
+  box-shadow: 0 1px 3px rgba(100, 116, 139, 0.15) !important;
+}
+
+.swag-meta .swag-category,
+.swag-meta .sticker-category,
+.sticker-meta .swag-category,
+.sticker-meta .sticker-category {
+  background: linear-gradient(135deg, #6ee7b7, #a7f3d0) !important;
+  color: #065f46 !important;
+  border-color: rgba(110, 231, 183, 0.2) !important;
+  box-shadow: 0 1px 3px rgba(110, 231, 183, 0.15) !important;
+}
+
+.swag-meta .sticker-tag,
+.sticker-meta .sticker-tag {
+  background: linear-gradient(135deg, #fcd34d, #fde68a) !important;
+  color: #92400e !important;
+  border-color: rgba(252, 211, 77, 0.2) !important;
+  box-shadow: 0 1px 3px rgba(252, 211, 77, 0.15) !important;
+}
+
+/* Tag styling */
+.art-tags {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+/* Thumbnail tags overlay */
+.thumbnail-tags {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.thumbnail-tag {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  letter-spacing: 0.025em;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.thumbnail-tag.more {
+  background: rgba(249, 115, 22, 0.9);
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.thumbnail-tag:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.thumbnail-tag.more:hover {
+  background: rgba(249, 115, 22, 1);
+}
+
+.art-tags .tag {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  letter-spacing: 0.025em;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.15);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.art-tags .tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.art-tags .tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(249, 115, 22, 0.25);
+  background: linear-gradient(135deg, #ea580c, #f97316);
+}
+
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 0;
+  border-radius: 16px;
+  max-width: 900px;
+  max-height: 85vh;
+  width: 90%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: slideInCenter 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #999;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #333;
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInCenter {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.art-modal-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1rem;
+}
+
+.art-modal-header h2 {
+  margin: 0 0 0.75rem 0;
+  color: #1e3a5f;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.art-meta {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+  line-height: 1.2;
+  max-width: 75%;
+}
+
+.art-meta span {
+  position: relative;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  width: fit-content;
+  display: inline-block;
+}
+
+.art-meta span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  z-index: -1;
+}
+
+.art-year {
+  background: linear-gradient(135deg, #64748b, #94a3b8) !important;
+  color: #f8fafc !important;
+  border-color: rgba(100, 116, 139, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(100, 116, 139, 0.15) !important;
+}
+
+.swag-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.swag-category,
+.art-category {
+  background: linear-gradient(135deg, #6ee7b7, #a7f3d0) !important;
+  color: #065f46 !important;
+  border-color: rgba(110, 231, 183, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(110, 231, 183, 0.15) !important;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.art-event {
+  background: linear-gradient(135deg, #93c5fd, #bfdbfe) !important;
+  color: #1e3a8a !important;
+  border-color: rgba(147, 197, 253, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(147, 197, 253, 0.15) !important;
+}
+
+.art-type {
+  background: linear-gradient(135deg, #c4b5fd, #ddd6fe) !important;
+  color: #581c87 !important;
+  border-color: rgba(196, 181, 253, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(196, 181, 253, 0.15) !important;
+}
+
+.art-tag {
+  background: linear-gradient(135deg, #fcd34d, #fde68a) !important;
+  color: #92400e !important;
+  border-color: rgba(252, 211, 77, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(252, 211, 77, 0.15) !important;
+}
+
+.art-medium {
+  background: linear-gradient(135deg, #d1d5db, #e5e7eb) !important;
+  color: #374151 !important;
+  border-color: rgba(209, 213, 219, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(209, 213, 219, 0.15) !important;
+}
+
+.art-dimensions {
+  background: linear-gradient(135deg, #9ca3af, #d1d5db) !important;
+  color: #1f2937 !important;
+  border-color: rgba(156, 163, 175, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(156, 163, 175, 0.15) !important;
+}
+
+.art-duration {
+  background: linear-gradient(135deg, #fca5a5, #fecaca) !important;
+  color: #991b1b !important;
+  border-color: rgba(252, 165, 165, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(252, 165, 165, 0.15) !important;
+}
+
+/* Hover effects for metadata tags */
+.art-meta span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .art-meta span {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .art-meta span::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 2rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.image-gallery {
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.gallery-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.gallery-nav.prev {
+  left: 1rem;
+}
+
+.gallery-nav.next {
+  right: 1rem;
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.art-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.art-thumb.active,
+.art-thumb:hover {
+  opacity: 1;
+}
+
+.art-description {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #ff6b35;
+}
+
+.art-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.art-content .image-gallery {
+  margin-bottom: 0;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .art-item {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .art-info h3 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-placeholder {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-meta span {
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .art-description {
+  color: var(--text-color);
+  background: var(--surface-color);
+  border-left-color: #ff6b35;
+}
+
+[data-theme="dark"] .modal-content {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .art-modal-header {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .art-modal-header h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-close {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+[data-theme="dark"] .modal-close:hover,
+[data-theme="dark"] .modal-close:focus {
+  background: rgba(0, 0, 0, 1);
+  color: #fff;
+}
+
+[data-theme="dark"] .empty-state {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .empty-state h3 {
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .art-page {
+    padding: 1rem;
+  }
+  
+  .art-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .art-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .image-thumbnails {
+    justify-content: center;
+  }
+  
+  .modal-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .art-modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .art-description {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .main-image img {
+    max-height: 300px;
+  }
+}
+</style>

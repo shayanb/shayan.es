@@ -1,0 +1,898 @@
+// Modal Styles
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: $z-index-modal;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.3s ease;
+
+  .modal-content {
+    position: relative;
+    background-color: $white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: $border-radius * 2;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: $shadow-xl;
+    animation: modalSlideIn 0.3s ease;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    color: $gray-500;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $gray-600;
+    }
+  }
+
+  .modal-body {
+    padding: 2rem;
+  }
+
+  .modal-header {
+    margin-bottom: 1.5rem;
+
+    &:has(.modal-logo) {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .modal-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: $border-radius;
+    }
+
+    h2 {
+      margin: 0 0 0.5rem 0;
+      color: $primary;
+    }
+
+    .modal-platform {
+      color: $gray-500;
+      margin: 0;
+    }
+
+    .modal-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .modal-timeline {
+        color: $gray-500;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .modal-status {
+        padding: 0.25rem 0.75rem;
+        border-radius: $border-radius;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+
+        &.status-completed {
+          background: $success;
+          color: $white;
+        }
+
+        &.status-active {
+          background: $secondary;
+          color: $white;
+        }
+
+        &.status-archived {
+          background: $gray-400;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .modal-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .modal-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .modal-section {
+    margin-top: 2rem;
+
+    h4 {
+      color: $gray-900;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .media-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        color: $link-color;
+        text-decoration: none;
+        word-break: break-all;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Gallery Modal Specific Styles
+.gallery-modal {
+  .modal-content {
+    max-width: 1200px;
+  }
+
+  .gallery-header {
+    padding: 2rem;
+    border-bottom: 1px solid $gray-200;
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-meta {
+      color: $gray-600;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .single-image {
+    text-align: center;
+    padding: 2rem;
+
+    img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: $border-radius;
+    }
+
+    .image-caption {
+      margin-top: 1rem;
+      color: $gray-600;
+      font-style: italic;
+    }
+  }
+
+  .image-gallery {
+    padding: 2rem;
+
+    .gallery-main {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      #main-image {
+        max-width: 100%;
+        max-height: 60vh;
+        object-fit: contain;
+        border-radius: $border-radius;
+        box-shadow: $shadow-md;
+      }
+
+      .image-caption {
+        margin-top: 1rem;
+        color: $gray-600;
+        font-style: italic;
+      }
+    }
+
+    .gallery-thumbnails {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .thumbnail {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: $border-radius;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+
+        &:hover {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+
+        &.active {
+          opacity: 1;
+          border-color: $secondary;
+        }
+      }
+    }
+  }
+
+  .gallery-links {
+    padding: 0 2rem 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+// Shared Screenshot Gallery Styles (used by both apps and projects)
+.screenshot-gallery {
+  width: 100%;
+
+  .screenshot-container {
+    position: relative;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 350px;
+    background: $gray-100;
+    border-radius: $border-radius;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .screenshot-main {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: $border-radius;
+      box-shadow: $shadow-md;
+      transition: all 0.3s ease;
+      object-fit: contain;
+    }
+
+    .screenshot-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba($white, 0.9);
+      border: none;
+      color: $gray-700;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba($black, 0.15);
+
+      &:hover {
+        background: rgba($white, 0.95);
+        transform: translateY(-50%) scale(1.1);
+        color: $secondary;
+      }
+
+      &.prev {
+        left: 8px;
+      }
+
+      &.next {
+        right: 8px;
+      }
+
+      i {
+        font-size: 0.875rem;
+      }
+    }
+
+    .screenshot-enlarge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      z-index: 10;
+      
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+      }
+      
+      i {
+        pointer-events: none;
+      }
+    }
+
+    .screenshot-indicator {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba($black, 0.8);
+      color: $white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      z-index: 2;
+    }
+  }
+
+  .screenshot-thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .screenshot-thumb {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: $border-radius;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+
+      &:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+
+      &.active {
+        opacity: 1;
+        border-color: $secondary;
+      }
+    }
+  }
+}
+
+// Apps Modal Specific Styles
+.apps-page {
+  #app-modal {
+    .modal-content {
+      max-width: 1000px;
+      padding: 0;
+    }
+
+    .modal-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+
+      .modal-left {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .modal-header {
+          margin-bottom: 1.5rem;
+
+          &:has(.modal-logo) {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
+
+          .modal-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: $border-radius;
+          }
+
+          h2 {
+            margin: 0 0 0.5rem 0;
+            color: $primary;
+          }
+
+          .modal-platform {
+            color: var(--text-muted);
+            margin: 0;
+          }
+        }
+
+        .modal-description {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          flex-grow: 1;
+        }
+
+        .modal-links {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+        }
+      }
+
+      .modal-right {
+        background: $gray-50;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        .modal-logo-container {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+
+          .modal-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: $border-radius;
+            box-shadow: $shadow-md;
+          }
+        }
+      }
+    }
+
+    // Single column layout when no screenshots
+    .modal-layout:not(:has(.screenshot-gallery)),
+    .modal-layout.no-screenshots {
+      grid-template-columns: 1fr;
+
+      .modal-left {
+        padding: 2rem;
+      }
+
+      .modal-right {
+        display: none;
+      }
+    }
+  }
+
+  // Mobile apps modal
+  @media (max-width: $small-screen) {
+    #app-modal {
+      .modal-layout {
+        grid-template-columns: 1fr !important;
+
+        .modal-left {
+          padding: 1.5rem;
+        }
+
+        .modal-right {
+          padding: 1.5rem;
+          background: $white;
+
+          .screenshot-gallery {
+            .screenshot-container {
+              .screenshot-nav {
+                &.prev {
+                  left: 5px;
+                }
+
+                &.next {
+                  right: 5px;
+                }
+              }
+            }
+          }
+        }
+        
+        // Mobile-specific layout: screenshots first
+        &.mobile-layout {
+          .modal-screenshots-first {
+            order: 1;
+            padding: 1rem 1.5rem;
+          }
+          
+          .modal-content-second {
+            order: 2;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: $small-screen) {
+  .modal {
+    .modal-content {
+      margin: 10% auto;
+      max-height: 80vh;
+      width: 90%;
+      max-width: 90%;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .gallery-modal {
+      .gallery-header {
+        padding: 1.5rem;
+      }
+
+      .image-gallery {
+        padding: 1.5rem;
+      }
+
+      .gallery-thumbnails {
+        .thumbnail {
+          width: 60px;
+          height: 45px;
+        }
+      }
+    }
+  }
+}
+
+// Projects Page Modal Styles
+.projects-page {
+  #project-modal {
+    .modal-content {
+      max-width: 1000px;
+      padding: 0;
+    }
+
+    .modal-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+
+      .modal-left {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .modal-header {
+          margin-bottom: 1.5rem;
+
+          &:has(.modal-logo) {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
+
+          .modal-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: $border-radius;
+          }
+
+          h2 {
+            margin: 0 0 0.5rem 0;
+            color: $primary;
+          }
+
+          .modal-platform {
+            color: var(--text-muted);
+            margin: 0;
+          }
+        }
+
+        .modal-description {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          flex-grow: 1;
+        }
+
+        .modal-links {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+        }
+      }
+
+      .modal-right {
+        background: $gray-50;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        .modal-logo-container {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+
+          .modal-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: $border-radius;
+            box-shadow: $shadow-md;
+          }
+        }
+      }
+    }
+
+    // Single column layout when no screenshots
+    .modal-layout:not(:has(.screenshot-gallery)),
+    .modal-layout.no-screenshots {
+      grid-template-columns: 1fr;
+
+      .modal-left {
+        padding: 2rem;
+      }
+
+      .modal-right {
+        display: none;
+      }
+    }
+  }
+
+  // Mobile projects modal
+  @media (max-width: $small-screen) {
+    #project-modal {
+      .modal-layout {
+        grid-template-columns: 1fr !important;
+
+        .modal-left {
+          padding: 1.5rem;
+        }
+
+        .modal-right {
+          padding: 1.5rem;
+          background: $white;
+
+          .screenshot-gallery {
+            .screenshot-container {
+              .screenshot-nav {
+                &.prev {
+                  left: -15px;
+                }
+
+                &.next {
+                  right: -15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Screenshot Fullscreen Modal
+.screenshot-fullscreen-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+
+  .screenshot-fullscreen-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .screenshot-fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+  }
+
+  .screenshot-fullscreen-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .screenshot-fullscreen-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .screenshot-fullscreen-nav {
+    .screenshot-fullscreen-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      color: rgba(0, 0, 0, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 24px;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.95);
+        color: $secondary;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      &.prev {
+        left: 30px;
+      }
+
+      &.next {
+        right: 30px;
+      }
+    }
+  }
+
+  .screenshot-fullscreen-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+  }
+
+  // Mobile adjustments
+  @media (max-width: $small-screen) {
+    .screenshot-fullscreen-close {
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    .screenshot-fullscreen-nav {
+      .screenshot-fullscreen-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+
+        &.prev {
+          left: 15px;
+        }
+
+        &.next {
+          right: 15px;
+        }
+      }
+    }
+
+    .screenshot-fullscreen-indicator {
+      bottom: 20px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Dark Mode Support for Screenshot Container and Modals
+[data-theme="dark"] {
+  .screenshot-container {
+    background: var(--surface-color) !important;
+  }
+  
+  .screenshot-nav, .screenshot-enlarge {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #374151 !important;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      color: #ff6b35 !important;
+    }
+  }
+  
+  .screenshot-enlarge {
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.9) !important;
+      color: white !important;
+    }
+  }
+  
+  // Project modal logo dark mode support
+  .projects-page #project-modal {
+    .modal-logo {
+      .modal-logo-image {
+        background: var(--surface-color);
+        padding: 0.25rem;
+      }
+    }
+  }
+}

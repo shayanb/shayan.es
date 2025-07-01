@@ -1,13 +1,13 @@
 - name: "Uncovering Blockchain Challenges: Technical Nuances and their Unforeseen Consequences"
   descr: In this dissertation, we explore the technical nuances of blockchain technology, its diverse applications, and the unforeseen consequences that have emerged. Cryptojacking, initially seen as a potential disruptor to the convoluted online advertising industry, ultimately succumbed to its own success due to regulatory gaps and technical intricacies. The inherent transparency and permissionless nature of blockchain allow every participant to potentially exploit privileged information --adversarial environment--, leading to front-running attacks and extracting value from users. Additionally, oracles, vital for providing real-world data to decentralized applications, might change the trust assumptions based on their implementations, which necessitate a deeper understanding of their operational mechanisms. With the rise of cryptoassets as a significant financial sector, auditors face challenges in accurately evaluating and reporting these assets due to their novelty. This dissertation aims to bridge the gap between the ambitious promises of blockchain technology and its real-world implications, highlighting the technical nuances that often lead to misunderstandings. We argue that by narrowing the divide between traditional regulatory view and blockchain's technological advancements, both auditors and companies working with cryptoassets stand to gain from the enhanced transparency and the potential for real-time information reporting (e.g. financial statements) offered by this technology.
   year: 2024
-  published: "PhD thesis, Concordia University"
+  published: "PhD Dissertation, Concordia University"
   paper: https://spectrum.library.concordia.ca/id/eprint/994347/6/Eskandari_PhD_F2024.pdf
 
 - name: "SoK: Oracles from the Ground Truth to Market Manipulation"
   descr: One fundamental limitation of blockchain-based smart contracts is that they execute in a closed environment and only have access to the data and functionality that is either already on the blockchain or fed into the blockchain. Thus any interactions with the real world need to be mediated by a bridge service, which is called an oracle. As decentralized applications mature, oracles are playing an increasingly prominent role. With their evolution comes more attacks, necessitating a greater attention to the trust model of using oracles. In this SoK, we systemize the design alternatives for oracles, showcase attacks, and discuss attack mitigation strategies.
   year: 2021
-  published: "ACM Advances in Financial Technologies"
+  published: "<a href='https://aft.acm.org/' target='_blank'>ACM Advances in Financial Technologies</a>"
   paper: https://arxiv.org/abs/2106.00667
   youtube: https://www.youtube.com/watch?v=GNBxGr7sKoc
 
@@ -15,26 +15,26 @@
   descr: Firms transacting using blockchain-based assets and liabilities have begun to enter capital markets in search for funding. Historically, firms have been able to raise substantial funding without an audited financial statement, however we project that in the future, audits will become a common requirement given increased competition among firms, increased scrutiny from regulators, past instances of fraud, and firms seeking an IPO. At the time of writing, accounting firms are hesitant to accept mandates from companies that hold a significant amount of cryptoassets primarily because the blockchain market introduces novel, technically sophisticated, and risky propositions that auditors are unequipped to handle. Through interviews with senior accounting professionals and structured brainstorming meetings with a multidisciplinary team of accountants and blockchain experts, we critically analyze the purported roadblocks to auditing blockchain firms and map them to traditional auditing practices, demonstrating that providing an audit opinion is challenging but not insurmountable.
   paper: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3359985
   year: 2020
-  published: "Journal of Information Systems ISYS-19-007"
+  published: "<a href='https://aaahq.org/Research/Journals/Journal-of-Information-Systems' target='_blank'>Journal of Information Systems</a>"
 
 - name: 'The Middleman is Dead, Long Live the Middleman: The “trust factor” and the psycho-social implications of blockchain'
   descr: "Blockchain is widely regarded as a breakthrough innovation that may have a profound impact on the economy and society, of a magnitude comparable to the effects of the introduction of the Internet itself. In essence, a blockchain is a decentralized peer-to-peer network with no central authority figure, which adds information to the distributed database by collectively validating the accuracy of data. Since each node of the network participates in the review and confirmation of the new information before being accepted, the need for a trustworthy intermediary is eliminated. However, as trust plays an essential role in affecting decisions when transacting with one another, it is important to understand which implications the decentralized nature of blockchain may have on individuals' sense of trust. In this contribution, we argue that the adoption of blockchain is not only a technological, but foremostly a psychological challenge, which crucially depends on the possibility of creating a trust management approach that matches the underlying distributed communication system. We first describe the decentralization technologies and possibilities they hold for the near future. Next, we discuss the psycho-social implications of the introduction of decentralized processes of trust, examining some potential scenarios, and outline a research agenda."
   year: 2019
-  published: "Frontiers in Blockchain Journal - Human-Centric Constituents in Times of Decentralization"
+  published: "<a href='https://www.frontiersin.org/journals/blockchain' target='_blank'>Frontiers in Blockchain Journal</a> - Human-Centric Constituents in Times of Decentralization"
   paper: https://www.frontiersin.org/articles/10.3389/fbloc.2019.00020/full
 
 - name: "Resolving the Multiple Withdrawal Attack on ERC20 Tokens"
   descr: Custom tokens are an integral component of decentralized applications (dapps) deployed on Ethereum and other blockchain platforms. For Ethereum, the ERC20 standard is a widely used token interface and is interoperable with many existing dapps, user interface platforms, and popular web applications (e.g., exchange services). An ERC20 security issue, known as the "multiple withdrawal attack", was raised on GitHub and has been open since November 2016. The issue concerns ERC20's defined method approve() which was envisioned as a way for token holders to give permission for other users and dapps to withdraw a capped number of tokens. The security issue arises when a token holder wants to adjust the amount of approved tokens from N to M (this could be an increase or decrease). If malicious, a user or dapp who is approved for N tokens can front-run the adjustment transaction to first withdraw N tokens, then allow the approval to be confirmed, and withdraw an additional M tokens. In this paper, we evaluate 10 proposed mitigations for this issues and find that no solution is fully satisfactory. We then propose 2 new solutions that mitigate the attack, one of which fully fulfills constraints of the standard, and the second one shows a general limitation in addressing this issue from ERC20's approve method.
   paper: https://arxiv.org/abs/1907.00903
   year: 2019
-  published: IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B 2019)
+  published: "<a href='https://sbblock.github.io/2019/' target='_blank'>IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B 2019)</a>"
 
 - name: "SoK: Transparent Dishonesty: front-running attacks on Blockchain."
   descr: We consider front-running to be a course of action where an entity benefits from prior access to privileged market information about upcoming transactions and trades. Front-running has been an issue in financial instrument markets since the 1970s. With the advent of the blockchain technology, front-running has resurfaced in new forms we explore here, instigated by blockchains decentralized and transparent nature. In this paper, we draw from a scattered body of knowledge and instances of front-running across the top 25 most active decentral applications (DApps) deployed on Ethereum blockchain. Additionally, we carry out a detailed analysis of Status.im initial coin offering (ICO) and show evidence of abnormal miners behavior indicative of front-running token purchases. Finally, we map the proposed solutions to front-running into useful categories.  #image: pong.png
   github: https://github.com/MadibaGroup/2018-Dolunay/tree/master/frontrunning/Data
   paper: https://arxiv.org/abs/1902.05164
   year: 2019
-  published: FC 2019 Financial Cryptography and Data Security, St. Kitts
+  published: "<a href='https://fc19.ifca.ai/' target='_blank'>FC 2019 Financial Cryptography and Data Security</a>, St. Kitts"
   slides: https://github.com/MadibaGroup/2018-Dolunay/blob/master/frontrunning/Slides/frontrunning_WTSC_FC19.pdf
   youtube: https://www.youtube.com/watch?v=mSmp_-z3UOg
   media:
@@ -48,7 +48,7 @@
   github: https://github.com/shayanb/cryptojacking-first-paper
   paper: https://arxiv.org/abs/1803.02887
   year: 2018
-  published: IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B) 2018 University College London (UCL), London, UK
+  published: "<a href='https://sbblock.github.io/2018/' target='_blank'>IEEE SECURITY & PRIVACY ON THE BLOCKCHAIN (IEEE S&B)</a> University College London (UCL), London, UK"
   slides: https://github.com/shayanb/cryptojacking-first-paper/blob/master/Presentation/Cryptojacking_IEEESB2018.pdf
   media:
       - name: Schneier on Security
@@ -73,7 +73,7 @@
   github: https://github.com/VelocityMarket/Options-Contract
   paper: https://link.springer.com/chapter/10.1007/978-3-319-70278-0_35
   year: 2017
-  published: FC 2017 Financial Cryptography and Data Security, Malta
+  published: "<a href='https://fc17.ifca.ai/' target='_blank'>FC 2017 Financial Cryptography and Data Security</a>, Malta"
   media:
       - name: Coindesk
         link: https://www.coindesk.com/press-releases/worlds-first-peer-reviewed-smart-contract-paper/
@@ -88,6 +88,7 @@
   github: https://github.com/shayanb/Bitcoin-PoS-PHP
   paper: https://ieeexplore.ieee.org/abstract/document/7816869/
   published: Advanced and Trusted Computing (ATC), 2016 Intl IEEE Conferences, Toulouse, France.
+  year: 2016
   media:
     - name: Cafe Aunja
       link: http://blog.theshayan.com/2014/10/23/have-your-coffee-with-bitcoin/
@@ -98,12 +99,13 @@
   descr: We live in an era where Internet is one of the daily needs of human life. People use Internet banking instead of going to banks, they use email rather than postal mail.This leads to a robust digital way of living, but this also means people are trusting middle companies and third parties for their online services. The need of having a digital form of money that is not being controlled by one entity is plain to see. Bitcoin is the first and the most popular decentralized virtual currency. It is based on cryptographic functions to remove the need of a central bank and regulates the generation of new units. In this thesis, we would like to look at available tools to facilitate users in holding and using Bitcoin by a perspective on usability and security, and then evaluate the possibilities for a small business to accept Bitcoin payments. Our focus is on the usability of these tools and developing a useful framework for comparing and evaluating future tools. While many security tools have been studied from a usability perspective, our work is the first to look at Bitcoin.
   paper: https://spectrum.library.concordia.ca/980859/
   published: Thesis (M.A. Sc.) - Concordia University, 2015
-
+  year: 2015
 
 - name: A first look at the usability of bitcoin key management
   descr: Bitcoin users are directly or indirectly forced to deal with public key cryptography, which has a number of security and usability challenges that differ from the password-based authentication underlying most online banking services. Users must ensure that keys are simultaneously accessible, resistant to digital theft and resilient to loss. In this paper, we contribute an evaluation framework for comparing Bitcoin key management approaches, and conduct a broad usability evaluation of six representative Bitcoin clients. We find that Bitcoin shares many of the fundamental challenges of key management known from other domains, but that Bitcoin may present a unique opportunity to rethink key management for end users.
   paper: https://arxiv.org/abs/1802.04351
-  published: USEC 15 NDSS Workshop on Usable Security (USEC) 2015, San Diego, CA, USA, February 8, 2015, Internet Society
+  year: 2015
+  published: "<a href='https://www.ndss-symposium.org/ndss2015/workshops/' target='_blank'>USEC 15 NDSS Workshop on Usable Security (USEC) 2015</a>, San Diego, USA, Internet Society"
   media:
     - name: The Morning Paper
       link: https://blog.acolyer.org/2017/02/22/a-first-look-at-the-usabilty-of-bitcoin-key-management/
@@ -127,3 +129,5 @@
   paper: https://ieeexplore.ieee.org/abstract/document/6688856/
   published: Software Reliability Engineering Workshops (ISSREW), 2013 IEEE International Symposium
   github: https://github.com/shayanb/TAF
+  year: 2013
+

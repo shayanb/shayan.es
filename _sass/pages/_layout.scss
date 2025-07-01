@@ -63,28 +63,8 @@
         color: $secondary;
         &:hover,
         &:focus {
-          color: lighten($secondary, 14%);
+          color: #ff8555;
         }
-      }
-    }
-  }
-}
-.nav-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  .nav-item {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    & a {
-      margin-top: 1em;
-      text-transform: lowercase;
-      font-size: 85%;
-      color: $secondary;
-      &:hover,
-      &:focus {
-        color: lighten($secondary, 14%);
       }
     }
   }

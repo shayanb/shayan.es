@@ -1,0 +1,12 @@
+- name: "Professor Hugh McQueen Award of Excellence"
+  issuer: "Gina Cody School of Engineering and Computer Science - Concordia University"
+  date: "2019 - 2020"
+  institution: "Concordia University"
+  description: "Award of excellence recognizing outstanding academic achievement and contributions to the field of engineering and computer science."
+
+- name: "Nature et technologies (FRQNT) Doctoral research scholarship"
+  issuer: "Fonds de recherche du Québec – Nature et technologies (FRQNT)"
+  date: "2019 - 2023"
+  institution: "Concordia University"
+  description: "Awarded by the Government of Québec, the FRQNT Doctoral Scholarship supports top researchers in science and technology. Funded over four years, my project explored `New technology, old crimes`. Blockchain technology is new, but the criminal use and scams of this technology are an evolution of old crimes."
+  link: "https://doi.org/10.69777/270979"

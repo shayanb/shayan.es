@@ -1,0 +1,1338 @@
+// Dark Mode Component
+
+@use "sass:color";
+
+// Enhanced theme toggle styling for mobile hamburger menu
+.theme-toggle-container {
+  padding: 1rem 0 !important;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0.5rem;
+}
+
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 1.5rem;
+}
+
+.theme-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  
+  .toggle-track {
+    width: 100%;
+    height: 100%;
+    background: #e5e7eb;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .theme-icon-light,
+  .theme-icon-dark {
+    position: absolute;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-icon-light {
+    color: #fbbf24;
+    opacity: 1;
+  }
+  
+  .theme-icon-dark {
+    color: #6b7280;
+    opacity: 0;
+  }
+  
+  &:hover .toggle-track {
+    background: #d1d5db;
+  }
+}
+
+// Dark mode theme toggle
+[data-theme="dark"] {
+  .theme-toggle-container {
+    border-top-color: var(--border-color);
+  }
+  
+  .theme-label {
+    color: var(--text-color);
+  }
+  
+  .theme-toggle {
+    .toggle-track {
+      background: #374151;
+    }
+    
+    .toggle-thumb {
+      transform: translateX(26px);
+      background: #1f2937;
+    }
+    
+    .theme-icon-light {
+      opacity: 0;
+    }
+    
+    .theme-icon-dark {
+      opacity: 1;
+      color: #fbbf24;
+    }
+    
+    &:hover .toggle-track {
+      background: #4b5563;
+    }
+  }
+}
+
+// Global theme styling using CSS custom properties
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Update components to use CSS custom properties
+.site-header {
+  background: var(--surface-color);
+  box-shadow: var(--shadow);
+}
+
+// Section cards
+.section-card,
+.highlight-item,
+.project-card,
+.talk-card,
+.conference-card,
+.hackathon-card,
+.app-card,
+.career-content,
+.artwork-card,
+.platform-card,
+.conference-item-minimal {
+  background: var(--card-color) !important;
+  box-shadow: var(--shadow-card);
+  border-color: var(--border-color);
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+  }
+
+  p, .description {
+    color: var(--text-muted);
+  }
+
+  // Media links maintain their brand colors in dark mode
+  .media-link {
+    &:hover {
+      box-shadow: var(--shadow-card) !important;
+    }
+  }
+}
+
+// Form elements
+input, textarea, select {
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+
+  &:focus {
+    border-color: $secondary;
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+// Update gradients for dark mode
+[data-theme="dark"] {
+  .hero {
+    background: linear-gradient(135deg, #{$dark-surface} 0%, #{$dark-card} 100%);
+  }
+
+  .recent-highlights {
+    background: var(--surface-color);
+  }
+
+  // Adjust text colors in dark mode
+  .hero-title .name {
+    color: $secondary; // Keep the orange color for brand consistency
+  }
+
+  .hero-subtitle {
+    color: var(--text-muted);
+  }
+
+  // Social float icons background
+  .social-float-toggle {
+    background: $secondary; // Keep orange for better visibility
+  }
+
+  // Navigation
+  .nav-link {
+    color: var(--text-color);
+
+    &:hover {
+      color: $secondary;
+    }
+
+    &.active {
+      color: $secondary;
+    }
+  }
+  
+  // Submenu styles
+  .nav-submenu {
+    border-color: var(--border-color);
+    
+    .nav-subitem a {
+      color: var(--text-color);
+      
+      &:hover {
+        background: var(--surface-color);
+        color: $secondary;
+      }
+    }
+  }
+
+  .brand-name {
+    color: var(--text-color);
+  }
+
+  // Code blocks and pre elements
+  pre, code {
+    background: var(--surface-color);
+    color: var(--text-color);
+  }
+
+  // Tables
+  table {
+    background: var(--card-color);
+    
+    th, td {
+      border-color: var(--border-color);
+      color: var(--text-color);
+    }
+
+    th {
+      background: var(--surface-color);
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--surface-color);
+    }
+  }
+
+  // Blockquotes
+  blockquote {
+    background: var(--surface-color);
+    border-left-color: $secondary;
+    color: var(--text-color);
+  }
+}
+
+// Smooth transitions for theme switching
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+// Ensure buttons maintain their colors in dark mode
+.btn-primary {
+  background: $primary !important;
+  color: $white !important;
+
+  &:hover {
+    background: color.adjust($primary, $lightness: -10%) !important;
+  }
+}
+
+.btn-outline {
+  border-color: $primary !important;
+  color: $primary !important;
+
+  &:hover {
+    background: $primary !important;
+    color: $white !important;
+  }
+}
+
+// Enhanced dark mode support for btn-outline
+[data-theme="dark"] .btn-outline {
+  background: var(--surface-color) !important;
+  border-color: #ff6b35 !important;
+  color: #ff6b35 !important;
+
+  &:hover {
+    background: #ff6b35 !important;
+    color: white !important;
+    border-color: #ff6b35 !important;
+  }
+}
+
+// Modal dark mode
+[data-theme="dark"] {
+  .modal {
+    .modal-content {
+      background: var(--card-color);
+      color: var(--text-color);
+    }
+
+    .modal-close {
+      color: var(--text-muted);
+
+      &:hover {
+        color: var(--text-color);
+      }
+    }
+  }
+}
+
+// Footer dark mode
+[data-theme="dark"] {
+  .site-footer {
+    background: var(--surface-color);
+    color: var(--text-color);
+  }
+}
+
+// Page Headers Dark Mode
+[data-theme="dark"] {
+  .page-header {
+    background: transparent !important;
+    color: var(--text-color);
+
+    h1, h2 {
+      color: var(--text-color);
+    }
+
+    .page-subtitle {
+      color: var(--text-muted);
+    }
+  }
+
+  // Stats and info sections
+  .publications-stats,
+  .media-stats,
+  .speaking-stats,
+  .stats-grid {
+
+    .stat-item,
+    .stat-card {
+      
+      .stat-icon i {
+        color: var(--text-color) !important;
+      }
+      
+      .stat-number {
+        color: var(--text-color) !important;
+      }
+
+      .stat-label {
+        color: var(--text-muted) !important;
+      }
+      
+      &:hover {
+        .stat-icon i {
+          color: #ff6b35 !important;
+        }
+      }
+    }
+  }
+
+  // Navigation improvements
+  .navbar {
+    background: var(--surface-color) !important;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-menu-hamburger {
+    background: var(--surface-color) !important;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-link:hover {
+    background: var(--card-color) !important;
+  }
+
+  // Theme toggle in navigation dark mode
+  .nav-menu-hamburger .theme-toggle {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-brand,
+  .brand-name {
+    color: var(--text-color) !important;
+  }
+
+  // Button improvements  
+  .btn {
+    border-color: var(--border-color);
+    
+    &:not(.btn-primary):not(.btn-outline) {
+      background: var(--surface-color);
+      color: var(--text-color);
+      
+      &:hover {
+        background: var(--card-color);
+      }
+    }
+  }
+
+  // Platform buttons specifically
+  .platform-card .platform-btn {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: var(--card-color) !important;
+    }
+  }
+
+  // Filter buttons
+  .filter-btn {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: var(--card-color) !important;
+    }
+
+    &.active {
+      background: $secondary !important;
+      color: white !important;
+      border-color: $secondary !important;
+    }
+  }
+
+  // Publication items
+  .publication-item {
+    background: var(--card-color) !important;
+    border-color: var(--border-color);
+
+    .pub-year {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+    }
+
+    .pub-venue {
+      color: var(--text-color) !important;
+    }
+
+    .pub-link {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background: var(--card-color) !important;
+        border-color: $secondary !important;
+        color: $secondary !important;
+      }
+    }
+  }
+
+  // Media items
+  .media-item {
+    background: var(--card-color) !important;
+    
+    .media-header h3 a {
+      color: var(--text-color) !important;
+      
+      &:hover {
+        color: $secondary !important;
+      }
+    }
+
+    .read-link {
+      color: var(--text-color) !important;
+      
+      &:hover {
+        color: $secondary !important;
+      }
+    }
+  }
+
+  // Talk and conference cards
+  .talk-card,
+  .hackathon-card {
+    background: var(--card-color) !important;
+    
+    .talk-description,
+    .hackathon-description {
+      color: var(--text-muted) !important;
+    }
+
+    .media-link {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background: var(--card-color) !important;
+        border-color: $secondary !important;
+        color: $secondary !important;
+      }
+    }
+  }
+
+  // Apps page improvements
+  .app-card {
+    background: var(--card-color) !important;
+    
+    .app-description {
+      color: var(--text-muted) !important;
+    }
+
+    h3, h4 {
+      color: var(--text-color) !important;
+    }
+
+    .app-platform {
+      color: var(--text-muted) !important;
+    }
+
+    .app-link {
+      background: var(--surface-color) !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background: $secondary !important;
+        color: $white !important;
+      }
+    }
+  }
+
+  .apps-page {
+    h1, h2, h3, h4 {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Modal improvements for apps
+  .modal-layout {
+    .modal-right {
+      background: var(--surface-color) !important;
+    }
+  }
+
+  // Career page improvements
+  .career-item {
+    
+    .job-description {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Project cards
+  .project-card {
+    h3, h4 {
+      color: var(--text-color) !important;
+    }
+
+    .project-description {
+      color: var(--text-muted) !important;
+    }
+
+    .project-status {
+      &.status-active {
+        background: var(--surface-color) !important;
+        color: var(--text-color) !important;
+      }
+    }
+  }
+
+  .projects-page {
+    h1, h2, h3, h4 {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Year headers and section dividers
+  .year-header {
+    color: var(--text-color) !important;
+    border-bottom-color: $secondary !important;
+  }
+
+  // Links and anchors
+  a:not(.btn):not(.media-link):not(.platform-card) {
+    color: $secondary;
+    
+    &:hover {
+      color: #ff8555;
+    }
+  }
+
+  // Form elements improvements
+  input[type="text"],
+  input[type="email"], 
+  textarea,
+  select {
+    background: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+
+    &:focus {
+      border-color: $secondary !important;
+      box-shadow: 0 0 0 2px rgba($secondary, 0.2) !important;
+    }
+  }
+
+  // Ensure text readability
+  .text-muted {
+    color: var(--text-muted) !important;
+  }
+
+  // Loading states and placeholders
+  .placeholder-image,
+  .placeholder-thumbnail {
+    background: var(--surface-color) !important;
+    color: var(--text-muted) !important;
+  }
+
+  // Borders and dividers
+  hr {
+    border-color: var(--border-color) !important;
+  }
+
+  // Code and syntax highlighting
+  .highlight {
+    background: var(--surface-color) !important;
+  }
+
+  // Timeline elements
+  .timeline-item {
+    border-color: var(--border-color) !important;
+    
+    &::before {
+      background: var(--border-color) !important;
+    }
+  }
+
+  // Universal heading fixes
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+  }
+
+  // All page containers
+  .talks-page,
+  .publications-page,
+  .media-page,
+  .career-page,
+  .connect-page,
+  .art-page,
+  .about-page {
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-color) !important;
+    }
+
+    p {
+      color: var(--text-color) !important;
+    }
+
+    .page-subtitle {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Card titles specifically
+  .card h3,
+  .item h3,
+  .item h4,
+  .card-title,
+  .item-title {
+    color: var(--text-color) !important;
+  }
+
+  // Media and link text
+  .media-outlet,
+  .venue-name,
+  .conference-name {
+    color: var(--text-color) !important;
+  }
+
+  // Ensure all text in cards is visible
+  .card,
+  .item,
+  .section {
+    color: var(--text-color) !important;
+  }
+
+  // Specific missing dark mode fixes
+  .highlight-card {
+    background: var(--card-color) !important;
+    
+    i {
+      color: var(--text-color) !important;
+    }
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+
+    .highlight-meta {
+      color: var(--text-muted) !important;
+    }
+    
+    &:hover {
+      i, h3, h4, p {
+        color: #ff6b35 !important;
+      }
+    }
+  }
+
+  .career-company {
+    a {
+      color: #ff6b35 !important;
+      
+      &:hover {
+        color: #ff8555 !important;
+        text-decoration: underline;
+      }
+      
+      i {
+        color: #ff6b35 !important;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .career-marker {
+    background: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    
+    &::before {
+      background: var(--border-color) !important;
+    }
+  }
+
+  .app-card.featured {
+    background: var(--card-color) !important;
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .stat-item {
+    
+    .stat-number {
+      color: var(--text-color) !important;
+    }
+    
+    .stat-label {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .pub-venue {
+    color: var(--text-color) !important;
+  }
+
+  .pub-year-badge {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+  }
+
+  .expertise-item {
+    h3, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .about-cta {
+    p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .value-item {
+    h3, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .social-item {
+    background: var(--card-color) !important;
+    color: var(--text-color) !important;
+    
+    h3, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Additional dark mode fixes for remaining items
+  .nav-toggle span {
+    background-color: var(--text-color) !important;
+  }
+
+  .app-title-btn {
+    color: $secondary !important;
+  }
+
+  .other-apps-section .app-item {
+    background: var(--card-color) !important;
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .highlights-grid .highlight-card {
+    background: var(--card-color) !important;
+    
+    i {
+      color: var(--text-color) !important;
+    }
+    
+    h3, h4, p {
+      color: var(--text-color) !important;
+    }
+    
+    &:hover {
+      i, h3, h4, p {
+        color: #ff6b35 !important;
+      }
+    }
+  }
+
+  .contact-form {
+    background: var(--card-color) !important;
+    
+    label {
+      color: var(--text-color) !important;
+    }
+  }
+
+  .response-card {
+    background: var(--card-color) !important;
+    
+    h3, p {
+      color: var(--text-color) !important;
+    }
+    
+    i {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Fix expertise-item and about-cta backgrounds
+  .expertise-item {
+    background: var(--card-color) !important;
+  }
+
+  .about-cta {
+    background: var(--surface-color) !important;
+  }
+
+  .value-item {
+    background: var(--surface-color) !important;
+  }
+
+  // Home page section cards dark mode fixes
+  .section-card {
+    background: var(--card-color) !important;
+    
+    .card-icon {
+      background: var(--surface-color) !important;
+      
+      i {
+        color: #ff6b35 !important;
+      }
+    }
+    
+    .card-title, h3, h4 {
+      color: var(--text-color) !important;
+    }
+    
+    .card-text, p, .description {
+      color: var(--text-color) !important;
+    }
+    
+    &:hover {
+      .card-icon {
+        background: var(--surface-color) !important;
+        
+        i {
+          color: #ff6b35 !important;
+        }
+      }
+    }
+  }
+
+  // Hero title dark mode fixes
+  .hero-title {
+    .name {
+      color: var(--text-color) !important;
+    }
+    
+    .title, .subtitle, .greeting {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .hero-subtitle {
+    color: var(--text-muted) !important;
+  }
+
+  // Talks page specific fixes
+  .hackathon-project {
+    background: var(--surface-color) !important;
+  }
+
+  .speaking-stats .stat-card {
+    background: var(--card-color) !important;
+    
+    .stat-icon i {
+      color: var(--text-color) !important;
+    }
+    
+    .stat-number {
+      color: var(--text-color) !important;
+    }
+    
+    .stat-label {
+      color: var(--text-muted) !important;
+    }
+    
+    &:hover {
+      .stat-icon i {
+        color: #ff6b35 !important;
+      }
+    }
+  }
+
+  // Contact note dark mode fix
+  .contact-note {
+    background: var(--surface-color) !important;
+    border-color: var(--border-color) !important;
+    
+    p {
+      color: var(--text-color) !important;
+    }
+    
+    strong {
+      color: var(--text-color) !important;
+    }
+  }
+
+  // Career timeline dark mode fixes
+  .career-timeline {
+    &::before {
+      background: linear-gradient(to bottom, #ff6b35, #1e3a5f) !important;
+      z-index: 1 !important;
+    }
+  }
+
+  .career-item {
+    .career-marker {
+      background: #ff6b35 !important;
+      border-color: var(--card-color) !important;
+      z-index: 3 !important;
+    }
+
+    &.current .career-marker {
+      background: #ff6b35 !important;
+      box-shadow: 0 0 25px rgba(255, 107, 53, 1) !important;
+    }
+
+    .career-content {
+      background: var(--card-color) !important;
+      z-index: 2 !important;
+      position: relative;
+    }
+  }
+
+  // App Visit button dark mode fix
+  .app-card .btn-outline,
+  .app-item .btn-outline {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: #ff6b35 !important;
+      color: white !important;
+      border-color: #ff6b35 !important;
+    }
+  }
+
+  // Project modal GitHub button dark mode fix
+  .modal-content .btn,
+  .modal-content .project-link {
+    background: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background: #ff6b35 !important;
+      color: white !important;
+      border-color: #ff6b35 !important;
+    }
+  }
+}
+
+// Enhanced Navigation Widget with Section Navigation
+.navigation-widget {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: $z-index-fixed;
+}
+
+.nav-sections {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  min-width: 220px;
+  max-width: 280px;
+  max-height: 350px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f3f4f6;
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 2px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+    
+    &:hover {
+      background: #9ca3af;
+    }
+  }
+  
+  &:not([style*="display: none"]) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-section-link {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.625rem 1rem;
+  text-align: left;
+  color: #374151;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.3;
+  
+  &:hover {
+    background: #f3f4f6;
+    color: #ff6b35;
+    
+    i {
+      color: #ff6b35;
+    }
+  }
+  
+  i {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+  }
+}
+
+.jump-to-top {
+  width: 50px;
+  height: 50px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &.sections-mode {
+    background: #1e3a5f;
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+    
+    &:hover {
+      background: #152a42;
+      box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
+    }
+  }
+  
+  &:hover {
+    background: #e55a2b;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  }
+  
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    font-size: 1.25rem;
+  }
+  
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    
+    i {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Dark mode navigation widget
+[data-theme="dark"] {
+  .navigation-widget {
+    .nav-sections {
+      background: var(--card-color);
+      border-color: var(--border-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      scrollbar-color: var(--border-color) var(--surface-color);
+      
+      &::-webkit-scrollbar-track {
+        background: var(--surface-color);
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        
+        &:hover {
+          background: var(--text-muted);
+        }
+      }
+    }
+    
+    .nav-section-link {
+      color: var(--text-color);
+      
+      &:hover {
+        background: var(--surface-color);
+        color: #ff6b35;
+      }
+      
+      i {
+        color: var(--text-muted);
+      }
+    }
+  }
+}
+
+// Mobile responsive navigation widget
+@media (max-width: 768px) {
+  .navigation-widget {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  .nav-sections {
+    bottom: 60px;
+    max-width: 200px;
+    max-height: 250px;
+  }
+  
+  .nav-section-link {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+// Footer layout adjustments
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  .footer-text {
+    flex: 1;
+  }
+}
+
+// Psychedelic Footer Effect (Site-wide) - Only on footer text
+.footer-text {
+  position: relative;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    animation: psychedelicFooterGlitch 2s ease-in-out infinite;
+    cursor: default;
+  }
+}
+
+.footer-text:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.1), 
+    rgba(30, 58, 95, 0.1), 
+    rgba(255, 107, 53, 0.05),
+    rgba(30, 58, 95, 0.1));
+  z-index: -1;
+  border-radius: 4px;
+  animation: psychedelicFooterPulse 2s ease-in-out infinite;
+}
+
+// Remove old footer hover - now applied to .footer-text only
+
+@keyframes psychedelicFooterGlitch {
+  0% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: translateX(0);
+  }
+  15% { 
+    filter: hue-rotate(120deg) saturate(1.8) brightness(1.3);
+    transform: translateX(-1px);
+    text-shadow: 1px 0 #ff6b35, -1px 0 #1e3a5f;
+  }
+  30% { 
+    filter: hue-rotate(240deg) saturate(2.2) brightness(0.9);
+    transform: translateX(1px);
+    text-shadow: -1px 0 #ff6b35, 1px 0 #1e3a5f;
+  }
+  45% { 
+    filter: hue-rotate(360deg) saturate(1.5) brightness(1.2);
+    transform: translateX(-0.5px);
+    text-shadow: 0.5px 0 #ff6b35, -0.5px 0 #1e3a5f;
+  }
+  60% { 
+    filter: hue-rotate(480deg) saturate(1.9) brightness(1.1);
+    transform: translateX(0.5px);
+    text-shadow: -0.5px 0 #ff6b35, 0.5px 0 #1e3a5f;
+  }
+  75% { 
+    filter: hue-rotate(600deg) saturate(1.3) brightness(1.4);
+    transform: translateX(-0.3px);
+  }
+  90% { 
+    filter: hue-rotate(720deg) saturate(1.1) brightness(1.1);
+    transform: translateX(0.3px);
+  }
+  100% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: translateX(0);
+    text-shadow: none;
+  }
+}
+
+.psychedelic-footer:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.1), 
+    rgba(30, 58, 95, 0.1), 
+    rgba(255, 107, 53, 0.05),
+    rgba(30, 58, 95, 0.1));
+  z-index: -1;
+  border-radius: 4px;
+  animation: psychedelicFooterPulse 0.8s ease-in-out;
+}
+
+@keyframes psychedelicFooterPulse {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.4; 
+    transform: scale(1.05);
+  }
+}
+
+// Heart icon special effect
+.heart-icon {
+  transition: all 0.3s ease;
+}
+
+.footer-text:hover .heart-icon {
+  animation: heartBeat 2s ease-in-out infinite;
+  color: #e74c3c;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1.1); }
+  75% { transform: scale(1.15); }
+}
+
+// Apps page dark mode fixes
+[data-theme="dark"] {
+  .app-card.featured {
+    .app-platform {
+      background: rgba(255, 107, 53, 0.2) !important;
+      color: #ff6b35 !important;
+      border: 1px solid rgba(255, 107, 53, 0.3);
+    }
+  }
+}

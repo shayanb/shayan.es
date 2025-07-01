@@ -192,3 +192,20 @@
 .warning-bg-color {
   background-color: $warning;
 }
+
+// Responsive visibility helpers
+.desktop-only {
+  display: block;
+  
+  @media (max-width: $small-screen) {
+    display: none !important;
+  }
+}
+
+.mobile-only {
+  display: none;
+  
+  @media (max-width: $small-screen) {
+    display: block !important;
+  }
+}

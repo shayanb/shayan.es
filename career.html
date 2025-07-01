@@ -1,0 +1,528 @@
+---
+layout: page
+title: Career
+permalink: /career/
+---
+
+<div class="career-page">
+  <div class="page-header">
+    <h1>Career Journey</h1>
+    <p class="page-subtitle">Professional Experience and Journey</p>
+  </div>
+
+  <div class="career-highlights">
+    <h2>Professional Highlights</h2>
+    <div class="highlights-grid">
+      <a href="/audits/" class="highlight-card">
+        <i class="fa fa-shield"></i>
+        <h3>{{ site.data.index.audits | size }}+</h3>
+        <p>Security Audits</p>
+      </a>
+      <a href="/scholar/" class="highlight-card">
+        <i class="fa fa-file-text-o"></i>
+        <h3>{{ site.data.index.publications | size }}+</h3>
+        <p>Publications</p>
+      </a>
+      <div href="/talks/" target="_blank" class="highlight-card">
+        <i class="fa fa-bug"></i>
+        <h3>{{ site.data.index.cve | size }}+</h3>
+        <p>CVEs Discovered</p>
+      </div>
+      <a href="/talks/" class="highlight-card">
+        <i class="fa fa-microphone"></i>
+        <h3>{{ site.data.index.lectures | size }}+</h3>
+        <p>Talks Given</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="career-timeline">
+    {% assign sorted_careers = site.data.index.careers | sort: 'date' | reverse %}
+    {% for career in sorted_careers %}
+    <div class="career-item {% if career.current %}current{% endif %}">
+      <div class="career-marker"></div>
+      <div class="career-content">
+        <div class="career-header">
+          <div class="career-main-info">
+            <div class="career-left">
+              <h3>{{ career.job }}</h3>
+              <span class="career-date">{{ career.date }}</span>
+            </div>
+            <div class="career-right">
+
+              <div class="career-company">
+                {% if career.link %}
+                  <a href="{{ career.link }}" target="_blank" rel="noopener">
+                    {{ career.name }}
+                    <i class="fa fa-external-link"></i>
+                  </a>
+                {% else %}
+                  {{ career.name }}
+                {% endif %}
+              </div>
+              {% if career.logo %}
+              <div class="company-logo">
+                <img src="{{ career.logo }}" alt="{{ career.name }} logo" loading="lazy">
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        
+        {% if career.description %}
+        <p class="career-description">{{ career.description }}</p>
+        {% endif %}
+        
+        {% if career.technologies %}
+        <div class="career-technologies">
+          <span class="tech-label">Technologies:</span>
+          {% for tech in career.technologies %}
+          <span class="tech-tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if career.achievements %}
+        <div class="career-achievements">
+          <h4>Key Achievements:</h4>
+          <ul>
+            {% for achievement in career.achievements %}
+            <li>{{ achievement }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Nonprofit & Community Service Section -->
+  <div class="nonprofit-section">
+    <h2>Community & Non-Profit Work</h2>
+    <p class="section-subtitle">Leadership and contributions to community organizations</p>
+    
+    <div class="nonprofit-grid">
+      {% for nonprofit in site.data.index.nonprofit %}
+      <div class="nonprofit-item">
+        <div class="nonprofit-header">
+          <h4 class="nonprofit-title">
+            {% if nonprofit.link %}
+              <a href="{{ nonprofit.link }}" target="_blank" rel="noopener">
+                {{ nonprofit.name }}
+                <i class="fa fa-external-link"></i>
+              </a>
+            {% else %}
+              {{ nonprofit.name }}
+            {% endif %}
+          </h4>
+          <div class="nonprofit-role">{{ nonprofit.job }}</div>
+        </div>
+        <div class="nonprofit-date">{{ nonprofit.date }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="career-skills">
+    <h2>Technical Expertise</h2>
+    <div class="skills-container">
+      <div class="radar-chart-container">
+        <canvas id="skillsRadarChart" width="500" height="500"></canvas>
+      </div>
+    </div>
+    
+    <!-- Fallback for traditional skill bars -->
+    <div class="skills-fallback" style="display: none;">
+      {% for skill_category in site.data.index.skills %}
+      <div class="skill-category">
+        <h3>{{ skill_category.label }}</h3>
+        <div class="skills-list">
+          {% for skill in skill_category.skills %}
+          <div class="skill-item">
+            <span class="skill-name">{{ skill.name }}</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: {{ skill.score }}%"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+/* Skills Radar Chart Styles */
+.career-skills {
+  margin: 4rem 0;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radar-chart-container {
+  flex: 0 0 500px;
+  max-width: 500px;
+  position: relative;
+}
+
+
+/* Dark Mode Support */
+[data-theme="dark"] .career-skills h2 {
+  color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .radar-chart-container {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+/* Loading State */
+.chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.chart-loading i {
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Nonprofit Section Styles */
+.nonprofit-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.nonprofit-section h2 {
+  color: #1e3a5f;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.nonprofit-section .section-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.nonprofit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.nonprofit-item {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nonprofit-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #ff6b35;
+}
+
+.nonprofit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.nonprofit-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.nonprofit-title a {
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nonprofit-title a:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.nonprofit-title a i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+.nonprofit-role {
+  background: rgba(30, 58, 95, 0.1);
+  color: #1e3a5f;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(30, 58, 95, 0.2);
+}
+
+.nonprofit-date {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Dark Mode Support for Nonprofit */
+[data-theme="dark"] .nonprofit-section {
+  background: var(--surface-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .nonprofit-section h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nonprofit-section .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .nonprofit-item {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .nonprofit-title a {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nonprofit-title a:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .nonprofit-role {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .nonprofit-date {
+  color: var(--text-muted);
+}
+
+/* Mobile Responsive Nonprofit */
+@media (max-width: 768px) {
+  .nonprofit-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .nonprofit-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .nonprofit-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .nonprofit-role {
+    align-self: flex-start;
+  }
+  
+  .nonprofit-title {
+    font-size: 0.95rem;
+  }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const ctx = document.getElementById('skillsRadarChart');
+  
+  if (!ctx) {
+    console.warn('Skills radar chart canvas not found');
+    // Show fallback
+    const fallback = document.querySelector('.skills-fallback');
+    if (fallback) {
+      fallback.style.display = 'block';
+    }
+    return;
+  }
+
+  // Skills data from Jekyll
+  const skillsData = [
+    {% for skill in site.data.index.skills.skills %}
+    {
+      name: "{{ skill.name }}",
+      score: {{ skill.score }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  // Sort skills by score for better visualization
+  skillsData.sort((a, b) => b.score - a.score);
+
+  const labels = skillsData.map(skill => skill.name);
+  const scores = skillsData.map(skill => skill.score);
+
+  // Create gradient
+  const canvas = ctx.getContext('2d');
+  const gradient = canvas.createRadialGradient(250, 250, 0, 250, 250, 250);
+  gradient.addColorStop(0, 'rgba(255, 107, 53, 0.2)');
+  gradient.addColorStop(1, 'rgba(30, 58, 95, 0.1)');
+
+  const borderGradient = canvas.createRadialGradient(250, 250, 0, 250, 250, 250);
+  borderGradient.addColorStop(0, 'rgba(255, 107, 53, 0.8)');
+  borderGradient.addColorStop(1, 'rgba(30, 58, 95, 0.6)');
+
+  const config = {
+    type: 'radar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Technical Skills',
+        data: scores,
+        backgroundColor: gradient,
+        borderColor: borderGradient,
+        borderWidth: 2,
+        pointBackgroundColor: '#ff6b35',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        pointHoverBackgroundColor: '#1e3a5f',
+        pointHoverBorderColor: '#ff6b35',
+        pointHoverBorderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(30, 58, 95, 0.9)',
+          titleColor: '#fff',
+          bodyColor: '#fff',
+          borderColor: '#ff6b35',
+          borderWidth: 1,
+          displayColors: false,
+          callbacks: {
+            label: function(context) {
+              return context.label + ': ' + context.raw + '%';
+            }
+          }
+        }
+      },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+          angleLines: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          pointLabels: {
+            font: {
+              size: 12,
+              weight: '500'
+            },
+            color: '#374151'
+          },
+          ticks: {
+            display: false,
+            stepSize: 20
+          }
+        }
+      },
+      interaction: {
+        intersect: false,
+        mode: 'point'
+      },
+      animation: {
+        duration: 2000,
+        easing: 'easeInOutQuart'
+      }
+    }
+  };
+
+  // Check for dark mode and adjust colors
+  function updateChartColors() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    
+    if (isDark) {
+      config.options.scales.r.angleLines.color = 'rgba(255, 255, 255, 0.2)';
+      config.options.scales.r.grid.color = 'rgba(255, 255, 255, 0.2)';
+      config.options.scales.r.pointLabels.color = '#e5e7eb';
+    } else {
+      config.options.scales.r.angleLines.color = 'rgba(0, 0, 0, 0.1)';
+      config.options.scales.r.grid.color = 'rgba(0, 0, 0, 0.1)';
+      config.options.scales.r.pointLabels.color = '#374151';
+    }
+  }
+
+  updateChartColors();
+  
+  try {
+    const chart = new Chart(ctx, config);
+    
+    // Update chart colors when theme changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateChartColors();
+          chart.update();
+        }
+      });
+    });
+    
+    observer.observe(document.body, { attributes: true });
+    
+  } catch (error) {
+    console.error('Error creating radar chart:', error);
+    // Show fallback
+    const fallback = document.querySelector('.skills-fallback');
+    if (fallback) {
+      fallback.style.display = 'block';
+    }
+    // Hide chart container
+    const container = document.querySelector('.radar-chart-container');
+    if (container) {
+      container.innerHTML = '<div class="chart-loading"><i class="fa fa-exclamation-triangle"></i>Chart unavailable, showing list view</div>';
+    }
+  }
+});
+</script>

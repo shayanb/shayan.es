@@ -1,0 +1,389 @@
+{
+  "protocols": [
+    {
+      "name": "Uniswap",
+      "symbol": "UNI",
+      "title": "Uniswap (UNI)",
+      "filename": "uniswap.json"
+    },
+    {
+      "name": "ChainLink",
+      "symbol": "LINK",
+      "title": "ChainLink (LINK)",
+      "filename": "chainlink.json"
+    },
+    {
+      "name": "AAVE",
+      "symbol": "",
+      "title": "AAVE",
+      "filename": "aave.json"
+    },
+    {
+      "name": "Balancer",
+      "symbol": "BAL",
+      "title": "Balancer (BAL)",
+      "filename": "balancer.json"
+    },
+    {
+      "name": "Compound",
+      "symbol": "",
+      "title": "Compound",
+      "filename": "compound.json"
+    },
+    {
+      "name": "Cover Fi",
+      "symbol": "",
+      "title": "Cover Fi",
+      "filename": "cover_fi.json"
+    },
+    {
+      "name": "Curve Fi",
+      "symbol": "CRV",
+      "title": "Curve Fi (CRV)",
+      "filename": "curve_fi.json"
+    },
+    {
+      "name": "DAI",
+      "symbol": "",
+      "title": "DAI",
+      "filename": "dai.json"
+    },
+    {
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "title": "Ethereum (ETH)",
+      "filename": "ethereum.json"
+    },
+    {
+      "name": "iEarn",
+      "symbol": "YFI",
+      "title": "iEarn (YFI)",
+      "filename": "iearn.json"
+    },
+    {
+      "name": "Synthetix",
+      "symbol": "SNX",
+      "title": "Synthetix (SNX)",
+      "filename": "synthetix.json"
+    },
+    {
+      "name": "BzX",
+      "symbol": "",
+      "title": "BzX",
+      "filename": "bzx.json"
+    },
+    {
+      "name": "Kyber Network",
+      "symbol": "KNC",
+      "title": "Kyber Network (KNC)",
+      "filename": "kyber_network.json"
+    },
+    {
+      "name": "Lendf",
+      "symbol": "",
+      "title": "Lendf",
+      "filename": "lendf.json"
+    },
+    {
+      "name": "1inch",
+      "symbol": "",
+      "title": "1inch",
+      "filename": "1inch.json"
+    },
+    {
+      "name": "renBTC",
+      "symbol": "",
+      "title": "renBTC",
+      "filename": "renbtc.json"
+    },
+    {
+      "name": "Uniswap",
+      "symbol": "",
+      "title": "Uniswap",
+      "filename": "uniswap.json"
+    },
+    {
+      "name": "mStable",
+      "symbol": "",
+      "title": "mStable",
+      "filename": "mstable.json"
+    },
+    {
+      "name": "USDC",
+      "symbol": "",
+      "title": "USDC",
+      "filename": "usdc.json"
+    },
+    {
+      "name": "USDT",
+      "symbol": "",
+      "title": "USDT",
+      "filename": "usdt.json"
+    },
+    {
+      "name": "TUSD",
+      "symbol": "",
+      "title": "TUSD",
+      "filename": "tusd.json"
+    },
+    {
+      "name": "wBTC",
+      "symbol": "",
+      "title": "wBTC",
+      "filename": "wbtc.json"
+    },
+    {
+      "name": "WETH",
+      "symbol": "",
+      "title": "WETH",
+      "filename": "weth.json"
+    },
+    {
+      "name": "0x",
+      "symbol": "ZRX",
+      "title": "0x (ZRX)",
+      "filename": "0x.json"
+    },
+    {
+      "name": "BTC",
+      "symbol": "",
+      "title": "BTC",
+      "filename": "btc.json"
+    },
+    {
+      "name": "Ethereum",
+      "symbol": "",
+      "title": "Ethereum",
+      "filename": "ethereum.json"
+    },
+    {
+      "name": "EOS",
+      "symbol": "",
+      "title": "EOS",
+      "filename": "eos.json"
+    },
+    {
+      "name": "DAI",
+      "symbol": "",
+      "title": "DAI",
+      "filename": "dai.json"
+    },
+    {
+      "name": "USDC",
+      "symbol": "",
+      "title": "USDC",
+      "filename": "usdc.json"
+    },
+    {
+      "name": "tUSD",
+      "symbol": "",
+      "title": "tUSD",
+      "filename": "tusd.json"
+    },
+    {
+      "name": "Bitcoin",
+      "symbol": "",
+      "title": "Bitcoin",
+      "filename": "bitcoin.json"
+    },
+    {
+      "name": "BAT",
+      "symbol": "",
+      "title": "BAT",
+      "filename": "bat.json"
+    },
+    {
+      "name": "Etherscan",
+      "symbol": "",
+      "title": "Etherscan",
+      "filename": "etherscan.json"
+    },
+    {
+      "name": "Ledger",
+      "symbol": "",
+      "title": "Ledger",
+      "filename": "ledger.json"
+    },
+    {
+      "name": "Aethereum",
+      "symbol": "",
+      "title": "Aethereum",
+      "filename": "aethereum.json"
+    },
+    {
+      "name": "Ledger",
+      "symbol": "",
+      "title": "Ledger",
+      "filename": "ledger.json"
+    },
+    {
+      "name": "Metamask",
+      "symbol": "",
+      "title": "Metamask",
+      "filename": "metamask.json"
+    },
+    {
+      "name": "Maker",
+      "symbol": "",
+      "title": "Maker",
+      "filename": "maker.json"
+    },
+    {
+      "name": "Augur",
+      "symbol": "REP",
+      "title": "Augur (REP)",
+      "filename": "augur.json"
+    },
+    {
+      "name": "Trezor",
+      "symbol": "",
+      "title": "Trezor",
+      "filename": "trezor.json"
+    },
+    {
+      "name": "Truffle",
+      "symbol": "",
+      "title": "Truffle",
+      "filename": "truffle.json"
+    },
+    {
+      "name": "Trust Wallet",
+      "symbol": "",
+      "title": "Trust Wallet",
+      "filename": "trust_wallet.json"
+    },
+    {
+      "name": "zCash",
+      "symbol": "",
+      "title": "zCash",
+      "filename": "zcash.json"
+    },
+    {
+      "name": "Ethereum",
+      "symbol": "",
+      "title": "Ethereum",
+      "filename": "ethereum.json"
+    },
+    {
+      "name": "Dogecoin",
+      "symbol": "",
+      "title": "Dogecoin",
+      "filename": "dogecoin.json"
+    },
+    {
+      "name": "Litecoin",
+      "symbol": "",
+      "title": "Litecoin",
+      "filename": "litecoin.json"
+    },
+    {
+      "name": "Algorand",
+      "symbol": "",
+      "title": "Algorand",
+      "filename": "algorand.json"
+    },
+    {
+      "name": "Cosmos",
+      "symbol": "Atom",
+      "title": "Cosmos (Atom)",
+      "filename": "cosmos.json"
+    },
+    {
+      "name": "Dash",
+      "symbol": "",
+      "title": "Dash",
+      "filename": "dash.json"
+    },
+    {
+      "name": "Polkodot",
+      "symbol": "DOT",
+      "title": "Polkodot (DOT)",
+      "filename": "polkodot.json"
+    },
+    {
+      "name": "Grin",
+      "symbol": "",
+      "title": "Grin",
+      "filename": "grin.json"
+    },
+    {
+      "name": "Matic",
+      "symbol": "",
+      "title": "Matic",
+      "filename": "matic.json"
+    },
+    {
+      "name": "Numerai",
+      "symbol": "NMR",
+      "title": "Numerai (NMR)",
+      "filename": "numerai.json"
+    },
+    {
+      "name": "Orchid",
+      "symbol": "OXT",
+      "title": "Orchid (OXT)",
+      "filename": "orchid.json"
+    },
+    {
+      "name": "REN",
+      "symbol": "",
+      "title": "REN",
+      "filename": "ren.json"
+    },
+    {
+      "name": "Tron",
+      "symbol": "TRX",
+      "title": "Tron (TRX)",
+      "filename": "tron.json"
+    },
+    {
+      "name": "Tron",
+      "symbol": "",
+      "title": "Tron",
+      "filename": "tron.json"
+    },
+    {
+      "name": "Ripple",
+      "symbol": "XRP",
+      "title": "Ripple (XRP)",
+      "filename": "ripple.json"
+    },
+    {
+      "name": "Monero",
+      "symbol": "XMO",
+      "title": "Monero (XMO)",
+      "filename": "monero.json"
+    },
+    {
+      "name": "yEarn",
+      "symbol": "YFI",
+      "title": "yEarn (YFI)",
+      "filename": "yearn.json"
+    },
+    {
+      "name": "Aragon",
+      "symbol": "ANT",
+      "title": "Aragon (ANT)",
+      "filename": "aragon.json"
+    },
+    {
+      "name": "Ampleforth",
+      "symbol": "AMPL",
+      "title": "Ampleforth (AMPL)",
+      "filename": "ampleforth.json"
+    },
+    {
+      "name": "Bitcoin Cash",
+      "symbol": "BCH",
+      "title": "Bitcoin Cash (BCH)",
+      "filename": "bitcoin_cash.json"
+    },
+    {
+      "name": "BitcoinSV",
+      "symbol": "BSV",
+      "title": "BitcoinSV (BSV)",
+      "filename": "bitcoinsv.json"
+    }
+  ],
+  "total_count": 64
+}

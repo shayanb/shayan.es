@@ -1,36 +1,58 @@
 # careers section data
-# if you don't have language feature(language.yml is empty), ignore "i18n" items
-# - name: Concordia University
-#   link: https://www.concordia.ca/
-#   date: September 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
-#   job: Blockchain Researcher
+# Enhanced with descriptions and company logos
 
 - name: Creed
   link: https://thecreed.xyz/
-  date: 2023 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: 2024 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
   job: Co-founder & Security Auditor
+  logo: "/img/companies/creed-logo.svg"
+  description: "Co-founded Creed, A grassroots collective of security professionals changing how Web3 security is delivered and compensated"
+  technologies: ["Web3", "Security Review", "Solidity", "Audit", "Smart Contracts"]
+  current: true
+  achievements: ["Web3 Risk assessment methodology", "Security Reviews for 20+ DeFi projects" ]
+
 
 - name: Puffer Finance
   link: https://www.puffer.fi/
   date: 2023 - 2024
   job: Head of Security
+  logo: "/img/companies/puffer-logo.svg"
+  description: "Led the security initiatives for Puffer Finance's liquid staking protocol. Designed and implemented comprehensive security frameworks, conducted internal audits, and coordinated external security reviews. Managed security operations for validator infrastructure and smart contract deployments."
+  technologies: ["Ethereum Staking", "Liquid Staking", "Eigenlayer", "Security Architecture"]
+  achievements: ["Launched secure liquid staking protocol (mainnet)", "Incident response & recovery", "Established security & development best practices"]
 
 - name: Ether Capital
   link: https://www.ethcap.co/
   date: 2021 - 2023
   job: Chief Technology Officer
+  logo: "/img/companies/ethercapital-logo.png"
+  description: "Served as Chief Technology Officer (CTO) for Ether Capital, a publicly-traded Ethereum technology company based in Canada. Established a technology team and developed Ethereum staking infrastructure. Led technical team and strategy for developing Ethereum staking infrastructure, and Operation Security (OpSec). Developed institutional staking dashboards to close the gap between the crypto-assets with financial statements and annual audits."
+  technologies: ["Ethereum", "Institutional Custody", "Staking Infrastructure"]
+  achievements: ["Scaled staking operations to $100M+ TVL", "Created and led a technical team", "Built institutional-grade infrastructure"]
 
 - name: ConsenSys Diligence
   link: https://diligence.consensys.net/
   date: 2018 - 2021
-  job: Security Engineer & Auditor
+  job: Security Engineer & Senior Auditor
+  logo: "/img/companies/consensys-diligence-logo.png"
+  description: "Security engineer and lead auditor at ConsenSys Diligence, conducting smart contract security audits for major DeFi protocols and Web3 projects. Developed security tools including Legions, participated in bug bounty programs, and contributed to Ethereum security best practices guideline."
+  technologies: ["Smart Contract Auditing", "Solidity", "Security Tools", "Security Reviews"]
+  achievements: ["Audited 50+ smart contract protocols", "Championed early ETH2 cross-client security", "Developed open-source security tools"]
 
 - name: Bitaccess
   link: http://www.bitaccess.co
-  date: 2015 - 2018 #January - December # <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: 2015 - 2018
   job: Blockchain Engineer
+  logo: "/img/companies/bitaccess-logo.png"
+  description: "Blockchain engineer at Bitaccess, developing Bitcoin ATM software and enterprise ATM wallet management solutions. Built scalable backend infrastructure, implemented security protocols, and contributed to the expansion of Bitcoin ATM network globally."
+  technologies: ["Bitcoin", "ATM Software", "Payment Processing", "Google App Engine", "Python"]
+  achievements: ["Cloud wallet processed more than $1B of Bitcoin transactions by 2022", "Deployed 1000+ ATMs firmware", "Built enterprise cloud wallet management platform", "Security protocols for Bitcoin ATM operations"]
 
 - name: i-Phone.ir
   link: http://www.i-Phone.ir/
   date: 2008 - 2012
   job: Co-founder, CTO
+  logo: "/img/companies/i-phone.ir-logo.jpg"
+  description: "Co-founded and served as CTO of Iran's first iPhone community and the technical office. Led research and development, content strategy, and technical support for Apple/iPhone users."
+  technologies: ["Hardware", "Sofware", "Repairs", "iOS", "Cydia", "Community", "Support"]
+  # achievements: ["Reached 1M+ monthly users", "Built largest iPhone community in Iran", "Successful exit"]

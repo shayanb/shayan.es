@@ -1,0 +1,67 @@
+- title: "Home"
+  url: "/"
+  desktop: true
+  hamburger: true
+  
+- title: "About"
+  url: "/about/"
+  desktop: true
+  hamburger: true
+  
+- title: "Career"
+  url: "/career/"
+  desktop: true
+  hamburger: true
+
+- title: "Scholar"
+  url: "/scholar/"
+  desktop: true
+  hamburger: true
+  submenu:
+    - title: "Academic Journey"
+      url: "/scholar/#academic-journey"
+    - title: "Publications"
+      url: "/scholar/#publications"
+    # - title: "Scholarships"
+    #   url: "/scholar/#scholarships-awards"    
+    # - title: "Academic Reviews"
+    #   url: "/scholar/#academic-reviews"
+    # - title: "Audits"
+    #   url: "/audits/"
+       
+- title: "Projects"
+  url: "/projects/"
+  desktop: true
+  hamburger: true
+
+- title: "Apps"
+  url: "/apps/"
+  desktop: true
+  hamburger: true
+
+
+
+- title: "Speaking & Participation"
+  url: "/talks/"
+  desktop: true
+  hamburger: true
+  submenu:
+    - title: "Talks & Workshops"
+      url: "/talks/#academic-lectures"
+    - title: "Podcasts"
+      url: "/talks/#podcasts"
+    - title: "Hackathons"
+      url: "/talks/#hackathons"
+    # - title: "Conferences"
+    #   url: "/talks/#conferences"
+      
+
+- title: "Artistic Works"
+  url: "/art/"
+  desktop: true
+  hamburger: true
+  
+- title: "Connect"
+  url: "/connect/"
+  desktop: true
+  hamburger: true

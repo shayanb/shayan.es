@@ -1,0 +1,105 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-profile">
+      <img src="/img/shayan.jpeg" alt="{{ site.owner.name }}" class="profile-image" loading="eager">
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-title">
+        <span class="greeting">Hello, I'm</span>
+        <span class="name">{{ site.owner.name }}</span>
+      </h1>
+      <p class="hero-subtitle">{{ site.owner.bio }}</p>
+      <div class="hero-cta">
+        <a href="/about/" class="btn btn-primary">Learn More</a>
+        <a href="/connect/" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-decoration" aria-hidden="true"></div>
+</section>
+
+<!-- Section Cards -->
+<section class="home-sections">
+  <div class="section-grid">
+    
+    <a href="/scholar/" class="section-card">
+      <div class="card-icon">
+        <i class="fa fa-file-text-o"></i>
+      </div>
+      <h3>Scholar</h3>
+      <p>Academic Profile, Research Papers, and Academic Contributions</p>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a href="/career/" class="section-card">
+      <div class="card-icon">
+        <i class="fa fa-briefcase"></i>
+      </div>
+      <h3>Career</h3>
+      <p>Professional Experience and Journey</p>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a href="/projects/" class="section-card">
+      <div class="card-icon">
+        <i class="fa fa-code"></i>
+      </div>
+      <h3>Projects</h3>
+      <p>Technical Innovations and Open Source Contributions</p>
+      <span class="card-arrow">→</span>
+    </a>
+
+
+    <a href="/talks/" class="section-card">
+      <div class="card-icon">
+        <i class="fa fa-microphone"></i>
+      </div>
+      <h3>Talks & Lectures</h3>
+      <p>Lectures, Presentations, Podcasts, and Speaking Engagements</p>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a href="/apps/" class="section-card">
+      <div class="card-icon">
+        <i class="fa fa-mobile"></i>
+      </div>
+      <h3>Apps</h3>
+      <p>Web Applications, Websites, and Mobile Apps</p>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a href="/art/" class="section-card">
+      <div class="card-icon">
+        <i class="fa fa-paint-brush"></i>
+      </div>
+      <h3>Artistic Works</h3>
+      <p>Creative Explorations, Swag Designs, and Stickers</p>
+      <span class="card-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- Recent Highlights -->
+<section class="recent-highlights">
+  <h2>Recent Highlights</h2>
+  <div class="highlights-grid">
+    {% assign recent_highlights = site.data.highlights | sort: 'year' | reverse | limit: 6 %}
+    {% for highlight in recent_highlights %}
+    <a href="{{ highlight.link }}" class="highlight-item clickable" data-action="{{ highlight.action }}" data-target="{{ highlight.target }}">
+      <span class="highlight-type">{{ highlight.type }}</span>
+      <h4>{{ highlight.title }}</h4>
+      <p class="highlight-description">{{ highlight.description }}</p>
+      <span class="highlight-year">{{ highlight.year }}</span>
+      <div class="highlight-arrow">
+        <i class="fa fa-arrow-right"></i>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

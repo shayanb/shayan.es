@@ -1,5 +1,5 @@
 <a name="publications"></a>
-<h1><span data-i18n="skills.my_skills"><u>Publications</u></span></h1>
+<h1><span data-i18n="skills.my_skills"><u>Scholar</u></span></h1>
 
 {% for publication in site.data.index.publications %}
 
@@ -7,27 +7,30 @@
             <div class="col">
                 <h3 style="margin: 0">{{ publication.name }}</h3>
                   {% if publication.published %}
-                  <i> {{ publication.published }} </i> - <em>{{ publication.year }}</em> <br>
+                  <i> {{ publication.published | markdownify | remove: '<p>' | remove: '</p>' }} </i> - <em>{{ publication.year }}</em> <br>
                   {% endif %}
                 <br>
 
-              <button class="btn-xs btn-info collapsible">Abstract</button>
+              <div class="publication-controls">
+                <button class="btn-xs btn-info collapsible">Abstract</button>
+                <div class="publication-links">
+                  {% if publication.github %}
+                  <a href="{{ publication.github }} " target="_blank" class="pub-link"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  {% endif %}
+                  {% if publication.paper %}
+                  <a href="{{ publication.paper }} " target="_blank" class="pub-link"><i class="fa fa-file-pdf-o"></i>Paper</a>
+                  {% endif %}
+                  {% if publication.slides %}
+                  <a href="{{ publication.slides }} " target="_blank" class="pub-link"><i class="fa fa-area-chart"></i>Slides</a>
+                  {% endif %}
+                  {% if publication.youtube %}
+                  <a href="{{ publication.youtube }} " target="_blank" class="pub-link"><i class="fa fa-youtube"></i>Video</a>
+                  {% endif %}
+                </div>
+              </div>
               <div class="content" style="display: none;">
                 <p style="margin: 0">{{ publication.descr }}</p>
               </div>
-
-                {% if publication.github %}
-                <a href="{{ publication.github }} " target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a> &nbsp;
-                {% endif %}
-                {% if publication.paper %}
-                <a href="{{ publication.paper }} " target="_blank"><i class="fa fa-file-pdf-o"></i>Paper</a> &nbsp;
-                {% endif %}
-                {% if publication.slides %}
-                <a href="{{ publication.slides }} " target="_blank"><i class="fa fa-area-chart"></i>Slides</a> &nbsp;
-                {% endif %}
-                {% if publication.youtube %}
-                <a href="{{ publication.youtube }} " target="_blank"><i class="fa fa-youtube"></i>Video</a> &nbsp;
-                {% endif %}
                 {% if publication.media %}
 
                 <br><br> <b>Press:</b> {% for item in publication.media %}

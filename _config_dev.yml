@@ -1,0 +1,9 @@
+# Development environment configuration
+# This overrides settings in _config.yml for local development
+
+url: "" # Leave empty for local development
+baseurl: ""
+
+# Disable some production features for faster builds
+google:
+  analytics: # Disable analytics in development

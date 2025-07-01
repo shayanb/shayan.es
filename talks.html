@@ -1,0 +1,1646 @@
+---
+layout: page
+title: Talks & Lectures
+permalink: /talks/
+---
+
+<div class="talks-page">
+  <div class="page-header">
+    <h1>Talks & Lectures</h1>
+    <p class="page-subtitle">Speaking Engagements, Conferences Presentations, Podcasts, and Educational Workshops</p>
+  </div>
+
+  <!-- Speaking Stats - Moved to Top -->
+  <div class="speaking-stats">
+     {% assign total_talks = 0 %}
+    <!-- {% for conf in site.data.index.conferences %}
+      {% if conf.talks_given %}
+        {% assign total_talks = total_talks | plus: conf.talks_given.size %}
+      {% endif %}
+    {% endfor %} -->
+    {% assign total_talks = total_talks | plus: site.data.index.lectures.size %}
+    {% assign total_talks = total_talks | plus: site.data.index.podcasts.size %}      
+    <h2>Overview</h2>
+    <h3 class="overview-subtitle">(Public Engagements: {{ total_talks }}+)</h3>
+    <div class="stats-grid">
+      <a href="#academic-lectures" class="stat-card stat-card-clickable">
+        <div class="stat-icon">
+          <i class="fa fa-graduation-cap"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-number">{{ site.data.index.lectures | size }}</span>
+          <span class="stat-label">Talks & Presentations</span>
+        </div>
+      </a>
+      
+      <a href="#conferences" class="stat-card stat-card-clickable">
+        <div class="stat-icon">
+          <i class="fa fa-users"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-number">{{ site.data.index.conferences | size }}</span>
+          <span class="stat-label">Conferences</span>
+        </div>
+      </a>
+      
+      
+      <a href="#hackathons" class="stat-card stat-card-clickable">
+        <div class="stat-icon">
+          <i class="fa fa-code"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-number">{{ site.data.index.hackathons | size }}</span>
+          <span class="stat-label">Hackathons</span>
+        </div>
+      </a>
+      
+      <a href="#podcasts" class="stat-card stat-card-clickable">
+        <div class="stat-icon">
+          <i class="fa fa-podcast"></i>
+        </div>
+        <div class="stat-content">
+          <span class="stat-number">{{ site.data.index.podcasts | size }}</span>
+          <span class="stat-label">Podcast Episodes</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="talks-sections">
+    <!-- Talks & Presentations Section -->
+    <section id="academic-lectures" class="talks-section">
+      <h2>Talks & Presentations</h2>
+      <div class="talks-grid">
+        {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
+        {% for lecture in sorted_lectures %}
+        {% if lecture.type == 'talk' %}
+        <div class="talk-card">
+          <div class="talk-header">
+            <div class="talk-title-area">
+              <div class="talk-title-row">
+                <h3>
+                  {% if lecture.website %}
+                    {{ lecture.name }}
+                  {% else %}
+                    {{ lecture.name }}
+                  {% endif %}
+                </h3>
+                <div class="talk-badges">
+                  {% if lecture.year %}
+                    <span class="talk-year-smooth">{{ lecture.year }}</span>
+                  {% endif %}
+                  {% if lecture.flag %}
+                    <img src="/img/flags/{{ lecture.flag }}.png" alt="{{ lecture.flag }}" class="flag-icon">
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {% if lecture.descr %}
+          <p class="talk-description">{{ lecture.descr }}</p>
+          {% endif %}
+          
+          {% if lecture.location or lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          <div class="talk-footer-row">
+            {% if lecture.location %}
+            <div class="talk-location-bottom">
+              <i class="fa fa-map-marker"></i><a href="{{ lecture.website }}" target="_blank" class="conference-link"> {{ lecture.location }} </a>
+            </div>
+            {% endif %}
+            
+            {% if lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+            <div class="talk-media">
+              <div class="media-links">
+              {% if lecture.youtube %}
+                <a href="{{ lecture.youtube }}" target="_blank" class="media-link youtube">
+                  <i class="fa fa-youtube"></i>
+                  <span>Watch</span>
+                </a>
+              {% endif %}
+              {% if lecture.slides %}
+                <a href="{{ lecture.slides }}" target="_blank" class="media-link slides">
+                  <i class="fa fa-file-powerpoint-o"></i>
+                  <span>Slides</span>
+                </a>
+              {% endif %}
+              {% if lecture.github %}
+                <a href="{{ lecture.github }}" target="_blank" class="media-link github">
+                  <i class="fa fa-github"></i>
+                  <span>Code</span>
+                </a>
+              {% endif %}
+              {% if lecture.paper %}
+                <a href="{{ lecture.paper }}" target="_blank" class="media-link paper">
+                  <i class="fa fa-file-pdf-o"></i>
+                  <span>Paper</span>
+                </a>
+              {% endif %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Other Talks Section (Grid Layout) -->
+    <section id="workshops-panels" class="other-talks-section">
+      <h2>Workshops & Panels</h2>
+      <div class="other-talks-grid">
+        {% assign sorted_lectures = site.data.index.lectures | sort: 'year' | reverse %}
+        {% for lecture in sorted_lectures %}
+        {% if lecture.type == 'workshop' or lecture.type == 'other' or lecture.type == 'panel' %}
+        <div class="other-talk-card">
+          <div class="other-talk-header">
+            <h4 class="other-talk-title">
+              {% if lecture.website %}
+                <a href="{{ lecture.website }}" target="_blank" class="other-talk-link">{{ lecture.name }}</a>
+              {% else %}
+                {{ lecture.name }}
+              {% endif %}
+            </h4>
+            <div class="other-talk-badges">
+              {% if lecture.year %}
+                <span class="other-talk-year">{{ lecture.year }}</span>
+              {% endif %}
+              {% if lecture.flag %}
+                <img src="/img/flags/{{ lecture.flag }}.png" alt="{{ lecture.flag }}" class="other-flag-icon">
+              {% endif %}
+            </div>
+          </div>
+          
+          {% if lecture.location %}
+          <div class="other-talk-location">
+            <i class="fa fa-map-marker"></i> 
+            {% if lecture.website %}
+              <a href="{{ lecture.website }}" target="_blank" class="location-link">{{ lecture.location }}</a>
+            {% else %}
+              {{ lecture.location }}
+            {% endif %}
+          </div>
+          {% endif %}
+          
+          {% if lecture.descr %}
+          <p class="other-talk-description">{{ lecture.descr }}</p>
+          {% endif %}
+          
+          {% if lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          <div class="other-talk-actions">
+            {% if lecture.youtube %}
+              <a href="{{ lecture.youtube }}" target="_blank" class="other-action youtube">
+                <i class="fa fa-youtube"></i>
+              </a>
+            {% endif %}
+            {% if lecture.slides %}
+              <a href="{{ lecture.slides }}" target="_blank" class="other-action slides">
+                <i class="fa fa-file-powerpoint-o"></i>
+              </a>
+            {% endif %}
+            {% if lecture.github %}
+              <a href="{{ lecture.github }}" target="_blank" class="other-action github">
+                <i class="fa fa-github"></i>
+              </a>
+            {% endif %}
+            {% if lecture.paper %}
+              <a href="{{ lecture.paper }}" target="_blank" class="other-action paper">
+                <i class="fa fa-file-pdf-o"></i>
+              </a>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+
+    <!-- Podcasts Section -->
+    <section id="podcasts" class="hackathons-section">
+      <h2>Podcast Episodes</h2>
+      <div class="hackathons-grid">
+        {% for podcast in site.data.index.podcasts %}
+        <div class="hackathon-card podcast-card-custom">
+          {% if podcast.thumbnail %}
+          <div class="podcast-thumbnail">
+            <img src="{{ podcast.thumbnail }}" alt="{{ podcast.title }}" loading="lazy">
+          </div>
+          {% endif %}
+          
+          <div class="hackathon-header">
+            <h3>
+              {% if podcast.channel_url %}
+                <a href="{{ podcast.channel_url }}" target="_blank" class="podcast-title-link">{{ podcast.title }}</a>
+              {% else %}
+                {{ podcast.title }}
+              {% endif %}
+            </h3>
+            <span class="hackathon-role role-podcast">{% if podcast.episode_number %}{{ podcast.episode_number }}{% else %}Podcast{% endif %}</span>
+          </div>
+          
+          <div class="hackathon-meta">
+            {% if podcast.date %}
+            <span class="hackathon-date">{{ podcast.date | date: "%B %Y" }}</span>
+            {% endif %}
+            <span class="hackathon-location hackathon-location-right">
+              <i class="fa fa-microphone"></i> {{ podcast.channel }}
+            </span>
+          </div>
+
+          {% if podcast.description %}
+          {% comment %} Check if description is primarily Persian by looking for common Persian words and patterns {% endcomment %}
+          {% assign persian_indicators = 'در,این,به,از,با,که,را,و,یا,برای,است,می,شود,های,بر,تا,کرد,گفت,دیگر,بود,کند,شد,داشت,خود,همه,اما,چون,علی,محمد,احمد,علیرضا,مهدی,حسن,حسین,آن,ان,ای,ها,ات,تان,تون,مان,مون,شان,شون,خواهد,خواهیم,خواهند,باشد,باشیم,باشند,کردم,کردی,کرد,کردیم,کردید,کردند,هست,هستم,هستی,هستیم,هستید,هستند' | split: ',' %}
+          {% assign is_persian = false %}
+          {% assign persian_word_count = 0 %}
+          
+          {% for word in persian_indicators %}
+            {% if podcast.description contains word %}
+              {% assign persian_word_count = persian_word_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          
+          {% comment %} If we find 2 or more Persian indicator words, consider it Persian text {% endcomment %}
+          {% if persian_word_count >= 2 %}
+            {% assign is_persian = true %}
+          {% endif %}
+          
+          {% if is_persian %}
+          <p class="hackathon-description rtl-text">{{ podcast.description }}</p>
+          {% else %}
+          <p class="hackathon-description">{{ podcast.description }}</p>
+          {% endif %}
+          {% endif %}
+
+          {% if podcast.youtube_link or podcast.spotify_link %}
+          <div class="podcast-media-footer">
+            <div class="media-links">
+              {% if podcast.youtube_link %}
+              <a href="{{ podcast.youtube_link }}" target="_blank" class="media-link youtube">
+                <i class="fa fa-youtube"></i>
+                <span>Watch</span>
+              </a>
+              {% endif %}
+              {% if podcast.spotify_link %}
+              <a href="{{ podcast.spotify_link }}" target="_blank" class="media-link spotify">
+                <i class="fa fa-spotify"></i>
+                <span>Listen</span>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+
+    <!-- Hackathons Section -->
+    <section id="hackathons" class="hackathons-section">
+      <h2>Hackathon Participation</h2>
+      <div class="hackathons-grid">
+        {% for hackathon in site.data.index.hackathons %}
+        <div class="hackathon-card {% if hackathon.role == 'judge' or hackathon.role == 'mentor' %}hackathon-card-minimal{% endif %}">
+          {% if hackathon.role == "hacker" %}
+          <!-- Full card for hacker role -->
+          <div class="hackathon-header">
+            <h3>{{ hackathon.name }}</h3>
+            <span class="hackathon-role role-{{ hackathon.role }}">{{ hackathon.role | capitalize }}</span>
+          </div>
+          
+          <div class="hackathon-meta">
+            <span class="hackathon-date">{{ hackathon.date }}</span>
+            <span class="hackathon-location">
+              <i class="fa fa-map-marker"></i> {{ hackathon.location }}
+            </span>
+          </div>
+
+          {% if hackathon.project_name %}
+          <div class="hackathon-project">
+            <h4>Project: {{ hackathon.project_name }}</h4>
+            {% if hackathon.tech_stack %}
+            <div class="tech-stack">
+              {% for tech in hackathon.tech_stack %}
+              <span class="tech-tag">{{ tech }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if hackathon.awards %}
+            <div class="awards">
+              <strong>Awards:</strong>
+              <ul>
+                {% for award in hackathon.awards %}
+                <li><i class="fa fa-trophy"></i> {{ award }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% if hackathon.project_link %}
+            <a href="{{ hackathon.project_link }}" target="_blank" class="project-link">
+              <i class="fa fa-github"></i> View Project
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {% if hackathon.description %}
+          <p class="hackathon-description">{{ hackathon.description }}</p>
+          {% endif %}
+
+          {% else %}
+          <!-- Minimal card for judge/mentor roles -->
+          <div class="hackathon-minimal-content">
+            <div class="hackathon-title-row">
+              <h4>
+                {% if hackathon.website %}
+                  <a href="{{ hackathon.website }}" target="_blank" class="hackathon-link">{{ hackathon.name }}</a>
+                {% else %}
+                  {{ hackathon.name }}
+                {% endif %}
+              </h4>
+              <span class="hackathon-role role-{{ hackathon.role }}">{{ hackathon.role | capitalize }}</span>
+            </div>
+            <div class="hackathon-minimal-meta">
+              <span class="hackathon-date">{{ hackathon.date }}</span>
+              <div class="hackathon-location-bottom">
+                <i class="fa fa-map-marker"></i> {{ hackathon.location }}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Conference Attendance (Minimal) -->
+    <section id="conferences" class="conferences-section-minimal">
+      <h2>Conference Attendance</h2>
+      <div class="conferences-minimal-grid">
+        {% assign sorted_conferences = site.data.index.conferences | sort: 'date' | reverse %}
+        {% for conference in sorted_conferences %}
+        <div class="conference-item-minimal">
+          <div class="conference-minimal-content">
+            <div class="conference-name-row">
+              <h4>
+                {% if conference.link %}
+                  <a href="{{ conference.link }}" target="_blank">{{ conference.name }}</a>
+                {% else %}
+                  {{ conference.name }}
+                {% endif %}
+              </h4>
+              {% if conference.role %}
+                <span class="conference-role-badge desktop-only">{{ conference.role | capitalize }}</span>
+              {% endif %}
+            </div>
+            <div class="conference-minimal-meta">
+              <span class="conference-date">{{ conference.date }}</span>
+              <div class="conference-location-bottom">
+                <i class="fa fa-map-marker"></i> {{ conference.location }}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+/* Overview Subtitle Styling */
+.overview-subtitle {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #8b5cf6;
+  margin: -1.5rem 0 1.5rem 0;
+  font-style: normal;
+  text-align: center;
+  letter-spacing: 0.5px;
+  position: relative;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+
+
+/* Dark Mode Support for Overview Subtitle */
+[data-theme="dark"] .overview-subtitle {
+  background: linear-gradient(135deg, #a78bfa, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .overview-subtitle::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(167, 139, 250, 0.4) 20%, rgba(167, 139, 250, 0.7) 50%, rgba(167, 139, 250, 0.4) 80%, transparent 100%);
+}
+
+[data-theme="dark"] .overview-subtitle::after {
+  background: rgba(167, 139, 250, 0.08);
+}
+
+/* Conference Link Styles */
+.conference-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.conference-link:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Smooth Year Badge */
+.talk-year-smooth {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* Talk Footer Row */
+.talk-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .talk-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .talk-footer-row .talk-location-bottom {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .talk-footer-row .talk-media {
+    width: auto;
+  }
+  
+  .talk-footer-row .talk-media .media-links {
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .talk-footer-row .talk-media .media-links .media-link {
+    width: auto;
+    flex: none;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Bottom Location Styles */
+.talk-location-bottom,
+.hackathon-location-bottom,
+.conference-location-bottom {
+  color: #666;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+  max-width: 60%;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.talk-footer-row .talk-location-bottom {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  justify-content: flex-start;
+}
+
+.talk-footer-row .talk-media {
+  flex-shrink: 0;
+  min-width: fit-content;
+}
+
+.talk-footer-row .talk-media .media-links {
+  justify-content: flex-end;
+}
+
+/* Hackathon Link Styles */
+.hackathon-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hackathon-link:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+/* Dark Mode Support for New Elements */
+[data-theme="dark"] .conference-link,
+[data-theme="dark"] .hackathon-link {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .conference-link:hover,
+[data-theme="dark"] .hackathon-link:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .talk-year-smooth {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+[data-theme="dark"] .talk-location-bottom,
+[data-theme="dark"] .hackathon-location-bottom,
+[data-theme="dark"] .conference-location-bottom {
+  color: var(--text-color);
+  border-top-color: var(--surface-color);
+}
+
+/* Conference Meta Layout */
+.conference-minimal-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.conference-meta-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.conference-location-bottom {
+  margin-left: 55%;
+  align-self: flex-end;
+}
+
+.conference-item-minimal {
+  display: flex;
+  flex-direction: column;
+}
+
+.conference-minimal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Podcasts Section Styles */
+.podcasts-section {
+  margin: 3rem 0;
+}
+
+/* Podcast Thumbnail for hackathon-card layout */
+.podcast-card-custom .podcast-thumbnail {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.podcast-card-custom .podcast-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.podcast-card-custom:hover .podcast-thumbnail img {
+  transform: scale(1.05);
+}
+
+/* Right-aligned location for podcast cards */
+.hackathon-location-right {
+  margin-left: auto;
+}
+
+.hackathon-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+
+.podcasts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.podcast-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.podcast-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35 0%, #1e3a5f 100%);
+}
+
+.podcast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.podcast-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.podcast-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.podcast-card:hover .podcast-thumb-img {
+  transform: scale(1.05);
+}
+
+.podcast-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 3rem;
+}
+
+.podcast-play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.podcast-card:hover .podcast-play-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.podcast-content {
+  padding: 2rem;
+}
+
+.podcast-header {
+  margin-bottom: 1rem;
+}
+
+.podcast-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.podcast-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.podcast-channel {
+  color: #ff6b35;
+  font-weight: 500;
+}
+
+.podcast-channel a {
+  color: #ff6b35;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.podcast-channel a:hover {
+  color: #e55a2b;
+  text-decoration: underline;
+}
+
+.podcast-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.podcast-description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.podcast-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.podcast-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.podcast-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.podcast-action.youtube {
+  background: rgba(255, 0, 0, 0.1);
+  color: #dc2626;
+  border-color: rgba(255, 0, 0, 0.2);
+}
+
+.podcast-action.youtube:hover {
+  background: rgba(255, 0, 0, 0.15);
+  color: #b91c1c;
+}
+
+.podcast-action.website {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.podcast-action.website:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #1d4ed8;
+}
+
+/* Dark Mode Support for Podcasts */
+[data-theme="dark"] .podcast-card {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .podcast-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .podcast-description {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .podcast-date {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .podcast-action {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .podcast-action:hover {
+  background: var(--card-color);
+}
+
+[data-theme="dark"] .podcast-action.youtube {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .podcast-action.youtube:hover {
+  background: rgba(255, 107, 53, 0.15);
+}
+
+[data-theme="dark"] .podcast-action.website {
+  background: rgba(30, 58, 95, 0.2);
+  color: #6da4d9;
+  border-color: rgba(30, 58, 95, 0.3);
+}
+
+[data-theme="dark"] .podcast-action.website:hover {
+  background: rgba(30, 58, 95, 0.3);
+}
+
+/* Other Talks Section Styles */
+.other-talks-section {
+  margin: 3rem 0;
+}
+
+.other-talks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.other-talk-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.other-talk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.other-talk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.other-talk-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.other-talk-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.other-talk-link:hover {
+  color: #ff6b35;
+}
+
+.other-talk-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.other-talk-year {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.other-flag-icon {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.other-talk-location {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.other-talk-description {
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.other-talk-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.other-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.other-action.youtube {
+  background: rgba(255, 0, 0, 0.1);
+  color: #dc2626;
+  border-color: rgba(255, 0, 0, 0.2);
+}
+
+.other-action.youtube:hover {
+  background: rgba(255, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+.other-action.slides {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.other-action.slides:hover {
+  background: rgba(34, 197, 94, 0.15);
+  transform: scale(1.1);
+}
+
+.other-action.github {
+  background: rgba(55, 65, 81, 0.1);
+  color: #374151;
+  border-color: rgba(55, 65, 81, 0.2);
+}
+
+.other-action.github:hover {
+  background: rgba(55, 65, 81, 0.15);
+  transform: scale(1.1);
+}
+
+.other-action.paper {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.other-action.paper:hover {
+  background: rgba(239, 68, 68, 0.15);
+  transform: scale(1.1);
+}
+
+/* Podcast Custom Styling */
+.role-podcast {
+  background: #9c27b0;
+  color: white;
+}
+
+.podcast-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.podcast-title-link:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.podcast-actions-custom {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Podcast Card Media Footer - Center and Bottom Alignment */
+.podcast-card-custom {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.podcast-media-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.podcast-media-footer .media-links {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Apply the same media-link styling from talk cards to podcast cards */
+.podcast-media-footer .media-links .media-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.podcast-media-footer .media-links .media-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.podcast-media-footer .media-links .media-link.youtube {
+  background: #ff0000;
+  color: white;
+  border-color: #ff0000;
+}
+
+.podcast-media-footer .media-links .media-link.youtube:hover {
+  background: transparent;
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.podcast-media-footer .media-links .media-link.spotify {
+  background: #1db954;
+  color: white;
+  border-color: #1db954;
+}
+
+.podcast-media-footer .media-links .media-link.spotify:hover {
+  background: transparent;
+  color: #1db954;
+  border-color: #1db954;
+}
+
+.podcast-media-footer .media-links .media-link i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.podcast-media-footer .media-links .media-link:hover i {
+  transform: scale(1.1);
+}
+
+/* Dark mode support for podcast media footer */
+[data-theme="dark"] .podcast-media-footer {
+  border-top-color: var(--border-color);
+}
+
+/* Hackathon card sizing for judge/mentor on desktop */
+.hackathon-card.hackathon-card-minimal {
+  .hackathon-minimal-content {
+    padding: 1.5rem;
+  }
+  
+  .hackathon-title-row h4 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .hackathon-minimal-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .hackathon-location-bottom {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  
+  .hackathon-date {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+}
+
+
+/* Dark Mode Support for Other Talks */
+[data-theme="dark"] .other-talk-card {
+  background: var(--card-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .other-talk-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .other-talk-location {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .other-talk-description {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .other-action {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .other-action.github {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="dark"] .other-action.github:hover {
+  background: rgba(255, 107, 53, 0.15);
+}
+
+/* Talks Grid Layout - Max 2 Columns */
+.talks-section .talks-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+  max-width: 1200px !important;
+  gap: 2rem !important;
+  margin: 0 auto !important;
+  align-items: start !important;
+}
+
+/* Ensure max 2 columns on larger screens */
+@media (min-width: 1000px) {
+  .talks-section .talks-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Talk Card Improvements */
+.talks-section .talk-card {
+  background: #fff !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  transition: all 0.3s ease !important;
+  border-left: 4px solid #ff6b35 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Ensure consistent footer positioning */
+.talks-section .talk-footer-row {
+  margin-top: auto !important;
+}
+
+.talks-section .talk-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  border-left-color: #1e3a5f !important;
+}
+
+/* Talk Header Layout */
+.talks-section .talk-header .talk-title-area .talk-title-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.talks-section .talk-header .talk-title-area .talk-title-row h3 {
+  color: #1f2937 !important;
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  flex: 1 !important;
+}
+
+.talks-section .talk-header .talk-title-area .talk-badges {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* Media Links Styling */
+.talks-section .talk-media .media-links {
+  display: flex !important;
+  gap: 0.75rem !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+}
+
+.talks-section .talk-media .media-links .media-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.6rem 1.25rem !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease !important;
+  border: 2px solid !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.talks-section .talk-media .media-links .media-link:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.youtube {
+  background: transparent !important;
+  color: #ff0000 !important;
+  border-color: #ff0000 !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.youtube:hover {
+  background: #ff0000 !important;
+  color: white !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.slides {
+  background: transparent !important;
+  color: #d04423 !important;
+  border-color: #d04423 !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.slides:hover {
+  background: #d04423 !important;
+  color: white !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.github {
+  background: transparent !important;
+  color: #333 !important;
+  border-color: #333 !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.github:hover {
+  background: #333 !important;
+  color: white !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.paper {
+  background: transparent !important;
+  color: #4285f4 !important;
+  border-color: #4285f4 !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.paper:hover {
+  background: #4285f4 !important;
+  color: white !important;
+}
+
+/* Dark Mode Support for Talks */
+[data-theme="dark"] .talks-section .talk-card {
+  background: var(--card-color) !important;
+  border-left-color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-card:hover {
+  border-left-color: #1e3a5f !important;
+}
+
+[data-theme="dark"] .talks-section .talk-header .talk-title-area .talk-title-row h3 {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .talks-section .talk-description {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .talks-section .talk-location-bottom {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .talks-section .conference-link {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .talks-section .conference-link:hover {
+  color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link {
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .talks-section .talk-media .media-links .media-link:hover {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Dark Mode Media Link Colors */
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.youtube {
+  background: transparent !important;
+  color: #ff4444 !important;
+  border-color: #ff4444 !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.youtube:hover {
+  background: #ff4444 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.slides {
+  background: transparent !important;
+  color: #ff6b35 !important;
+  border-color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.slides:hover {
+  background: #ff6b35 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.github {
+  background: transparent !important;
+  color: #ccc !important;
+  border-color: #ccc !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.github:hover {
+  background: #ccc !important;
+  color: #333 !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.paper {
+  background: transparent !important;
+  color: #6da4d9 !important;
+  border-color: #6da4d9 !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.paper:hover {
+  background: #6da4d9 !important;
+  color: white !important;
+}
+
+/* Workshop Cards Action Styling */
+.other-talk-actions .other-action {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 5px !important;
+  font-size: 12px !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  margin-right: 6px !important;
+  background: transparent !important;
+  border: 1px solid currentColor !important;
+}
+
+.other-talk-actions .other-action:hover {
+  transform: translateY(-1px) !important;
+}
+
+.other-talk-actions .other-action.youtube {
+  color: #ff0000 !important;
+  border-color: #ff0000 !important;
+}
+
+.other-talk-actions .other-action.youtube:hover {
+  background: #ff0000 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.slides {
+  color: #d04423 !important;
+  border-color: #d04423 !important;
+}
+
+.other-talk-actions .other-action.slides:hover {
+  background: #d04423 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.github {
+  color: #333 !important;
+  border-color: #333 !important;
+}
+
+.other-talk-actions .other-action.github:hover {
+  background: #333 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.paper {
+  color: #4285f4 !important;
+  border-color: #4285f4 !important;
+}
+
+.other-talk-actions .other-action.paper:hover {
+  background: #4285f4 !important;
+  color: white !important;
+}
+
+/* Dark Mode Workshop Cards */
+[data-theme="dark"] .other-talk-card {
+  background: var(--card-color) !important;
+}
+
+[data-theme="dark"] .other-talk-title {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .other-talk-link {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .other-talk-link:hover {
+  color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .other-talk-location {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .other-talk-description {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action {
+  background: transparent !important;
+  border: 1px solid currentColor !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.youtube {
+  color: #ff4444 !important;
+  border-color: #ff4444 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.youtube:hover {
+  background: #ff4444 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.slides {
+  color: #ff6b35 !important;
+  border-color: #ff6b35 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.slides:hover {
+  background: #ff6b35 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.github {
+  color: #ccc !important;
+  border-color: #ccc !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.github:hover {
+  background: #ccc !important;
+  color: #333 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.paper {
+  color: #6da4d9 !important;
+  border-color: #6da4d9 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.paper:hover {
+  background: #6da4d9 !important;
+  color: white !important;
+}
+
+/* Location Link Styling for Workshop Cards */
+.location-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.location-link:hover {
+  color: #ff6b35 !important;
+  text-decoration: underline !important;
+}
+
+[data-theme="dark"] .location-link:hover {
+  color: #ff6b35 !important;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 768px) and (min-width: 481px) {
+  .talks-section .talks-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Mobile Responsiveness for Talks */
+@media (max-width: 480px) {
+  .talks-section .talks-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .talks-section .talk-card {
+    padding: 1.5rem !important;
+  }
+  
+  .talks-section .talk-media .media-links {
+    justify-content: center !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  
+  .talks-section .talk-media .media-links .media-link {
+    flex: none !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .podcasts-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .podcast-actions {
+    justify-content: stretch;
+  }
+  
+  .podcast-action {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .other-talks-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .other-talk-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .other-talk-badges {
+    align-self: flex-end;
+  }
+}
+</style>
+

@@ -1,0 +1,442 @@
+---
+layout: default
+title: "404 - Page Not Found"
+description: "Page not found - Try your skills at our crypto space invaders game!"
+permalink: /404.html
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=VT323&display=swap');
+  
+  .page-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: calc(100vh - 160px);
+    padding: 1rem;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .page-404::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+    background-size: 75px 75px;
+    pointer-events: none;
+    opacity: 0.1;
+  }
+
+  .game-container {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .game-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #00ff41;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-shadow: 
+      0 0 5px #00ff41,
+      0 0 10px #00ff41,
+      0 0 15px #00ff41;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .game-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: #ff6b35;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+    line-height: 1.3;
+  }
+
+  #gameCanvas {
+    border: 4px solid #00ff41;
+    border-radius: 8px;
+    box-shadow: 
+      0 0 20px rgba(0, 255, 65, 0.3),
+      inset 0 0 20px rgba(0, 255, 65, 0.1);
+    background: #000;
+    max-width: 100%;
+    height: auto;
+    filter: contrast(1.1) brightness(1.1);
+  }
+
+  .game-sidebar {
+    width: 280px;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .retro-panel {
+    background: 
+      linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f1419 100%);
+    border: 2px solid #00ff41;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 
+      0 0 15px rgba(0, 255, 65, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .retro-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff41, transparent);
+    opacity: 0.6;
+  }
+
+  .retro-panel h3 {
+    font-family: 'Orbitron', monospace;
+    color: #00ff41;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+  }
+
+  .controls-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .control-item {
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 6px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .control-item:hover {
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+    background: rgba(0, 255, 65, 0.1);
+  }
+
+  .control-key {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    color: #ff6b35;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.75rem;
+    border: 1px solid rgba(255, 107, 53, 0.5);
+    text-shadow: 0 0 5px rgba(255, 107, 53, 0.5);
+    font-size: 0.9rem;
+  }
+
+  .weapons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .weapon-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 6px;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .weapon-item:hover {
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+    background: rgba(0, 255, 65, 0.1);
+  }
+
+  .weapon-item .control-key {
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .weapon-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+  }
+
+  .weapon-name {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+
+  .scoreboard {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #00ff41;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 
+      inset 0 0 10px rgba(0, 255, 65, 0.2),
+      0 0 15px rgba(0, 255, 65, 0.1);
+  }
+
+  .scoreboard-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .scoreboard-row:last-child {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .scoreboard-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    min-width: 80px;
+    justify-content: center;
+  }
+
+  .scoreboard-item.laser-count {
+    border-color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+  }
+
+  .scoreboard-icon {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 3px currentColor);
+  }
+
+  .scoreboard-value {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.8);
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .laser-count .scoreboard-value {
+    color: #ff6b35;
+    text-shadow: 0 0 5px rgba(255, 107, 53, 0.8);
+  }
+
+  .scoreboard-label {
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: #ff6b35;
+    text-transform: uppercase;
+  }
+
+  .scanlines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      transparent 0%,
+      rgba(0, 255, 65, 0.03) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanlines 0.1s linear infinite;
+  }
+
+  @keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+    50% { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor; }
+  }
+
+  .game-title {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    .game-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .game-sidebar {
+      width: 100%;
+      position: static;
+    }
+    
+    .game-title {
+      font-size: 2rem;
+    }
+    
+    #gameCanvas {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .game-stats {
+      grid-template-columns: 1fr;
+    }
+    
+    .retro-panel {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<div class="page-404">
+  <div class="game-container">
+    <div class="game-main">
+      <h1 class="game-title">ERROR 404: PAGE NOT FOUND</h1>
+      <p class="game-subtitle">
+        Crypto Space Invaders<br>
+        INITIATING DEFENSE PROTOCOL...<br>
+        DESTROY THE INVADING CRYPTO PROTOCOLS!
+      </p>
+
+      <canvas id="gameCanvas" width="800" height="540" class="scanlines"></canvas>
+    </div>
+
+    <div class="game-sidebar">
+      <div class="retro-panel">
+        <div class="scoreboard">
+          <div class="scoreboard-row">
+            <div class="scoreboard-item">
+              <span class="scoreboard-icon">🎯</span>
+              <span class="scoreboard-value" id="scoreValue">0</span>
+            </div>
+            <div class="scoreboard-item">
+              <span class="scoreboard-icon">❤️</span>
+              <span class="scoreboard-value" id="livesValue">3</span>
+            </div>
+          </div>
+          <div class="scoreboard-row">
+            <div class="scoreboard-item">
+              <span class="scoreboard-icon">🌊</span>
+              <span class="scoreboard-value" id="waveValue">1</span>
+            </div>
+            <div class="scoreboard-item">
+              <span class="scoreboard-icon">⚔️</span>
+              <span class="scoreboard-value" id="weaponValue">Arrow</span>
+            </div>
+          </div>
+          <div class="scoreboard-row">
+            <div class="scoreboard-item laser-count">
+              <span class="scoreboard-icon">⚡</span>
+              <span class="scoreboard-value" id="laserValue">3</span>
+              <span class="scoreboard-label">Lasers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="retro-panel">
+        <h3>Controls</h3>
+        <div class="controls-grid">
+          <div class="control-item">
+            <span class="control-key">WASD/↑↓←→</span> Move
+          </div>
+          <div class="control-item">
+            <span class="control-key">SPACE</span> Fire
+          </div>
+          <div class="control-item">
+            <span class="control-key">SHIFT+SPACE</span> Laser
+          </div>
+        </div>
+        
+        <h3 style="margin-top: 1.5rem; margin-bottom: 1rem;">Weapons</h3>
+        <div class="weapons-grid">
+          <div class="weapon-item">
+            <span class="control-key">1</span>
+            <div class="weapon-icon">→</div>
+            <span class="weapon-name">Arrow</span>
+          </div>
+          <div class="weapon-item">
+            <span class="control-key">2</span>
+            <div class="weapon-icon">📖</div>
+            <span class="weapon-name">Book</span>
+          </div>
+          <div class="weapon-item">
+            <span class="control-key">3</span>
+            <div class="weapon-icon">🐦</div>
+            <span class="weapon-name">Tweet</span>
+          </div>
+          <div class="weapon-item">
+            <span class="control-key">4</span>
+            <div class="weapon-icon">⚡</div>
+            <span class="weapon-name">Matrix</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/game-audio.js"></script>
+<script src="/js/crypto-icon-loader.js"></script>
+<script src="/js/crypto-space-invaders.js"></script>

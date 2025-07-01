@@ -1,0 +1,394 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+<div class="projects-page">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p class="page-subtitle">Technical Innovations and Open Source Contributions </p>
+  </div>
+
+  <div class="projects-grid">
+    {% for project in site.data.index.projects %}
+    <div class="project-card clickable-card" data-project="{{ project.name | slugify }}" role="button" tabindex="0">
+      <div class="project-header">
+        {% if project.logo %}
+        <div class="project-logo">
+          <img src="{{ project.logo }}" alt="{{ project.name }} logo" class="logo-image">
+        </div>
+        {% endif %}
+        <div class="project-title-area">
+          <h3>{{ project.name }}</h3>
+          <div class="project-meta">
+            {% if project.start_year and project.end_year and project.start_year != project.end_year %}
+              <span class="project-years">{{ project.start_year }} - {{ project.end_year }}</span>
+            {% else %}
+              <span class="project-years">{{ project.year }}</span>
+            {% endif %}
+            {% unless project.status == 'completed' %}
+            <span class="project-status status-{{ project.status | default: 'active' }}">{{ project.status | default: 'Active' | capitalize }}</span>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-body">
+        <p class="project-description">{{ project.descr }}</p>
+        
+        {% if project.media and project.media.size > 0 %}
+        <div class="project-media">
+          <span class="media-label"><i class="fa fa-newspaper-o"></i> {{ project.media.size }} media mention{% if project.media.size != 1 %}s{% endif %}</span>
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="project-footer">
+        <div class="project-links">
+          {% if project.github %}
+            <a href="{{ project.github }}" target="_blank" rel="noopener" class="project-link" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+          {% endif %}
+          {% if project.website %}
+            <a href="{{ project.website }}" target="_blank" rel="noopener" class="project-link" title="Website">
+              <i class="fa fa-globe"></i>
+            </a>
+          {% endif %}
+        </div>
+        <button class="view-details-btn" data-project="{{ project.name | slugify }}">
+          View Details <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Project Modal -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+</div>
+
+<!-- Screenshot Enlarge Modal -->
+<div id="project-screenshot-modal" class="screenshot-fullscreen-modal">
+  <div class="screenshot-fullscreen-content">
+    <button class="screenshot-fullscreen-close" aria-label="Close enlarged view">
+      <i class="fa fa-times"></i>
+    </button>
+    <div class="screenshot-fullscreen-container">
+      <img src="" alt="Enlarged screenshot" class="screenshot-fullscreen-img" id="fullscreen-project-screenshot">
+      <div class="screenshot-fullscreen-nav">
+        <button class="screenshot-fullscreen-nav-btn prev" data-direction="-1" style="display: none;">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="screenshot-fullscreen-nav-btn next" data-direction="1" style="display: none;">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="screenshot-fullscreen-indicator" style="display: none;">
+        <span class="current-screenshot-fullscreen">1</span> / <span class="total-screenshots-fullscreen">1</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('project-modal');
+  const modalBody = modal.querySelector('.modal-body');
+  const closeBtn = modal.querySelector('.modal-close');
+  const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+  const moreLinks = document.querySelectorAll('.more-link');
+  const projectCards = document.querySelectorAll('.project-card.clickable-card');
+
+  // Project data
+  const projects = {
+    {% for project in site.data.index.projects %}
+    "{{ project.name | slugify }}": {
+      name: "{{ project.name }}",
+      description: "{{ project.descr | escape }}",
+      website: "{{ project.website }}",
+      github: "{{ project.github }}",
+      year: "{{ project.year }}",
+      startYear: "{{ project.start_year }}",
+      endYear: "{{ project.end_year }}",
+      status: "{{ project.status }}",
+      logo: "{{ project.logo }}",
+      media: {{ project.media | jsonify }},
+      screenshots: [{% if project.screenshots %}{% for screenshot in project.screenshots %}"{{ screenshot }}"{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}]
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  function showProjectDetails(projectId) {
+    const project = projects[projectId];
+    if (!project) return;
+
+    let timelineHtml = '';
+    if (project.startYear && project.endYear && project.startYear !== project.endYear) {
+      timelineHtml = `<span class="modal-timeline">${project.startYear} - ${project.endYear}</span>`;
+    } else if (project.year) {
+      timelineHtml = `<span class="modal-timeline">${project.year}</span>`;
+    }
+
+    let statusHtml = '';
+    // Remove status display from modal
+
+    let screenshotsHtml = '';
+    if (project.screenshots && project.screenshots.length > 0) {
+      screenshotsHtml = `
+        <div class="screenshot-gallery">
+          <div class="screenshot-container">
+            <img src="${project.screenshots[0]}" alt="${project.name} screenshot" class="screenshot-main" id="main-project-screenshot" style="cursor: pointer;" onclick="openProjectScreenshotFullscreen()">
+            <button class="screenshot-enlarge" data-action="enlarge" aria-label="Enlarge screenshot">
+              <i class="fa fa-expand"></i>
+            </button>
+            ${project.screenshots.length > 1 ? `
+              <button class="screenshot-nav prev" data-direction="-1">
+                <i class="fa fa-chevron-left"></i>
+              </button>
+              <button class="screenshot-nav next" data-direction="1">
+                <i class="fa fa-chevron-right"></i>
+              </button>
+              <div class="screenshot-indicator">
+                <span class="current-screenshot">1</span> / <span class="total-screenshots">${project.screenshots.length}</span>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    let mediaHtml = '';
+    if (project.media && project.media.length > 0) {
+      mediaHtml = `
+        <div class="modal-section">
+          <h4><i class="fa fa-newspaper-o"></i> Media Coverage (${project.media.length})</h4>
+          <ul class="media-list">
+            ${project.media.map(item => `<li><a href="${item.link}" target="_blank">${item.name}</a></li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    modalBody.innerHTML = `
+      <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
+        ${screenshotsHtml ? `<div class="modal-right">${screenshotsHtml}</div>` : ''}
+        
+        <div class="modal-left">
+          <div class="modal-header">
+            ${project.logo ? `<div class="modal-logo"><img src="${project.logo}" alt="${project.name} logo" class="modal-logo-image"></div>` : ''}
+            <div class="modal-title-area">
+              <h2>${project.name}</h2>
+              <div class="modal-meta">
+                ${timelineHtml}
+                ${statusHtml}
+              </div>
+            </div>
+          </div>
+          
+          <p class="modal-description">${project.description}</p>
+          
+          <div class="modal-links">
+            ${project.github ? `<a href="${project.github}" target="_blank" class="btn btn-outline"><i class="fa fa-github"></i> GitHub</a>` : ''}
+            ${project.website ? `<a href="${project.website}" target="_blank" class="btn btn-primary"><i class="fa fa-globe"></i> Website</a>` : ''}
+          </div>
+          
+          ${mediaHtml}
+        </div>
+      </div>
+    `;
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Initialize screenshot navigation
+    window.currentProject = project;
+    window.currentProjectScreenshotIndex = 0;
+    
+    // Add event listeners for screenshot navigation
+    const navButtons = modal.querySelectorAll('.screenshot-nav');
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const direction = parseInt(button.dataset.direction);
+        changeProjectScreenshot(direction);
+      });
+    });
+    
+    // Add event listener for screenshot enlarge
+    const enlargeBtn = modal.querySelector('.screenshot-enlarge');
+    if (enlargeBtn) {
+      enlargeBtn.addEventListener('click', () => {
+        openProjectScreenshotFullscreen();
+      });
+    }
+  }
+
+  // Project screenshot navigation functions
+  window.changeProjectScreenshot = function(direction) {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    const screenshots = window.currentProject.screenshots;
+    window.currentProjectScreenshotIndex = (window.currentProjectScreenshotIndex + direction + screenshots.length) % screenshots.length;
+    
+    updateProjectScreenshotDisplay();
+  };
+
+  window.selectProjectScreenshot = function(index) {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    window.currentProjectScreenshotIndex = index;
+    updateProjectScreenshotDisplay();
+  };
+
+  function updateProjectScreenshotDisplay() {
+    const mainScreenshot = document.getElementById('main-project-screenshot');
+    const currentIndicator = document.querySelector('.current-screenshot');
+    
+    if (mainScreenshot && window.currentProject.screenshots[window.currentProjectScreenshotIndex]) {
+      mainScreenshot.src = window.currentProject.screenshots[window.currentProjectScreenshotIndex];
+    }
+    
+    if (currentIndicator) {
+      currentIndicator.textContent = window.currentProjectScreenshotIndex + 1;
+    }
+  }
+
+  // Event listeners
+  viewDetailsBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card click from firing
+      const projectId = btn.dataset.project;
+      showProjectDetails(projectId);
+    });
+  });
+
+  moreLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card click from firing
+      const projectId = link.dataset.project;
+      showProjectDetails(projectId);
+    });
+  });
+
+  // Card click listeners
+  projectCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't trigger if clicking on a link or button
+      if (e.target.closest('a') || e.target.closest('button')) {
+        return;
+      }
+      const projectId = card.dataset.project;
+      showProjectDetails(projectId);
+    });
+
+    // Keyboard support for accessibility
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!e.target.closest('a') && !e.target.closest('button')) {
+          const projectId = card.dataset.project;
+          showProjectDetails(projectId);
+        }
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+  
+  // Screenshot fullscreen functionality
+  const projectScreenshotModal = document.getElementById('project-screenshot-modal');
+  const projectFullscreenClose = projectScreenshotModal.querySelector('.screenshot-fullscreen-close');
+  const projectFullscreenImg = document.getElementById('fullscreen-project-screenshot');
+  const projectFullscreenNavBtns = projectScreenshotModal.querySelectorAll('.screenshot-fullscreen-nav-btn');
+  const projectFullscreenIndicator = projectScreenshotModal.querySelector('.screenshot-fullscreen-indicator');
+  const currentProjectFullscreenIndicator = projectScreenshotModal.querySelector('.current-screenshot-fullscreen');
+  const totalProjectFullscreenIndicator = projectScreenshotModal.querySelector('.total-screenshots-fullscreen');
+  
+  window.openProjectScreenshotFullscreen = function() {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    const currentScreenshot = window.currentProject.screenshots[window.currentProjectScreenshotIndex];
+    projectFullscreenImg.src = currentScreenshot;
+    
+    // Setup navigation if multiple screenshots
+    if (window.currentProject.screenshots.length > 1) {
+      projectFullscreenNavBtns.forEach(btn => btn.style.display = 'block');
+      projectFullscreenIndicator.style.display = 'block';
+      totalProjectFullscreenIndicator.textContent = window.currentProject.screenshots.length;
+      updateProjectFullscreenIndicator();
+    } else {
+      projectFullscreenNavBtns.forEach(btn => btn.style.display = 'none');
+      projectFullscreenIndicator.style.display = 'none';
+    }
+    
+    projectScreenshotModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  
+  window.changeProjectFullscreenScreenshot = function(direction) {
+    if (!window.currentProject || !window.currentProject.screenshots) return;
+    
+    const screenshots = window.currentProject.screenshots;
+    window.currentProjectScreenshotIndex = (window.currentProjectScreenshotIndex + direction + screenshots.length) % screenshots.length;
+    
+    projectFullscreenImg.src = screenshots[window.currentProjectScreenshotIndex];
+    updateProjectFullscreenIndicator();
+    
+    // Also update the modal screenshot
+    updateProjectScreenshotDisplay();
+  };
+  
+  function updateProjectFullscreenIndicator() {
+    if (currentProjectFullscreenIndicator) {
+      currentProjectFullscreenIndicator.textContent = window.currentProjectScreenshotIndex + 1;
+    }
+  }
+  
+  // Event listeners for fullscreen modal
+  projectFullscreenClose.addEventListener('click', () => {
+    projectScreenshotModal.style.display = 'none';
+    document.body.style.overflow = 'hidden'; // Keep main modal open
+  });
+  
+  projectFullscreenNavBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const direction = parseInt(button.dataset.direction);
+      changeProjectFullscreenScreenshot(direction);
+    });
+  });
+  
+  // Close fullscreen modal on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectScreenshotModal.style.display === 'flex') {
+      projectScreenshotModal.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Keep main modal open
+    }
+  });
+  
+  // Close fullscreen modal on background click
+  projectScreenshotModal.addEventListener('click', (e) => {
+    if (e.target === projectScreenshotModal) {
+      projectScreenshotModal.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Keep main modal open
+    }
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
+</script>

@@ -1,0 +1,236 @@
+// Floating Social Icons Component
+
+.social-float-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: $z-index-fixed;
+  
+  @media (max-width: $small-screen) {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .social-float-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $primary;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    box-shadow: $shadow-card-hover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      background: $secondary;
+      transform: scale(1.1);
+      box-shadow: $shadow-xl;
+    }
+
+    &.active {
+      background: $secondary;
+      transform: rotate(45deg);
+      
+      i {
+        transform: rotate(-45deg);
+      }
+    }
+
+    @media (max-width: $small-screen) {
+      width: 50px;
+      height: 50px;
+      font-size: 1rem;
+    }
+  }
+
+  .social-float-menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .social-item {
+      position: absolute;
+      bottom: 70px;
+      right: 5px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      text-decoration: none;
+      font-size: 1.125rem;
+      transition: all 0.3s ease;
+      transform: scale(0);
+      box-shadow: $shadow-card;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: $shadow-card-hover;
+      }
+      
+      // Enhanced dark mode hover effects
+      [data-theme="dark"] &:hover {
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: $small-screen) {
+        width: 45px;
+        height: 45px;
+        bottom: 60px;
+        font-size: 1rem;
+      }
+
+      // Platform-specific colors and positions
+      &.github {
+        background: #333;
+        animation-delay: 0.1s;
+        
+        &.animate {
+          bottom: 140px;
+          transform: scale(1);
+        }
+      }
+
+      &.linkedin {
+        background: #0077b5;
+        animation-delay: 0.15s;
+        
+        &.animate {
+          bottom: 200px;
+          transform: scale(1);
+        }
+      }
+
+      &.twitter {
+        background: #000000;
+        animation-delay: 0.2s;
+        
+        &.animate {
+          bottom: 260px;
+          transform: scale(1);
+        }
+        
+        .x-icon {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: white;
+        }
+        
+        // Dark mode styling
+        [data-theme="dark"] & {
+          background: #1a1a1a;
+          
+          .x-icon {
+            color: #ffffff;
+          }
+          
+          &:hover {
+            background: #333333;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+          }
+        }
+      }
+
+      &.instagram {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        animation-delay: 0.25s;
+        
+        &.animate {
+          bottom: 320px;
+          transform: scale(1);
+        }
+      }
+
+      &.youtube {
+        background: #ff0000;
+        animation-delay: 0.3s;
+        
+        &.animate {
+          bottom: 380px;
+          transform: scale(1);
+        }
+      }
+
+      &.google-scholar {
+        background: #4285f4;
+        animation-delay: 0.35s;
+        
+        &.animate {
+          bottom: 440px;
+          transform: scale(1);
+        }
+      }
+
+      // Mobile adjustments
+      @media (max-width: $small-screen) {
+        &.github.animate { bottom: 120px; }
+        &.linkedin.animate { bottom: 170px; }
+        &.twitter.animate { bottom: 220px; }
+        &.instagram.animate { bottom: 270px; }
+        &.youtube.animate { bottom: 320px; }
+        &.google-scholar.animate { bottom: 370px; }
+      }
+    }
+  }
+
+  // Backdrop
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+
+  &.menu-open::before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Pulse animation for the toggle button
+@keyframes socialPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($primary, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba($primary, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($primary, 0);
+  }
+}
+
+// Add pulse effect on page load
+.social-float-toggle {
+  animation: socialPulse 2s infinite;
+  animation-delay: 3s;
+}
+
+.social-float-toggle:hover,
+.social-float-toggle.active {
+  animation: none;
+}

@@ -1,0 +1,176 @@
+# Apps developed
+# Real projects by Shayan
+
+- name: "PadSnap"
+  platform: "WebApp"
+  logo: "/img/apps/padsnap-logo.png"
+  short_description: "Padding images to custom sizes, pain free. 🎞️ 📸"
+  description: "PadSnap is a simple web application that pads your photos with customizable borders so they fit Instagram's recommended post dimensions without cropping or quality loss. Runs on your browser and supports batch processing, custom colors, and instant previews."
+  website: "https://padsnap.app"
+  year: 2025
+  featured: true
+  tags: ["Image Processing", "Web Tools", "Design", "Photography"]
+  screenshots:
+    - "/img/apps/padsnap-screenshot-1.png"
+    - "/img/apps/padsnap-screenshot-2.png"
+
+- name: "ethduties"
+  platform: "WebApp"
+  logo: "/img/apps/ethduties-logo.png"
+  short_description: "Ethereum Validator Duties Tracker"
+  description: "ETH Duties Tracker is a web application that helps Ethereum validators monitor their upcoming duties including block proposals, attestations, and sync committee participation. It provides real-time notifications and a dashboard view of all validator activities, useful for maintenance planning."
+  website: "https://ethduti.es/"
+  github: "https://github.com/shayanb/ethduties"
+  year: 2025
+  featured: true
+  tags: ["Ethereum", "Blockchain", "Staking", "Home Staker"]
+  screenshots:
+    - "/img/apps/ethduties-screenshot-1.png"
+    - "/img/apps/ethduties-screenshot-2.png"
+    - "/img/apps/ethduties-screenshot-3.png"
+    - "/img/apps/ethduties-screenshot-4.png"
+    - "/img/apps/ethduties-screenshot-5.png"
+
+- name: "EtherTrip"
+  platform: "WebApp"
+  logo: "/img/apps/ethertrip-logo.png"
+  short_description: "Ethereum Blockchain Visualizer (Psychedelic Edition)"
+  description: "Take a psychedelic journey through the Ethereum blockchain with real-time 3D visualization and immersive audio synthesis."
+  website: "https://ethertrip.me"
+  github: "https://github.com/shayanb/EtherTrip"
+  year: 2025
+  featured: true
+  tags: ["Ethereum", "Visualization", "Real-time data", "Art"]
+  screenshots:
+    - "/img/apps/ethertrip-screenshot-1.png"
+    - "/img/apps/ethertrip-screenshot-2.png"
+    - "/img/apps/ethertrip-screenshot-3.png"
+
+
+
+- name: "FocalFlow"
+  platform: "WebApp"
+  logo: "/img/placeholder-logo.png"
+  short_description: "Object-centric Animation Creator"
+  description: "FocalFlow is a browser-based creative tool that Transform a series of photographs containing a recurring object into captivating animated sequences where the focal point remains perfectly still, or animate following the focal flow."
+  website: "https://shayanb.github.io/FocalFlow/"
+  github: "https://github.com/shayanb/FocalFlow"
+  year: 2025
+  featured: false
+  tags: ["Visualization", "gif creation", "Interactive", "art"]
+  screenshots:
+    - "/img/apps/FocalFlow-screenshot-1.png"
+    - "/img/apps/FocalFlow-screenshot-2.png"
+
+
+- name: "Ethereum Validator Calculator"
+  platform: "WebApp"
+  logo: "/img/apps/EIP-7251-calcualator-logo.png"
+  short_description: "Staking Rewards Calculator (Pectra Edition)"
+  description: "Calculate potential staking rewards for Ethereum validators with the latest Pectra upgrade (EIP-7251: Increased MAX_EFFECTIVE_BALANCE). This tool helps validators and potential stakers understand their expected returns and optimize their staking strategies."
+  website: "https://shayanb.github.io/EIP-7251-calcualator/"
+  github: "https://github.com/shayanb/EIP-7251-calcualator"
+  year: 2025
+  featured: false
+  tags: ["Ethereum", "Staking", "Calculator", "EIP-7251"]
+  screenshots:
+    - "/img/apps/EIP-7251-calcualator-screenshot-1.png"
+    - "/img/apps/EIP-7251-calcualator-screenshot-2.png"
+    - "/img/apps/EIP-7251-calcualator-screenshot-3.png"
+
+- name: "Life Timeline Creator"
+  platform: "WebApp"
+  logo: "/img/apps/lifetimeline-logo.png"
+  short_description: "Interactive Timeline Visualization Tool"
+  description: "An interactive web application that allows users to create, customize, and visualize timelines, with the focus of multi-dimensionality of life/events."
+  website: "https://shayanb.github.io/timeline/"
+  github: "https://github.com/shayanb/timeline"
+  year: 2025
+  featured: false
+  tags: ["Visualization", "Timeline", "Interactive"]
+  screenshots:
+    - "/img/apps/lifetimeline-screenshot-1.png"
+    - "/img/apps/lifetimeline-screenshot-2.png"
+    - "/img/apps/lifetimeline-screenshot-3.png"
+
+- name: "ShirYaKhat"
+  platform: "Website"
+  logo: "/img/apps/shiryakhat-logo.png"
+  short_description: "Persian Blockchain Podcast Website"
+  description: "A pioneering Persian-language blockchain and cryptocurrency educational podcast founded in 2016. Making blockchain knowledge accessible to Farsi speakers through live discussions with global experts, educational content, and community engagement."
+  website: "https://shiryakhat.net"
+  year: 2025
+  featured: true
+  tags: ["Education", "Podcast", "Blockchain", "Persian"]
+  screenshots:
+    - "/img/apps/shiryakhat-screenshot-1.png"
+    - "/img/apps/shiryakhat-screenshot-2.png"
+    - "/img/apps/shiryakhat-screenshot-3.png"
+
+- name: "Pangana"
+  platform: "Website"
+  logo: "/img/apps/pangana-logo.png"
+  short_description: "Web3 Security Consulting & Blockchain Architecture"
+  description: "Technology and consulting company bridging wisdom with modern blockchain security. Specializing in Web3 security consulting, smart contract audits, blockchain architecture design, and professional training services."
+  website: "https://pangana.com"
+  year: 2018
+  featured: false
+  tags: ["Security", "Consulting", "Web3", "Smart Contracts"]
+  screenshots:
+    - "/img/apps/pangana-screenshot-1.png"
+    - "/img/apps/pangana-screenshot-2.png"
+    - "/img/apps/pangana-screenshot-3.png"
+
+- name: "The Creed"
+  platform: "Website"
+  logo: "/img/companies/creed-logo.svg"
+  short_description: "Web3 Cybersecurity DAO Platform"
+  description: "A grassroots collective of security professionals changing how Web3 security is delivered and compensated."
+  website: "https://thecreed.xyz"
+  year: 2025
+  featured: false
+  tags: ["Security", "DAO", "Web3", "Collective"]
+  screenshots: 
+    - "/img/apps/thecreed-website-screenshot-1.png"
+    - "/img/apps/thecreed-website-screenshot-2.png"
+    - "/img/apps/thecreed-website-screenshot-3.png"
+
+- name: "Jay Pegs Auto Mart RoofSlapper"
+  platform: "WebApp"
+  logo: "/img/apps/roofslapper-logo.png"
+  short_description: "Instant Retro UI for Smart Contract Interactions"
+  description: "Easy to use interface Jaypegs Automart Sedona NFT owners. Features multiple roof slaps for multiple Donas, ability to roof slap a random Dona, and general Ethereum smart contract interaction capabilities with proxy support."
+  website: "https://donaroofslapper.netlify.app/"
+  github: "https://github.com/shayanb/roofSlapper"
+  year: 2021
+  featured: false
+  tags: ["Ethereum", "Smart Contracts", "roofslap", "Web3", "jaypegs automart"]
+  screenshots:
+    - "/img/apps/sedonaRoofSlapper-screenshot.png"
+  logo: "/img/apps/sedonaRoofSlapper-logo.jpg"
+
+- name: "Auctionify"
+  platform: "WebApp"
+  logo: "/img/apps/auctionify.svg"
+  short_description: "Decentralized Ethereum Auction Platform"
+  description: "A decentralized stand-alone platform that facilitates Ethereum blockchain as a fair auctioning and payment infrastructure. Features customizable auction creation, automated bidding and refunds, and a user-friendly interface designed for non-technical users."
+  website: "https://auctionify.xyz/"
+  github: "https://github.com/auctionify/auctionify"
+  year: 2018
+  featured: false
+  tags: ["Ethereum", "DeFi", "Auctions", "Smart Contracts"]
+  # screenshots:
+  #   - "/img/apps/auctionify-screenshot-1.png"
+  #   - "/img/apps/auctionify-screenshot-2.png"
+
+
+- name: "Tehran Traffic"
+  platform: "iOS"
+  short_description: "Tehran Traffic displays the traffic flow of Tehran's streets, Find the best route and don't get stuck in the traffic."
+  description: "Tehran Traffic displays the traffic flow of Tehran's streets, Find the best route and don't get stuck in the traffic. Optimized for slow internet connections such that it's really easy to use with GPRS or 3G internet connections."
+  year: 2010
+  featured: false
+  tags: ["iphone", "apple", "appstore", "tehran", "swift"]
+  screenshots:
+    - "/img/apps/tehrantraffic-screenshot-1.jpg"
+  logo: "/img/apps/tehrantraffic-logo.png"
