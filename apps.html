@@ -19,7 +19,7 @@ permalink: /apps/
       <h2>Featured Apps</h2>
       <div class="featured-apps">
         {% for app in featured_apps %}
-        <div class="app-card featured">
+        <div class="app-card featured clickable-card" data-app="{{ app.name | slugify }}" role="button" tabindex="0">
           <div class="app-icon-section">
             {% if app.website %}
               <a href="{{ app.website }}" target="_blank" rel="noopener" class="app-icon-link" title="Visit {{ app.name }}">
@@ -74,7 +74,7 @@ permalink: /apps/
       <h2>Other Apps</h2>
       <div class="apps-list">
         {% for app in other_apps %}
-        <div class="app-item">
+        <div class="app-item clickable-card" data-app="{{ app.name | slugify }}" role="button" tabindex="0">
           <div class="app-icon small">
             {% if app.logo %}
               <img src="{{ app.logo }}" alt="{{ app.name }} logo" loading="lazy">
@@ -319,9 +319,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Event listeners
   viewAppBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card click from firing
       const appId = btn.dataset.app;
       showAppDetails(appId);
+    });
+  });
+
+  // Clickable card event listeners
+  const appCards = document.querySelectorAll('.clickable-card');
+  appCards.forEach(card => {
+    // Card click listener
+    card.addEventListener('click', (e) => {
+      // Don't trigger if clicking on a link or button
+      if (e.target.closest('a') || e.target.closest('button')) {
+        return;
+      }
+      const appId = card.dataset.app;
+      showAppDetails(appId);
+    });
+
+    // Keyboard accessibility
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!e.target.closest('a') && !e.target.closest('button')) {
+          const appId = card.dataset.app;
+          showAppDetails(appId);
+        }
+      }
     });
   });
 

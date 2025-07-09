@@ -692,6 +692,11 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  
+  .btn {
+    position: relative;
+    z-index: 2;
+  }
 
   .featured-section {
     margin-bottom: 4rem;
@@ -728,6 +733,28 @@
       &:hover {
         transform: translateY(-5px);
         box-shadow: $shadow-lg;
+      }
+
+      &.clickable-card {
+        cursor: pointer;
+        
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: $shadow-xl;
+          
+          .app-header h3 {
+            color: $primary;
+          }
+        }
+
+        &:focus {
+          outline: 2px solid $secondary;
+          outline-offset: 2px;
+        }
+
+        &:active {
+          transform: translateY(-3px);
+        }
       }
 
       .app-icon-section {
@@ -805,6 +832,8 @@
               transition: color 0.3s ease;
               text-align: left;
               width: 100%;
+              position: relative;
+              z-index: 2;
 
               &:hover {
                 color: $primary;
@@ -858,6 +887,8 @@
             border-radius: $border-radius;
             text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
             border: 1.5px solid #e5e7eb;
             font-size: 0.875rem;
             position: relative;
@@ -942,6 +973,28 @@
         transform: translateX(5px);
       }
 
+      &.clickable-card {
+        cursor: pointer;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $shadow-xl;
+          
+          .app-info h4 {
+            color: $primary;
+          }
+        }
+
+        &:focus {
+          outline: 2px solid $secondary;
+          outline-offset: 2px;
+        }
+
+        &:active {
+          transform: translateY(-2px);
+        }
+      }
+
       .app-icon.small {
         width: 60px;
         height: 60px;
@@ -987,6 +1040,8 @@
             transition: color 0.3s ease;
             text-align: left;
             width: 100%;
+            position: relative;
+            z-index: 2;
 
             &:hover {
               color: $primary;
@@ -1029,6 +1084,8 @@
             border-radius: $border-radius;
             text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
             border: 1.5px solid #e5e7eb;
             font-size: 0.875rem;
             position: relative;
