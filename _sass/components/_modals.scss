@@ -405,7 +405,7 @@
         .modal-header {
           margin-bottom: 1.5rem;
 
-          &:has(.modal-logo) {
+          &.has-logo {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -469,7 +469,6 @@
     }
 
     // Single column layout when no screenshots
-    .modal-layout:not(:has(.screenshot-gallery)),
     .modal-layout.no-screenshots {
       grid-template-columns: 1fr;
 
@@ -601,7 +600,7 @@
         .modal-header {
           margin-bottom: 1.5rem;
 
-          &:has(.modal-logo) {
+          &.has-logo {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -665,7 +664,6 @@
     }
 
     // Single column layout when no screenshots
-    .modal-layout:not(:has(.screenshot-gallery)),
     .modal-layout.no-screenshots {
       grid-template-columns: 1fr;
 

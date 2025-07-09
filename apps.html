@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ${screenshotsHtml}
           </div>
           <div class="modal-left modal-content-second">
-            <div class="modal-header">
+            <div class="modal-header${app.logo ? ' has-logo' : ''}">
               ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
               <div class="modal-text-content">
                 <h2>${app.name}</h2>
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
       modalBody.innerHTML = `
         <div class="modal-layout${screenshotsHtml ? '' : ' no-screenshots'}">
           <div class="modal-left">
-            <div class="modal-header">
+            <div class="modal-header${app.logo ? ' has-logo' : ''}">
               ${app.logo ? `<div class="modal-logo-container"><img src="${app.logo}" alt="${app.name} logo" class="modal-logo"></div>` : ''}
               <div class="modal-text-content">
                 <h2>${app.name}</h2>
