@@ -4,6 +4,43 @@ title: Scholar
 permalink: /scholar/
 ---
 
+{% assign sorted_pubs = site.data.index.publications | sort: 'year' | reverse %}
+{% for pub in sorted_pubs %}
+  {% if pub.local_pdf %}
+<!-- Schema.org for: {{ pub.name }} -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "{{ pub.name | strip_html | escape }}",
+  "author": {
+    "@type": "Person",
+    "name": "Shayan Eskandari",
+    "@id": "https://shayan.es/#person"
+  },
+  "datePublished": "{{ pub.year }}-01-01",
+  {% if pub.published %}
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ pub.published | strip_html | escape }}"
+  },
+  {% endif %}
+  {% if pub.descr %}
+  "abstract": "{{ pub.descr | strip_html | escape | truncate: 500 }}",
+  {% endif %}
+  "url": "{{ site.url }}{{ pub.local_pdf }}",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "{{ site.url }}{{ pub.local_pdf }}",
+    "encodingFormat": "application/pdf"
+  },
+  "isAccessibleForFree": true,
+  "keywords": "{{ pub.name | strip_html | downcase | split: ' ' | slice: 0, 10 | join: ', ' }}"
+}
+</script>
+  {% endif %}
+{% endfor %}
+
 <div class="publications-page">
   <div class="page-header">
     <h1>Scholar</h1>

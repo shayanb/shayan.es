@@ -4,11 +4,13 @@ Allow: /
 # Prioritize key content
 Allow: /about/
 Allow: /career/
+Allow: /scholar/
 Allow: /audits/
 Allow: /apps/
 Allow: /art/
 Allow: /connect/
 Allow: /articles/
+Allow: /assets/papers/
 
 # Important files
 Allow: /feed.xml
