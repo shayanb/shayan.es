@@ -118,12 +118,16 @@ def main():
         # Prepare metadata
         title = clean_html_tags(pub.get('name', ''))
         subject = clean_html_tags(pub.get('descr', ''))[:500]  # Limit to 500 chars
-        keywords = extract_keywords_from_title(title)
 
-        # Add publication venue to keywords if available
-        if pub.get('published'):
-            venue = clean_html_tags(pub['published'])
-            keywords = f"{keywords}, {venue}"
+        # Use keywords from YAML if available, otherwise extract from title
+        if pub.get('keywords'):
+            keywords = pub.get('keywords')
+        else:
+            keywords = extract_keywords_from_title(title)
+            # Add publication venue to keywords if available
+            if pub.get('published'):
+                venue = clean_html_tags(pub['published'])
+                keywords = f"{keywords}, {venue}"
 
         # Format creation date (use publication year)
         year = pub.get('year', datetime.now().year)
