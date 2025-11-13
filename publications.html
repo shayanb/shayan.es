@@ -120,24 +120,29 @@ permalink: /scholar/
           <div class="abstract-header">
             <h4 class="abstract-label">Abstract</h4>
             <div class="pub-links">
+              {% if pub.local_pdf %}
+              <a href="{{ pub.local_pdf }}" class="pub-link pub-link-local-pdf" target="_blank">
+                <i class="fa fa-file-pdf-o"></i> PDF
+              </a>
+              {% endif %}
               {% if pub.paper %}
               <a href="{{ pub.paper }}" class="pub-link" target="_blank">
                 <i class="fa fa-file-pdf-o"></i> Paper
               </a>
               {% endif %}
-              
+
               {% if pub.youtube %}
               <a href="{{ pub.youtube }}" class="pub-link youtube" target="_blank">
                 <i class="fa fa-youtube"></i> Presentation
               </a>
               {% endif %}
-              
+
               {% if pub.slides %}
               <a href="{{ pub.slides }}" class="pub-link slides" target="_blank">
                 <i class="fa fa-file-powerpoint-o"></i> Slides
               </a>
               {% endif %}
-              
+
               {% if pub.media %}
               <button class="pub-link media-toggle" data-publication="{{ forloop.index }}">
                 <i class="fa fa-newspaper-o"></i> Media Coverage ({{ pub.media.size }})
@@ -604,6 +609,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .pub-link.slides:hover {
   background: #d04423;
+  color: white;
+}
+
+.pub-link.pub-link-local-pdf {
+  border-color: #10b981;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.pub-link.pub-link-local-pdf:hover {
+  background: #10b981;
   color: white;
 }
 
