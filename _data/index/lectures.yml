@@ -16,6 +16,7 @@
   type: talk
   year: 2023
   youtube: "https://www.youtube.com/watch?v=dO_jiwVjkcI"
+  local_video: /assets/lectures/2023-iranunchained-ngo-dao.mp4
 
 
 - name: "In real Life: Web3 and Sanctions"
@@ -26,6 +27,7 @@
   type: talk
   year: 2023
   youtube: "https://www.youtube.com/watch?v=G2_MJtbSe1s"
+  local_video: /assets/lectures/2023-web3-sanctions.mp4
 
 
 - name: "Don't Trust, Verify What's At Stake"
@@ -36,6 +38,7 @@
   type: talk
   year: 2023
   youtube: "https://youtu.be/oB5_dCgr_dA?t=162"
+  local_video: /assets/lectures/2023-dont-trust-verify-staking.mp4
 
 
 - name: "Terminologies and Regulations in Web3"
@@ -56,6 +59,7 @@
   type: talk
   year: 2020
   youtube: "https://www.youtube.com/watch?v=4AS64fSeRtA"
+  local_video: /assets/lectures/2020-oracles-ground-truth.mp4
 
 - name: "Expert panel: Emerging Challenges and Opportunities in FinTech"
   location: Association of Certified Fraud Examiners (ACFE) Montreal Chapter
@@ -71,6 +75,7 @@
   type: panel
   year: 2020
   youtube: "https://www.youtube.com/watch?v=VaqIFiY-Ks0"
+  local_video: /assets/lectures/2020-bitcoin-closed-economies.mp4
 
 - name: "Blockchain Through Philosophy"
   descr: "In this episode of Shir Ya Khat we look at the Blockchain technology with a radical philosophical narrative and, with our guest philosopher Professor Creston Davis from the Global Center for Advance Studies, we discuss the changes it can bring in the way we exist in the coming years."
@@ -80,6 +85,7 @@
   type: panel
   year: 2020
   youtube: "https://www.youtube.com/watch?v=OThCgcFshKw"
+  local_video: /assets/lectures/2020-blockchain-philosophy.mp4
 
 
 - name: "Transparent Dishonesty: Blockchain Front-Running Taxonomy"
@@ -90,6 +96,7 @@
   type: talk
   year: 2020
   youtube: "https://www.youtube.com/watch?v=mSmp_-z3UOg"
+  local_video: /assets/lectures/2020-transparent-dishonesty-stanford.mp4
 
 - name: "Breaking Smart Contracts"
   descr: "Some of the most financially devastating hacks in recent years have happened on the blockchain. In this workshop, we will walk through a series of simple Solidity coding challenges and common mistakes, where participants are asked read code, understand and try to break them. Regarding each challenge, we will talk about the history of the hacks involving that family of bug. We will talk about the attacks and possible solutions."
@@ -99,6 +106,7 @@
   year: 2019
   youtube: "https://www.youtube.com/watch?v=Zs-P5FSJvGQ"
   type: workshop
+  local_video: /assets/lectures/2019-breaking-smart-contracts-devcon.mp4
 
 - name: "Transparent Dishonesty: Blockchain Front-Running Taxonomy"
   location: DevCon V, Osaka, Japan
@@ -107,6 +115,7 @@
   youtube: "https://www.youtube.com/watch?v=tVgto0GtA4I"
   type: talk
   year: 2019
+  local_video: /assets/lectures/2019-transparent-dishonesty-devcon.mp4
 
 
 - name: "Security By Design and Smart Contract Audits"
@@ -118,6 +127,7 @@
   type: talk
   year: 2019
   flag: US
+  local_video: /assets/lectures/2019-security-design-audits.mp4
 
 - name: "Smashing Smart Contracts: Detecting and Exploiting Vulnerabilities in EVM bytecode"
   descr: "Hacking & exploitation Solidity/EVM smart contracts, and practicing them on CaptureTheEther and OpenZeppelin Ethernaut challanges."
@@ -138,6 +148,7 @@
   year: 2019
   descr: "Blockchain and DLT based systems are core internet infrastructure technology and many DLT solutions have one thing in common: They are developed with a diverse open source developer community and carry significant security risk. To manage software change related risks both Bitcoin and Ethereum have derived their own process of managing change proposals. For Ethereum changes are discussed and agreed upon in the Ethereum Improvement Proposal (EIP) process. However given the non-hierarchy management model, there have been many approaches and obstacles to make this process as close to a democratic procedure as possible. It is working, but far from perfect and there are many good approaches and lessons learnt. EIP requires input from experts at IETF to shape up and standardize."
   flag: CA
+  local_video: /assets/lectures/2019-democratic-improvement-proposals.mp4
 
 - name: "Breaking Smart Contracts"
   descr: "In this workshop, we will teach students how to write smart contracts in the Solidity programming language. Solidity is easy to learn, but hard to get right. The approach to training we’ll take in this session will be to provide a series of simple coding challenges, where participants are asked to write the code and exploint a simple program, such as a coin toss, a transferable token (like a coin), or an auction."
@@ -207,6 +218,7 @@
   youtube: https://youtu.be/R7sUoOV8TAg
   slides: https://github.com/shayanb/cryptojacking-first-paper/blob/master/Presentation/Cryptojacking_IEEESB2018.pdf
   flag: CA
+  local_video: /assets/lectures/2018-cryptojacking-secrev.mp4
 
 - name: 2nd Annual Blockchain Bootcamp
   descr: "This blockchain bootcamp is an introductory level workshop that will teach the attendees the main building blocks of blockchain, with hands on experience with timestamping and associated use cases."
@@ -286,3 +298,4 @@
   flag: IR
   type: talk
   year: 2015
+  local_video: /assets/lectures/2015-bitcoin-introduction-iran.mp4
