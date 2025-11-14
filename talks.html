@@ -101,7 +101,7 @@ permalink: /talks/
           <p class="talk-description">{{ lecture.descr }}</p>
           {% endif %}
           
-          {% if lecture.location or lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          {% if lecture.location or lecture.website or lecture.youtube or lecture.local_video or lecture.slides or lecture.github or lecture.paper %}
           <div class="talk-footer-row">
             {% if lecture.location %}
             <div class="talk-location-bottom">
@@ -109,13 +109,19 @@ permalink: /talks/
             </div>
             {% endif %}
             
-            {% if lecture.website or lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+            {% if lecture.website or lecture.youtube or lecture.local_video or lecture.slides or lecture.github or lecture.paper %}
             <div class="talk-media">
               <div class="media-links">
               {% if lecture.youtube %}
                 <a href="{{ lecture.youtube }}" target="_blank" class="media-link youtube">
                   <i class="fa fa-youtube"></i>
                   <span>Watch</span>
+                </a>
+              {% endif %}
+              {% if lecture.local_video %}
+                <a href="{{ lecture.local_video }}" download class="media-link download">
+                  <i class="fa fa-download"></i>
+                  <span></span>
                 </a>
               {% endif %}
               {% if lecture.slides %}
@@ -188,11 +194,16 @@ permalink: /talks/
           <p class="other-talk-description">{{ lecture.descr }}</p>
           {% endif %}
           
-          {% if lecture.youtube or lecture.slides or lecture.github or lecture.paper %}
+          {% if lecture.youtube or lecture.local_video or lecture.slides or lecture.github or lecture.paper %}
           <div class="other-talk-actions">
             {% if lecture.youtube %}
               <a href="{{ lecture.youtube }}" target="_blank" class="other-action youtube">
                 <i class="fa fa-youtube"></i>
+              </a>
+            {% endif %}
+            {% if lecture.local_video %}
+              <a href="{{ lecture.local_video }}" download class="other-action download">
+                <i class="fa fa-download"></i>
               </a>
             {% endif %}
             {% if lecture.slides %}
@@ -1349,6 +1360,19 @@ permalink: /talks/
   color: white !important;
 }
 
+.talks-page .talks-section .talk-media .media-links .media-link.download {
+  background: transparent !important;
+  color: #73857f !important;
+  border-color: #3f4f4a !important;
+  gap: 0rem !important;
+  padding: 0.5rem 0.5rem !important;
+}
+
+.talks-page .talks-section .talk-media .media-links .media-link.download:hover {
+  background: #53937d !important;
+  color: white !important;
+}
+
 /* Dark Mode Support for Talks */
 [data-theme="dark"] .talks-section .talk-card {
   background: var(--card-color) !important;
@@ -1432,6 +1456,20 @@ permalink: /talks/
   color: white !important;
 }
 
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.download {
+  background: transparent !important;
+  color: #598172 !important;
+  border-color: #34d399 !important;
+  gap: 0rem !important;
+  padding: 0.5rem 0.5rem !important;
+}
+
+[data-theme="dark"] .talks-page .talks-section .talk-media .media-links .media-link.download:hover {
+  background: #296750 !important;
+  color: white !important;
+
+}
+
 /* Workshop Cards Action Styling */
 .other-talk-actions .other-action {
   display: inline-flex !important;
@@ -1489,6 +1527,16 @@ permalink: /talks/
 
 .other-talk-actions .other-action.paper:hover {
   background: #4285f4 !important;
+  color: white !important;
+}
+
+.other-talk-actions .other-action.download {
+  color: #10b981 !important;
+  border-color: #10b981 !important;
+}
+
+.other-talk-actions .other-action.download:hover {
+  background: #10b981 !important;
   color: white !important;
 }
 
@@ -1559,6 +1607,16 @@ permalink: /talks/
 
 [data-theme="dark"] .other-talk-actions .other-action.paper:hover {
   background: #6da4d9 !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.download {
+  color: #34d399 !important;
+  border-color: #34d399 !important;
+}
+
+[data-theme="dark"] .other-talk-actions .other-action.download:hover {
+  background: #34d399 !important;
   color: white !important;
 }
 

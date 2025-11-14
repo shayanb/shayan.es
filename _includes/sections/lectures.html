@@ -32,6 +32,9 @@
                 {% if lecture.youtube %}
                 <a href="{{ lecture.youtube }} " target="_blank"><i class="fa fa-youtube"></i>Video</a> &nbsp;
                 {% endif %}
+                {% if lecture.local_video %}
+                <a href="{{ lecture.local_video }}" download><i class="fa fa-download"></i></a> &nbsp;
+                {% endif %}
                 {% if lecture.media %}
                 <br><b>Press:</b> {% for item in lecture.media %}
                 <a href="{{ item.link }} " target="_blank"><i class="fa fa-newspaper-o"></i>{{item.name}}</a> &nbsp;
