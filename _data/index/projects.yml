@@ -1,3 +1,31 @@
+- name: MoaV (Mother of All VPNs)
+  descr: Multi-protocol internet censorship circumvention stack. With focus on usability and redundancy, to increase the chances of people in censored regions get access to free internet. Features multiple tunneling protocols including V2Ray stack, WireGuard variants, WebSocket Tunnels, and DNS tunneling --with automatic fallback--, and includes user management, and analytics. Bandwidth donation to Psiphon Conduit and Tor Snowflake.
+  website: https://moav.sh/
+  github: https://github.com/shayanb/MoaV
+  logo:  "/img/projects/moav-logo.png"
+  year: 2026
+  status: active
+  screenshots:
+  - "/img/projects/moav-site.png"
+  - "/img/projects/moav-site-action.png"
+  - "/img/projects/moav-services.png"
+  - "/img/projects/moav.sh.png"
+  - "/img/projects/moav-grafana-dashboard.jpg"
+  - "/img/projects/moav-site-arch.png"
+  - "/img/projects/moav-admin-dashboard.jpg"
+
+
+- name: retroMaid
+  descr: A powerful metadata scraper for Batocera OS ROM collections. Automatically fetches and organizes game metadata, cover art, screenshots, and videos from online databases. Supports duplicate detection, DOS game conversion, and integration with ScreenScraper.fr.
+  github: https://github.com/shayanb/retroMaid
+  year: 2026
+  status: active
+  media:
+    - name: Reddit - r/Roms
+      link: https://www.reddit.com/r/Roms/comments/1qdmk2n/rom_collections_management_and_scraping_metadata/
+  screenshots:
+  - "/img/projects/retromaid-screenshot-1.png"
+
 - name: AiVS (AI Agents + EigenLayer AVS)
   descr: AiVS (short for AI Agents + AVS) is a framework that leverages the power of AI-driven decision-making in conjunction with decentralized Autonomous/Actively Validation Services (such as EigenLayer) to securely distribute tasks and verify outcomes on-chain. <br><br> ETHGlobal Agentic Ethereum Hackathon 2025 Participant and Winner of multiple awards including Coinbase Developer Platform, Gaia and Collab.Land, and EigenLayer - Eigen Agents.
   website: https://ethglobal.com/showcase/aivs-o2t7f
