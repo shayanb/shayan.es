@@ -1,6 +1,22 @@
 # Apps developed
 # Real projects by Shayan
 
+- name: "Nedagram"
+  platform: "WebApp"
+  logo: "/img/apps/nedagram-logo.png"
+  short_description: "Transfer Text Over Sound 📝 ⇄ 📞"
+  description: "Nedagram encodes text into audio signals ('Neda') that can be transmitted between devices over a phone call or through speakers to microphones (e.g over a phone call). Works completely without internet. Use Cases: Share config files, complex passwords, or long URLs over phone calls when internet is unavailable, Transfer data between air-gapped devices (private keys, signatures, ...)"
+  website: "https://nedagram.com"
+  github: "https://github.com/shayanb/Nedagram"
+  year: 2026
+  featured: true
+  tags: ["Communication", "Audio", "PWA", "Offline"]
+  screenshots:
+    - "/img/apps/nedagram-og-image.jpg"
+    - "/img/apps/nedagram-screenshot3.png"
+    - "/img/apps/nedagram-screenshot2.png"
+    - "/img/apps/nedagram-screenshot1.png"
+
 - name: "PadSnap"
   platform: "WebApp"
   logo: "/img/apps/padsnap-logo.png"
@@ -100,7 +116,7 @@
   description: "A pioneering Persian-language blockchain and cryptocurrency educational podcast founded in 2016. Making blockchain knowledge accessible to Farsi speakers through live discussions with global experts, educational content, and community engagement."
   website: "https://shiryakhat.net"
   year: 2025
-  featured: true
+  featured: false
   tags: ["Education", "Podcast", "Blockchain", "Persian"]
   screenshots:
     - "/img/apps/shiryakhat-screenshot-1.png"
