@@ -71,8 +71,22 @@ layout: null
     </item>
 
     <item>
+      <title>Open Source Projects</title>
+      <description>Open-source tools and technical projects: MoaV (multi-protocol anti-censorship stack), retroMaid (ROM metadata scraper), AiVS (AI Agents + EigenLayer AVS), Legions (EVM node security toolkit), Catena Blockchain Suite (Government of Canada blockchain pilot), LibSubmarine (front-running protection), Smart Contract VulnDB, DlAGRAMS (blockchain icon library), Velocity (decentralized options), Keystamp (proof-of-compliance, OSC Hackathon winner), Bitaccess Enterprise Wallet, and Bitcoin Point of Sale.</description>
+      <link>{{ site.url }}/projects/</link>
+      <guid isPermaLink="true">{{ site.url }}/projects/</guid>
+      <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+      <dc:creator>{{ site.owner.name | xml_escape }}</dc:creator>
+      <category>projects</category>
+      <category>open source</category>
+      <category>security tools</category>
+      <category>anti censorship</category>
+      <category>blockchain</category>
+    </item>
+
+    <item>
       <title>Technical Projects and Applications</title>
-      <description>Portfolio of blockchain applications, security tools, and innovative software solutions. From Bitcoin point-of-sale systems to DeFi protocols and security analysis tools.</description>
+      <description>Software applications and tools: Nedagram (text-over-sound communication), PadSnap (image padding tool), ethduties (Ethereum validator duties tracker), EtherTrip (blockchain visualizer), FocalFlow (animation creator), Ethereum Validator Calculator (EIP-7251 staking rewards), Life Timeline Creator, ShirYaKhat (Persian blockchain podcast), Pangana (Web3 security consulting), The Creed (Web3 security DAO), Auctionify (decentralized auction platform), and Tehran Traffic (iOS traffic app).</description>
       <link>{{ site.url }}/apps/</link>
       <guid isPermaLink="true">{{ site.url }}/apps/</guid>
       <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>

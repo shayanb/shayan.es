@@ -1,0 +1,40 @@
+# Shayan Eskandari
+
+> Security researcher, human-centered technologist, and educator working at the intersection of technology and humanity.
+
+## About
+
+Shayan Eskandari is a senior security engineer, blockchain researcher, and post-doctoral fellow at NOVA SBE (Portugal). He holds a PhD from Concordia University on "Uncovering Blockchain Challenges: Technical Nuances and Their Unforeseen Consequences." His work spans smart contract auditing, censorship circumvention tools, AI-driven development, and the responsible application of decentralized technology. He is co-founder of Creed, a Web3 security firm, and Rebellion Systems, A ZK company. 
+
+## Philosophy
+
+The intersection of technology and humanity requires constant vigilance. As we build the future, we must ensure it serves human flourishing rather than diminishing it. Every project reflects a commitment to transparency, security, and responsible technology development.
+
+## Key Pages
+
+- [About](https://shayan.es/about/): Professional background, journey highlights, and areas of expertise
+- [Career](https://shayan.es/career/): Full professional experience and work history
+- [Security Audits](https://shayan.es/audits/): Portfolio of 50+ smart contract and DeFi security audits
+- [Research & Publications](https://shayan.es/scholar/): Academic papers on blockchain security, oracle manipulation, front-running, and cryptojacking
+- [Projects](https://shayan.es/projects/): Open-source tools including MoaV (censorship circumvention), retroMaid (ROM metadata scraper), Legions (Web3 Node security toolkit) and more
+- [Apps](https://shayan.es/apps/): Software applications including Nedagram (text-over-sound), PadSnap, and other tools
+- [Talks & Media](https://shayan.es/talks/): Conference presentations, podcasts, workshops, and panels
+- [Art](https://shayan.es/art/): Digital art exploring technology and human creativity
+- [Connect](https://shayan.es/connect/): Contact and social profiles
+
+## Expertise
+
+- Smart contract security auditing and risk assessment
+- Blockchain technology (Ethereum, Bitcoin, staking, DeFi)
+- Censorship circumvention and privacy tools
+- AI-driven full-stack development
+- Academic research in decentralized systems
+- Education, mentorship, and public speaking
+
+## Links
+
+- Website: https://shayan.es
+- GitHub: https://github.com/shayanb
+- LinkedIn: https://linkedin.com/in/shayane
+- Google Scholar: https://scholar.google.com/citations?user=K9xYnSQAAAAJ
+- ORCID: https://orcid.org/0000-0001-7405-9249

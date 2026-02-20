@@ -7,6 +7,8 @@ Allow: /career/
 Allow: /scholar/
 Allow: /audits/
 Allow: /apps/
+Allow: /projects/
+Allow: /talks/
 Allow: /art/
 Allow: /connect/
 Allow: /articles/
@@ -15,7 +17,7 @@ Allow: /assets/papers/
 # Important files
 Allow: /feed.xml
 Allow: /sitemap.xml
-
+Allow: /llms.txt
 
 # Block development files
 Disallow: /_site/
@@ -44,4 +46,10 @@ User-agent: anthropic-ai
 Allow: /
 
 User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
