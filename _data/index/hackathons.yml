@@ -24,6 +24,11 @@
   description: "An open-source Proof-of-Compliance standard on the blockchain. <br> RegHackTO was organized by the Ontario Securities Commission (OSC) as the first hackathon by a securities regulator in Canada."
 
 
+- name: "ETHGlobal Lisbon"
+  date: "July 2026"
+  location: "Lisbon, PT"
+  role: "mentor"
+
 - name: "ETHGlobal Bangkok"
   date: "November 2024"
   location: "Bangkok, TH"

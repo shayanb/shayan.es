@@ -17,8 +17,6 @@
       url: "/career/"
     - title: "Security Audits"
       url: "/audits/"
-    - title: "CVEs"
-      url: "/audits/#cve"
 
 - title: "Scholar"
   url: "/scholar/"

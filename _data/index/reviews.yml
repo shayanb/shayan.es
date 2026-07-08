@@ -1,5 +1,20 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: ICIS 2026 - International Conference on Information Systems
+  link: https://icis2026.aisconferences.org/
+  date: December 2026
+  job: Invited Reviewer
+
+- name: Blockchain Confluence 2026
+  link: https://blockchainconfluence.pt/
+  date: November 2026
+  job: Reviewer
+
+- name: IEEE Transactions on Services Computing
+  link: https://www.computer.org/csdl/journal/sc
+  date: 2025 - 2026
+  job: Reviewer
+
 - name: IEEE Transactions on Information Forensics & Security
   link: https://signalprocessingsociety.org/publications-resources/ieee-transactions-information-forensics-and-security
   date: April 2025

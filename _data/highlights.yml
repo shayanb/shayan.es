@@ -9,13 +9,13 @@
   target: "podcasts"
   year: 2025
 
-- title: "EtherTrip"
-  type: "App"
-  description: "Ethereum Blockchain Visualizer (Psychedelic Edition)"
-  link: "/apps/"
-  action: "app" 
-  target: "ethertrip"
-  year: 2025
+- title: "MoaV (Mother of All VPNs)"
+  type: "Project"
+  description: "Multi-protocol internet censorship circumvention stack -- one command turns a cheap VPS into a node running 16+ circumvention protocols"
+  link: "/projects/"
+  action: "page"
+  target: ""
+  year: 2026
 
 - title: "Security Reviews and Public Audits"
   type: "Security Audits"

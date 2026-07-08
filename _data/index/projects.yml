@@ -1,5 +1,5 @@
 - name: MoaV (Mother of All VPNs)
-  descr: Multi-protocol internet censorship circumvention stack optimized for hostile network environments. Built on the conviction that internet freedom cannot depend on any single tool, protocol, or organization -- no single protocol survives all censorship regimes, and the time to build capacity is not during the shutdown. One command turns a cheap VPS (or a Raspberry Pi) into a node running 16+ simultaneous circumvention protocols -- Reality/VLESS, Trojan, Hysteria2, WireGuard and AmneziaWG, Shadowsocks-2022, Telegram MTProxy, and DNS tunnels -- with CDN fallback for blocked IPs and a decoy website for unauthenticated traffic. Includes per-user credential management with QR code and subscription exports, Grafana/Prometheus traffic analytics, and optional bandwidth donation to Psiphon Conduit, Tor Snowflake, and MahsaNet, serving millions of users in censored regions.
+  descr: Multi-protocol internet censorship circumvention stack, built on the conviction that internet freedom cannot depend on any single tool, protocol, or organization. One command turns a cheap VPS (or a Raspberry Pi) into a node running 16+ simultaneous circumvention protocols with CDN fallback and a decoy website, plus per-user credential management, Grafana/Prometheus analytics, and optional bandwidth donation to Psiphon Conduit, Tor Snowflake, and MahsaNet.
   website: https://moav.sh/
   github: https://github.com/shayanb/MoaV
   media:
@@ -24,6 +24,7 @@
 - name: logosup
   descr: Automated CLI tool for installing, running, and managing Logos Blockchain nodes -- from zero to a running node in minutes. Handles Docker configuration, node setup, and key generation, and provides wallet management, consensus state and peer visibility, built-in Grafana/Prometheus monitoring, server security hardening (firewall, SSH, fail2ban), and testnet faucet integration. Runs on Linux, macOS, and WSL2.
   github: https://github.com/logosnode/logosup
+  logo: "/img/projects/logosup-logo.png"
   year: 2026
   status: active
   screenshots:
@@ -35,6 +36,7 @@
 - name: pgdocker
   descr: Dockerized Polkadot playground-cli. Deploy apps to the Polkadot Playground and Bulletin chain without installing any dependencies on the host machine -- a pre-baked container toolchain (Node, IPFS Kubo, playground-cli) with persistent QR-code authentication across runs and a simple wrapper script that proxies into the container. Built at Web3 Summit 2026, Berlin.
   github: https://github.com/shayanb/pgdocker
+  logo: "/img/projects/pgdocker-logo.png"
   year: 2026
   status: completed
 
@@ -53,6 +55,7 @@
   descr: Interactive cybersecurity risk assessment framework designed for Web3 projects, built on NIST CSF v2.0 with 106 security controls across six functions (Govern, Identify, Protect, Detect, Respond, Recover) and a 6-tier maturity model. Adapts traditional frameworks to Web3-specific risks such as smart contract upgradeability, DAO governance, bridge security, and oracle dependencies, with real-time scoring, JSON import/export, and PDF report generation. Built with the Creed, a grassroots collective of security professionals democratizing Web3 security.
   website: https://web3risk.thecreed.xyz/
   github: https://github.com/creedxyz/web3-risk-assessment
+  logo: "/img/companies/creed-logo.svg"
   year: 2025
   status: completed
 
@@ -84,6 +87,7 @@
   descr: "Contributor to the industry-standard guide for secure smart contract development, maintained by ConsenSys Diligence. The guide covers secure development recommendations, known attacks, security tooling, and general security philosophy for Ethereum and Solidity, and has become one of the most widely referenced security resources in the ecosystem."
   website: https://consensysdiligence.github.io/smart-contract-best-practices/
   github: https://github.com/ConsenSysDiligence/smart-contract-best-practices
+  logo: "/img/projects/scbp-logo.png"
   year: 2019
   start_year: 2018
   end_year: 2021
