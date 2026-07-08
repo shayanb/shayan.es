@@ -5,6 +5,7 @@ Allow: /
 Allow: /about/
 Allow: /career/
 Allow: /scholar/
+Allow: /teaching/
 Allow: /audits/
 Allow: /apps/
 Allow: /projects/

@@ -1,14 +1,21 @@
 # careers section data
 # Enhanced with descriptions and company logos
 
+- name: Rebellion
+  link: https://rebellion.systems/
+  date: 2025 - 2026
+  job: Co-founder
+  logo: "/img/companies/rebellion-logo.svg"
+  description: "Co-founded Rebellion, a company building authentication and authenticity infrastructure for the AI age, on the premise that generative AI has broken the internet's baseline assumptions about who and what can be trusted. Built <a href='https://authensee.com/' target='_blank'>AuthenSee</a>, a zero-knowledge-proof-based authentication system that collapses multiple factors -- passkeys, memory factors, on-device liveness, optional hardware tokens -- into a single cryptographic proof: services get a yes or a no, with no passwords, biometrics, or personal data to store or leak."
+  technologies: ["Zero-Knowledge Proofs", "Authentication", "Privacy", "Cryptography", "Digital Identity"]
+
 - name: Creed
   link: https://thecreed.xyz/
-  date: 2024 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: 2024 - 2025
   job: Co-founder & Security Auditor
   logo: "/img/companies/creed-logo.svg"
   description: "Co-founded Creed, A grassroots collective of security professionals changing how Web3 security is delivered and compensated"
   technologies: ["Web3", "Security Review", "Solidity", "Audit", "Smart Contracts"]
-  current: true
   achievements: ["Web3 Risk assessment methodology", "Security Reviews for 20+ DeFi projects" ]
 
 
