@@ -62,8 +62,13 @@
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
+    // 100dvh tracks the visible viewport on mobile browsers (100vh includes
+    // the area behind Safari's toolbars); contain stops scroll chaining to the page
     max-height: calc(100vh - 90px);
+    max-height: calc(100dvh - 90px);
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     z-index: 1000;
     
     // Custom scrollbar styling
@@ -98,13 +103,15 @@
       right: 1.5rem;
       padding: 1rem 0;
       max-height: calc(100vh - 100px);
+      max-height: calc(100dvh - 100px);
     }
-    
+
     @media (max-width: $small-screen) {
       width: calc(100vw - 2rem);
       right: 1rem;
       padding: 0.75rem 0;
       max-height: calc(100vh - 90px);
+      max-height: calc(100dvh - 90px);
     }
     
     @media (min-width: #{$medium-screen + 1px}) {
@@ -445,4 +452,9 @@
 // Prevent horizontal overflow from hidden menu
 html, body {
   overflow-x: hidden;
+}
+
+// Lock page scroll while the hamburger menu is open (menu scrolls internally)
+body.menu-open {
+  overflow: hidden;
 }

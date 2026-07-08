@@ -7,6 +7,7 @@ $(document).ready(function() {
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       navToggle.classList.toggle('active');
+      document.body.classList.toggle('menu-open', navMenu.classList.contains('active'));
     });
 
     // Close mobile menu when clicking on a hamburger link
@@ -14,6 +15,7 @@ $(document).ready(function() {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
       });
     });
 
@@ -22,6 +24,7 @@ $(document).ready(function() {
       if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
   }
