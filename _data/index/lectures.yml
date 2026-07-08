@@ -1,3 +1,23 @@
+- name: "Rage-Coding the Mother of All VPNs"
+  descr: "Amidst the Internet shutdowns in Iran, as a technologist and member of the Iranian diaspora, I felt so much frustration, helplessness, and anger because I couldn't do anything. After a few days of processing the initial shock, I was able to get to work and rage-code MoaV -- a modular anti-internet-censorship stack, able to run 10+ internet censorship circumvention tools on a small VPS or Raspberry Pi, with the goal of democratizing VPN provisioning. In the first two weeks, the project received tens of thousands of views on X and gained more than 200 stars on GitHub. This talk is a case study of the project's development and how to find these niche corners of the internet that can have massive social impact if done right. I'd like to invite the audience to reflect on the daily challenges faced by people in their countries or regions and how we can use our passion to vibe-code useful tools into existence."
+  location: DappCon, Berlin, Germany
+  website: https://dappcon.io/
+  flag: DE
+  type: talk
+  year: 2026
+  youtube: "https://www.youtube.com/watch?v=uYygWN1MZDE"
+
+
+- name: "We Promised Decentralization, but Forgot to Build the Infrastructure"
+  descr: "Mother of All VPNs (moav.sh). The ideology: internet freedom cannot depend on any single tool, protocol, or organization. It must be distributed infrastructure, built before the crisis, resilient enough that no state can shut it all down without breaking their own internet. One command turns a $10 VPS into a node running 16+ simultaneous circumvention protocols: DNS tunnels, obfuscated proxies, Psiphon relays and Tor bridges. Deployed by activists and diaspora communities keeping people connected when their governments decide they shouldn't be."
+  location: Neocypherpunk Summit (Web3Privacy Now), Funkhaus Berlin, Germany
+  website: https://s26ber.web3privacy.info/
+  flag: DE
+  type: talk
+  year: 2026
+  youtube: "https://www.youtube.com/watch?v=bt9mLR6wOQs"
+
+
 - name: "Oracle Extractable Value: Unlocking New Revenue Models"
   descr: "Panel Moderator: Oracle Extractable Value (OEV): Unlocking New Revenue Models and Sustainability for Oracles & Dapps. Discussing Oracle Extractable Value (OEV) and its role in the broader narrative of Maximal Extractable Value (MEV), Panelists: Hart Lambur (UMA), Tesa Ho (Flashbots), Ugur Mersinlioglu (API3), Ariah Klages-Mundt (Gyroscope)"
   location: Blockchain Oracle Summit
@@ -215,14 +235,6 @@
   slides: https://github.com/shayanb/cryptojacking-first-paper/blob/master/Presentation/Cryptojacking_IEEESB2018.pdf
   flag: CA
 
-- name: 2nd Annual Blockchain Bootcamp
-  descr: "This blockchain bootcamp is an introductory level workshop that will teach the attendees the main building blocks of blockchain, with hands on experience with timestamping and associated use cases."
-  location: Blockhouse (Catallaxy), Montreal, Canada.
-  website: https://www.eventbrite.ca/e/2nd-annual-blockchain-bootcamp-tickets-43900509606#
-  flag: CA
-  year: 2018
-  type: workshop
-
 - name: A first look at browser-based Cryptojacking
   descr: "Security & Privacy on the Blockchain (affiliated with Euro S&P) - Paper Presentation"   #image: pong.png
   # github: https://github.com/shayanb/cryptojacking-first-paper
@@ -238,14 +250,6 @@
   location: Concordia University, Montreal, Canada
   slides: https://www.icloud.com/keynote/0uzKpKrRRJ0HlBg7Sx_GZPA0w#Concordia_feb102018_fundamentals_of_blockchain
   website: http://www.concordia.ca/cuevents/main/2018/02/10/lecture-blockchain-fundamentals.html
-  flag: CA
-  type: talk
-  year: 2018
-
-- name: WTH is Bitcoin?
-  descr: "A through historical view of where Bitcoin and Blockchain technology came from and how it evolved to be what we know now."  #image: pong.png
-  location: Technologies, World and Societies Class, School of Sociological and Anthropological Studies, University of Ottawa, Canada
-  slides: https://goo.gl/6bcbgR
   flag: CA
   type: talk
   year: 2018

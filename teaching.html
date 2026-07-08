@@ -1,0 +1,431 @@
+---
+layout: page
+title: Teaching
+permalink: /teaching/
+---
+
+<div class="teaching-page">
+  <div class="page-header">
+    <h1>Teaching</h1>
+    <p class="page-subtitle">University Courses, Academies, and Teaching Assistantships</p>
+  </div>
+
+  <div class="teaching-list">
+    {% for course in site.data.index.teaching %}
+    <div class="teaching-card">
+      <div class="teaching-header">
+        <div class="teaching-title-row">
+          <h3 class="teaching-title">
+            {% if course.website %}
+              <a href="{{ course.website }}" target="_blank" rel="noopener" class="teaching-title-link">{{ course.name }}</a>
+            {% else %}
+              {{ course.name }}
+            {% endif %}
+          </h3>
+          <div class="teaching-badges">
+            {% if course.upcoming %}
+              <span class="teaching-upcoming">Upcoming</span>
+            {% endif %}
+            {% if course.terms %}
+              {% for term in course.terms %}
+              <span class="teaching-term">{{ term }}</span>
+              {% endfor %}
+            {% elsif course.term %}
+              <span class="teaching-term">{{ course.term }}</span>
+            {% endif %}
+            {% if course.online %}
+              <i class="fa fa-globe online-icon" title="Online"></i>
+            {% elsif course.flag %}
+              <img src="/img/flags/{{ course.flag }}.png" alt="{{ course.flag }}" class="flag-icon">
+            {% endif %}
+          </div>
+        </div>
+        <div class="teaching-meta-row">
+          <span class="teaching-role role-{{ course.role | slugify }}">{{ course.role }}</span>
+          {% if course.level %}
+          <span class="teaching-level">{{ course.level }}</span>
+          {% endif %}
+          {% if course.credits %}
+          <span class="teaching-credits">{{ course.credits }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if course.modules %}
+      <div class="teaching-modules">
+        {% for module in course.modules %}
+        <span class="module-tag">{{ module }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if course.descr %}
+      <p class="teaching-description">{{ course.descr }}</p>
+      {% endif %}
+
+      <div class="teaching-footer">
+        <div class="teaching-institution">
+          <i class="fa fa-university"></i>
+          {% if course.institution_website %}
+            <a href="{{ course.institution_website }}" target="_blank" rel="noopener" class="institution-link">{{ course.institution }}</a>
+          {% else %}
+            {{ course.institution }}
+          {% endif %}
+          {% if course.location %}
+          <span class="teaching-location"><i class="fa fa-map-marker"></i> {{ course.location }}</span>
+          {% endif %}
+        </div>
+
+        {% if course.links %}
+        <div class="teaching-media">
+          <span class="media-label"><i class="fa fa-link"></i> Links:</span>
+          {% for link_item in course.links %}
+          <a href="{{ link_item.link }}" target="_blank" rel="noopener" class="teaching-media-link">{{ link_item.name }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if course.media %}
+        <div class="teaching-media">
+          <span class="media-label"><i class="fa fa-newspaper-o"></i> Press:</span>
+          {% for media_item in course.media %}
+          <a href="{{ media_item.link }}" target="_blank" rel="noopener" class="teaching-media-link">{{ media_item.name }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.teaching-page .page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.teaching-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.teaching-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #ff6b35;
+  transition: all 0.3s ease;
+}
+
+.teaching-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-left-color: #1e3a5f;
+}
+
+.teaching-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.teaching-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.teaching-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.teaching-title-link:hover {
+  color: #ff6b35;
+}
+
+.teaching-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.teaching-term {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  white-space: nowrap;
+}
+
+.teaching-upcoming {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  white-space: nowrap;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 18px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.online-icon {
+  font-size: 1.1rem;
+  color: #1e3a5f;
+}
+
+[data-theme="dark"] .online-icon {
+  color: var(--text-muted);
+}
+
+.teaching-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.teaching-role {
+  padding: 0.25rem 0.85rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: #6b7280;
+  color: white;
+}
+
+.teaching-role.role-instructor {
+  background: #ff6b35;
+  color: white;
+}
+
+.teaching-role.role-teaching-assistant {
+  background: #1e3a5f;
+  color: white;
+}
+
+.teaching-role.role-guest-lecturer {
+  background: #0f766e;
+  color: white;
+}
+
+.teaching-level,
+.teaching-credits {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.teaching-level::before,
+.teaching-credits::before {
+  content: "•";
+  margin-right: 0.75rem;
+  color: #d1d5db;
+}
+
+.teaching-modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0 0;
+}
+
+.module-tag {
+  background: rgba(30, 58, 95, 0.08);
+  color: #1e3a5f;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(30, 58, 95, 0.15);
+}
+
+.teaching-description {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0 0 0;
+  text-align: justify;
+}
+
+.teaching-footer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.teaching-institution {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.institution-link {
+  color: #1e3a5f;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.institution-link:hover {
+  color: #ff6b35;
+  text-decoration: underline;
+}
+
+.teaching-location {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.teaching-location i {
+  margin-right: 0.25rem;
+}
+
+.teaching-media {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.media-label {
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.teaching-media-link {
+  color: #1e3a5f;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.teaching-media-link:hover {
+  border-color: #ff6b35;
+  color: #ff6b35;
+  transform: translateY(-1px);
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .teaching-card {
+  background: var(--card-color);
+  border-left-color: #ff6b35;
+}
+
+[data-theme="dark"] .teaching-card:hover {
+  border-left-color: #1e3a5f;
+}
+
+[data-theme="dark"] .teaching-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .teaching-description {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .teaching-level,
+[data-theme="dark"] .teaching-credits,
+[data-theme="dark"] .teaching-institution,
+[data-theme="dark"] .media-label {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .institution-link {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .institution-link:hover {
+  color: #ff6b35;
+}
+
+[data-theme="dark"] .teaching-term {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+[data-theme="dark"] .module-tag {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .teaching-media-link {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .teaching-media-link:hover {
+  color: #ff6b35;
+  border-color: #ff6b35;
+}
+
+[data-theme="dark"] .teaching-footer {
+  border-top-color: var(--border-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .teaching-card {
+    padding: 1.5rem;
+  }
+
+  .teaching-title-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .teaching-badges {
+    align-self: flex-start;
+  }
+
+  .teaching-title {
+    font-size: 1.1rem;
+  }
+
+  .teaching-description {
+    font-size: 0.9rem;
+  }
+
+  .teaching-location {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+</style>

@@ -1,0 +1,169 @@
+# Teaching engagements: university courses, academies, and teaching assistantships
+# Ordered newest-first; the teaching page renders them in file order.
+#
+# Fields:
+#   website             -> linked from the course title (course page / syllabus / materials)
+#   institution_website -> linked from the institution name (university / department / org)
+#   terms               -> list of terms, each rendered as its own tag (use `term` for a single one)
+#   links               -> related resources (slides, videos, forums)
+#   media               -> press coverage
+
+- name: Fundamentos de Blockchain (Blockchain Fundamentals)
+  role: Instructor
+  institution: Nova School of Business & Economics (Nova SBE)
+  institution_website: https://www.novasbe.unl.pt/en/
+  location: Lisbon, Portugal
+  flag: PT
+  term: Fall 2026
+  year: 2026
+  upcoming: true
+  credits: 3.5 ECTS
+  level: Graduate
+  descr: "Graduate course exploring blockchain as a transformative technology reshaping industries, particularly finance. Students gain foundational knowledge of distributed ledger systems and key concepts including decentralized applications (dApps), decentralized finance (DeFi), decentralized autonomous organizations (DAOs), smart contracts, and digital wallets, along with how blockchain affects organizational structures and intellectual property management. Lectures are complemented by real-world project discussions, in-class exercises, mini-projects, and workshops with guest experts. Offered across seven master's programs at Nova SBE, including the International Master's in Finance."
+  website: https://guia.unl.pt/pt/2025/novasbe/program/M799/course/2622
+
+- name: Blockchain Academy (2nd Edition)
+  role: Instructor
+  institution: Universidade da Beira Interior (UBI), in partnership with Nova SBE
+  institution_website: https://www.ubi.pt/en/
+  location: "Covilhã, Portugal"
+  flag: PT
+  term: May - June 2026
+  year: 2026
+  credits: 1 ECTS per module
+  level: Open enrollment
+  modules:
+    - Blockchain Fundamentals
+    - Blockchain Platforms
+    - Business Applications of Smart Contracts
+  descr: "Second edition of the free Blockchain Academy, brought to the interior of Portugal in partnership between Nova SBE and Universidade da Beira Interior -- extending the BLOCKCHAIN.PT mission of democratizing blockchain literacy beyond Lisbon and the coastal urban centers, and bringing opportunities in emerging technologies to smaller cities and regions like Covilhã and Beira Interior. A four-week intensive hybrid program of five modules, with one day of in-person instruction per module followed by three weeks of online sessions with project development support and final presentations, open to students, entrepreneurs, and professionals from the region. Instructor for the Blockchain Fundamentals, Blockchain Platforms, and Business Applications of Smart Contracts modules."
+  website: https://www.ubi.pt/Evento/23841
+  media:
+    - name: UBI Announcement
+      link: https://www.ubi.pt/Evento/23841
+
+- name: Blockchain Academy
+  role: Instructor
+  institution: Nova School of Business & Economics (Nova SBE)
+  institution_website: https://www.novasbe.unl.pt/en/
+  location: Carcavelos (Lisbon), Portugal
+  flag: PT
+  term: January 2026
+  year: 2026
+  credits: 1 ECTS per module
+  level: Open enrollment
+  modules:
+    - Blockchain Fundamentals
+    - Blockchain Platforms
+    - Business Applications of Smart Contracts
+  descr: "First edition of the Blockchain Academy: a free, intensive four-week hybrid training in blockchain fundamentals, launched by Nova SBE as part of the BLOCKCHAIN.PT project -- a national initiative financed by the Portuguese Recovery and Resilience Program and the European Union under Next Generation EU -- to democratize blockchain literacy in Portugal, opening the field beyond the academic community to entrepreneurs, technology professionals, and the wider public, on the premise that blockchain literacy is an essential tool for preparing society and the economy for future digital challenges. Five modules taught in English -- Blockchain Fundamentals, Blockchain Platforms, Business Applications of Smart Contracts, Governance and Compliance, and Blockchain Project Management -- each granting 1 ECTS through continuous assessment and a final project. Instructor for the Blockchain Fundamentals, Blockchain Platforms, and Business Applications of Smart Contracts modules. All course content is freely available online, in English and Portuguese, at blockchainacademy.online."
+  website: https://blockchainacademy.online/
+  media:
+    - name: Nova SBE Press Release
+      link: https://www.novasbe.unl.pt/pt/whats-happening/imprensa/comunicados/comunicado-detalhe/id/1373/nova-sbe-lanca-formacao-gratuita-em-fundamentos-de-blockchain
+    - name: ECO
+      link: https://eco.sapo.pt/2026/01/08/nova-sbe-lanca-formacao-gratuita-em-blockchain/
+    - name: Business IT
+      link: https://business-it.pt/2026/01/09/nova-sbe-lanca-formacao-gratuita-em-blockchain/
+    - name: PCGuia
+      link: https://www.pcguia.pt/2026/01/nova-sbe-lanca-blockchain-academy-uma-formacao-gratuita-e-hibrida-para-democratizar-a-literacia-em-blockchain-em-portugal/
+    - name: Executive Digest
+      link: https://executivedigest.sapo.pt/nova-sbe-lanca-formacao-gratuita-em-blockchain/
+    - name: PME Magazine
+      link: https://pmemagazine.sapo.pt/nova-sbe-lanca-formacao-gratuita-em-fundamentos-de-blockchain/
+    - name: HR Portugal
+      link: https://hrportugal.sapo.pt/nova-sbe-lanca-formacao-gratuita-em-blockchain/
+
+- name: Smart Contract Programming Course (2nd Edition)
+  role: Instructor
+  institution: CoinIran Academy
+  institution_website: https://coiniran.academy/
+  location: Online (taught in Farsi)
+  online: true
+  term: Summer 2023
+  year: 2023
+  level: Open enrollment
+  descr: "Second edition of CoinIran Academy's free blockchain and smart contract programming course, taught in Farsi and distributed openly through YouTube and the CoinIran community forum. Twelve weekly video sessions covering blockchain fundamentals, consensus mechanisms and cryptography, Ethereum architecture and clients, Solidity, smart contract design patterns and standards (ERC-20, ERC-721, ERC-1155), Web3 frontend integration, security auditing, gas optimization and common vulnerabilities, DeFi, Layer 2 scaling, and zero-knowledge proofs, with guest speakers from the Ethereum Foundation and Quantstamp. Supervised the team of instructors; certification required passing session quizzes and completing midterm and final projects."
+  website: https://www.youtube.com/playlist?list=PLDwI1rIhknpN-4ZnbcQfqDgM5dVY73ruS
+  links:
+    - name: YouTube Playlist
+      link: https://www.youtube.com/playlist?list=PLDwI1rIhknpN-4ZnbcQfqDgM5dVY73ruS
+    - name: Course Forum
+      link: https://smartcontract.coiniran.com/t/topic/5637
+  media:
+    - name: "CoinIran: Smart Contract Development Association"
+      link: https://coiniran.com/smart-contract-development-association/
+
+- name: Blockchain & Smart Contract Development Course
+  role: Instructor
+  institution: CoinIran Academy
+  institution_website: https://coiniran.academy/
+  location: Online (taught in Farsi)
+  online: true
+  term: Winter 2021 - 2022
+  year: 2021
+  level: Open enrollment
+  descr: "Free 48-hour blockchain and smart contract development course taught in Farsi, delivered as 12 instructional sessions plus 6 Q&A sessions and distributed openly through YouTube and the CoinIran community forum. The curriculum covered blockchain technology and Ethereum fundamentals, development tooling, Solidity, writing and testing smart contracts, debugging and security, and advanced topics including design patterns, ENS, IPFS, and Ethereum 2.0. Following the course's completion and high demand for Farsi-language educational content, the full content was released as a free educational package."
+  website: https://www.youtube.com/playlist?list=PLDwI1rIhknpNyUWdFt_XD6rpTEjTkUcYo
+  links:
+    - name: YouTube Playlist
+      link: https://www.youtube.com/playlist?list=PLDwI1rIhknpNyUWdFt_XD6rpTEjTkUcYo
+    - name: Course Forum
+      link: https://smartcontract.coiniran.com/t/topic/1501
+  media:
+    - name: "CoinIran: Course Announcement"
+      link: https://coiniran.com/solidity-development-course/
+    - name: "CoinIran: Free Course Package Release"
+      link: https://coiniran.com/blockchain-developer-online-bootcamp/
+
+- name: INSE 6615 - Blockchain Technology
+  role: Teaching Assistant
+  institution: Concordia University
+  institution_website: https://www.concordia.ca/ginacody/info-systems-eng.html
+  location: Montreal, Canada
+  flag: CA
+  terms:
+    - Winter 2018
+    - Winter 2019
+  year: 2019
+  credits: 4 credits
+  level: Graduate
+  descr: "The course covers blockchain technology with an emphasis on its application to finance. Starting with the Bitcoin cryptocurrency, it covers the requisite cryptographic primitives (hash functions, digital signatures, commitments, accumulators, Merkle trees, proof of work) and explains the Bitcoin protocol (including transactions, blocks, network and software). It then focuses on programmable currency and contracts, explaining Bitcoin's scripting feature and the Ethereum blockchain. It covers the Solidity programming language, highlighting specific features that were added for the blockchain context (and don't exist in other object-oriented programming languages). Finally, the course covers blockchain use-cases including financial technology and government use. Assignments include deploying an actual contract to Ethereum's testnet. A project is required."
+  website: https://www.pulpspy.com/courses/blockchain/index.html
+
+- name: WTH is Bitcoin?
+  role: Guest Lecturer
+  institution: University of Ottawa, School of Sociological and Anthropological Studies
+  institution_website: https://www.uottawa.ca/faculty-social-sciences/sociological-anthropological-studies
+  location: Ottawa, Canada
+  flag: CA
+  term: "2018"
+  year: 2018
+  level: Undergraduate
+  descr: "Guest lecture for the Technologies, World and Societies class: a thorough historical view of where Bitcoin and blockchain technology came from and how it evolved to be what we know now."
+  links:
+    - name: Slides
+      link: https://goo.gl/6bcbgR
+
+- name: 2nd Annual Blockchain Bootcamp
+  role: Instructor
+  institution: Blockhouse (Catallaxy)
+  location: Montreal, Canada
+  flag: CA
+  term: "2018"
+  year: 2018
+  level: Open enrollment
+  descr: "Introductory-level bootcamp teaching attendees the main building blocks of blockchain, with hands-on experience with timestamping and associated use cases."
+  website: https://www.eventbrite.ca/e/2nd-annual-blockchain-bootcamp-tickets-43900509606
+
+- name: INSE 6150 - Security Evaluation Methodologies
+  role: Teaching Assistant
+  institution: Concordia University
+  institution_website: https://www.concordia.ca/ginacody/info-systems-eng.html
+  location: Montreal, Canada
+  flag: CA
+  term: Winter 2016
+  year: 2016
+  credits: 4 credits
+  level: Graduate
+  descr: "Security evaluation of information systems, software, and products. Security code inspection, security testing, security standards, and preparation of a security evaluation: impact, likelihood, and severity scales. Vulnerability analysis, risk analysis, and security plan elaboration. ITSEC, MARION, and MEHARI methods, OCTAVE, Common Criteria, target of evaluation, protection profiles, security functional and assurance requirements, assurance levels, and the evaluation process. IT security ethics, privacy, digital copyright, licensing IT security products, computer fraud and abuse, incident handling, business records, and security forensics, with security evaluation case studies. Information security governance: risk management, business strategy, standards, COBIT, and situation awareness. A project is required."

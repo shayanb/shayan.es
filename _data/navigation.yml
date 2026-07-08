@@ -12,6 +12,13 @@
   url: "/career/"
   desktop: true
   hamburger: true
+  submenu:
+    - title: "Experience"
+      url: "/career/"
+    - title: "Security Audits"
+      url: "/audits/"
+    - title: "CVEs"
+      url: "/audits/#cve"
 
 - title: "Scholar"
   url: "/scholar/"
@@ -22,6 +29,8 @@
       url: "/scholar/#academic-journey"
     - title: "Publications"
       url: "/scholar/#publications"
+    - title: "Teaching"
+      url: "/teaching/"
     # - title: "Scholarships"
     #   url: "/scholar/#scholarships-awards"    
     # - title: "Academic Reviews"
@@ -33,11 +42,11 @@
   url: "/projects/"
   desktop: true
   hamburger: true
-
-- title: "Apps"
-  url: "/apps/"
-  desktop: true
-  hamburger: true
+  submenu:
+    - title: "Projects"
+      url: "/projects/"
+    - title: "Apps"
+      url: "/apps/"
 
 
 

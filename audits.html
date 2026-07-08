@@ -84,6 +84,24 @@ excerpt: "A Selected List of Security Reviews and Public Audits"
 
   </div>
 
+  <div class="archive-title">
+    <h4 class="archive-year" id="cve">CVEs</h4>
+  </div>
+  <ul>
+    {% for report in site.data.index.cve %}
+    <li class="audit-item">
+      <div class="audit-month">{{ report.year }}</div>
+      <div class="audit-content">
+        <div class="audit-main">
+          <a href="{{ report.link }}" target="_blank" class="audit-project">{{ report.CVE }}</a>
+          <span class="audit-separator">•</span>
+          <span class="audit-title">{{ report.name }}</span>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+
 </div>
 </div>
 

@@ -1,7 +1,12 @@
 - name: MoaV (Mother of All VPNs)
-  descr: Multi-protocol internet censorship circumvention stack. With focus on usability and redundancy, to increase the chances of people in censored regions get access to free internet. Features multiple tunneling protocols including V2Ray stack, WireGuard variants, WebSocket Tunnels, and DNS tunneling --with automatic fallback--, and includes user management, and analytics. Bandwidth donation to Psiphon Conduit and Tor Snowflake.
+  descr: Multi-protocol internet censorship circumvention stack optimized for hostile network environments. Built on the conviction that internet freedom cannot depend on any single tool, protocol, or organization -- no single protocol survives all censorship regimes, and the time to build capacity is not during the shutdown. One command turns a cheap VPS (or a Raspberry Pi) into a node running 16+ simultaneous circumvention protocols -- Reality/VLESS, Trojan, Hysteria2, WireGuard and AmneziaWG, Shadowsocks-2022, Telegram MTProxy, and DNS tunnels -- with CDN fallback for blocked IPs and a decoy website for unauthenticated traffic. Includes per-user credential management with QR code and subscription exports, Grafana/Prometheus traffic analytics, and optional bandwidth donation to Psiphon Conduit, Tor Snowflake, and MahsaNet, serving millions of users in censored regions.
   website: https://moav.sh/
   github: https://github.com/shayanb/MoaV
+  media:
+    - name: Documentation
+      link: https://moav.sh/docs/
+    - name: Philosophy - Why MoaV Exists
+      link: https://moav.sh/docs/philosophy/
   logo:  "/img/projects/moav-logo.png"
   year: 2026
   status: active
@@ -16,6 +21,23 @@
   - "/img/projects/moav-admin-dashboard.jpg"
 
 
+- name: logosup
+  descr: Automated CLI tool for installing, running, and managing Logos Blockchain nodes -- from zero to a running node in minutes. Handles Docker configuration, node setup, and key generation, and provides wallet management, consensus state and peer visibility, built-in Grafana/Prometheus monitoring, server security hardening (firewall, SSH, fail2ban), and testnet faucet integration. Runs on Linux, macOS, and WSL2.
+  github: https://github.com/logosnode/logosup
+  year: 2026
+  status: active
+  screenshots:
+  - "/img/projects/logosup-help.jpeg"
+  - "/img/projects/logosup-status.jpeg"
+  - "/img/projects/logosup-grafana-overview.jpeg"
+  - "/img/projects/logosup-grafana-deepdive.jpeg"
+
+- name: pgdocker
+  descr: Dockerized Polkadot playground-cli. Deploy apps to the Polkadot Playground and Bulletin chain without installing any dependencies on the host machine -- a pre-baked container toolchain (Node, IPFS Kubo, playground-cli) with persistent QR-code authentication across runs and a simple wrapper script that proxies into the container. Built at Web3 Summit 2026, Berlin.
+  github: https://github.com/shayanb/pgdocker
+  year: 2026
+  status: completed
+
 - name: retroMaid
   descr: A powerful metadata scraper for Batocera OS ROM collections. Automatically fetches and organizes game metadata, cover art, screenshots, and videos from online databases. Supports duplicate detection, DOS game conversion, and integration with ScreenScraper.fr.
   github: https://github.com/shayanb/retroMaid
@@ -26,6 +48,13 @@
       link: https://www.reddit.com/r/Roms/comments/1qdmk2n/rom_collections_management_and_scraping_metadata/
   screenshots:
   - "/img/projects/retromaid-screenshot-1.png"
+
+- name: Creed Web3 Risk Assessment Framework
+  descr: Interactive cybersecurity risk assessment framework designed for Web3 projects, built on NIST CSF v2.0 with 106 security controls across six functions (Govern, Identify, Protect, Detect, Respond, Recover) and a 6-tier maturity model. Adapts traditional frameworks to Web3-specific risks such as smart contract upgradeability, DAO governance, bridge security, and oracle dependencies, with real-time scoring, JSON import/export, and PDF report generation. Built with the Creed, a grassroots collective of security professionals democratizing Web3 security.
+  website: https://web3risk.thecreed.xyz/
+  github: https://github.com/creedxyz/web3-risk-assessment
+  year: 2025
+  status: completed
 
 - name: AiVS (AI Agents + EigenLayer AVS)
   descr: AiVS (short for AI Agents + AVS) is a framework that leverages the power of AI-driven decision-making in conjunction with decentralized Autonomous/Actively Validation Services (such as EigenLayer) to securely distribute tasks and verify outcomes on-chain. <br><br> ETHGlobal Agentic Ethereum Hackathon 2025 Participant and Winner of multiple awards including Coinbase Developer Platform, Gaia and Collab.Land, and EigenLayer - Eigen Agents.
@@ -50,6 +79,15 @@
   status: completed
   screenshots:
   - "/img/projects/legions-screenshot.gif"
+
+- name: Ethereum Smart Contract Security Best Practices
+  descr: "Contributor to the industry-standard guide for secure smart contract development, maintained by ConsenSys Diligence. The guide covers secure development recommendations, known attacks, security tooling, and general security philosophy for Ethereum and Solidity, and has become one of the most widely referenced security resources in the ecosystem."
+  website: https://consensysdiligence.github.io/smart-contract-best-practices/
+  github: https://github.com/ConsenSysDiligence/smart-contract-best-practices
+  year: 2019
+  start_year: 2018
+  end_year: 2021
+  status: completed
 
 - name: Catena Blockchain Suite
   descr: The Catena Blockchain Suite is an industry first product to quickly enable publishing of complex datasets onto public or private blockchains. Utilizing smart contracts and hardware security modules (HSM), Catena enables a new level of data consistency and integrity. Government of Canada, piloted by National Research Council (NRC) is using the Catena Blockchain Suite on the Ethereum blockchain, to publish funding and grant information in real time.
