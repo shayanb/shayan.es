@@ -19,7 +19,7 @@
   location: Toulouse, FR
   date: 2016
 
-- name: Financial Cryptography 17
+- name: Financial Cryptography and Data Security (fc'17)
   link: http://fc17.ifca.ai/
   location: Sliema, MT
   date: 2017
@@ -29,7 +29,7 @@
   location: Ottawa, CA
   date: 2017
 
-- name: sibos
+- name: Sibos
   link: https://www.sibos.com/conference/2017
   location: Toronto, CA
   date: 2017
@@ -39,10 +39,20 @@
   location: Waterloo, CA
   date: 2017
 
-- name: DevCon3
+- name: DevCon 3
   link: https://ethereumfoundation.org/devcon3/
   location: Cancun, MX
   date: 2017
+
+- name: BlockShow Americas 2018
+  link: https://blockshow.com/americas/
+  location: Las Vegas, US
+  date: 2018
+
+- name: Embodiments of Space
+  link: https://www.facebook.com/HISTORY.CONCORDIA.UNIVERSITY/posts/a-message-from-our-chair-peter-gossagehearty-congratulations-are-due-to-the-team/1895928993780221/
+  location: Montreal, CA
+  date: 2018
 
 - name: IEEE Euro Security and Privacy 18
   link: https://www.ieee-security.org/TC/EuroSP2018/
@@ -84,6 +94,136 @@
   location: Prague, CZ
   date: 2018
 
+- name: Consensus 2019
+  link: https://www.coindesk.com/events/consensus-2019
+  location: New York, US
+  date: 2019
+
+- name: RadicalxChange Detroit
+  link: https://www.radicalxchange.org/
+  location: Detroit, US
+  date: 2019
+
+- name: Financial Cryptography and Data Security (fc'19)
+  link: https://fc19.ifca.ai/
+  location: St. Kitts, KN
+  date: 2019
+
+- name: DevCon 5
+  link: https://devcon.org/
+  location: Osaka, JP
+  date: 2019
+
+- name: IETF 105
+  link: https://www.ietf.org/live/previous/live105/
+  location: Montreal, CA
+  date: 2019
+
+- name: ICANN 66
+  link: https://archive.icann.org/meetings/icann66/
+  location: Montreal, CA
+  date: 2019
+
+- name: Blockchain Training Conference
+  link: https://blockchaintraining.org/home/home/
+  location: Denver, US
+  date: 2019
+
+- name: The Science of Blockchain Conference (SBC'20)
+  link: https://cbr.stanford.edu/sbc20/
+  location: Stanford University, US
+  date: 2020
+
+- name: ETHDenver
+  link: https://www.ethdenver.com/
+  location: Denver, US
+  date: 2021
+
+- name: DEF CON 29
+  link: https://defcon.org/html/defcon-29/dc-29-index.html
+  location: Las Vegas, US
+  date: 2021
+
+- name: The Science of Blockchain Conference (SBC'22)
+  link: https://cbr.stanford.edu/sbc22/
+  location: Stanford University, US
+  date: 2022
+
+- name: DeFi Security Summit
+  link: https://defisecuritysummit.org/events/dss-2022
+  location: Stanford University, US
+  date: 2022
+
+- name: ETHDenver
+  link: https://www.ethdenver.com/
+  location: Denver, US
+  date: 2022
+
+- name: Devcon 6
+  link: https://blog.ethereum.org/2020/05/28/devcon-hacia-colombia-en-2021
+  location: Bogota, CO
+  date: 2022
+
+- name: The Science of Blockchain Conference (SBC'23)
+  link: https://cbr.stanford.edu/sbc23/
+  location: Stanford University, US
+  date: 2023
+
+- name: Blockchain Futurist Conference
+  link: https://futuristconference.com/
+  location: Toronto, CA
+  date: 2023
+
+- name: ETHGlobal Lisbon 
+  link: https://ethglobal.com/events/lisbon
+  location: Lisbon, PT
+  date: 2023
+
+- name: ETHGlobal New York 
+  link: https://ethglobal.com/events/newyork2023
+  location: New York, US
+  date: 2023
+
+- name: ONCHAIN SUMMIT
+  link: https://onchain-summit.com/
+  location: Istanbul, TR
+  date: 2023
+
+- name: Devconnect 2023
+  link: https://devconnect.org/istanbul
+  location: Istanbul, TR
+  date: 2023
+
+- name: ETHGlobal Istanbul
+  link: https://ethglobal.com/events/istanbul2023
+  location: Istanbul, TR
+  date: 2023
+
+- name: The Staking Summit
+  link: https://stakingreward.com/summit/
+  location: Istanbul, TR
+  date: 2023
+
+- name: Web3Privacy Summit 3
+  link: https://web3privacy.info/
+  location: Prague, CZ
+  date: 2023
+
+- name: Blockchain Futurist Conference
+  link: https://futuristconference.com/
+  location: Toronto, CA
+  date: 2024
+
+- name: Devcon 7
+  link: https://sea.devcon.org/en/devcon-week/
+  location: Bangkok, TH
+  date: 2024
+
+- name: ETHGlobal Bangkok
+  link: https://ethglobal.com/events/bangkok
+  location: Bangkok, TH
+  date: 2024
+
 - name: Consensus 2025
   link: https://consensus2025.coindesk.com/
   location: Toronto, CA
@@ -119,7 +259,7 @@
   location: Berlin, DE
   date: 2026
 
-- name: NeoCypherpunk Summit 2026
+- name: NeoCypherpunk web3privacy Summit 2026
   link: https://s26ber.web3privacy.info/
   location: Berlin, DE
   date: 2026
@@ -127,4 +267,19 @@
 - name: Blockchain Confluence 2026
   link: https://blockchainconfluence.pt/
   location: Lisbon, PT
+  date: 2026
+
+- name: ETHGlobal Lisbon 
+  link: https://ethglobal.com/events/lisbon2026
+  location: Lisbon, PT
+  date: 2026
+  
+- name: Pragma Lisbon 
+  link: https://ethglobal.com/pragma
+  location: Lisbon, PT
+  date: 2026
+
+- name: Global Gathering (GG) 2026
+  link: https://gathering.digitalrights.community/
+  location: Estoril, PT
   date: 2026

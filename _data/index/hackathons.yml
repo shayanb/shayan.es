@@ -2,6 +2,10 @@
 # role: judge, mentor, hacker
 # For hacker role, include project details and awards
 
+- name: "ETHGlobal Lisbon"
+  date: "July 2026"
+  location: "Lisbon, PT"
+  role: "mentor"
 
 - name: "Agentic Ethereum"
   date: "February 2025"
@@ -36,8 +40,8 @@
 
 - name: "ETHDenver"
   date: "March 2023"
-  location: "New York, US"
-  role: "judge"
+  location: "Denver, US"
+  role: "mentor"
 
 - name: "ETHGlobal Istanbul"
   date: "November 2023"
@@ -47,12 +51,7 @@
 - name: "ETHGlobal New York"
   date: "September 2023"
   location: "New York, US"
-  role: "mentor"
-
-- name: "ETHGlobal Lisbon"
-  date: "May 2023"
-  location: "Lisbon, PT"
-  role: "mentor"
+  role: "judge"
 
 - name: "Cafe New York"
   date: "September 2023"
@@ -63,4 +62,9 @@
   date: "August 2022"
   location: "Toronto, CA"
   role: "judge"
+
+- name: ETHWaterloo
+  date: "October 2017"
+  role: "hacker" 
+  location: Waterloo, CA
 
