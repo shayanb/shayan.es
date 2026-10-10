@@ -15,7 +15,11 @@
       "Bash(rm:*)",
       "Bash(python3:*)",
       "Bash(exiftool:*)",
-      "Bash(yt-dlp:*)"
+      "Bash(yt-dlp:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.youtube.com)",
+      "WebFetch(domain:s26ber.web3privacy.info)",
+      "WebFetch(domain:vibes.dappcon.io)"
     ],
     "deny": []
   }
