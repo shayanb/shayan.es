@@ -4,7 +4,7 @@
 
 ## About
 
-Shayan Eskandari is a senior security engineer, blockchain researcher, post-doctoral fellow and instructor at NOVA SBE (Portugal), where he teaches blockchain fundamentals and leads modules of the Blockchain Academy (part of the BLOCKCHAIN.PT initiative to democratize blockchain literacy). He holds a PhD from Concordia University on "Uncovering Blockchain Challenges: Technical Nuances and Their Unforeseen Consequences." His work spans smart contract auditing, censorship circumvention tools, AI-driven development, and the responsible application of decentralized technology. He co-founded Creed, a Web3 security collective (2024-2025), and Rebellion Systems (2025-2026), an authentication and digital-identity company building zero-knowledge-proof infrastructure (AuthenSee).
+Shayan Eskandari is a security researcher, blockchain researcher, post-doctoral fellow and adjunct professor at NOVA SBE (Portugal), where he teaches Blockchain Fundamentals in the Master's in Management program and leads modules of the Blockchain Academy (part of the BLOCKCHAIN.PT initiative to democratize blockchain literacy). He holds a PhD from Concordia University on "Uncovering Blockchain Challenges: Technical Nuances and Their Unforeseen Consequences." His work spans smart contract auditing, censorship circumvention tools, AI-driven development, and the responsible application of decentralized technology. He co-founded Creed, a Web3 security collective (2024-2025), and Rebellion Systems (2025-2026), an authentication and digital-identity company building zero-knowledge-proof infrastructure (AuthenSee).
 
 ## Philosophy
 

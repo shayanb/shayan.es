@@ -1,6 +1,13 @@
 # careers section data
 # Enhanced with descriptions and company logos
 
+- name: Nova School of Business & Economics (Nova SBE)
+  link: https://www.novasbe.unl.pt/
+  date: 2025 - Present
+  job: Associate Professor, Adjunct
+  description: "Adjunct faculty teaching Blockchain Fundamentals within the Nova SBE Master's in Management program, grounding graduate students in the technical and security foundations of blockchain systems. Part of the Blockchain Academy under the BLOCKCHAIN.PT initiative to broaden blockchain literacy."
+  technologies: ["Blockchain", "Teaching", "Smart Contract Security", "Higher Education"]
+
 - name: Rebellion
   link: https://rebellion.systems/
   date: 2025 - 2026
