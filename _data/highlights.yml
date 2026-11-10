@@ -9,14 +9,6 @@
   target: ""
   year: 2026
 
-- title: "AI & Blockchain: When Code Writes Back"
-  type: "Podcast"
-  description: "در این اپیزود از پادکست شیر یا خط، به بررسی هم‌افزایی جذاب و آینده‌ساز دو تکنولوژی هوش مصنوعی و بلاکچین می‌پردازیم"
-  link: "/talks/#podcasts"
-  action: "publication"
-  target: "podcasts"
-  year: 2025
-
 - title: "MoaV (Mother of All VPNs)"
   type: "Project"
   description: "Multi-protocol internet censorship circumvention stack -- one command turns a cheap VPS into a node running 16+ circumvention protocols"
@@ -41,13 +33,13 @@
   target: ""
   year: 2025
 
-- title: "Co-founder of Creed"
+- title: "Associate Professor, Adjunct"
   type: "Career"
-  description: "Leading blockchain security initiatives"
+  description: "Teaching Blockchain Fundamentals in the Nova SBE Master's in Management program"
   link: "/career/"
   action: "page"
   target: ""
-  year: 2024
+  year: 2025
 
 - title: "PhD Dissertation"
   type: "Scholar"
