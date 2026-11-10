@@ -1,6 +1,14 @@
 # Recent highlights for homepage
 # These are featured items that will appear on the homepage with clickable links
 
+- title: "Rage-Coding the Mother of All VPNs @ Devcon 8"
+  type: "Talk"
+  description: "Notes from Iran's internet blackouts -- a case study of MoaV, the modular anti-censorship stack, presented at Devcon 8 in Mumbai"
+  link: "https://www.youtube.com/watch?v=p1bklAl3-BQ"
+  action: "external"
+  target: ""
+  year: 2026
+
 - title: "AI & Blockchain: When Code Writes Back"
   type: "Podcast"
   description: "در این اپیزود از پادکست شیر یا خط، به بررسی هم‌افزایی جذاب و آینده‌ساز دو تکنولوژی هوش مصنوعی و بلاکچین می‌پردازیم"
