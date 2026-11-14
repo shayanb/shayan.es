@@ -1,9 +1,9 @@
 # Recent highlights for homepage
 # These are featured items that will appear on the homepage with clickable links
 
-- title: "Rage-Coding the Mother of All VPNs @ Devcon 8"
+- title: "Rage-Coding the Mother of All VPNs"
   type: "Talk"
-  description: "Notes from Iran's internet blackouts -- a case study of MoaV, the modular anti-censorship stack, presented at Devcon 8 in Mumbai"
+  description: "Notes from Iran's internet blackouts, a case study of MoaV, the modular anti-censorship stack and future work, presented at Devcon 8 in Mumbai"
   link: "https://www.youtube.com/watch?v=p1bklAl3-BQ"
   action: "external"
   target: ""
@@ -33,13 +33,13 @@
   target: ""
   year: 2025
 
-- title: "Associate Professor, Adjunct"
+- title: "Assistant Professor, Adjunct"
   type: "Career"
   description: "Teaching Blockchain Fundamentals in the Nova SBE Master's in Management program"
   link: "/career/"
   action: "page"
   target: ""
-  year: 2025
+  year: 2026
 
 - title: "PhD Dissertation"
   type: "Scholar"

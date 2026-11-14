@@ -1,5 +1,5 @@
 - name: "Rage-Coding the Mother of All VPNs: Notes from Iran's Internet Blackouts"
-  descr: "Notes from Iran's internet blackouts. A case study of Mother of All VPNs (MoaV), rage-coded in response to the internet shutdowns in Iran: a modular anti-censorship stack that turns a cheap VPS or Raspberry Pi into a node running 16+ circumvention protocols. The talk walks through the project's development, the social impact of finding niche but critical corners of the internet, and how builders can turn passion into tools that keep people connected when their governments decide they shouldn't be."
+  descr: "Notes from Iran's internet blackouts. A case study of Mother of All VPNs (MoaV), rage-coded in response to the internet shutdowns in Iran: a modular anti-censorship stack that turns a cheap VPS or Raspberry Pi into a node running 18+ circumvention protocols. The talk walks through the project's development, the social impact of finding niche but critical corners of the internet, and how builders can turn passion into tools that keep people connected when their governments decide they shouldn't be."
   location: Devcon 8, Mumbai, India
   website: https://app.devcon.org/schedule/rage-coding-the-mother-of-all-vpns-notes-from-irans-internet-blackouts
   flag: IN
