@@ -409,25 +409,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Animate milestones with staggered delay
         const milestones = timeline.querySelectorAll('.timeline-milestone');
         milestones.forEach((milestone, index) => {
+          // Flex layout (desktop) and vertical layout (mobile) both use a
+          // plain translateY fade-up now that cards are no longer absolutely
+          // positioned.
+          const offset = window.innerWidth > 768 ? '30px' : '20px';
           milestone.style.opacity = '0';
-          if (window.innerWidth > 768) {
-            // Desktop: preserve translateX(-50%) and add translateY
-            milestone.style.transform = 'translateX(-50%) translateY(30px)';
-          } else {
-            // Mobile: just translateY since mobile doesn't use translateX positioning
-            milestone.style.transform = 'translateY(20px)';
-          }
-          
+          milestone.style.transform = 'translateY(' + offset + ')';
+
           setTimeout(() => {
             milestone.style.transition = 'all 0.6s ease-out';
             milestone.style.opacity = '1';
-            if (window.innerWidth > 768) {
-              // Desktop: preserve translateX(-50%) and reset translateY
-              milestone.style.transform = 'translateX(-50%) translateY(0)';
-            } else {
-              // Mobile: just reset translateY
-              milestone.style.transform = 'translateY(0)';
-            }
+            milestone.style.transform = 'translateY(0)';
           }, (index + 1) * 300);
         });
         
@@ -1108,18 +1100,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .timeline-container {
   position: relative;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 0;
-  min-height: 350px;
+  /* Auto-distributing flex row: scales to any number of milestones */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
+/* Horizontal connector line, centered on the dots (dot = 80px tall,
+   container padding-top 2rem) */
 .timeline-line {
   position: absolute;
-  top: 60px;
-  left: 10%;
-  right: 10%;
-  height: 4px;
+  top: calc(2rem + 40px);
+  left: 8%;
+  right: 8%;
+  height: 3px;
   background: #e9ecef;
   border-radius: 2px;
   z-index: 1;
@@ -1134,27 +1132,14 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .timeline-milestone {
-  position: absolute;
-  top: 20px;
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease;
-}
-
-/* Position milestones along the timeline - Desktop default */
-.timeline-milestone:nth-child(2) { 
-  left: 18%;
-  transform: translateX(-50%);
-}
-.timeline-milestone:nth-child(3) { 
-  left: 50%;
-  transform: translateX(-50%);
-}
-.timeline-milestone:nth-child(4) { 
-  left: 82%;
-  transform: translateX(-50%);
 }
 
 .milestone-dot {
@@ -1186,23 +1171,22 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .milestone-content {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   text-align: center;
-  width: 280px;
+  width: 100%;
+  max-width: 240px;
   padding: 1rem;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 1px solid #f0f0f0;
   transition: all 0.3s ease;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .milestone-content:hover {
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
   border-color: #ff6b35;
 }
 
