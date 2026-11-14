@@ -2,8 +2,8 @@
 layout: page
 title: About
 permalink: /about/
-description: "Learn about Shayan Eskandari's professional journey as a Senior Security Engineer, Blockchain Researcher, and Human-Centered Technologist. PhD in Information Systems Engineering from Concordia University, currently co-founder at Creed."
-keywords: ["Shayan Eskandari", "blockchain security", "smart contract auditing", "cybersecurity research", "PhD", "Concordia University", "Creed", "security engineer"]
+description: "Learn about Shayan Eskandari's professional journey as a Security Researcher, Blockchain Researcher, and Human-Centered Technologist. PhD in Information Systems Engineering from Concordia University, post-doctoral fellow and adjunct professor at Nova SBE."
+keywords: ["Shayan Eskandari", "blockchain security", "smart contract auditing", "cybersecurity research", "PhD", "Concordia University", "Nova SBE", "post-doctoral fellow", "security engineer"]
 ---
 
 <div class="about-page">
@@ -24,7 +24,7 @@ keywords: ["Shayan Eskandari", "blockchain security", "smart contract auditing",
       
       <p>From an early age, I had a talent for breaking things, whether it was my grandma's radio or school's computer. My first company started from jailbreaking my friends iPhones (and iPod touches-RIP), and I was drawn to the thrill of finding exploits and learning the inside out of every system I encountered. This passion for understanding how things work, and where they can fail, has been a constant throughout my career.</p>
 
-      <p>My <a href="/career/">professional evolution</a> began as a "Blockchain Engineer" at Bitaccess, when we were still figuring out what Bitcoin could become while learning about the challenges of ATM mass production. I then transitioned to a Security Engineer role at ConsenSys Diligence, where I found my true calling in Web3 code auditing and security reviews. Ether Capital was my next stop, where I served as Chief Technology Officer, diving deep into the publicly traded markets (TradFi) with a focus on Ethereum technology and staking.  Now, at Creed, we are trying out a new approach to security work in Web3. Along the way, I've contributed to the community through <a href="/talks/#academic-lectures">talks</a>, <a href="/talks/#podcasts">podcasts</a>, and <a href="/scholar/#publications">research publications</a> that explore the intersection of technology, applied philosophy, and governance.</p>
+      <p>My <a href="/career/">professional evolution</a> began as a "Blockchain Engineer" at Bitaccess, when we were still figuring out what Bitcoin could become while learning about the challenges of ATM mass production. I then transitioned to a Security Engineer role at ConsenSys Diligence, where I found my true calling in Web3 code auditing and security reviews. Ether Capital was my next stop, where I served as Chief Technology Officer, diving deep into the publicly traded markets (TradFi) with a focus on Ethereum technology and staking. At Creed, we tried out a new approach to security work in Web3, and I later co-founded Rebellion to build authentication infrastructure for the AI age. These days I split my time between research and teaching as a post-doctoral fellow and adjunct professor at Nova SBE. Along the way, I've contributed to the community through <a href="/talks/#academic-lectures">talks</a>, <a href="/talks/#podcasts">podcasts</a>, and <a href="/scholar/#publications">research publications</a> that explore the intersection of technology, applied philosophy, and governance.</p>
       
       <p>I'm passionate about education and human connection, especially through <a href="/talks/#workshops-panels">workshops, panels</a>, <a href="/talks/#podcasts">podcasts</a>, and collaborate on interdisciplinary research around decentralized systems. </p>
       

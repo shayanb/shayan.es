@@ -1,3 +1,32 @@
+- name: "Rage-Coding the Mother of All VPNs: Notes from Iran's Internet Blackouts"
+  descr: "Notes from Iran's internet blackouts. A case study of Mother of All VPNs (MoaV), rage-coded in response to the internet shutdowns in Iran: a modular anti-censorship stack that turns a cheap VPS or Raspberry Pi into a node running 18+ circumvention protocols. The talk walks through the project's development, the social impact of finding niche but critical corners of the internet, and how builders can turn passion into tools that keep people connected when their governments decide they shouldn't be."
+  location: Devcon 8, Mumbai, India
+  website: https://app.devcon.org/schedule/rage-coding-the-mother-of-all-vpns-notes-from-irans-internet-blackouts
+  flag: IN
+  type: talk
+  year: 2026
+  youtube: "https://www.youtube.com/watch?v=p1bklAl3-BQ"
+
+
+- name: "Building Through Constraints: A Decade of Web3 in Iran"
+  descr: "A decade of building Web3 in Iran under sanctions, censorship, and internet shutdowns. How Iranian builders and the diaspora have navigated over-compliance, access restrictions, and surveillance, what they have shipped despite the constraints, and what the broader ecosystem can learn from building for users the rest of the world takes for granted."
+  location: Devcon 8, Mumbai, India
+  website: https://app.devcon.org/schedule/building-through-constraints-a-decade-of-web3-in-iran
+  flag: IN
+  type: talk
+  year: 2026
+  youtube: "https://www.youtube.com/watch?v=3DDA_6l0wLQ"
+
+
+- name: "Mother of All VPNs: The First 9 Months"
+  descr: "Started as a response to the frustration and rage following the massacre in Iran and the internet shutdowns in January 2026. A crazy idea that, once put into practice, grew into Mother of All VPNs (MoaV): a distributed anti-censorship stack running 16+ circumvention protocols from a single command. This talk looks back on the project's first nine months, what worked, what broke, and what it takes to build resilient internet-freedom infrastructure before the next crisis hits."
+  location: Ethereum Cypherpunk Congress (Web3Privacy), Mumbai, India
+  website: https://congress.web3privacy.info/schedule/
+  flag: IN
+  type: talk
+  year: 2026
+
+
 - name: "Rage-Coding the Mother of All VPNs"
   descr: "Amidst the Internet shutdowns in Iran, as a technologist and member of the Iranian diaspora, I felt so much frustration, helplessness, and anger because I couldn't do anything. After a few days of processing the initial shock, I was able to get to work and rage-code MoaV -- a modular anti-internet-censorship stack, able to run 10+ internet censorship circumvention tools on a small VPS or Raspberry Pi, with the goal of democratizing VPN provisioning. In the first two weeks, the project received tens of thousands of views on X and gained more than 200 stars on GitHub. This talk is a case study of the project's development and how to find these niche corners of the internet that can have massive social impact if done right. I'd like to invite the audience to reflect on the daily challenges faced by people in their countries or regions and how we can use our passion to vibe-code useful tools into existence."
   location: DappCon, Berlin, Germany
